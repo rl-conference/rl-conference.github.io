@@ -137,7 +137,7 @@ workshopgroup
         data-parent="#accordionExample"
       >
         <div class="card-body">
-          {{qa.Answer}}
+          <p>{{ qa.Answer | safe }}</p>
         </div>
       </div>
     </div>
