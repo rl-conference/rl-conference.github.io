@@ -1,19 +1,19 @@
-name: MiniConf
-tagline: MINICONF <br> CONFERENCE <br> MANAGEMENT
-date: May 2020
-citation_date: May 2020
-proceedings_title: Proceedings of the First MiniCon Conference
+name: RLC
+tagline: REINFORCEMENT <br> LEARNING <br> CONFERENCE
+date: August 9-12 2024
+citation_date: August 2024
+proceedings_title: Proceedings of the First Reinforcement Conference
 analytics: UA-
 logo:
-  image: static/images/MiniConf.png
-  width: 180px
+  image: static/images/tmp_logo.jpg
+  width: 150px
   height: auto
 # uncomment the following line to show the site title next to the logo image
 # site_title: MiniConf
 page_title:
   prefix: 'MiniConf 2020'
   separator: ': '
-background_image: static/images/main.jpg
+background_image: static/images/umass_amherst.jpg
 organization: MiniConf Organization Committee
 
 # Remove or change to your chat server.

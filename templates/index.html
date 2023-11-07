@@ -11,15 +11,18 @@
     font-family: "Lato", sans-serif;
     font-weight: 900;
   }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
 </style>
 
 <div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
   <div class="row header p-6 m-5">
     <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
-      <h2>
+      <h2 class="dropshadow">
         {{config.tagline|safe}}
       </h2>
-      <h2 class="p-5">
+      <h2 class="p-5 dropshadow">
         {{config.date|safe}}
       </h2>
     </div>
@@ -30,6 +33,82 @@
 {% block content %}
 
 {{ readme | markdown }}
+
+<style>
+  .date-summary-row {
+    display: flex;
+  }
+  .date-summary-cell {
+    flex: 1; /* Each cell will take up equal space */
+    text-align: left; /* Align the text to the left */
+    padding: 8px; /* Add some padding for spacing, adjust as needed */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  .firstback {
+  background-color: #D3D3D3; /* This sets the background color to light gray */
+  border-radius: 15px;
+  overflow: hidden;
+}
+</style>
+
+
+<div class="col-xs-12 firstback">
+
+  <div class="date-summary-row">
+    <div class="date-summary-cell">Workshops</div>
+    <div class="date-summary-cell">Aug. 9th</div>
+    <div class="date-summary-cell"><!-- This cell is intentionally left blank --></div>
+  </div>
+
+  <div class="date-summary-row">
+    <div class="date-summary-cell">Main Conference</div>
+    <div class="date-summary-cell">Aug. 10-12</div>
+    <div class="date-summary-cell"><!-- This cell is intentionally left blank --></div>
+  </div>
+
+  <div class="date-summary-row">
+    <div class="date-summary-cell">
+      Submission Deadline
+    </div>
+    <div class="date-summary-cell">Mar. 1 2024, 06:00 PM PDT</div>
+    <div class="date-summary-cell">
+      <span class="submission-countdown"></span>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    if ("submission" != "") {
+          var submissioncountdown = "2024/03/01 08:00:00 PDT";
+      $('.submission-countdown').countdown(submissioncountdown, function (event) {
+        $(this).html(event.strftime('%w weeks %d days %H:%M:%S'));
+      });
+    }
+  </script>
+
+  <div class="date-summary-row">
+    <div class="date-summary-cell">
+      Notification of Acceptance or Rejection
+    </div>
+    <div class="date-summary-cell">May. 15 2024</div>
+    <div class="date-summary-cell">
+      <span class="acceptance-countdown"></span>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    if ("acceptance" != "") {
+          var acceptancecountdown = "2024/05/05 08:00:00 PDT";
+      $('.acceptance-countdown').countdown(acceptancecountdown, function (event) {
+        $(this).html(event.strftime('%w weeks %d days %H:%M:%S'));
+      });
+    }
+  </script>
+
+
+</div>
+
 
 <!-- Organizers -->
 {{ components.section("Organizers") }}

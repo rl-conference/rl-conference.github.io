@@ -1,11 +1,29 @@
 committee:
-  - role: Developer
-    name: Alexander Rush
-    aff: Cornell Tech, Hugging Face
-    im: https://avatars0.githubusercontent.com/u/35882?s=400&u=8f382f638b31f13a4754656140256241121c5916&v=4
-    tw: srush_nlp
-  - role: Developer
-    name: Hendrik Strobelt
-    aff: MIT-IBM Watson AI Lab
-    tw: hen_str
-    im: https://avatars1.githubusercontent.com/u/950990?s=460&u=fba00c4d7c79fd9e4b83a15394dd1bbe7b7d3df5&v=4
+  - role: Organizer
+    name: Amy Zhang
+    aff: UT Austin &
+    im: static/images/amy_zhang.png
+    tw: yayitsamyzhang
+  - role: Organizer
+    name: Glen Berseth
+    aff: MILA
+    tw: glenberseth
+    im: static/images/glen-berseth.png
+  - role: Organizer
+    name: Eugene Vinitsky
+    aff: NYU
+    tw: eugenevinitsky
+    im: static/images/eugene.jpg
+  - role: Organizer
+    name: Scott Niekum
+    aff: UMass Amherst
+    tw: scottniekum
+    im: static/images/scott.jpg
+  - role: Organizer
+    name: Philip Thomas
+    aff: UMass Amherst
+    im: static/images/philip_thomas_square_23.jpg
+  - role: Organizer
+    name: Bruno Castro De Silva
+    aff: UMass Amherst
+    im: static/images/daSilva_headshot1.jpg
