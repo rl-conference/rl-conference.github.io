@@ -1,6 +1,0 @@
-flask==2.3.1
-frozen-flask==0.17
-Flask-Markdown
-tqdm
-PyYAML
-MarkupSafe==2.0.1
