@@ -16,7 +16,7 @@ by_uid = {}
 
 def main(site_data_path):
     global site_data, extra_files
-    extra_files = ["README.md", "acknowledgements.md"]
+    extra_files = ["README.md", "acknowledgements.md", "call_for_papers.md"]
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
@@ -81,6 +81,12 @@ def about():
     data = _data()
     data["FAQ"] = site_data["faq"]["FAQ"]
     return render_template("help.html", **data)
+
+@app.route("/call_for_papers.html")
+def call_for_papers():
+    data = _data()
+    data["call_for_papers"] = open("call_for_papers.md").read()
+    return render_template("call_for_papers.html", **data)
 
 
 @app.route("/papers.html")
