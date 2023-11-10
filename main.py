@@ -16,7 +16,7 @@ by_uid = {}
 
 def main(site_data_path):
     global site_data, extra_files
-    extra_files = ["README.md"]
+    extra_files = ["README.md", "acknowledgements.md"]
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
@@ -72,6 +72,7 @@ def home():
     data = _data()
     data["readme"] = open("README.md").read()
     data["committee"] = site_data["committee"]["committee"]
+    data["acknowledgements"] = open("acknowledgements.md").read()
     return render_template("index.html", **data)
 
 
