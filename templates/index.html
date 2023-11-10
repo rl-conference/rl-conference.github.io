@@ -32,7 +32,7 @@
 
 {% block content %}
 
-{{ readme | markdown }}
+{{ readme| markdown | safe }}
 
 <style>
   .date-summary-row {
