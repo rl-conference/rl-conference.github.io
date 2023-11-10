@@ -23,6 +23,7 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 
 ## Advisory Committee
 
+* Richard Sutton (U Alberta)
 * Peter Stone (UT Austin)
 * Satinder Singh (University of Michigan)
 * Emma Brunskill (Stanford)
