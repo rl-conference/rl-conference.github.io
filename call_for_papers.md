@@ -43,7 +43,7 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 
 **Attendance:** One author of each paper must attend the conference and present accepted papers as either a poster or talk (papers will be selected for talks as part of the review process).
 
-**Use of Large Language Models (LLMs):** The use of LLMs and other writing tools is not prohibited in the preparation of submissions. However, 1) all listed authors should correspond to humans, and 2) the authors are responsible for ensuring that the content of the paper is correct and original.
+**Use of Large Language Models (LLMs):** The use of LLMs and other writing tools is allowed in the preparation of submissions. However, 1) all listed authors should correspond to humans, and 2) the authors are responsible for ensuring that the content of the paper is correct and original.
 
 **Double-blind reviewing:** The review process for RLC will be double blind. As such, authors are responsible for ensuring that their submissions do not contain any identifying information. This applies to any materials linked from the submission, such as code. Papers violating this double-blind policy may be rejected without further review.
 
