@@ -13,7 +13,7 @@ logo:
 page_title:
   prefix: 'RLC 2024'
   separator: ': '
-background_image: static/images/umass_amherst.jpg
+background_image: static/images/old_chapel.jpg
 organization: Reinforcement Learning Conference Organization Committee
 
 # Remove or change to your chat server.
