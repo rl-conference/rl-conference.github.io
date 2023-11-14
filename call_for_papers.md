@@ -1,4 +1,4 @@
-# RLC 2024 Call For Papers
+## RLC 2024 Call For Papers
 
 The first Reinforcement Learning Conference (RLC) will be held in Amherst, Massachusetts from August 9–12, 2024. RLC is an annual international conference focussing on reinforcement learning. RLC provides an archival venue where reinforcement learning researchers can interact and share their research in a more focused setting than typical large machine learning venues. The RLC peer review process prioritizes rigorous methodology over perceived importance, aiming to foster scholarly discussions on both well-established and emerging topics in RL.
 
