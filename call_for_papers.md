@@ -18,6 +18,7 @@ We invite submissions presenting new and original research on topics including, 
 * Multi\-agent RL (e.g., cooperative, competitive, self\-play, etc)
 * Multidisciplinary work (RL research that relates to other fields)
 * RL Systems (e.g., distributed training, multi\-GPU training)
+* RL from human feedback (e.g. reward learning from human data, human-in-the-loop learning, etc.)
 
 We also welcome interdisciplinary research that does not fit neatly into existing categories, but which falls under the broad scope of reinforcement learning research.
 
