@@ -31,7 +31,7 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 * June 10, 2024: Last day for early (discounted) registration.
 * August 10-12: Main conference proceedings.
 
-**Formatting instructions:** All submissions should be in PDF format. There is no page limit, but authors should use their best judgment to edit the paper to make sure the content needed to understand the main parts of the method are included in the main text. This will typically result in papers between 8 and 12 pages. Authors should look at papers in NeurIPS, ICML, and ICLR for expectations on writing quality and organization. You must use the [provided style file](https://www.overleaf.com/read/xcnztsmtbnxy#62703f), and follow the instructions therein. Any submissions that violate the style guidelines may be rejected without further review.
+**Formatting instructions:** All submissions should be in PDF format. There is no page limit, but authors should use their best judgment to edit the paper to make sure the content needed to understand the main parts of the method are included in the main text. This will typically result in papers between 8 and 12 pages. Authors should look at papers in NeurIPS, ICML, and ICLR for expectations on writing quality and organization. **You must use the provided style file ([overleaf link](https://www.overleaf.com/read/xcnztsmtbnxy#62703f), [zip file link](https://www.overleaf.com/project/654e3e2713c829e9300d3915/download/zip)), and follow the instructions therein.** Any submissions that violate the style guidelines may be rejected without further review.
 
 **Review Criteria:** All submissions will be evaluated by at least two reviewers, supervised by an area chair. The reviewers will evaluate the paper based on:
 
