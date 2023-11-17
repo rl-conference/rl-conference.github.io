@@ -37,4 +37,7 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 * Marc Deisenroth (UCL)
 * Andrew Barto (UMass Amherst)
 
+## Participating
+To stay up-to-date on conference announcements, please follow us on [Twitter](https://twitter.com/RL_Conference). To get in touch with the organizers with questions, email us at rlc-organizers@googlegroups.com.
+
 ## Key dates
