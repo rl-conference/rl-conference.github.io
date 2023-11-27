@@ -1,0 +1,199 @@
+{% set active_page = "Home" %}
+{% extends "base.html" %}
+
+{% block top %}
+<style>
+  .back {
+    background: url("{{config.background_image}}") no-repeat center;
+    background-size: cover;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+  }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
+</style>
+
+<meta property="og:title" content="Reinforcement Learning Conference 2024" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/static/images/logo_with_title.png" />
+<meta property="og:url" content="https://rl-conference.cc" />
+
+
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+      <h2 class="dropshadow">
+        {{config.tagline|safe}}
+      </h2>
+      <h2 class="p-5 dropshadow">
+        {{config.date|safe}}<br>
+        {{config.location|safe}}
+      </h2>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<title>Sponsorship Table</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+</style>
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+    <h1><center>Detailed Sponsor Benefits for RLC 2024</center></h1>
+    <table>
+        <tr>
+            <th></th>
+            <th>Small Business</th>
+            <th>Benefactor</th>
+            <th>Patron</th>
+            <th>Diamond</th>
+        </tr>
+        <hr>
+        <tr>
+            <td>Pricing</td>
+            <td>$5k USD</td>
+            <td>$10k USD</td>
+            <td>$20k USD</td>
+            <td>$35k USD</td>
+        </tr>
+        <tr>
+            <td>Video & Info on Sponsor Page</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>SMALL space & table or booth</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>All sponsors banners</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Logo on website/program</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Slides to play between talks and during breaks</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Custom social media posts</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Flyers in registration material</td>
+            <td></td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>LARGE space & tables or booth</td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Reception "sponsored by" signage with 5-10 min talk slot</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Optional custom sponsoring (Lanyard sponsor, swag sponsor, travel sponsor, inclusion sponsor)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Access to talent program</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>Banners & signage in registration areas</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td><b>Full Conference Registrations</b></td>
+            <td>1</td>
+            <td>2</td>
+            <td>4</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td><b>Exhibitor Passes</b></td>
+            <td>2</td>
+            <td>4</td>
+            <td>6</td>
+            <td>10</td>
+        </tr>
+    </table>
+    <h1><center>Access to Talent Program</center></h1>
+    <table>
+        <tr>
+            <td>Post Event: Access to all Resumes & Job Board access (from event for 1 month)</td>
+            <td>5000</td>
+        </tr>
+        <tr>
+            <td>Earlybird: Access to all Resumes & Job Board & IV Room at Event plus
+                online promotion (from author decisions up to 1 month post event)</td>
+            <td>10000</td>
+        </tr>
+    </table>
+</body>
+
+{% endblock %}

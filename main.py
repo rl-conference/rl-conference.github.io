@@ -75,6 +75,11 @@ def home():
     data["acknowledgements"] = open("acknowledgements.md").read()
     return render_template("index.html", **data)
 
+@app.route("/sponsorship.html")
+def sponsorship():
+    data = _data()
+    return render_template("sponsorship.html", **data)
+
 
 @app.route("/help.html")
 def about():
