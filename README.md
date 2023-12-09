@@ -36,6 +36,7 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 * Benjamin Rosman (University of the Witwatersrand)
 * Marc Deisenroth (UCL)
 * Andrew Barto (UMass Amherst)
+* Benjamin Van Roy (Stanford)
 
 ## Participating
 To stay up-to-date on conference announcements, please follow us on [Twitter](https://twitter.com/RL_Conference). To get in touch with the organizers with questions, email us at rlc-organizers@googlegroups.com.
