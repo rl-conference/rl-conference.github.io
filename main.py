@@ -8,7 +8,7 @@ import os
 import frontmatter
 import markdown2
 import yaml
-from flask import Flask, jsonify, redirect, render_template, send_from_directory
+from flask import Flask, jsonify, redirect, render_template, send_from_directory, Response
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
@@ -127,9 +127,10 @@ def blog_post(file_path):
 
     # Pass the HTML content to the template
     data = _data()
-    print(html_content)
-    print(data)
-    return render_template("blog_post.html", content=html_content, **data)
+    rendered_content = render_template("blog_post.html", content=html_content, **data)
+
+    # Return the response with the correct content type
+    return Response(rendered_content, mimetype='text/html')
 
 @app.route("/paper_vis.html")
 def paper_vis():
