@@ -13,3 +13,5 @@ file in docs after building and add these lines between the <head> </head>
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/static/images/logo_with_title.png" />
   <meta property="og:url" content="https://rl-conference.cc" />
+
+4. The blog post stuff doesn't work AT ALL. It's being constructed by hand!!!! AHHH!
