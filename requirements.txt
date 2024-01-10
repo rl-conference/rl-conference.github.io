@@ -4,3 +4,5 @@ Flask-Markdown
 tqdm
 PyYAML
 MarkupSafe==2.0.1
+python-frontmatter
+markdown2

@@ -5,6 +5,8 @@ import glob
 import json
 import os
 
+import frontmatter
+import markdown2
 import yaml
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
@@ -17,6 +19,15 @@ by_uid = {}
 def main(site_data_path):
     global site_data, extra_files
     extra_files = ["README.md", "acknowledgements.md", "call_for_papers.md"]
+    site_data["blogs"] = []
+    for f in glob.glob(site_data_path + "../blogs/*.md"):
+        post = frontmatter.load(f)
+        site_data["blogs"].append({
+                'title': post.metadata.get('title', 'No Title'),
+                'file_path': f,
+                'content': markdown2.markdown(post.content)
+            })
+    # print(site_data["blogs"])
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
@@ -87,6 +98,7 @@ def about():
     data["FAQ"] = site_data["faq"]["FAQ"]
     return render_template("help.html", **data)
 
+
 @app.route("/call_for_papers.html")
 def call_for_papers():
     data = _data()
@@ -100,6 +112,24 @@ def papers():
     data["papers"] = site_data["papers"]
     return render_template("papers.html", **data)
 
+@app.route("/blogs.html")
+def blogs():
+    data = _data()
+    data["blogs"] = site_data["blogs"]
+    return render_template("blogs.html", **data)
+
+@app.route("/<path:file_path>")
+def blog_post(file_path):
+    # Read and convert the markdown file
+    with open(file_path, 'r') as f:
+        post = frontmatter.load(f)
+        html_content = markdown2.markdown(post.content)
+
+    # Pass the HTML content to the template
+    data = _data()
+    print(html_content)
+    print(data)
+    return render_template("blog_post.html", content=html_content, **data)
 
 @app.route("/paper_vis.html")
 def paper_vis():

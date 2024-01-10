@@ -6,7 +6,7 @@ location: Amherst, MA
 proceedings_title: Proceedings of the First Reinforcement Conference
 analytics: UA-
 logo:
-  image: static/images/tmp_logo.jpg
+  image: /static/images/tmp_logo.jpg
   width: 150px
   height: auto
 # uncomment the following line to show the site title next to the logo image
@@ -14,7 +14,7 @@ logo:
 page_title:
   prefix: 'RLC 2024'
   separator: ': '
-background_image: static/images/old_chapel.jpg
+background_image: /static/images/old_chapel.jpg
 organization: Reinforcement Learning Conference Organization Committee
 
 # Remove or change to your chat server.
