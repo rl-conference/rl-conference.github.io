@@ -35,6 +35,8 @@ We also welcome interdisciplinary research that does not fit neatly into existin
   <img src="static/rlc_2024_submission_template.zip" alt="zip file link" style="vertical-align: top;">
 </a>), and follow the instructions therein.** Any submissions that violate the style guidelines may be rejected without further review.
 
+You are welcome to include supplementary materials alongside your paper submission. These can include code, extra figures, and supplementary text. It is crucial, however, that the main text stands on its own as a complete document. Please note that reviewers are not obligated to examine the supplementary materials. Therefore, any results critical to your paper should be fully detailed within the main text itself.
+
 **Review Criteria:** All submissions will be evaluated by at least two reviewers, supervised by an area chair. The reviewers will evaluate the paper based on:
 
 * **Technical correctness.** RLC will hold papers to a high bar for technical correctness. Submissions will be evaluated based on their suitability for publication prior to any corrections discussed during the rebuttal phase.
