@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- External Javascript libs_ext  -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+            integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+            integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+            integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww="
+            crossorigin="anonymous"></script>
+
+
+    <!-- Library libs_ext -->
+    <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+
+
+    <!--    Internal Libs -->
+    <script src="static/js/data/api.js"></script>
+
+    
+
+    <!-- External CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY="
+          crossorigin="anonymous">
+
+    <!-- External Fonts (no google for china) -->
+    <link
+            href="static/css/Lato.css"
+            rel="stylesheet"
+    />
+    <link href="static/css/Exo.css" rel="stylesheet"/>
+    <link
+            href="static/css/Cuprum.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/css/main.css"/>
+<!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
+    <link rel="stylesheet" href="static/css/fa_solid.css"/>
+    <link rel="stylesheet" href="static/css/lazy_load.css"/>
+    <link rel="stylesheet" href="static/css/typeahead.css"/>
+
+    <title>RLC 2024</title>
+    
+</head>
+
+<body>
+<!-- NAV -->
+
+<nav
+        class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto"
+        id="main-nav"
+>
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img
+                    class="logo" src="/static/images/tmp_logo.jpg"
+                    height="auto"
+            width="150px"
+            />
+        </a>
+        
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+                class="collapse navbar-collapse text-right flex-grow-1"
+                id="navbarNav"
+        >
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/call_for_papers.html">Call for Papers</a>
+                </li>
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="/call_for_workshops.html">Call for Workshops</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/help.html">FAQ</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blogs.html">Blogs</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- User Overrides -->
+
+<style>
+  .back {
+    background: url("/static/images/old_chapel.jpg") no-repeat center;
+    background-size: cover;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+  }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
+</style>
+
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+      <h2 class="dropshadow">
+        REINFORCEMENT <br> LEARNING <br> CONFERENCE
+      </h2>
+      <h2 class="p-5 dropshadow">
+        August 9-12, 2024<br>
+        Amherst, MA
+      </h2>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+         
+    </div>
+    <!-- Content -->
+    <div class="content">
+        
+
+<style>
+  .date-summary-row {
+    display: flex;
+  }
+  .date-summary-cell {
+    flex: 1; /* Each cell will take up equal space */
+    text-align: left; /* Align the text to the left */
+    padding: 8px; /* Add some padding for spacing, adjust as needed */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  .firstback {
+  background-color: #D3D3D3; /* This sets the background color to light gray */
+  border-radius: 15px;
+  overflow: hidden;
+}
+</style>
+
+
+<h1>Call for Pre-Conference Workshops</h1>
+<p>Before the RLC 2024 main conference, workshops on a variety of current topics will be held on <strong>August 9th, 2024 in Amherst, Massachusetts</strong>. We invite researchers interested in chairing a workshop to submit proposals. Workshop organizers have several responsibilities, including coordinating workshop participation and content, publicizing and providing the program in a timely manner, and moderating the program throughout the workshop.</p>
+<h2>Goal of RLC Workshops</h2>
+<p>Workshops provide an informal, cutting-edge venue for discussion of works in progress and future directions. Good workshops have helped to crystallize common problems, explicitly contrast competing frameworks, and clarify essential questions for a subfield or application area.  Workshops are a structured means of bringing together people with common interests to form communities. Good workshops should include some form of community building.
+There will be one day of workshop meetings, split into morning and afternoon sessions, with free time between the sessions for individual exchange. Workshops can apply for either half-day (9-noon, 1-4pm) workshops, full-day (9-4) workshops, or either. Please note in your proposal which of these three options you prefer.
+Workshop topics include, but are not limited to, the following:</p>
+<ul>
+<li>Reinforcement learning algorithms,</li>
+<li>Theoretical foundations of reinforcement learning,</li>
+<li>Reinforcement learning in low-resource settings, </li>
+<li>Representation learning for reinforcement learning,</li>
+<li>Robustness, safety, and fairness in reinforcement learning, </li>
+<li>Exploration in reinforcement learning,</li>
+<li>Human-in-the-loop reinforcement learning and RLHF,</li>
+<li>Imitation learning and inverse reinforcement learning,</li>
+<li>Uncertainty in reinforcement learning,</li>
+<li>Applications of reinforcement learning: e.g., resource allocation, recommendation systems, robotics, healthcare, climate change, agriculture, pandemic response, etc,</li>
+<li>Societal impacts and policy aspects of reinforcement learning deployment,</li>
+<li>Any other topic relevant to an appreciable fraction of the RLC community. </li>
+</ul>
+<p>Workshop schedules should encourage lively debates, stimulate the production of new ideas, and foster discussion of important issues. To this end, a good workshop proposal should be designed to attract roughly between 1% and 10% of conference attendees. 
+Every group considering submitting a workshop proposal must read the Guidance for RLC Workshop Proposals 2024, which describes the philosophy behind hosting workshops, includes templates of previous successful proposals, details the selection criteria and process, describes what is considered a conflict of interest, and includes other frequently asked questions.</p>
+<h2>Submission Instructions</h2>
+<p>Proposals should be submitted through an application using the OpenReview system:  https://openreview.net/group?id=rl-conference.cc/RLC/2024/Workshop_Proposals
+Important dates for workshop submissions </p>
+<ul>
+<li><strong>Workshop Application Open:</strong> 1 February 2024</li>
+<li><strong>Workshop Application Deadline:</strong> 8 March 2024 (11:00 PM - Pacific Time)</li>
+<li><strong>Workshop Acceptance Notification:</strong> 20 March 2024</li>
+<li><strong>Suggested Submission Date for Workshop Contributions:</strong> 20 April 2024</li>
+<li><strong>Suggested Accept/Reject Notification Date:</strong> 20 May 2024 </li>
+<li><strong>Mandatory Accept/Reject Notification Date:</strong> 31 May 2024 </li>
+</ul>
+<p>The criteria and process by which proposals will be assessed are described in the Guidance for RLC Workshop Proposals 2024.
+Note that the final submission date for workshop contributions is suggested, and there is a trade-off between the time workshops give authors to submit and the time reviewers have to review them between April 20, 2024, and May 20, 2024. 
+The global author notification deadline of May 20, 2024 will not be extended.</p>
+<h1>Guidance for RLC Workshop Proposals 2024</h1>
+<h2>Selection Criteria</h2>
+<ol>
+<li>The degree to which the proposal is focused on an important and topical problem and the degree to which it is expected that the community will find the workshop interesting, exciting, and valuable. </li>
+<li>The intellectual excitement of the topic. Is it likely to break new ground or merely reiterate tired, old debates?</li>
+<li>Diversity and inclusion, in all forms. (See expectations below.)</li>
+<li>The degree to which the proposed program offers an opportunity for discussion.</li>
+<li>The extent to which proposed invited speakers advance the goals of the workshop and meet the expectations outlined below (for example, contributing to diversity or generating discussion). Workshop organizers are encouraged to confirm tentative interest from proposed invited speakers and mention this in their proposal.</li>
+<li>Other dimensions in the expectations below that are not explicitly listed in these criteria.</li>
+</ol>
+<h2>Assessment Process and Criteria</h2>
+<p>The workshop chairs will appoint a number of reviewers who will provide written assessments of the proposals against the criteria listed above. Their reports will be considered by the workshop chairs who will jointly decide upon the selected workshops (subject to the notes on COIs listed below). The final decisions will be made by the workshop chairs via consensus and judgment; we will not simply add up scores assigned to the different criteria.</p>
+<h2>Hard Constraints/Workshop Requirements</h2>
+<ol>
+<li>Global Notification Deadline Prior to May 20, 2024: By submitting a workshop proposal, workshop organizers commit to notifying those who submit contributions (including talks and posters) to their workshop of their acceptance status before May 20, 2024. A timeline should be included in the proposal that will allow for this.  This deadline of May 20, 2024 will be published on the RLC main web page.</li>
+<li>Managing Chair and Reviewer Conflicts of Interest<ol>
+<li>The workshop chairs cannot be organizers nor give invited talks at any workshop, but can submit papers and give contributed talks.</li>
+<li>Workshop reviewers cannot review any proposal on which they are listed as an organizer or invited speaker, and may not accept invitations to speak at any workshop they have reviewed after the workshop is accepted.</li>
+<li>Workshop chairs and reviewers cannot review or shape acceptance decisions about workshops with organizers from within their organization. (For large corporations, this means anyone in the corporation worldwide).</li>
+</ol>
+</li>
+<li>Managing Organizer Conflicts of Interest<ol>
+<li>Workshop organizers cannot give invited talks at the workshops they organize. They can give an introduction to the workshop and/or act as a panel moderator.</li>
+<li>Workshop organizers should state in their proposal how they will manage conflicts of interest in assessing submitted contributions. At a minimum, an organizer should not be involved in assessing a submission from someone within the same organization. </li>
+</ol>
+</li>
+</ol>
+<h2>Other Guidance and Expectations for Workshop Proposals</h2>
+<ol>
+<li>We encourage and expect diversity in the organizing team and speakers. This includes diversity of viewpoint and thinking regarding the topics discussed at the workshop, gender, ethnicity, affiliations, seniority, geographic location, etc. If a workshop is part of a series, the organizer list should include people who have not organized in the past. Organizers should articulate how they have addressed diversity in their proposal in each of these senses. </li>
+<li>Since the goal of the workshop is to generate discussion, sufficient time and structure need to be included in the program for this. Proposals should explicitly articulate how they will encourage broad discussion. </li>
+<li>Workshop proposals should list explicitly what the problems are they would like to see solved, or at least advances made, as part of their workshop. They should explain why these are important problems and how the holding of their proposed workshop will contribute to their solution.</li>
+<li>We encourage workshop submissions of varying lengths and scopes. Organizers should state whether their workshops are meant to be large-attendance talk format or small group presentations. Organizers should articulate what they hope to achieve from the format proposal beyond the talks listed.</li>
+<li>Workshops should allow for choice of attendance based on content. Good workshops will put talk titles up publicly prior to site publication and note the archival status of their submissions. Organizers should articulate how they will do this.</li>
+<li>Organizing a workshop is a complex task, and proposals should outline the organizational experience and skills of the proposed organizers (as a team). We encourage junior researchers to be involved in workshop organization, but prefer some collective experience in organizing a complex event.</li>
+</ol>
+<h3>Minimum Information Requirements</h3>
+<ul>
+<li>Workshop summary</li>
+<li>Tentative schedule</li>
+<li>Invited speakers/Panelists</li>
+<li>Organizers and biographies</li>
+<li>​Anticipated audience size</li>
+<li>Plan to get an audience for a workshop (advertising, reaching out, etc.)</li>
+<li>Diversity commitment</li>
+</ul>
+<h2>Frequently Asked Questions</h2>
+<p><strong>Workshop Series:</strong>
+    We neither encourage nor discourage workshops on topics that have appeared before. Membership in an existing sequence of workshops is irrelevant in the assessment of a workshop proposal (it neither helps nor hinders). Workshop proposals will be evaluated solely on their merits for this year’s conference. Please indicate if your workshop is part of an ongoing series (at other conferences).</p>
+<p><strong>Overlapping Proposals:</strong>
+We will not forcibly merge proposals.  If multiple strong proposals are submitted on similar topics, we will choose a single proposal to accept. We will then reach out to the organizers of the rejected proposals to ask whether they would like us to share their proposals with the organizers of the accepted workshop. The organizers of the accepted workshop may then optionally initiate a merge. </p>
+<p><strong>Workshop Modalities:</strong>
+RLC will host only in-person workshops. </p>
+
+
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag("js", new Date());
+  gtag("config", "UA-");
+</script>
+
+<!-- Footer -->
+<footer class="footer bg-light p-4">
+    <div class="container">
+        <p class="float-right"><a href="#">Back to Top</a></p>
+        <p class="text-center">© 2024 Reinforcement Learning Conference Organization Committee</p>
+    </div>
+</footer>
+
+<!-- Code for hash tags -->
+<script type="text/javascript">
+  $(document).ready(function () {
+    if (window.location.hash !== "") {
+      $(`a[href="${window.location.hash}"]`).tab("show");
+    }
+
+    $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+      const hash = $(e.target).attr("href");
+      if (hash.substr(0, 1) === "#") {
+        const position = $(window).scrollTop();
+        window.location.replace(`#${hash.substr(1)}`);
+        $(window).scrollTop(position);
+      }
+    });
+  });
+</script>
+<!--    <script src="static/js/modules/lazyLoad.js"></script>-->
+
+</body>
+</html>
