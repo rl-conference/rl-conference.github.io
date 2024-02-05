@@ -41,11 +41,11 @@
 
 
     <!-- Library libs_ext -->
-    <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+    <script src="/static/js/libs_ext/typeahead.bundle.js"></script>
 
 
     <!--    Internal Libs -->
-    <script src="static/js/data/api.js"></script>
+    <script src="/static/js/data/api.js"></script>
 
     {% if config.use_auth0 %}
     <script>
@@ -53,7 +53,7 @@
       var auth0_client_id = "{{config.auth0_client_id}}";
     </script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.7/auth0-spa-js.production.js"></script>
-    <script src="static/js/modules/auth0protect.js"></script>
+    <script src="/static/js/modules/auth0protect.js"></script>
     {% endif %}
 
     <!-- External CSS -->
@@ -64,19 +64,19 @@
 
     <!-- External Fonts (no google for china) -->
     <link
-            href="static/css/Lato.css"
+            href="/static/css/Lato.css"
             rel="stylesheet"
     />
-    <link href="static/css/Exo.css" rel="stylesheet"/>
+    <link href="/static/css/Exo.css" rel="stylesheet"/>
     <link
-            href="static/css/Cuprum.css"
+            href="/static/css/Cuprum.css"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="static/css/main.css"/>
+    <link rel="stylesheet" href="/static/css/main.css"/>
 <!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
-    <link rel="stylesheet" href="static/css/fa_solid.css"/>
-    <link rel="stylesheet" href="static/css/lazy_load.css"/>
-    <link rel="stylesheet" href="static/css/typeahead.css"/>
+    <link rel="stylesheet" href="/static/css/fa_solid.css"/>
+    <link rel="stylesheet" href="/static/css/lazy_load.css"/>
+    <link rel="stylesheet" href="/static/css/typeahead.css"/>
 
     <title>{{config.page_title.prefix}}{% if page_title
         %}{{config.page_title.separator}}{{page_title}}{% endif %}</title>
@@ -107,7 +107,7 @@
             />
         </a>
         {% if config.site_title %}
-        <a class="navbar-brand" href="index.html">{{config.site_title}}</a>
+        <a class="navbar-brand" href="/index.html">{{config.site_title}}</a>
         {% endif %}
         <button
                 class="navbar-toggler"
