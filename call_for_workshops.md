@@ -24,7 +24,8 @@ Workshop schedules should encourage lively debates, stimulate the production of 
 Every group considering submitting a workshop proposal must read the Guidance for RLC Workshop Proposals 2024, which describes the philosophy behind hosting workshops, includes templates of previous successful proposals, details the selection criteria and process, describes what is considered a conflict of interest, and includes other frequently asked questions.
  
 ## Submission Instructions
-Proposals should be submitted through an application using the OpenReview system:  https://openreview.net/group?id=rl-conference.cc/RLC/2024/Workshop_Proposals
+ <p>Proposals should be submitted through an application using the <a href="https://openreview.net/group?id=rl-conference.cc/RLC/2024/Workshop_Proposals">Open-Review System.</a> 
+
 Important dates for workshop submissions 
 
 * **Workshop Application Open:** 1 February 2024
