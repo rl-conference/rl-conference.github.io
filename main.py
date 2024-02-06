@@ -21,10 +21,11 @@ def main(site_data_path):
     extra_files = ["README.md", "acknowledgements.md", "call_for_papers.md", "call_for_workshops.md"]
     site_data["blogs"] = []
     for f in glob.glob(site_data_path + "../blogs/*.md"):
+        print(f)
         post = frontmatter.load(f)
         site_data["blogs"].append({
                 'title': post.metadata.get('title', 'No Title'),
-                'file_path': f,
+                'file_path': "/blogs/{0}".format(f.split("/")[-1]),
                 'content': markdown2.markdown(post.content)
             })
     # print(site_data["blogs"])
@@ -274,14 +275,19 @@ def serve(path):
 
 @freezer.register_generator
 def generator():
-    for paper in site_data["papers"]:
-        yield "poster", {"poster": str(paper["UID"])}
-    for speaker in site_data["speakers"]:
-        yield "speaker", {"speaker": str(speaker["UID"])}
-    for workshop in site_data["workshops"]:
-        yield "workshop", {"workshop": str(workshop["UID"])}
+    # TODO(ev) put this back once we have papers
+    # for paper in site_data["papers"]:
+    #     yield "poster", {"poster": str(paper["UID"])}
+    # for speaker in site_data["speakers"]:
+    #     yield "speaker", {"speaker": str(speaker["UID"])}
+    # for workshop in site_data["workshops"]:
+    #     yield "workshop", {"workshop": str(workshop["UID"])}
+        
+    for blog in site_data["blogs"]:
+        yield "blog_post", {"file_path": blog['file_path']}
 
     for key in site_data:
+        print(key)
         yield "serve", {"path": key}
 
 
