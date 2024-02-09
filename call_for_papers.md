@@ -47,6 +47,8 @@ You are welcome to include supplementary materials alongside your paper submissi
 * **Clarity of presentation.** Submissions should be well-crafted and coherently organized, demonstrating a polished and professional standard of academic writing. Confusing text, undefined mathematical symbols, and imprecise claims are valid reasons for rejection.
 * **Topic.** Submissions should be RL research in the machine learning discipline.
 
+**Review Process:** We use OpenReview for the review process. However, reviews will not be made public, and rejected or withdrawn papers will not be made public. 
+
 **Attendance:** One author of each paper must attend the conference and present accepted papers as either a poster or talk (papers will be selected for talks as part of the review process).
 
 **Use of Large Language Models (LLMs):** The use of LLMs and other writing tools is allowed in the preparation of submissions. However, 1) all listed authors should correspond to humans, and 2) the authors are responsible for ensuring that the content of the paper is correct and original. The authors are responsible for ensuring that plagiarized text does not occur even if the LLM is the source of the text.

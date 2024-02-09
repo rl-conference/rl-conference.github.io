@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,9 +75,67 @@
 
     <title>RLC 2024</title>
     
+
+    <meta property="og:title" content="Reinforcement Learning Conference 2024" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/static/images/logo_with_title.png" />
+    <meta property="og:url" content="https://rl-conference.cc" />
+
 </head>
 
 <body>
+
+  <!-- Move this into CSS!!! Why does this not load unless it's here! -->
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      color: rgb(239, 27, 27);
+      padding-top: 8px;
+  padding-bottom: 10px;
+    }
+
+    .dropbtn {
+  background-color: #d51313; /* Changed from #4CAF50 to gray */
+  color: rgb(206, 19, 19);
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+      color: rgba(15, 15, 15, 0.5); /* Apply the RGBA background color */
+    }
+  </style>
+
 <!-- NAV -->
 
 <nav
@@ -107,29 +166,40 @@
                 class="collapse navbar-collapse text-right flex-grow-1"
                 id="navbarNav"
         >
-            <ul class="navbar-nav ml-auto">
-                
-                <li class="nav-item ">
-                    <a class="nav-link" href="/index.html">Home</a>
-                </li>
-                
-                <li class="nav-item active">
-                    <a class="nav-link" href="/call_for_papers.html">Call for Papers</a>
-                </li>
-                
-                <li class="nav-item ">
-                    <a class="nav-link" href="/call_for_workshops.html">Call for Workshops</a>
-                </li>
-                
-                <li class="nav-item ">
-                    <a class="nav-link" href="/help.html">FAQ</a>
-                </li>
-                
-                <li class="nav-item ">
-                    <a class="nav-link" href="/blogs.html">Blogs</a>
-                </li>
-                
-            </ul>
+        <ul class="navbar-nav ml-auto">
+          
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            
+          
+            
+              <li class="dropdown">
+                Submissions
+                <div class="dropdown-content">
+                  <a href="/call_for_papers.html">Call for Papers</a>
+                  <a href="/call_for_workshops.html">Call for Workshops</a>
+                  <a href="/review_process.html">Review Process</a>
+                </div>
+              </li>
+            
+          
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="/help.html">FAQ</a>
+            </li>
+            
+          
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="/blogs.html">Blogs</a>
+            </li>
+            
+          
+      </ul>
+      
+      
         </div>
     </div>
 </nav>
@@ -238,6 +308,7 @@
 <li><strong>Clarity of presentation.</strong> Submissions should be well-crafted and coherently organized, demonstrating a polished and professional standard of academic writing. Confusing text, undefined mathematical symbols, and imprecise claims are valid reasons for rejection.</li>
 <li><strong>Topic.</strong> Submissions should be RL research in the machine learning discipline.</li>
 </ul>
+<p><strong>Review Process:</strong> We use OpenReview for the review process. However, reviews will not be made public, and rejected or withdrawn papers will not be made public. </p>
 <p><strong>Attendance:</strong> One author of each paper must attend the conference and present accepted papers as either a poster or talk (papers will be selected for talks as part of the review process).</p>
 <p><strong>Use of Large Language Models (LLMs):</strong> The use of LLMs and other writing tools is allowed in the preparation of submissions. However, 1) all listed authors should correspond to humans, and 2) the authors are responsible for ensuring that the content of the paper is correct and original. The authors are responsible for ensuring that plagiarized text does not occur even if the LLM is the source of the text.</p>
 <p><strong>Double-blind reviewing:</strong> The review process for RLC will be double blind. As such, authors are responsible for ensuring that their submissions do not contain any identifying information. This applies to any materials linked from the submission, such as code. Papers violating this double-blind policy may be rejected without further review.</p>

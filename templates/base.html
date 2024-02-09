@@ -1,4 +1,5 @@
 {% import 'components.html' as components %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,15 +82,72 @@
     <title>{{config.page_title.prefix}}{% if page_title
         %}{{config.page_title.separator}}{{page_title}}{% endif %}</title>
     {% endblock %}
+
+    <meta property="og:title" content="Reinforcement Learning Conference 2024" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/static/images/logo_with_title.png" />
+    <meta property="og:url" content="https://rl-conference.cc" />
+
 </head>
 
 <body>
+
+  <!-- Move this into CSS!!! Why does this not load unless it's here! -->
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      color: rgb(239, 27, 27);
+      padding-top: 8px;
+  padding-bottom: 10px;
+    }
+
+    .dropbtn {
+  background-color: #d51313; /* Changed from #4CAF50 to gray */
+  color: rgb(206, 19, 19);
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+      color: rgba(15, 15, 15, 0.5); /* Apply the RGBA background color */
+    }
+  </style>
+
 <!-- NAV -->
 {% block header %}
 {% set navigation_bar = [
 ('/index.html', 'Home'),
-('/call_for_papers.html', 'Call for Papers'),
-('/call_for_workshops.html', 'Call for Workshops'),
+('null', 'Submissions'),
 ('/help.html', 'FAQ'),
 ('/blogs.html', 'Blogs')
 ] -%}
@@ -124,13 +182,26 @@
                 class="collapse navbar-collapse text-right flex-grow-1"
                 id="navbarNav"
         >
-            <ul class="navbar-nav ml-auto">
-                {% for href, id in navigation_bar %}
-                <li class="nav-item {% if id == active_page %}active{% endif %}">
-                    <a class="nav-link" href="{{href}}">{{id}}</a>
-                </li>
-                {% endfor %}
-            </ul>
+        <ul class="navbar-nav ml-auto">
+          {% for href, id in navigation_bar %}
+            {% if id == 'Submissions' %}
+              <li class="dropdown">
+                Submissions
+                <div class="dropdown-content">
+                  <a href="/call_for_papers.html">Call for Papers</a>
+                  <a href="/call_for_workshops.html">Call for Workshops</a>
+                  <a href="/review_process.html">Review Process</a>
+                </div>
+              </li>
+            {% else %}
+            <li class="nav-item {% if id == active_page %}active{% endif %}">
+              <a class="nav-link" href="{{ href }}">{{ id }}</a>
+            </li>
+            {% endif %}
+          {% endfor %}
+      </ul>
+      
+      
         </div>
     </div>
 </nav>

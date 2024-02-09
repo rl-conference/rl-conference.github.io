@@ -5,15 +5,6 @@ the site builds off the docs folder.
 
 2. You need to copy the CNAME into the docs folder.
 
-3. If you don't want the site preview to be Amy's face, go to the index.html
-file in docs after building and add these lines between the <head> </head>
-
-<!-- Meta tags -->
-  <meta property="og:title" content="Reinforcement Learning Conference 2024" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/static/images/logo_with_title.png" />
-  <meta property="og:url" content="https://rl-conference.cc" />
-
-4. The blog post stuff doesn't work AT ALL. It's being constructed by hand!!!! AHHH! 
+3. The blog post stuff doesn't work AT ALL. It's being constructed by hand!!!! AHHH! 
 In particular, the markdown -> html messes up lists and for some reason embeds the links to the blog posts
 as downloads instead of links. So you have to go to the actual page and fix the linking for each blog post.
