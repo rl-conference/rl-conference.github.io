@@ -58,7 +58,6 @@ It is important to recognize that adding more reviews does not necessarily decre
 
 ### Timeline
 
-* **Feb 26:** Abstract submission deadline
 * **Mar 1:** Submission deadline
 * **Feb 27 - Mar 3:** Paper bidding
 * **Mar 8:** Finalize paper assignment
