@@ -39,6 +39,8 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 * Benjamin Van Roy (Stanford)
 
 ## Participating
+Submission is now open at [OpenReview](https://openreview.net/group?id=rl-conference.cc/RLC/2024).
+
 To stay up-to-date on conference announcements, please follow us on [Twitter](https://twitter.com/RL_Conference). To get in touch with the organizers with questions, email us at rlc-organizers@googlegroups.com. For questions about submissions or the review process email rlconferencepc@gmail.com.
 
 ## Key dates

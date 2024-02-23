@@ -24,6 +24,7 @@ We invite submissions presenting new and original research on topics including, 
 We also welcome interdisciplinary research that does not fit neatly into existing categories, but which falls under the broad scope of reinforcement learning research.
 
 **Dates and Deadlines:**
+Submission is now open at [OpenReview](https://openreview.net/group?id=rl-conference.cc/RLC/2024).
 
 * Friday March 1, 2024 (6pm Pacific Time): Paper submission deadline.
 * Friday April 19, 2024 (6pm Pacific Time): Initial reviews provided.
