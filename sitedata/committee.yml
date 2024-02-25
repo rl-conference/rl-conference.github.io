@@ -42,7 +42,7 @@ award_chairs:
     im: /static/images/roberta_raileanu.jpg
     website: https://rraileanu.github.io/
   - role: Award Chair
-    name: Marlos Machado
+    name: Marlos C. Machado
     aff: University of Alberta
     im: /static/images/marlos_c_machado_pic.png
     website: https://webdocs.cs.ualberta.ca/~machado/

@@ -34,6 +34,8 @@
 {% block content %}
 
 {{ components.section("Organizers") }}
+{{ components.subsection("General Chairs") }}
+{{ components.organizergroup(general_chairs) }}
 {{ components.subsection("Program Chairs") }}
 {{ components.organizergroup(program_chairs) }}
 {{ components.subsection("Award Chairs") }}
@@ -47,9 +49,6 @@
 {{ components.subsection("Finance Chairs") }}
 {{ components.organizergroup(finance_chairs) }}
 
-{{ components.subsection("General Chairs") }}
-
-{{ components.organizergroup(general_chairs) }}
 
 
 {% endblock %}
