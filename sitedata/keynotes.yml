@@ -1,0 +1,13 @@
+keynotes:
+  - name: David Silver
+    aff: Google DeepMind & UCL
+    im: /static/images/david_silver.jpg
+    website: https://www.davidsilver.uk/
+  - name: Doina Precup
+    aff: Google DeepMind & MILA
+    im: /static/images/doina_precup_resized.jpg
+    website: 
+  - name: Finale Doshi-Velez
+    aff: Harvard
+    im: /static/images/finale_resized.jpg
+    website: https://dtak.github.io/

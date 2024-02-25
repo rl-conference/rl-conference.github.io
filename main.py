@@ -84,7 +84,9 @@ def favicon():
 def home():
     data = _data()
     data["readme"] = open("README.md").read()
-    data["committee"] = site_data["committee"]["committee"]
+    for key in site_data["committee"]:
+        data[key] = site_data["committee"][key]
+    data["keynotes"] = site_data["keynotes"]["keynotes"]
     data["acknowledgements"] = open("acknowledgements.md").read()
     return render_template("index.html", **data)
 
@@ -247,6 +249,14 @@ def workshop(workshop):
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
+@app.route("/organizers.html")
+def organizers():
+    data = _data()
+    for key in site_data["committee"]:
+        data[key] = site_data["committee"][key]
+    data["keynotes"] = site_data["keynotes"]["keynotes"]
+    data["acknowledgements"] = open("acknowledgements.md").read()
+    return render_template("organizers.html", **data)
 
 @app.route("/chat.html")
 def chat():
