@@ -78,7 +78,7 @@ program_chairs:
   - role: Program Chair
     name: Brad Knox
     aff: UT Austin
-    im: /static/images/brad_knox.jpg
+    im: /static/images/brad_square.png
     website: https://www.bradknox.net/
   - role: Program Chair
     name: Andrew Patterson

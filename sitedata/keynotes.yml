@@ -6,7 +6,11 @@ keynotes:
   - name: Doina Precup
     aff: Google DeepMind & MILA
     im: /static/images/doina_hi_res.jpg
-    website: 
+    website: https://www.cs.mcgill.ca/~dprecup/
+  - name: Peter Stone
+    aff: UT Austin & Sony
+    im: /static/images/peter_stone.jpg
+    website: https://www.cs.utexas.edu/~pstone/
   - name: Finale Doshi-Velez
     aff: Harvard
     im: /static/images/finale_hi_res.jpg
