@@ -85,6 +85,11 @@ program_chairs:
     aff: University of Alberta
     im: /static/images/andrew_patterson.jpg
     website: https://andnp.github.io/
+  - role: Program Chair
+    name: Scott Jordan
+    aff: University of Alberta
+    im: /static/images/scott_jordan.png
+    website: https://scottjordan.github.io/
 
 finance_chairs:
   - role: Finance Chair
