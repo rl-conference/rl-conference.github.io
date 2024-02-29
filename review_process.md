@@ -58,12 +58,14 @@ It is important to recognize that adding more reviews does not necessarily decre
 
 ### Timeline
 
-* **Mar 1:** Submission deadline
-* **Feb 27 - Mar 3:** Paper bidding
-* **Mar 8:** Finalize paper assignment
-* **Mar 22:** Reviews due (2 weeks to review)
-* **Mar 23 - Apr 5 (2 weeks):** [Review adjustment phase] AC asks SRs or TRs to adjust their review if needed, SR/AC read technical reviews and label as accept or reject, AC assigns emergency reviewers as needed 
-* **Apr 5 - Apr 19:** Reviewer discussion phase (authors may be contacted with questions) 
+* **Feb 1:** Submission site is opened
+* **Mar 1:** Abstract submission deadline
+* **Mar 8:** Submission deadline (anywhere on earth)
+* **Mar 9** - Mar 12: Paper bidding
+* **Mar 15:** Finalize paper assignment
+* **Mar 29:** Reviews due (2 weeks to review)
+* **Mar 29 - Apr 12 (2 weeks):** [Review adjustment phase] AC asks SRs or TRs to adjust their review if needed, SR/AC read technical reviews and label as accept or reject, AC assigns emergency reviewers as needed
+* **Apr 12 - Apr 19:** Reviewer discussion phase (authors may be contacted with questions)
 * **Apr 30:** Meta-reviews from AC due
 * **May 15:** Decision notification
 * **Aug 9-12:** Conference

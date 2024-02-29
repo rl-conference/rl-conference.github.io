@@ -26,6 +26,7 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 **Dates and Deadlines:**
 Submission is now open at [OpenReview](https://openreview.net/group?id=rl-conference.cc/RLC/2024).
 
+* Friday March 1, 2024 (Anywhere on earth): Abstract submission deadline.
 * Friday March 8, 2024 (Anywhere on earth): Paper submission deadline.
 * Friday April 19, 2024: Initial reviews provided.
 * Friday April 30, 2024: Author response to reviewers due.
