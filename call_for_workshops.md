@@ -25,7 +25,7 @@ Every group considering submitting a workshop proposal must read the Guidance fo
  
 ## Submission Instructions
 
-Proposals should be submitted through an application using the [Open-Review System]("https://openreview.net/group?id=rl-conference.cc/RLC/2024/Workshop_Proposals"). 
+Proposals should be submitted through an application using the <a href="https://openreview.net/group?id=rl-conference.cc/RLC/2024/Workshop_Proposals">Open-Review System</a>.
 
 Important dates for workshop submissions 
 
