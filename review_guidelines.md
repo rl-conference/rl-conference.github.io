@@ -63,6 +63,7 @@ The principles of the RLC should be reflected in the review process:
 As such, the overall advice to senior reviewers is to **focus on three things:** (1) does the work provide evidence supporting the main contributions proposed by the authors—claims matched by evidence? (2) Is there an audience for the work? (3) What knowledge gap did the paper address?  
 
 To make this concise, we provide three main guidelines to remember when reviewing. 
+
 * **Answer three key questions for yourself**, to make a decision to Accept or Reject:
     * What is the specific question/problem tackled by the paper?
     * Is the approach well motivated, including being well-placed in the literature?
