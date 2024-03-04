@@ -46,11 +46,11 @@ Let’s move on to minor errors. These are things that can be corrected and do n
 
 Finally, it is worth listing a few criticisms that are overused in reviews and are largely invalid—avoid putting these statements in your review!
 
-* “Not enough environments! The method may not be general”. True of all current RL algorithms. This request is largely nonsense. Maybe you mean you want to see if the method works with images? Did the authors state that as a goal? Why is that important?
-* “Environments are too simple!” Is Mountain Car simple? Yes, but so is Atari. This is arbitrary taste-making. The paper should explain why each environment was used and what we learned
-* “New method is not SOTA”. This is nearly impossible to show, and only relevant if the paper states this as a goal
-* “New method is too simple”. “New method only combines existing ideas”. Complexity != contribution
-* “No theoretical justification”. Theory is but one form of evidence and is not required in every paper.
+* **“Not enough environments! The method may not be general”.** True of all current RL algorithms. This request is largely nonsense. Maybe you mean you want to see if the method works with images? Did the authors state that as a goal? Why is that important?
+* **“Environments are too simple!”** Is Mountain Car simple? Yes, but so is Atari. This is arbitrary taste-making. The paper should explain why each environment was used and what we learned
+* **“New method is not SOTA”.** This is nearly impossible to show, and only relevant if the paper states this as a goal
+* **“New method is too simple”. “New method only combines existing ideas”.** Complexity != contribution
+* **“No theoretical justification”.** Theory is but one form of evidence and is not required in every paper.
 
 The guidelines above are not strict rules, and it is possible that some accepted papers may violate these guidelines with good reason. As such, the primary requirement for a paper to be accepted is that it clearly synthesizes new knowledge and that knowledge is of sufficient interest to the RL community. 
 
@@ -75,10 +75,11 @@ To make this concise, we provide three main guidelines to remember when reviewin
 
 ----
 
+## Additional Resources
 For great in-depth resources on reviewing, see these resources:
 
-* Daniel Dennet, [Criticising with Kindness](https://www.brainpickings.org/2014/03/28/daniel-dennett-rapoport-rules-criticism/).
+* Daniel Dennet: [Criticising with Kindness](https://www.brainpickings.org/2014/03/28/daniel-dennett-rapoport-rules-criticism/).
 * Comprehensive advice: [Mistakes Reviewers Make](https://niklaselmqvist.medium.com/mistakes-reviewers-make-ce3a4c595aa2).
-* Views from multiple reviewers:[Last minute reviewing advice](https://acl2017.wordpress.com/2017/02/23/last-minute-reviewing-advice/).
+* Views from multiple reviewers: [Last minute reviewing advice](https://acl2017.wordpress.com/2017/02/23/last-minute-reviewing-advice/).
 * [Sample excellent reviews](https://iclr.cc/Conferences/2020/ReviewerGuide) from ICLR 2020 reviewer instructions.
 * [Rich Sutton’s guide for writing good reviews](https://www.dropbox.com/scl/fi/4sfm8x3qlm3xp05xs0cdg/review-advice.rtf?rlkey=t2dvidfscp87w83us8tk0gn57&dl=0).
