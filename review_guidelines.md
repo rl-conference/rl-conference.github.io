@@ -1,6 +1,6 @@
 # RLC Reviewer Guidelines 2024
 
-RLC is introducing a new reviewing process ([link]("https://rl-conference.cc/review_process.html")) with two types of reviewers: technical and senior. The purpose of this document is to make clear the role of each reviewer type and what goes into each type of review. It is worth stressing that this will be notably different from the typical NeurIPS/ICLR/ICML review process. We are changing things up, because the RLC PC believes the usual process is not working well.
+RLC is introducing a new reviewing process (<a href="https://rl-conference.cc/review_process.html">link</a>) with two types of reviewers: technical and senior. The purpose of this document is to make clear the role of each reviewer type and what goes into each type of review. It is worth stressing that this will be notably different from the typical NeurIPS/ICLR/ICML review process. We are changing things up, because the RLC PC believes the usual process is not working well.
 
 At a high level, let’s distinguish these two types of reviews. A **technical review** is more or less a list of technical errors in the paper. There is no commentary on novelty, significance, or impact. This is not an oversight on our part. It is very intentional. A **senior review** is a typical review, but much closer to what is expected of a TMLR paper review: focus on claims matching evidence.
 
