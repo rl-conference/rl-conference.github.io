@@ -19,7 +19,8 @@ by_uid = {}
 def main(site_data_path):
     global site_data, extra_files
     extra_files = ["README.md", "acknowledgements.md", "call_for_papers.md", 
-                   "call_for_workshops.md", "review_process.md"]
+                   "call_for_workshops.md", "review_process.md",
+                   "review_guidelines.md"]
     site_data["blogs"] = []
     for f in glob.glob(site_data_path + "../blogs/*.md"):
         print(f)
@@ -120,6 +121,12 @@ def review_process():
     data = _data()
     data["review_process"] = open("review_process.md").read()
     return render_template("review_process.html", **data)
+
+@app.route("/review_guidelines.html")
+def review_guidelines():
+    data = _data()
+    data["review_guidelines"] = open("review_guidelines.md").read()
+    return render_template("review_guidelines.html", **data)
 
 
 @app.route("/papers.html")
