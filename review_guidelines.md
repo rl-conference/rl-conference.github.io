@@ -21,16 +21,16 @@ Please organize your review into major errors and minor errors. **Major errors**
 * **Unclear problem statement:** we do not know what problem is being solved or the paper did not motivate the problem and it's unclear why it matters. 
 
 
-Before moving on to minor errors, it is worth discussing flaws in empirical work. Many of these can be seen as minor errors, but do become major errors when combined with overclaiming. However, since the empirical practices in RL are often substandard, we will specifically name a few common errors that should be noted in a technical review:
+Below we list a few common flaws in empirical work. Many of these can be seen as minor errors, but do become major errors when combined with overclaiming. However, since the empirical practices in RL are often substandard, we will specifically name a few common errors that should be noted in a technical review:
 
 * **Missing information** like the number of trials (i.e., seeds), the definition of shaded regions / errorbars, not describing how hyperparameters were dealt with
 * **Using measures of variance as a measure of confidence:** plotting standard deviation is not the same as a confidence interval
-* **Invalid statistical analysis:** using standard error without justification (assumes normality and known variance), using IQM (interquartile mean) without justifying why top and bottom percentiles should be excluded
+* **Lack of justification for chosen statistical analysis:** using standard error without justification (assumes normality and known variance), using IQM (interquartile mean) without justifying why top and bottom percentiles should be excluded
 * **Missing baselines:** relevant baselines that would help us understand the new method (e.g., if claiming a new continuous action method works well, SAC or PPO are likely a useful baseline). Avoid asking for all the baselines, this is not needed and often just makes things less clear
 * **Misrepresenting baselines:** using default hyperparameters of agent X, from the literature, on an MDP that agent X has never been applied to. This is appropriate if just to demonstrate X must be tuned for this new MDP, but it is not evidence that X performs poorly on this new MDP.
 * **Tuning the hyperparameters of the new method only:** All RL agents are sensitive to hypers. We know this is problem dependent. Showing tuned performance is better than another untuned method is misleading.
 * **Claiming SOTA:** This is almost impossible to establish. It requires more seeds than you think, careful tuning of hypers (very expensive), valid confidence intervals (likely studentized bootstrap). Rarely informative. Rarely true.
-* **Ranking methods without rigorous statistical support:** Ok to say method A appears better than B in our experiments. Making ranking claims based on too few seeds (3 and 5 are way too few). How many seeds do we need? This is a statistical question based on the underlying performance distributions. **Number of required seeds is not defined by community common practice.**
+* **Ranking methods without rigorous statistical support:** It is OK to say method A appears better than B in our experiments without claiming significance. It is not okay to make ranking claims based on too few seeds (3 and 5 are way too few). How many seeds do we need? This is a statistical question based on the underlying performance distributions. **The number of required seeds is not defined by community common practice.**
 
 The last point is actually a general principle. The goal of the technical review is to identify errors that would suggest the claims of the paper don’t match the evidence. To determine this you must weigh the evidence provided and determine if it is valid. One run (seed) could be enough to support the right claim. You must evaluate each experiment and the statistical evidence provided, not appeal to what other accepted papers do or do not do!
 
