@@ -21,7 +21,7 @@ Workshop topics include, but are not limited to, the following:
 * Any other topic relevant to an appreciable fraction of the RLC community. 
 
 Workshop schedules should encourage lively debates, stimulate the production of new ideas, and foster discussion of important issues. To this end, a good workshop proposal should be designed to attract roughly between 1% and 10% of conference attendees. 
-Every group considering submitting a workshop proposal must read the Guidance for RLC Workshop Proposals 2024, which describes the philosophy behind hosting workshops, includes templates of previous successful proposals, details the selection criteria and process, describes what is considered a conflict of interest, and includes other frequently asked questions.
+Every group considering submitting a workshop proposal must read the Guidance for RLC Workshop Proposals 2024, which describes the philosophy behind hosting workshops, details the selection criteria and process, describes what is considered a conflict of interest, and includes other frequently asked questions.
  
 ## Submission Instructions
 
