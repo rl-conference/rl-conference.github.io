@@ -30,7 +30,7 @@ Proposals should be submitted through an application using the <a href="https://
 Important dates for workshop submissions 
 
 * **Workshop Application Open:** 1 February 2024
-* **Workshop Application Deadline:** 8 March 2024 (11:00 PM - Pacific Time)
+* **Workshop Application Deadline:** 12 March 2024 (Midnight Anywhere on Earth)
 * **Workshop Acceptance Notification:** 20 March 2024
 * **Suggested Submission Date for Workshop Contributions:** 20 April 2024
 * **Suggested Accept/Reject Notification Date:** 20 May 2024 
