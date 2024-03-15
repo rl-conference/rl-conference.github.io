@@ -26,13 +26,17 @@ We also welcome interdisciplinary research that does not fit neatly into existin
 **Dates and Deadlines:**
 Submission is now open at [OpenReview](https://openreview.net/group?id=rl-conference.cc/RLC/2024).
 
-* Friday March 1, 2024 (Anywhere on earth): Abstract submission deadline.
-* Friday March 8, 2024 (Anywhere on earth): Paper submission deadline.
-* Friday April 19, 2024: Initial reviews provided.
-* Friday April 30, 2024: Author response to reviewers due.
-* May 15, 2024: Author notification of acceptance or rejection.
-* June 10, 2024: Last day for early (discounted) registration.
-* August 10-12: Main conference proceedings.
+* **Feb 1:** Submission site is opened
+* **Mar 1:** Abstract submission deadline
+* **Mar 8:** Submission deadline (anywhere on earth)
+* **Mar 9 - Mar 15:** Paper bidding
+* **Mar 17:** Finalize paper assignment
+* **Mar 31:** Reviews due (2 weeks to review)
+* **Apr 1 - Apr 14 (2 weeks):** [Review adjustment phase] SAC asks SRs or TRs to adjust their review if needed, SR/SAC read technical reviews and label as accept or reject, SAC assigns emergency reviewers as needed
+* **Apr 15 - Apr 26:** Reviewer discussion phase (authors may be contacted with questions)
+* **Apr 30:** Meta-reviews from SACs due
+* **May 15:** Decision notification
+* **Aug 9-12:** Conference
 
 **Formatting Instructions:** All submissions should be in PDF format. All of the content prior to (but not including) the references are referred to as the “main text.” There is a recommended page limit of 8 pages and a strict page limit of 12 pages for the main text; authors should use their best judgment to edit the paper to make sure the content needed to understand the main parts of the method are included in the main text. Main texts of length beyond 8 pages are reserved for papers that cannot fully communicate their core scientific contributions within 8 pages (e.g., for clear and thorough proofs or plots related to additional experimentation). Reviewers may penalize papers for unnecessary main text length above 8 pages, so authors are advised to minimize length while maintaining scientific rigor. Authors should look at papers in NeurIPS, ICML, and ICLR for expectations on writing quality and organization.  **You must use the provided style file** ([overleaf link](https://www.overleaf.com/read/xcnztsmtbnxy#62703f) or <a href="static/rlc_2024_submission_template.zip">
   <img src="static/rlc_2024_submission_template.zip" alt="zip file link" style="vertical-align: top;">
