@@ -147,6 +147,7 @@
 {% block header %}
 {% set navigation_bar = [
 ('/index.html', 'Home'),
+('null', 'Program'),
 ('null', 'Submissions'),
 ('https://umass.irisregistration.com/Form/RLC', 'Register'),
 ('/organizers.html', 'Organizers'),
@@ -187,14 +188,23 @@
         >
         <ul class="navbar-nav ml-auto">
           {% for href, id in navigation_bar %}
-            {% if id == 'Submissions' %}
+            {% if 'Submissions' in id%}
               <li class="dropdown">
-                Submissions
+                <!-- TODO: Do not do this like this -->
+                Submissions&nbsp;&nbsp;&nbsp;
                 <div class="dropdown-content">
                   <a href="/call_for_papers.html">Call for Papers</a>
                   <a href="/call_for_workshops.html">Call for Workshops</a>
                   <a href="/review_process.html">Review Process</a>
                   <a href="https://docs.google.com/document/d/1IzXv7LmlmDVNZeEElMfOG3IJVIhoZYSZWA25ZSteg18/edit?usp=sharing">Reviewer Guidelines</a>
+                </div>
+              </li>
+            {% elif 'Program' in id%}
+              <li class="dropdown">
+                <!-- TODO: Do not do this -->
+                Program&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="dropdown-content">
+                  <a href="/accepted_workshops.html">Workshops</a>
                 </div>
               </li>
             {% else %}
