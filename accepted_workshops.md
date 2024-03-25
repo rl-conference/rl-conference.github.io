@@ -1,7 +1,7 @@
 # Accepted Workshops
 
 * Workshop on Interpretable Policies in Reinforcement Learning (InterpPol)
-* Reinforcement Learning Beyond Rewards (RLBRew)
+* <a href="https://rlbrew-workshop.github.io/">Reinforcement Learning Beyond Rewards (RLBRew)</a>
 * Finding the Frame: A Workshop for Examining Conceptual Frameworks in RL
 * "I Can't Believe It's Not Better!" Failure Modes of Sequential Decision-Making in Practice
 * Reinforcement Learning Safety Workshop (RLSW)
