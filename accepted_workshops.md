@@ -1,6 +1,6 @@
 # Accepted Workshops
 
-* Workshop on Interpretable Policies in Reinforcement Learning (InterpPol)
+* <a href="https://sites.google.com/view/interppol-workshop/home?authuser=0">Workshop on Interpretable Policies in Reinforcement Learning (InterpPol)</a>
 * <a href="https://rlbrew-workshop.github.io/">Reinforcement Learning Beyond Rewards (RLBRew)</a>
 * <a href="https://sites.google.com/view/findingtheframe">Finding the Frame: A Workshop for Examining Conceptual Frameworks in RL</a>
 * <a href="https://sites.google.com/view/rlc2024-icbinb">"I Can't Believe It's Not Better!" Failure Modes of Sequential Decision-Making in Practice</a>
