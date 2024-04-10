@@ -1,14 +1,21 @@
 # pylint: disable=global-statement,redefined-outer-name
 import argparse
 import csv
-import glob
 import json
 import os
+import pathlib
 
 import frontmatter
 import markdown2
 import yaml
-from flask import Flask, jsonify, redirect, render_template, send_from_directory, Response
+from flask import (
+    Flask,
+    Response,
+    jsonify,
+    redirect,
+    render_template,
+    send_from_directory,
+)
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
@@ -18,29 +25,38 @@ by_uid = {}
 
 def main(site_data_path):
     global site_data, extra_files
-    extra_files = ["README.md", "acknowledgements.md", "call_for_papers.md", 
-                   "call_for_workshops.md", "review_process.md",
-                   "review_guidelines.md", "accepted_workshops.md"]
+    site_data_path = pathlib.Path(site_data_path)
+    extra_files = [
+        "README.md",
+        "acknowledgements.md",
+        "call_for_papers.md",
+        "call_for_workshops.md",
+        "review_process.md",
+        "review_guidelines.md",
+        "accepted_workshops.md",
+    ]
     site_data["blogs"] = []
-    for f in glob.glob(site_data_path + "../blogs/*.md"):
-        print(f)
-        post = frontmatter.load(f)
-        site_data["blogs"].append({
-                'title': post.metadata.get('title', 'No Title'),
-                'file_path': "/blogs/{0}".format(f.split("/")[-1]),
-                'content': markdown2.markdown(post.content)
-            })
+    for f in site_data_path.parent.glob("blogs/*.md"):
+        post = frontmatter.load(f.as_posix())
+        site_data["blogs"].append(
+            {
+                "title": post.metadata.get("title", "No Title"),
+                "file_path": "/blogs/{0}".format(f.with_suffix(".html").name),
+                "content": markdown2.markdown(post.content),
+            }
+        )
     # print(site_data["blogs"])
     # Load all for your sitedata one time.
-    for f in glob.glob(site_data_path + "/*"):
-        extra_files.append(f)
-        name, typ = f.split("/")[-1].split(".")
-        if typ == "json":
-            site_data[name] = json.load(open(f))
-        elif typ in {"csv", "tsv"}:
-            site_data[name] = list(csv.DictReader(open(f)))
-        elif typ == "yml":
-            site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
+    for f in site_data_path.glob("*"):
+        extra_files.append(f.as_posix())
+
+        if f.suffix == ".json":
+            site_data[f.stem] = json.loads(f.read_text())
+        elif f.suffix in {".csv", ".tsv"}:
+            with f.open() as fp:
+                site_data[f.stem] = list(csv.DictReader(fp))
+        elif f.suffix == ".yml":
+            site_data[f.stem] = yaml.load(f.read_text(), Loader=yaml.SafeLoader)
 
     for typ in ["papers", "speakers", "workshops"]:
         by_uid[typ] = {}
@@ -91,6 +107,7 @@ def home():
     data["acknowledgements"] = open("acknowledgements.md").read()
     return render_template("index.html", **data)
 
+
 @app.route("/sponsorship.html")
 def sponsorship():
     data = _data()
@@ -110,17 +127,20 @@ def call_for_papers():
     data["call_for_papers"] = open("call_for_papers.md").read()
     return render_template("call_for_papers.html", **data)
 
+
 @app.route("/call_for_workshops.html")
 def call_for_workshops():
     data = _data()
     data["call_for_workshops"] = open("call_for_workshops.md").read()
     return render_template("call_for_workshops.html", **data)
 
+
 @app.route("/review_process.html")
 def review_process():
     data = _data()
     data["review_process"] = open("review_process.md").read()
     return render_template("review_process.html", **data)
+
 
 @app.route("/review_guidelines.html")
 def review_guidelines():
@@ -135,11 +155,13 @@ def papers():
     data["papers"] = site_data["papers"]
     return render_template("papers.html", **data)
 
+
 @app.route("/accepted_workshops.html")
 def accepted_workshops():
     data = _data()
     data["accepted_workshops"] = open("accepted_workshops.md").read()
     return render_template("accepted_workshops.html", **data)
+
 
 @app.route("/blogs.html")
 def blogs():
@@ -147,10 +169,12 @@ def blogs():
     data["blogs"] = site_data["blogs"]
     return render_template("blogs.html", **data)
 
+
 @app.route("/<path:file_path>")
 def blog_post(file_path):
+    file_path = pathlib.Path(file_path)
     # Read and convert the markdown file
-    with open(file_path, 'r') as f:
+    with file_path.with_suffix(".md").open("r") as f:
         post = frontmatter.load(f)
         html_content = markdown2.markdown(post.content)
 
@@ -159,7 +183,8 @@ def blog_post(file_path):
     rendered_content = render_template("blog_post.html", content=html_content, **data)
 
     # Return the response with the correct content type
-    return Response(rendered_content, mimetype='text/html')
+    return Response(rendered_content, mimetype="text/html")
+
 
 @app.route("/paper_vis.html")
 def paper_vis():
@@ -262,6 +287,7 @@ def workshop(workshop):
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
+
 @app.route("/organizers.html")
 def organizers():
     data = _data()
@@ -270,6 +296,7 @@ def organizers():
     data["keynotes"] = site_data["keynotes"]["keynotes"]
     data["acknowledgements"] = open("acknowledgements.md").read()
     return render_template("organizers.html", **data)
+
 
 @app.route("/chat.html")
 def chat():
@@ -311,9 +338,9 @@ def generator():
     #     yield "speaker", {"speaker": str(speaker["UID"])}
     # for workshop in site_data["workshops"]:
     #     yield "workshop", {"workshop": str(workshop["UID"])}
-        
+
     for blog in site_data["blogs"]:
-        yield "blog_post", {"file_path": blog['file_path']}
+        yield "blog_post", {"file_path": blog["file_path"]}
 
     for key in site_data:
         print(key)
