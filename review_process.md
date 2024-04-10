@@ -13,7 +13,7 @@ Another fundamental principle is to make the review process as lightweight as po
 
 *  We have only two reviewers per paper: a senior reviewer (SR) and a technical reviewer (TR). The TR only checks correctness. The SR writes a regular review covering novelty, significance, and correctness.
 * There is one Senior Area Chair (SAC) for each paper, that checks these reviews and is responsible for finding emergency reviews. (Note: We use the term SAC rather than AC to match terminology in OpenReview, explained more below)
-* There is no author rebuttal nor author discussion period. However, the SAC and SR can ask authors direct questions (the authors will be able to see the review by this point in the process). There will also still be a reviewer discussion period.
+* There is no author rebuttal nor author discussion period. However, the SAC can ask authors direct questions.
 * If the technical review is marked inadequate by the SAC and SR, then it is removed. Note that an SAC can first talk to the TR for improvements, instead of immediately choosing to remove. In the case of removal of a technical review, then the TR is replaced.
     * There is a pool of emergency TRs.
     * If a TR has all their reviews removed, then they are not listed as a reviewer for the RLC.
