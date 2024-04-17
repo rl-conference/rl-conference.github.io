@@ -39,7 +39,7 @@ It is important to recognize that adding more reviews does not necessarily decre
     * The TR **will not include** statements about sufficient novelty
     * A short document will be provided outlining typical major and minor errors
 * The SR writes a standard review. They have four scores: Reject, Borderline Accept, Weak Accept, Accept. The meanings of these categories are respectively
-    * **Reject:** This paper being in the program would actively cause harm (incorrect, misleading, impossible to read).
+    * **Reject**
     * **Borderline Accept:** This paper would not be bad to publish, but there'd be little lost if it was not.
     * **Weak Accept:** There is some value in this paper being published.
     * **Accept:** There is very high value in this paper being published; and not doing so would be harmful (to getting great ideas)
