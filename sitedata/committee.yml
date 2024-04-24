@@ -28,7 +28,9 @@ general_chairs:
     aff: UMass Amherst
     im: static/images/philip_thomas_square_23.jpg
     website: https://people.cs.umass.edu/~pthomas/
-  - role: General Chair
+
+local_chairs:
+  - role: Local Chair
     name: Bruno Castro da Silva
     aff: UMass Amherst
     im: static/images/daSilva_headshot1.jpg
@@ -117,3 +119,17 @@ workshop_chairs:
     im: /static/images/daniel_brown.jpg
     # tw: BrunoSilvaUMass
     website: https://users.cs.utah.edu/~dsbrown/
+
+communication_chairs:
+  - role: Communication Chair
+    name: Gokul Swamy
+    aff: Carnegie Mellon University
+    im: /static/images/gokul_swamy.jpeg
+    # tw: g_k_swamy
+    website: https://gokul.dev/
+  - role: Communication Chair
+    name: Jesse Farebrother
+    aff: McGill University / Mila
+    im: /static/images/jesse_farebrother.png
+    # tw: JesseFarebro
+    website: https://brosa.ca

@@ -7,13 +7,16 @@
     background: url("{{config.background_image}}") no-repeat center;
     background-size: cover;
   }
+
   .back h2 {
     font-family: "Lato", sans-serif;
     font-weight: 900;
   }
+
   .dropshadow {
-  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
-}
+    text-shadow: 2px 2px 4px #000000;
+    /* Horizontal offset, vertical offset, blur radius, and color */
+  }
 </style>
 
 <div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
@@ -42,10 +45,14 @@
 {{ components.organizergroup(award_chairs) }}
 {{ components.subsection("Industry Chairs") }}
 {{ components.organizergroup(industry_chairs) }}
+{{ components.subsection("Local Chairs") }}
+{{ components.organizergroup(local_chairs) }}
 {{ components.subsection("Inclusion Chairs") }}
 {{ components.organizergroup(inclusion_chairs) }}
 {{ components.subsection("Workshop Chairs") }}
 {{ components.organizergroup(workshop_chairs) }}
+{{ components.subsection("Communication Chairs") }}
+{{ components.organizergroup(communication_chairs) }}
 {{ components.subsection("Finance Chairs") }}
 {{ components.organizergroup(finance_chairs) }}
 
