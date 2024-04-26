@@ -48,7 +48,7 @@ You are welcome to include supplementary materials alongside your paper submissi
 
 **Review Criteria:** All submissions will be evaluated by at least two reviewers, supervised by an area chair. The reviewers will evaluate the paper based on:
 
-* **Technical correctness.** RLC will hold papers to a high bar for technical correctness. Submissions will be evaluated based on their suitability for publication prior to any corrections discussed during the rebuttal phase.
+* **Technical correctness.** RLC will hold papers to a high bar for technical correctness. Submissions will be evaluated based on their suitability for publication.
 * **Novelty.** Submissions should represent original work, offering new contributions to the field of RL. Papers must not be a mere rephrasing or duplication of the authors' previous research, nor should they simply recapitulate existing knowledge without providing new insights.
 * **Clarity of contributions.** Submissions should clearly delineate their contributions to the field, with a precise articulation of its novel aspects. The merit of a paper is not based on the scale of advancement it provides; instead, the emphasis is on the clear and precise enumeration of the new developments it introduces.
 * **Support for claimed contributions.** Submissions should provide solid empirical and/or theoretical backing for its stated contributions and claims.
@@ -66,7 +66,7 @@ You are welcome to include supplementary materials alongside your paper submissi
 
 **Dual submissions:** Authors should not submit papers that are substantially similar to versions that have been published, accepted for publication, or submitted in parallel to other conferences or journals. Any such submissions may be rejected or retracted after publication. Authors may submit substantially similar versions to workshops and may publish substantially similar versions on arXiv.
 
-**Author responses:** After initial reviews have been provided, authors will have a chance to respond to questions raised by the reviewers. These responses should clarify points that the authors believe the reviewers have misunderstood. Note that submissions will be evaluated based on their suitability for publication prior to any changes discussed during the rebuttal phase. 
+**Author responses:** After initial reviews have been provided, authors will have a chance to respond to questions raised by the reviewers. These responses should clarify points that the authors believe the reviewers have misunderstood.
 
 **Publication of accepted submissions:** The proceedings of RLC will be published, with an ISSN corresponding to a journal (details forthcoming). All authors of accepted papers will be required to submit a copyright form prior to publication.
 
