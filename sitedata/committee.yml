@@ -93,13 +93,6 @@ program_chairs:
     im: /static/images/scott_jordan.png
     website: https://scottjordan.github.io/
 
-finance_chairs:
-  - role: Finance Chair
-    name: Melrose Roderick
-    aff:  Mila - Quebec AI Institute 
-    im: /static/images/melrose.jpg
-    website: https://melroderick.github.io/
-
 inclusion_chairs:
   - role: Inclusion Chair
     name: Pablo Samuel Castro
