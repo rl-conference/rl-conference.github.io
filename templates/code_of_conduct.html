@@ -1,0 +1,26 @@
+{% set active_page = "Code of Conduct" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+  .date-summary-row {
+    display: flex;
+  }
+  .date-summary-cell {
+    flex: 1; /* Each cell will take up equal space */
+    text-align: left; /* Align the text to the left */
+    padding: 8px; /* Add some padding for spacing, adjust as needed */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  .firstback {
+  background-color: #D3D3D3; /* This sets the background color to light gray */
+  border-radius: 15px;
+  overflow: hidden;
+}
+</style>
+
+
+{{ code_of_conduct | markdown | safe }}
+
+{% endblock %}
