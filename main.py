@@ -36,6 +36,7 @@ def main(site_data_path):
         "accepted_workshops.md",
         "code_of_conduct.md",
         "travel_info.md",
+        "hotels.md",
     ]
     site_data["blogs"] = []
     for f in site_data_path.parent.glob("blogs/*.md"):
@@ -129,17 +130,27 @@ def call_for_papers():
     data["call_for_papers"] = open("call_for_papers.md").read()
     return render_template("call_for_papers.html", **data)
 
+
 @app.route("/code_of_conduct.html")
 def code_of_conduct():
     data = _data()
     data["code_of_conduct"] = open("code_of_conduct.md").read()
     return render_template("code_of_conduct.html", **data)
 
+
 @app.route("/travel_info.html")
 def travel_info():
     data = _data()
     data["travel_info"] = open("travel_info.md").read()
     return render_template("travel_info.html", **data)
+
+
+@app.route("/hotels.html")
+def hotels():
+    data = _data()
+    data["hotels"] = open("hotels.md").read()
+    return render_template("hotels.html", **data)
+
 
 @app.route("/call_for_workshops.html")
 def call_for_workshops():
