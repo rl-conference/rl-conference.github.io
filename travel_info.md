@@ -103,12 +103,6 @@ Getting to UMass from Logan Airport is approximately 95 miles (160 km). See <a h
     <li><strong>By bus</strong> (approximately 4 hours, depending on traffic and time of departure)</li>
     <ul>
         <li>
-            <a href="https://www.ourbus.com/">OurBus</a> &mdash; <a href="tel:844-800-6828">(844) 800-6828</a>
-            <ul>
-                <li>This bus stops directly at the UMass campus</li>
-            </ul>
-        </li>
-        <li>
             <a href="https://peterpanbus.com/">Peter Pan Bus Lines</a> &mdash; <a href="tel:800-343-9999">(800) 343-9999</a>
             <ul>
                 <li>This bus stops directly at the UMass campus</li>
@@ -118,6 +112,12 @@ Getting to UMass from Logan Airport is approximately 95 miles (160 km). See <a h
             <a href="https://www.greyhound.com/">Greyhound</a> &mdash; <a href="tel:800-231-2222">(800) 231-2222</a>
             <ul>
                 <li>Greyhound services the neighboring town of Northampton, MA. Upon arrival in Northampton, you can use local transportation (<a href="http://www.pvta.com/">PVTA buses</a>) to get to UMass. You can plan your trip <a href="https://www.umass.edu/transportation/transit">here</a>.</li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.ourbus.com/">OurBus</a> &mdash; <a href="tel:844-800-6828">(844) 800-6828</a>
+            <ul>
+                <li>This bus stops directly at the UMass campus</li>
             </ul>
         </li>
         <li>
@@ -169,12 +169,6 @@ Getting to UMass from theJFK airport is approximately 160 miles (250 km).
     <li><strong>By bus</strong> (approximately 5 hours, depending on traffic and time of departure)</li>
     <ul>
         <li>
-            <a href="https://www.ourbus.com/">OurBus</a> &mdash; <a href="tel:844-800-6828">(844) 800-6828</a>
-            <ul>
-                <li>This bus stops directly at the UMass campus</li>
-            </ul>
-        </li>
-        <li>
             <a href="https://peterpanbus.com/">Peter Pan Bus Lines</a> &mdash; <a href="tel:800-343-9999">(800) 343-9999</a>
             <ul>
                 <li>This bus stops directly at the UMass campus</li>
@@ -184,6 +178,12 @@ Getting to UMass from theJFK airport is approximately 160 miles (250 km).
             <a href="https://www.greyhound.com/">Greyhound</a> &mdash; <a href="tel:800-231-2222">(800) 231-2222</a>
             <ul>
                 <li>Greyhound services the neighboring town of Northampton, MA. Upon arrival in Northampton, you can use local transportation (<a href="http://www.pvta.com/">PVTA buses</a>) to get to UMass. You can plan your trip <a href="https://www.umass.edu/transportation/transit">here</a>.</li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.ourbus.com/">OurBus</a> &mdash; <a href="tel:844-800-6828">(844) 800-6828</a>
+            <ul>
+                <li>This bus stops directly at the UMass campus</li>
             </ul>
         </li>
         <li>
