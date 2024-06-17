@@ -23,3 +23,7 @@ keynotes:
     aff: Stanford
     im: /static/images/ebrunskill.jpg
     website: https://cs.stanford.edu/people/ebrun/
+  - name: Andrew Barto
+    aff: UMass Amherst
+    im: /static/images/abarto.jpg
+    website: https://people.cs.umass.edu/~barto/
