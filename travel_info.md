@@ -4,9 +4,11 @@ Address: <a href="https://maps.app.goo.gl/GsnZ4FgxH8e2vgu59">1 Campus Center Way
 
 ## Renting a car
 
-If possible, attendees are **strongly** encouraged to rent a car due to limited public transportation in the area. Most notably, there is no public transportation (buses or trains) connecting Amherst to local airports. Additionally, downtown Amherst is a 20-25 minute walk from the on-campus venue. However, it should be noted that an on-campus dining hall will be open for the duration of the conference, so it is not necessary to go into town for food unless desired. On-campus parking in a garage near the venue is available at a rate up to a maximum of $6.50 per car per entry. Discounted parking passes will be available at the on-site registration desk.
+While chartered shuttles connect attendees from nearby airports, and a local bus system operates within the Amherst area, renting a car offers the most flexibility for getting around during your stay. Public transportation options, including buses and trains, are limited, particularly for reaching Amherst from airports.
+The conference venue is also a 20-25 minute walk from downtown Amherst.
+However, it should be noted that an on-campus dining hall will be open for the duration of the conference, so it is not necessary to go into town for food unless desired. On-campus parking in a garage near the venue is available at a rate up to a maximum of $6.50 per car per entry. Discounted parking passes will be available at the on-site registration desk.
 
-If you are not able to rent a car, there are chartered shuttles and bus lines from nearby airports, as well as a local bus system to get around the Amherst area and to off-campus accommodations. Buses go from campus to downtown Amherst every 15 minutes. These options are discussed in greater detail below.
+If you are not able to rent a car, there are chartered shuttles and bus lines from nearby airports, as well as a local bus system to get around the Amherst area and to off-campus accommodations. These options are discussed in greater detail below.
 
 ## Transportation from Airports
 
