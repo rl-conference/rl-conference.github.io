@@ -92,11 +92,6 @@ def index():
     return redirect("/index.html")
 
 
-@app.route("/favicon.ico")
-def favicon():
-    return send_from_directory(site_data_path, "favicon.ico")
-
-
 # TOP LEVEL PAGES
 
 
