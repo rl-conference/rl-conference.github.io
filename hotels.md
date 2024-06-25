@@ -91,3 +91,19 @@ On-Campus lodging is the preferred housing option at RLC.
 
 <img style="width: 50%;" src="static/images/hotel-fairfield.png" />
 
+
+---
+
+### [Hampshire College Residence Halls](https://www.hampshire.edu/student-life/residence-life-and-housing/residences)
+[Hampshire College campus](https://maps.app.goo.gl/JMnB9ZzkZdVZVyut7). The address of the particular dorm will be available upon registration.
+
+
+<ul>
+    <li><strong>Rates</strong>: $85 per night</li>
+    <li><strong>How to book</strong>: Through the RLC/UMass registration system.</li>
+    <li><strong>Last day to make a reservation through RLC</strong>: July 26</li>
+    <li><strong>Number of rooms available</strong>: 120</li>
+</ul>
+
+
+<img style="width: 50%;" src="static/images/hampshire-college.png" />
