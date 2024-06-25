@@ -52,14 +52,20 @@ async function make_cal(handleResize = true) {
 
   // determine min date
   const min_date = d3.min(events.map((e) => e.start));
+  const max_date = d3.max(events.map((e) => e.end));
   let min_hours =
     d3.min(events.map((e) => moment(e.start).tz(timezoneName).hours())) - 1;
   let max_hours =
     d3.max(events.map((e) => moment(e.end).tz(timezoneName).hours())) + 1;
-  if (min_hours < 0 || max_hours > 24) {
+  if (min_hours < 0) {
     min_hours = 0;
+  }
+  if (max_hours > 24) {
     max_hours = 24;
   }
+
+  const start_date = moment(min_date);
+  const end_date = moment(max_date);
 
   const {Calendar} = tui;
   const calendar = new Calendar("#calendar", {
@@ -73,6 +79,8 @@ async function make_cal(handleResize = true) {
       workweek: !config.calendar.sunday_saturday,
       hourStart: min_hours,
       hourEnd: max_hours,
+      startDayOfWeek: start_date.day(),
+      endDayOfWeek: end_date.day(),
     },
     timezones: [
       {
