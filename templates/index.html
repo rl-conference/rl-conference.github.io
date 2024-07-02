@@ -7,13 +7,16 @@
     background: url("{{config.background_image}}") no-repeat center;
     background-size: cover;
   }
+
   .back h2 {
     font-family: "Lato", sans-serif;
     font-weight: 900;
   }
+
   .dropshadow {
-  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
-}
+    text-shadow: 2px 2px 4px #000000;
+    /* Horizontal offset, vertical offset, blur radius, and color */
+  }
 </style>
 
 <div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
@@ -39,17 +42,24 @@
   .date-summary-row {
     display: flex;
   }
+
   .date-summary-cell {
-    flex: 1; /* Each cell will take up equal space */
-    text-align: left; /* Align the text to the left */
-    padding: 8px; /* Add some padding for spacing, adjust as needed */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    flex: 1;
+    /* Each cell will take up equal space */
+    text-align: left;
+    /* Align the text to the left */
+    padding: 8px;
+    /* Add some padding for spacing, adjust as needed */
+    box-sizing: border-box;
+    /* Include padding in the width calculation */
   }
+
   .firstback {
-  background-color: #D3D3D3; /* This sets the background color to light gray */
-  border-radius: 15px;
-  overflow: hidden;
-}
+    background-color: #D3D3D3;
+    /* This sets the background color to light gray */
+    border-radius: 15px;
+    overflow: hidden;
+  }
 </style>
 
 
@@ -62,14 +72,14 @@
       Abstract Deadline
     </div>
     <div class="date-summary-cell">Mar. 1 2024, anywhere on Earth</div>
-   </div>
+  </div>
 
   <div class="date-summary-row">
     <div class="date-summary-cell">
       Submission Deadline
     </div>
     <div class="date-summary-cell">Mar. 8 2024, anywhere on Earth</div>
-   
+
   </div>
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" type="text/javascript" charset="utf-8"></script>
@@ -113,8 +123,8 @@
 </div>
 <br>
 <h2> Registration </h2>
-Registration is now open. 
-Registration will be limited to 700 people, and so we encourage you to register early. 
+Registration is now open.
+Registration will be limited to 700 people, and so we encourage you to register early.
 You can register <a href="https://umass.irisregistration.com/Form/RLC">here</a>.
 
 <br>
@@ -122,30 +132,30 @@ You can register <a href="https://umass.irisregistration.com/Form/RLC">here</a>.
 <h2> Pricing </h2>
 <table border="1" style="background-color: white">
   <tr>
-      <th style="padding: 10px;">&nbsp;</th>
-      <th style="padding: 10px;">Early Registration (May 24th)</th>
-      <th style="padding: 10px;">Normal Registration</th>
+    <th style="padding: 10px;">&nbsp;</th>
+    <th style="padding: 10px;">Early Registration (May 24th)</th>
+    <th style="padding: 10px;">Normal Registration</th>
   </tr>
   <tr>
-      <td style="padding: 10px;">Students</td>
-      <td style="text-align: center">$350</td>
-      <td style="text-align: center">$450</td>
+    <td style="padding: 10px;">Students</td>
+    <td style="text-align: center">$350</td>
+    <td style="text-align: center">$450</td>
   </tr>
   <tr>
-      <td style="padding: 10px;">Faculty</td>
-      <td style="text-align: center">$600</td>
-        <td style="text-align: center">$800</td>
+    <td style="padding: 10px;">Faculty</td>
+    <td style="text-align: center">$600</td>
+    <td style="text-align: center">$800</td>
   </tr>
   <tr>
-      <td style="padding: 10px;">Industry</td>
-      <td style="text-align: center">$700</td>
-      <td style="text-align: center">$900</td>
+    <td style="padding: 10px;">Industry</td>
+    <td style="text-align: center">$700</td>
+    <td style="text-align: center">$900</td>
   </tr>
 </table>
 
 <!-- Organizers -->
 {{ components.section("Keynote Speakers") }}
-{{ components.organizergroup(keynotes) }}
+{{ components.keynotegroup(keynotes) }}
 
 {{ acknowledgements | markdown }}
 

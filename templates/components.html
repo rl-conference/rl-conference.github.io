@@ -78,6 +78,39 @@ workshopgroup
 {%- endmacro %}
 
 {% macro organizergroup(committee) -%}
+<div class="row">
+  {% for org in committee %}
+  <div class="col-lg-3 col-md-5 col-xs-6">
+    <!-- Wrap the pp-card div with an anchor tag linking to org.website -->
+    <a href="{{org.website}}" style="text-decoration: none; color: inherit;">
+      <div class="pp-card">
+        <div class="pp-card-header" class="text-muted">
+          <h5 class="card-title" align="center">{{org.name}}</h5>
+          <!-- <div>
+            <h6 class="card-subtitle text-muted m-1" align="center">
+              {{org.role}}
+            </h6>
+          </div> -->
+          <div>
+            <h6 class="card-subtitle text-muted m-1" align="center">
+              {{org.aff}}{% if org.tw %} /
+              <a class="text-muted" href="http://twitter.com/{{org.tw}}">@{{org.tw}}</a>{% endif %}
+            </h6>
+          </div>
+          <center style="overflow: hidden;">
+            <img src="{{org.im}}" class="rounded" style="height: 200px;" />
+          </center>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+{%- endmacro %}
+
+
+{% macro keynotegroup(committee) -%}
 <div class="row" style="justify-content: center;">
   {% for org in committee %}
   <div class="col-lg-3 col-md-5 col-xs-6">
