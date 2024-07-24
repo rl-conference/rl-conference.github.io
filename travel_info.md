@@ -1,6 +1,6 @@
 # Getting to UMass Amherst
 
-Address: <a href="https://maps.app.goo.gl/GsnZ4FgxH8e2vgu59">1 Campus Center Way, Amherst, MA 01003</a>
+Address: <a href="https://maps.app.goo.gl/GsnZ4FgxH8e2vgu59">Campus Center Auditorium, Campus Center, 1 Campus Center Way, Amherst, MA 01003</a>
 
 ## Renting a car
 
