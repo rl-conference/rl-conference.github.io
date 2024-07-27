@@ -10,103 +10,82 @@
 <script src="static/js/modules/icons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
+<style>
+  .paper-list {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .paper-list li::marker {
+    font-size: 1.25rem;
+  }
+</style>
+
 {% endblock %}
 
 {% block tabs %}
-<ul class="nav nav-pills justify-content-center">
+<!-- <ul class="nav nav-pills justify-content-center">
   <li class="nav-item active">
-    <a
-      class="nav-link text-muted active"
-      data-toggle="tab"
-      href="#tab-browse"
-      role="tab"
-      aria-controls="nav-home"
-      aria-selected="true"
-      >Browse
+    <a class="nav-link text-muted active" data-toggle="tab" href="#tab-browse" role="tab" aria-controls="nav-home"
+      aria-selected="true">Browse
     </a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
   </li>
-</ul>
+</ul> -->
 
 {% endblock %}
 
 {% block content %}
 <div class="row p-3"></div>
 
+<!-- <div class="row">
+  <h1 style="margin: 0 auto 2.5rem auto;">Papers</h1>
+</div> -->
+
+<div class="row">
+  <p style="font-size: 1.2rem; padding: 1rem 0;">
+    RLJ proceedings are available at <a href="https://rlj.cs.umass.edu/2024/2024issue.html">
+      https://rlj.cs.umass.edu/2024/2024issue.html
+    </a>
+  </p>
+</div>
+
 <!-- Session -->
-<div class="row d-none session_notice">
-  <div
-    class="alert alert-warning alert-dismissible fade show col-12"
-    role="alert"
-  >
+<!-- <div class="row d-none session_notice">
+  <div class="alert alert-warning alert-dismissible fade show col-12" role="alert">
     Showing papers for
     <span id="session_name" style="font-weight: bold;"></span>.
-    <button
-      type="button"
-      class="close remove_session"
-      data-dismiss="alert"
-      aria-label="Close"
-    >
+    <button type="button" class="close remove_session" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-</div>
+</div> -->
 
 <!-- Buttons -->
-<div class="row">
+<!-- <div class="row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-4">
     <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control typeahead_all"
-        placeholder="Search"
-      />
+      <input type="text" class="form-control typeahead_all" placeholder="Search" />
       <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary typeahead_all_clear"
-          type="button"
-        >
+        <button class="btn btn-outline-secondary typeahead_all_clear" type="button">
           &times;
         </button>
       </div>
     </div>
   </div>
-  <div
-    class="col-12 col-sm-6 col-md-6 col-lg-4 text-center"
-    style="margin-bottom: 10px;"
-  >
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 text-center" style="margin-bottom: 10px;">
     <div class="btn-group btn-group-toggle filter_option">
-      <label
-        class="btn btn-outline-secondary"
-        data-tippy-content="Search for papers titles"
-      >
-        <input
-          type="radio"
-          name="options"
-          value="titles"
-          autocomplete="off"
-          checked
-        />
+      <label class="btn btn-outline-secondary" data-tippy-content="Search for papers titles">
+        <input type="radio" name="options" value="titles" autocomplete="off" checked />
         title
       </label>
-      <label
-        class="btn btn-outline-secondary"
-        data-tippy-content="Search for papers with specific keywords"
-      >
-        <input
-          type="radio"
-          name="options"
-          value="keywords"
-          autocomplete="off"
-        />
+      <label class="btn btn-outline-secondary" data-tippy-content="Search for papers with specific keywords">
+        <input type="radio" name="options" value="keywords" autocomplete="off" />
         keyword
       </label>
-      <label
-        class="btn btn-outline-secondary active"
-        data-tippy-content="Search for papers from specific authors"
-      >
+      <label class="btn btn-outline-secondary active" data-tippy-content="Search for papers from specific authors">
         <input type="radio" name="options" value="authors" autocomplete="off" />
         author
       </label>
@@ -115,46 +94,1115 @@
   <div class="col-12 col-lg-4">
     <button class="btn btn-outline-secondary reshuffle">shuffle</button>
     <div class="float-right">
-      <div
-        class="btn-group btn-group-toggle render_option"
-        data-toggle="buttons"
-      >
+      <div class="btn-group btn-group-toggle render_option" data-toggle="buttons">
         <label class="btn btn-outline-secondary active">
           <input type="radio" name="options" value="mini" autocomplete="off" />
           mini
         </label>
         <label class="btn btn-outline-secondary active">
-          <input
-            type="radio"
-            name="options"
-            value="compact"
-            autocomplete="off"
-            checked
-          />
-          compact
+          <input type="radio" name="options" value="compact" autocomplete="off" hidden checked />
+          mini
         </label>
         <label class="btn btn-outline-secondary">
-          <input
-            type="radio"
-            name="options"
-            value="detail"
-            autocomplete="off"
-          />
+          <input type="radio" name="options" value="detail" autocomplete="off" />
           detail
         </label>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Cards -->
-<div class="cards row"></div>
+
+<div class="row">
+  <h2>
+    Aug 10, Oral Track 1: Evaluation
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper305.html" target="_blank">
+        <h5>D5RL: Diverse Datasets for Data-Driven Deep Reinforcement Learning</h5>
+      </a>
+      <p>Rafael Rafailov, Kyle Beltran Hatch, Anikait Singh, Aviral Kumar, Laura Smith, Ilya Kostrikov, Philippe
+        Hansen-Estruch, Victor Kolev, Philip J. Ball, Jiajun Wu, Sergey Levine, Chelsea Finn</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper124.html" target="_blank">
+        <h5>Robotic Manipulation Datasets for Offline Compositional Reinforcement Learning</h5>
+      </a>
+      <p>Marcel Hussing, Jorge Mendez-Mendez, Anisha Singrodia, Cassandra Kent, Eric Eaton</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper84.html" target="_blank">
+        <h5>Harnessing Discrete Representations for Continual Reinforcement Learning</h5>
+      </a>
+      <p>Edan Jacob Meyer, Adam White, Marlos C. Machado</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper131.html" target="_blank">
+        <h5>Aquatic Navigation: A Challenging Benchmark for Deep Reinforcement Learning</h5>
+      </a>
+      <p>Davide Corsi, Davide Camponogara, Alessandro Farinelli</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper265.html" target="_blank">
+        <h5>Investigating the Interplay of Prioritized Replay and Generalization</h5>
+      </a>
+      <p>Parham Mohammad Panahi, Andrew Patterson, Martha White, Adam White</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper194.html" target="_blank">
+        <h5>ICU-Sepsis: A Benchmark MDP Built from Real Medical Data</h5>
+      </a>
+      <p>Kartik Choudhary, Dhawal Gupta, Philip S. Thomas</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper304.html" target="_blank">
+        <h5>Resource Usage Evaluation of Discrete Model-Free Deep Reinforcement Learning Algorithms</h5>
+      </a>
+      <p>Olivia P. Dizon-Paradis, Stephen E. Wormald, Daniel E. Capecci, Avanti Bhandarkar, Damon L. Woodard</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper46.html" target="_blank">
+        <h5>OCAtari: Object-Centric Atari 2600 Reinforcement Learning Environments</h5>
+      </a>
+      <p>Quentin Delfosse, Jannis Blüml, Bjarne Gregori, Sebastian Sztwiertnia, Kristian Kersting</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper330.html" target="_blank">
+        <h5>The Cross-environment Hyperparameter Setting Benchmark for Reinforcement Learning</h5>
+      </a>
+      <p>Andrew Patterson, Samuel Neumann, Raksha Kumaraswamy, Martha White, Adam White</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper18.html" target="_blank">
+        <h5>An Open-Loop Baseline for Reinforcement Learning Locomotion Tasks</h5>
+      </a>
+      <p>Antonin Raffin, Olivier Sigaud, Jens Kober, Alin Albu-Schaeffer, João Silvério, Freek Stulp</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper188.html" target="_blank">
+        <h5>Combining Automated Optimisation of Hyperparameters and Reward Shape</h5>
+      </a>
+      <p>Julian Dierkes, Emma Cramer, Holger Hoos, Sebastian Trimpe</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 10, Oral Track 2: Theoretical RL, Bandit algorithms
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper110.html" target="_blank">
+        <h5>A Provably Efficient Option-Based Algorithm for both High-Level and Low-Level Learning</h5>
+      </a>
+      <p>Gianluca Drappo, Alberto Maria Metelli, Marcello Restelli</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper350.html" target="_blank">
+        <h5>Bandits with Multimodal Structure</h5>
+      </a>
+      <p>Hassan SABER, Odalric-Ambrym Maillard</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper90.html" target="_blank">
+        <h5>Policy Gradient with Active Importance Sampling</h5>
+      </a>
+      <p>Matteo Papini, Giorgio Manganini, Alberto Maria Metelli, Marcello Restelli</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper189.html" target="_blank">
+        <h5>Sample Complexity of Offline Distributionally Robust Linear Markov Decision Processes</h5>
+      </a>
+      <p>He Wang, Laixi Shi, Yuejie Chi</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper4.html" target="_blank">
+        <h5>Improving Thompson Sampling via Information Relaxation for Budgeted Multi-armed Bandits</h5>
+      </a>
+      <p>Woojin Jeong, Seungki Min</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper314.html" target="_blank">
+        <h5>A Batch Sequential Halving Algorithm without Performance Degradation</h5>
+      </a>
+      <p>Sotetsu Koyamada, Soichiro Nishimori, Shin Ishii</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper12.html" target="_blank">
+        <h5>Graph Neural Thompson Sampling</h5>
+      </a>
+      <p>Shuang Wu, Arash A. Amini</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper50.html" target="_blank">
+        <h5>A Tighter Convergence Proof of Reverse Experience Replay</h5>
+      </a>
+      <p>Nan Jiang, Jinzhao Li, Yexiang Xue</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper193.html" target="_blank">
+        <h5>Cost Aware Best Arm Identification</h5>
+      </a>
+      <p>Kellen Kanarios, Qining Zhang, Lei Ying</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper35.html" target="_blank">
+        <h5>Towards Principled, Practical Policy Gradient for Bandits and Tabular MDPs</h5>
+      </a>
+      <p>Michael Lu, Matin Aghaei, Anant Raj, Sharan Vaswani</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper358.html" target="_blank">
+        <h5>Non-stationary Bandits and Meta-Learning with a Small Set of Optimal Arms</h5>
+      </a>
+      <p>Javad Azizi, Thang Duong, Yasin Abbasi-Yadkori, András György, Claire Vernade, Mohammad Ghavamzadeh</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper319.html" target="_blank">
+        <h5>Causal Contextual Bandits with Adaptive Context</h5>
+      </a>
+      <p>Rahul Madhavan, Aurghya Maiti, Gaurav Sinha, Siddharth Barman</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 10, Oral Track 3: Multi-agent RL
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper2.html" target="_blank">
+        <h5>Co-Learning Empirical Games & World Models</h5>
+      </a>
+      <p>Max Olan Smith, Michael P. Wellman</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper108.html" target="_blank">
+        <h5>Best Response Shaping</h5>
+      </a>
+      <p>Milad Aghajohari, Tim Cooijmans, Juan Agustin Duque, Shunichi Akatsuka, Aaron Courville</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper254.html" target="_blank">
+        <h5>Shield Decomposition for Safe Reinforcement Learning in General Partially Observable Multi-Agent
+          Environments</h5>
+      </a>
+      <p>Daniel Melcer, Christopher Amato, Stavros Tripakis</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper253.html" target="_blank">
+        <h5>Quantifying Interaction Level Between Agents Helps Cost-efficient Generalization in Multi-agent
+          Reinforcement Learning</h5>
+      </a>
+      <p>Yuxin Chen, Chen Tang, Thomas Tian, Chenran Li, Jinning Li, Masayoshi Tomizuka, Wei Zhan</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper280.html" target="_blank">
+        <h5>Reinforcement Learning from Delayed Observations via World Models</h5>
+      </a>
+      <p>Armin Karamzade, Kyungmin Kim, Montek Kalsi, Roy Fox</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper40.html" target="_blank">
+        <h5>Cyclicity-Regularized Coordination Graphs</h5>
+      </a>
+      <p>Oliver Järnefelt, Mahdi Kallel, Carlo D'Eramo</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper45.html" target="_blank">
+        <h5>Assigning Credit with Partial Reward Decoupling in Multi-Agent Proximal Policy Optimization</h5>
+      </a>
+      <p>Aditya Kapoor, Benjamin Freed, Jeff Schneider, Howie Choset</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper103.html" target="_blank">
+        <h5>Trust-based Consensus in Multi-Agent Reinforcement Learning Systems</h5>
+      </a>
+      <p>Ho Long Fung, Victor-Alexandru Darvariu, Stephen Hailes, Mirco Musolesi</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper339.html" target="_blank">
+        <h5>Inception: Efficiently Computable Misinformation Attacks on Markov Games</h5>
+      </a>
+      <p>Jeremy McMahan, Young Wu, Yudong Chen, Jerry Zhu, Qiaomin Xie</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper338.html" target="_blank">
+        <h5>Human-compatible driving agents through data-regularized self-play reinforcement learning</h5>
+      </a>
+      <p>Daphne Cornelisse, Eugene Vinitsky</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper133.html" target="_blank">
+        <h5>On Welfare-Centric Fair Reinforcement Learning</h5>
+      </a>
+      <p>Cyrus Cousins, Kavosh Asadi, Elita Lobo, Michael Littman</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 10, Oral Track 4: Deep reinforcement learning
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper125.html" target="_blank">
+        <h5>Dissecting Deep RL with High Update Ratios: Combatting Value Divergence</h5>
+      </a>
+      <p>Marcel Hussing, Claas A Voelcker, Igor Gilitschenski, Amir-massoud Farahmand, Eric Eaton</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper130.html" target="_blank">
+        <h5>Mixture of Experts in a Mixture of RL settings</h5>
+      </a>
+      <p>Timon Willi, Johan Samir Obando Ceron, Jakob Nicolaus Foerster, Gintare Karolina Dziugaite, Pablo Samuel Castro
+      </p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper242.html" target="_blank">
+        <h5>Light-weight Probing of Unsupervised Representations for Reinforcement Learning</h5>
+      </a>
+      <p>Wancong Zhang, Anthony GX-Chen, Vlad Sobal, Yann LeCun, Nicolas Carion</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper170.html" target="_blank">
+        <h5>Zero-shot cross-modal transfer of Reinforcement Learning policies through a Global Workspace</h5>
+      </a>
+      <p>Léopold Maytié, Benjamin Devillers, Alexandre Arnold, Rufin VanRullen</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper191.html" target="_blank">
+        <h5>PASTA: Pretrained Action-State Transformer Agents</h5>
+      </a>
+      <p>Raphael Boige, Yannis Flet-Berliac, Lars C.P.M. Quaedvlieg, Arthur Flajolet, Guillaume Richard, Thomas PIERROT
+      </p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper208.html" target="_blank">
+        <h5>Combining Reconstruction and Contrastive Methods for Multimodal Representations in RL</h5>
+      </a>
+      <p>Philipp Becker, Sebastian Mossburger, Fabian Otto, Gerhard Neumann</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper26.html" target="_blank">
+        <h5>A Recipe for Unbounded Data Augmentation in Visual Reinforcement Learning</h5>
+      </a>
+      <p>Abdulaziz Almuzairee, Nicklas Hansen, Henrik I Christensen</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper128.html" target="_blank">
+        <h5>On the consistency of hyper-parameter selection in value-based deep reinforcement learning</h5>
+      </a>
+      <p>Johan Samir Obando Ceron, João Guilherme Madeira Araújo, Aaron Courville, Pablo Samuel Castro</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper233.html" target="_blank">
+        <h5>Policy-Guided Diffusion</h5>
+      </a>
+      <p>Matthew Thomas Jackson, Michael Matthews, Cong Lu, Benjamin Ellis, Shimon Whiteson, Jakob Nicolaus Foerster</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper48.html" target="_blank">
+        <h5>SplAgger: Split Aggregation for Meta-Reinforcement Learning</h5>
+      </a>
+      <p>Jacob Beck, Matthew Thomas Jackson, Risto Vuorio, Zheng Xiong, Shimon Whiteson</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper55.html" target="_blank">
+        <h5>Learning to Optimize for Reinforcement Learning</h5>
+      </a>
+      <p>Qingfeng Lan, A. Rupam Mahmood, Shuicheng YAN, Zhongwen Xu</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper64.html" target="_blank">
+        <h5>Multi-view Disentanglement for Reinforcement Learning with Multiple Cameras</h5>
+      </a>
+      <p>Mhairi Dunion, Stefano V Albrecht</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 11, Oral Track 1: RL algorithms
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper307.html" target="_blank">
+        <h5>Weight Clipping for Deep Continual and Reinforcement Learning</h5>
+      </a>
+      <p>Mohamed Elsayed, Qingfeng Lan, Clare Lyle, A. Rupam Mahmood</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper168.html" target="_blank">
+        <h5>Policy Gradient Algorithms with Monte Carlo Tree Learning for Non-Markov Decision Processes</h5>
+      </a>
+      <p>Tetsuro Morimura, Kazuhiro Ota, Kenshi Abe, Peinan Zhang</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper198.html" target="_blank">
+        <h5>ROER: Regularized Optimal Experience Replay</h5>
+      </a>
+      <p>Changling Li, Zhang-Wei Hong, Pulkit Agrawal, Divyansh Garg, Joni Pajarinen</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper225.html" target="_blank">
+        <h5>Learning Discrete World Models for Heuristic Search</h5>
+      </a>
+      <p>Forest Agostinelli, Misagh Soltani</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper345.html" target="_blank">
+        <h5>Boosting Soft Q-Learning by Bounding</h5>
+      </a>
+      <p>Jacob Adamczyk, Volodymyr Makarenko, Stas Tiomkin, Rahul V Kulkarni</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper261.html" target="_blank">
+        <h5>Reward Centering</h5>
+      </a>
+      <p>Abhishek Naik, Yi Wan, Manan Tomar, Richard S. Sutton</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper171.html" target="_blank">
+        <h5>Stabilizing Extreme Q-learning by Maclaurin Expansion</h5>
+      </a>
+      <p>Motoki Omura, Takayuki Osa, YUSUKE Mukuta, Tatsuya Harada</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper118.html" target="_blank">
+        <h5>Contextualized Hybrid Ensemble Q-learning: Learning Fast with Control Priors</h5>
+      </a>
+      <p>Emma Cramer, Bernd Frauenknecht, Ramil Sabirov, Sebastian Trimpe</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper81.html" target="_blank">
+        <h5>A Simple Mixture Policy Parameterization for Improving Sample Efficiency of CVaR Optimization</h5>
+      </a>
+      <p>Yudong Luo, Yangchen Pan, Han Wang, Philip Torr, Pascal Poupart</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper270.html" target="_blank">
+        <h5>PID Accelerated Temporal Difference Algorithms</h5>
+      </a>
+      <p>Mark Bedaywi, Amin Rakhsha, Amir-massoud Farahmand</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper111.html" target="_blank">
+        <h5>SwiftTD: A Fast and Robust Algorithm for Temporal Difference Learning</h5>
+      </a>
+      <p>Khurram Javed, Arsalan Sharifnassab, Richard S. Sutton</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper277.html" target="_blank">
+        <h5>Posterior Sampling for Continuing Environments</h5>
+      </a>
+      <p>Wanqiao Xu, Shi Dong, Benjamin Van Roy</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 11, Oral Track 2: Foundations
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper115.html" target="_blank">
+        <h5>The Cliff of Overcommitment with Policy Gradient Step Sizes</h5>
+      </a>
+      <p>Scott M. Jordan, Samuel Neumann, James E. Kostas, Adam White, Philip S. Thomas</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper126.html" target="_blank">
+        <h5>Demystifying the Recency Heuristic in Temporal-Difference Learning</h5>
+      </a>
+      <p>Brett Daley, Marlos C. Machado, Martha White</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper197.html" target="_blank">
+        <h5>When does Self-Prediction help? Understanding Auxiliary Tasks in Reinforcement Learning</h5>
+      </a>
+      <p>Claas A Voelcker, Tyler Kastner, Igor Gilitschenski, Amir-massoud Farahmand</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper152.html" target="_blank">
+        <h5>A Natural Extension To Online Algorithms For Hybrid RL With Limited Coverage</h5>
+      </a>
+      <p>Kevin Tan, Ziping Xu</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper275.html" target="_blank">
+        <h5>States as goal-directed concepts: an epistemic approach to state-representation learning</h5>
+      </a>
+      <p>Nadav Amir, Yael Niv, Angela J Langdon</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper159.html" target="_blank">
+        <h5>Tiered Reward: Designing Rewards for Specification and Fast Learning of Desired Behavior</h5>
+      </a>
+      <p>Zhiyuan Zhou, Shreyas Sundara Raman, Henry Sowerby, Michael Littman</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper37.html" target="_blank">
+        <h5>Unifying Model-Based and Model-Free Reinforcement Learning with Equivalent Policy Sets</h5>
+      </a>
+      <p>Benjamin Freed, Thomas Wei, Roberto Calandra, Jeff Schneider, Howie Choset</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper117.html" target="_blank">
+        <h5>Multistep Inverse Is Not All You Need</h5>
+      </a>
+      <p>Alexander Levine, Peter Stone, Amy Zhang</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper164.html" target="_blank">
+        <h5>An Idiosyncrasy of Time-discretization in Reinforcement Learning</h5>
+      </a>
+      <p>Kris De Asis, Richard S. Sutton</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper216.html" target="_blank">
+        <h5>Bad Habits: Policy Confounding and Out-of-Trajectory Generalization in RL</h5>
+      </a>
+      <p>Miguel Suau, Matthijs T. J. Spaan, Frans A Oliehoek</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper80.html" target="_blank">
+        <h5>Mitigating the Curse of Horizon in Monte-Carlo Returns</h5>
+      </a>
+      <p>Alex Ayoub, David Szepesvari, Francesco Zanini, Bryan Chan, Dhawal Gupta, Bruno Castro da Silva, Dale
+        Schuurmans</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 11, Oral Track 3: Applied reinforcement learning
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper119.html" target="_blank">
+        <h5>Sequential Decision-Making for Inline Text Autocomplete</h5>
+      </a>
+      <p>Rohan Chitnis, Shentao Yang, Alborz Geramifard</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper213.html" target="_blank">
+        <h5>A Super-human Vision-based Reinforcement Learning Agent for Autonomous Racing in Gran Turismo</h5>
+      </a>
+      <p>Miguel Vasco, Takuma Seno, Kenta Kawamoto, Kaushik Subramanian, Peter R. Wurman, Peter Stone</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper268.html" target="_blank">
+        <h5>Towards General Negotiation Strategies with End-to-End Reinforcement Learning</h5>
+      </a>
+      <p>Bram M. Renting, Thomas M. Moerland, Holger Hoos, Catholijn M Jonker</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper14.html" target="_blank">
+        <h5>JoinGym: An Efficient Join Order Selection Environment</h5>
+      </a>
+      <p>Junxiong Wang, Kaiwen Wang, Yueying Li, Nathan Kallus, Immanuel Trummer, Wen Sun</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper327.html" target="_blank">
+        <h5>Policy Architectures for Compositional Generalization in Control</h5>
+      </a>
+      <p>Allan Zhou, Vikash Kumar, Chelsea Finn, Aravind Rajeswaran</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper224.html" target="_blank">
+        <h5>Verification-Guided Shielding for Deep Reinforcement Learning</h5>
+      </a>
+      <p>Davide Corsi, Guy Amir, Andoni Rodríguez, Guy Katz, César Sánchez, Roy Fox</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper99.html" target="_blank">
+        <h5>Physics-Informed Model and Hybrid Planning for Efficient Dyna-Style Reinforcement Learning</h5>
+      </a>
+      <p>Zakariae EL ASRI, Olivier Sigaud, Nicolas THOME</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper104.html" target="_blank">
+        <h5>Bidirectional-Reachable Hierarchical Reinforcement Learning with Mutually Responsive Policies</h5>
+      </a>
+      <p>Yu Luo, Fuchun Sun, Tianying Ji, Xianyuan Zhan</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper210.html" target="_blank">
+        <h5>RL for Consistency Models: Reward Guided Text-to-Image Generation with Fast Inference</h5>
+      </a>
+      <p>Owen Oertell, Jonathan Daniel Chang, Yiyi Zhang, Kianté Brantley, Wen Sun</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper341.html" target="_blank">
+        <h5>Learning to Navigate in Mazes with Novel Layouts using Abstract Top-down Maps</h5>
+      </a>
+      <p>Linfeng Zhao, Lawson L.S. Wong</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper231.html" target="_blank">
+        <h5>Revisiting Sparse Rewards for Goal-Reaching Reinforcement Learning</h5>
+      </a>
+      <p>Gautham Vasan, Yan Wang, Fahim Shahriar, James Bergstra, Martin Jägersand, A. Rupam Mahmood</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 11, Oral Track 4: RL from human feedback, Imitation Learning
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper39.html" target="_blank">
+        <h5>Learning Action-based Representations Using Invariance</h5>
+      </a>
+      <p>Max Rudolph, Caleb Chuck, Kevin Black, Misha Lvovsky, Scott Niekum, Amy Zhang</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper228.html" target="_blank">
+        <h5>Representation Alignment from Human Feedback for Cross-Embodiment Reward Learning from Mixed-Quality
+          Demonstrations</h5>
+      </a>
+      <p>Connor Mattson, Anurag Sidharth Aribandi, Daniel S. Brown</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper287.html" target="_blank">
+        <h5>Offline Reinforcement Learning from Datasets with Structured Non-Stationarity</h5>
+      </a>
+      <p>Johannes Ackermann, Takayuki Osa, Masashi Sugiyama</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper169.html" target="_blank">
+        <h5>Offline Diversity Maximization under Imitation Constraints</h5>
+      </a>
+      <p>Marin Vlastelica, Jin Cheng, Georg Martius, Pavel Kolev</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper241.html" target="_blank">
+        <h5>Imitation Learning from Observation through Optimal Transport</h5>
+      </a>
+      <p>Wei-Di Chang, Scott Fujimoto, David Meger, Gregory Dudek</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper83.html" target="_blank">
+        <h5>ROIL: Robust Offline Imitation Learning without Trajectories</h5>
+      </a>
+      <p>Gersi Doko, Guang Yang, Daniel S. Brown, Marek Petrik</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper236.html" target="_blank">
+        <h5>Agent-Centric Human Demonstrations Train World Models</h5>
+      </a>
+      <p>James Staley, Elaine Short, Shivam Goel, Yash Shukla</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper138.html" target="_blank">
+        <h5>Inverse Reinforcement Learning with Multiple Planning Horizons</h5>
+      </a>
+      <p>Jiayu Yao, Weiwei Pan, Finale Doshi-Velez, Barbara E Engelhardt</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper328.html" target="_blank">
+        <h5>Semi-Supervised One Shot Imitation Learning</h5>
+      </a>
+      <p>Philipp Wu, Kourosh Hakhamaneshi, Yuqing Du, Igor Mordatch, Aravind Rajeswaran, Pieter Abbeel</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper150.html" target="_blank">
+        <h5>Reinforcement Learning from Human Feedback without Reward Inference: Model-Free Algorithm and
+          Instance-Dependent Analysis</h5>
+      </a>
+      <p>Qining Zhang, Honghao Wei, Lei Ying</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper33.html" target="_blank">
+        <h5>Guided Data Augmentation for Offline Reinforcement Learning and Imitation Learning</h5>
+      </a>
+      <p>Nicholas E. Corrado, Yuxiao Qu, John U. Balis, Adam Labiosa, Josiah P. Hanna</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 12, Oral Track 1: Social and economic aspects
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper129.html" target="_blank">
+        <h5>Value Internalization: Learning and Generalizing from Social Reward</h5>
+      </a>
+      <p>Frieda Rong, Max Kleiman-Weiner</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper237.html" target="_blank">
+        <h5>Can Differentiable Decision Trees Enable Interpretable Reward Learning from Human Feedback?</h5>
+      </a>
+      <p>Akansha Kalra, Daniel S. Brown</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper89.html" target="_blank">
+        <h5>Three Dogmas of Reinforcement Learning</h5>
+      </a>
+      <p>David Abel, Mark K Ho, Anna Harutyunyan</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper263.html" target="_blank">
+        <h5>MultiHyRL: Robust Hybrid RL for Obstacle Avoidance against Adversarial Attacks on the Observation Space</h5>
+      </a>
+      <p>Jan de Priester, Zachary Bell, Prashant Ganesh, Ricardo Sanfelice</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper161.html" target="_blank">
+        <h5>Enabling Intelligent Interactions between an Agent and an LLM: A Reinforcement Learning Approach</h5>
+      </a>
+      <p>Bin Hu, Chenyang Zhao, Pu Zhang, Zihao Zhou, Yuanhang Yang, Zenglin Xu, Bin Liu</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 12, Oral Track 2: Theoretical RL
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper38.html" target="_blank">
+        <h5>The Role of Inherent Bellman Error in Offline Reinforcement Learning with Linear Function Approximation</h5>
+      </a>
+      <p>Noah Golowich, Ankur Moitra</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper359.html" target="_blank">
+        <h5>Optimizing Rewards while meeting $\omega$-regular Constraints</h5>
+      </a>
+      <p>Christopher Zeitler, Kristina Miller, Sayan Mitra, John Schierman, Mahesh Viswanathan</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper226.html" target="_blank">
+        <h5>Distributionally Robust Constrained Reinforcement Learning under Strong Duality</h5>
+      </a>
+      <p>Zhengfei Zhang, Kishan Panaganti, Laixi Shi, Yanan Sui, Adam Wierman, Yisong Yue</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper28.html" target="_blank">
+        <h5>Non-adaptive Online Finetuning for Offline Reinforcement Learning</h5>
+      </a>
+      <p>Audrey Huang, Mohammad Ghavamzadeh, Nan Jiang, Marek Petrik</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper144.html" target="_blank">
+        <h5>Constant Stepsize Q-learning: Distributional Convergence, Bias and Extrapolation</h5>
+      </a>
+      <p>Yixuan Zhang, Qiaomin Xie</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper106.html" target="_blank">
+        <h5>An Optimal Tightness Bound for the Simulation Lemma</h5>
+      </a>
+      <p>Sam Lobel, Ronald Parr</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 12, Oral Track 3: Hierarchical RL, Planning algorithms
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper27.html" target="_blank">
+        <h5>BetaZero: Belief-State Planning for Long-Horizon POMDPs using Learned Approximations</h5>
+      </a>
+      <p>Robert J. Moss, Anthony Corso, Jef Caers, Mykel Kochenderfer</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper23.html" target="_blank">
+        <h5>Online Planning in POMDPs with State-Requests</h5>
+      </a>
+      <p>Raphaël Avalos, Eugenio Bargiacchi, Ann Nowe, Diederik Roijers, Frans A Oliehoek</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper356.html" target="_blank">
+        <h5>Bounding-Box Inference for Error-Aware Model-Based Reinforcement Learning</h5>
+      </a>
+      <p>Erin J Talvitie, Zilei Shao, Huiying Li, Jinghan Hu, Jacob Boerma, Rory Zhao, Xintong Wang</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper167.html" target="_blank">
+        <h5>Dreaming of Many Worlds: Learning Contextual World Models aids Zero-Shot Generalization</h5>
+      </a>
+      <p>Sai Prasanna, Karim Farid, Raghu Rajan, André Biedenkapp</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper223.html" target="_blank">
+        <h5>Learning Abstract World Models for Value-preserving Planning with Options</h5>
+      </a>
+      <p>Rafael Rodriguez-Sanchez, George Konidaris</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper105.html" target="_blank">
+        <h5>Informed POMDP: Leveraging Additional Information in Model-Based RL</h5>
+      </a>
+      <p>Gaspard Lambrechts, Adrien Bolland, Damien Ernst</p>
+    </li>
+
+  </ol>
+</div>
+<div class="row">
+  <h2>
+    Aug 12, Oral Track 4: Exploration
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper95.html" target="_blank">
+        <h5>The Limits of Pure Exploration in POMDPs: When the Observation Entropy is Enough</h5>
+      </a>
+      <p>Riccardo Zamboni, Duilio Cirino, Marcello Restelli, Mirco Mutti</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper77.html" target="_blank">
+        <h5>Surprise-Adaptive Intrinsic Motivation for Unsupervised Reinforcement Learning</h5>
+      </a>
+      <p>Adriana Hugessen, Roger Creus Castanyer, Faisal Mohamed, Glen Berseth</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper122.html" target="_blank">
+        <h5>Exploring Uncertainty in Distributional Reinforcement Learning</h5>
+      </a>
+      <p>Georgy Antonov, Peter Dayan</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper148.html" target="_blank">
+        <h5>More Efficient Randomized Exploration for Reinforcement Learning via Approximate Sampling</h5>
+      </a>
+      <p>Haque Ishfaq, Yixin Tan, Yu Yang, Qingfeng Lan, Jianfeng Lu, A. Rupam Mahmood, Doina Precup, Pan Xu</p>
+    </li>
+
+
+    <li>
+      <a href="https://rlj.cs.umass.edu/2024/papers/Paper67.html" target="_blank">
+        <h5>Planning to Go Out-of-Distribution in Offline-to-Online Reinforcement Learning</h5>
+      </a>
+      <p>Trevor McInroe, Adam Jelley, Stefano V Albrecht, Amos Storkey</p>
+    </li>
+
+  </ol>
+</div>
+
+<!-- <div class="cards row">
+</div> -->
 <script src="static/js/modules/urlParams.js"></script>
 <script src="static/js/modules/typeaheadSetup.js"></script>
 <script src="static/js/modules/lazyLoad.js"></script>
 <script src="static/js/data/persistor.js"></script>
 <script src="static/js/data/wrangle.js"></script>
-<script src="static/js/views/papers.js"></script>
+<!-- <script src="static/js/views/papers.js"></script> -->
 <script>
   $(document).ready(function () {
     tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
@@ -166,10 +1214,7 @@
 
 {% block footer %}
 
-<div
-  class="gdpr bg-dark text-light"
-  style="padding: 10pt; position: fixed; bottom: 0; display: none;"
->
+<div class="gdpr bg-dark text-light" style="padding: 10pt; position: fixed; bottom: 0; display: none;">
   We use cookies to store which papers have been visited.
   <div class="gdpr-btn btn btn-sm btn-info" style="margin-left: 15pt;">
     I agree

@@ -171,7 +171,7 @@ def review_guidelines():
 @app.route("/papers.html")
 def papers():
     data = _data()
-    data["papers"] = site_data["papers"]
+    # data["papers"] = site_data["papers"]
     return render_template("papers.html", **data)
 
 
