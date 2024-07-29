@@ -109,6 +109,50 @@ workshopgroup
 
 {%- endmacro %}
 
+{% macro sponsorgroup(orgs) -%}
+<div class="row">
+  {% for org in orgs %}
+  <div class="col-lg-4 col-md-6 col-xs-12 mb-4">
+    <!-- Wrap the pp-card div with an anchor tag linking to org.website -->
+    <a href="{{org.website}}" style="text-decoration: none; color: inherit;">
+      <div class="pp-card">
+        <div class="pp-card-header text-center">
+          <h5 class="card-title">{{org.name}}</h5>
+          <div>
+            <h6 class="card-subtitle text-muted m-1">
+              {{org.aff}}{% if org.tw %} / 
+              <a class="text-muted" href="http://twitter.com/{{org.tw}}">@{{org.tw}}</a>{% endif %}
+            </h6>
+          </div>
+          <div class="image-container">
+            <img src="{{org.im}}" class="rounded" />
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+<style>
+.card-title {
+  font-size: 1.8rem;
+}
+.image-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.image-container img {
+  max-height: 100%;
+  max-width: 100%;
+}
+</style>
+{%- endmacro %}
+
+
 
 {% macro keynotegroup(committee) -%}
 <div class="row" style="justify-content: center;">
@@ -118,7 +162,7 @@ workshopgroup
     <a href="{{org.website}}" style="text-decoration: none; color: inherit;">
       <div class="pp-card">
         <div class="pp-card-header" class="text-muted">
-          <h5 class="card-title" align="center">{{org.name}}</h5>
+          <h4 class="card-title" align="center">{{org.name}}</h4>
           <!-- <div>
             <h6 class="card-subtitle text-muted m-1" align="center">
               {{org.role}}

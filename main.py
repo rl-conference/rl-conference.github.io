@@ -101,6 +101,8 @@ def home():
     data["readme"] = open("README.md").read()
     for key in site_data["committee"]:
         data[key] = site_data["committee"][key]
+    for key in site_data["sponsors"]:
+        data[key] = site_data["sponsors"][key]
     data["keynotes"] = site_data["keynotes"]["keynotes"]
     data["acknowledgements"] = open("acknowledgements.md").read()
     return render_template("index.html", **data)
@@ -109,6 +111,8 @@ def home():
 @app.route("/sponsorship.html")
 def sponsorship():
     data = _data()
+    for key in site_data["sponsors"]:
+        data[key] = site_data["sponsors"][key]
     return render_template("sponsorship.html", **data)
 
 
