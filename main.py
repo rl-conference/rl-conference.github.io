@@ -178,6 +178,12 @@ def papers():
     # data["papers"] = site_data["papers"]
     return render_template("papers.html", **data)
 
+@app.route("/accepted_journal_papers.html")
+def accepted_journal_papers():
+    data = _data()
+    # data["papers"] = site_data["papers"]
+    return render_template("accepted_journal_papers.html", **data)
+
 
 @app.route("/accepted_workshops.html")
 def accepted_workshops():

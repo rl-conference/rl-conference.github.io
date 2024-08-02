@@ -1,0 +1,267 @@
+{% set active_page = "Papers" %}
+{% set page_title = "Papers" %}
+
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy-bundle.umd.min.js"></script>
+
+<script src="static/js/modules/icons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<style>
+  .paper-list {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .paper-list li::marker {
+    font-size: 1.25rem;
+  }
+</style>
+
+{% endblock %}
+
+{% block tabs %}
+<!-- <ul class="nav nav-pills justify-content-center">
+  <li class="nav-item active">
+    <a class="nav-link text-muted active" data-toggle="tab" href="#tab-browse" role="tab" aria-controls="nav-home"
+      aria-selected="true">Browse
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
+  </li>
+</ul> -->
+
+{% endblock %}
+
+{% block content %}
+<div class="row p-3"></div>
+
+<!-- <div class="row">
+  <h1 style="margin: 0 auto 2.5rem auto;">Papers</h1>
+</div> -->
+
+<!-- Session -->
+<!-- <div class="row d-none session_notice">
+  <div class="alert alert-warning alert-dismissible fade show col-12" role="alert">
+    Showing papers for
+    <span id="session_name" style="font-weight: bold;"></span>.
+    <button type="button" class="close remove_session" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div> -->
+
+<!-- Buttons -->
+<!-- <div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control typeahead_all" placeholder="Search" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary typeahead_all_clear" type="button">
+          &times;
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 text-center" style="margin-bottom: 10px;">
+    <div class="btn-group btn-group-toggle filter_option">
+      <label class="btn btn-outline-secondary" data-tippy-content="Search for papers titles">
+        <input type="radio" name="options" value="titles" autocomplete="off" checked />
+        title
+      </label>
+      <label class="btn btn-outline-secondary" data-tippy-content="Search for papers with specific keywords">
+        <input type="radio" name="options" value="keywords" autocomplete="off" />
+        keyword
+      </label>
+      <label class="btn btn-outline-secondary active" data-tippy-content="Search for papers from specific authors">
+        <input type="radio" name="options" value="authors" autocomplete="off" />
+        author
+      </label>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <button class="btn btn-outline-secondary reshuffle">shuffle</button>
+    <div class="float-right">
+      <div class="btn-group btn-group-toggle render_option" data-toggle="buttons">
+        <label class="btn btn-outline-secondary active">
+          <input type="radio" name="options" value="mini" autocomplete="off" />
+          mini
+        </label>
+        <label class="btn btn-outline-secondary active">
+          <input type="radio" name="options" value="compact" autocomplete="off" hidden checked />
+          mini
+        </label>
+        <label class="btn btn-outline-secondary">
+          <input type="radio" name="options" value="detail" autocomplete="off" />
+          detail
+        </label>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Cards -->
+
+<div class="row">
+  <h2>
+    Accepted Journal Papers
+  </h2>
+</div>
+<div class="row">
+  <strong></strong>
+</div>
+
+<div class="row">
+  <ol class="paper-list">
+
+    <li>
+      <a href="https://jmlr.org/papers/v22/20-1364.html" target="_blank">
+        <h5>Stable-Baselines3: Reliable Reinforcement Learning Implementations</h5>
+      </a>
+      <p>Antonin Raffin, Ashley Hill, Adam Gleave, Anssi Kanervisto, Maximilian Ernestus, Noah Dormann</p>
+    </li>
+
+    <li>
+      <a href="https://www.jmlr.org/papers/volume23/21-1306/21-1306.pdf" target="_blank">
+        <h5>Global Optimality and Finite Sample Analysis of Softmax Off-Policy Actor Critic under State Distribution Mismatch</h5>
+      </a>
+      <p>Shangtong Zhang, Remi Tachet des Combes, Romain Laroche</p>
+    </li>
+
+    <li>
+        <a href="https://openreview.net/forum?id=dqgdBy4Uv5" target="_blank">
+          <h5>Cheap and Deterministic Inference for Deep State-Space Models of Interacting Dynamical Systems</h5>
+        </a>
+        <p>Andreas Look, Barbara Rakitsch, Melih Kandemir, Jan Peters</p>
+    </li>  
+
+    <li>
+        <a href="https://openreview.net/forum?id=hpKJkVoThY" target="_blank">
+          <h5>Models of human preference for learning reward functions</h5>
+        </a>
+        <p>W. Bradley Knox, Stephane Hatgis-Kessell, Serena Booth, Scott Niekum, Peter Stone, Alessandro G Allievi </p>
+    </li>
+
+    <li>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0004370222001692" target="_blank">
+          <h5>Reward (Mis)design for autonomous driving☆</h5>
+        </a>
+        <p>W. Bradley Knox, Alessandro Allievi, Holger Banzhaf, Felix Schmitt, Peter Stone</p>
+      </li>
+  
+      <li>
+        <a href="https://dl.acm.org/doi/10.1613/jair.1.15703" target="_blank">
+          <h5>Structure in Deep Reinforcement Learning: A Survey and Open Problems</h5>
+        </a>
+        <p>Aditya Mohan, Amy Zhang, Marius Lindauer</p>
+      </li>
+  
+      <li>
+        <a href="https://www.nature.com/articles/s42256-022-00599-w" target="_blank">
+          <h5>Emergent behaviour and neural dynamics in artificial agents tracking odour plumes</h5>
+        </a>
+        <p> Satpreet H. Singh, Floris van Breugel, Rajesh P. N. Rao, Bingni W. Brunton
+      </p>
+      </li>
+  
+  
+      <li>
+        <a href="https://link.springer.com/article/10.1007/s10994-023-06413-x" target="_blank">
+          <h5>GVFs in the real world: making predictions online for water treatment</h5>
+        </a>
+        <p>Muhammad Kamran Janjua, Haseeb Shah, Martha White, Erfan Miahi, Marlos C. Machado, Adam White 
+        </p>
+      </li>
+
+      <li>
+        <a href="https://www.jmlr.org/papers/volume24/21-1350/21-1350.pdf" target="_blank">
+          <h5>Off-Policy Actor-Critic with Emphatic Weightings</h5>
+        </a>
+        <p>Eric Graves, Ehsan Imani, Raksha Kumaraswamy, Martha White</p>
+      </li>
+
+      <li>
+        <a href="https://openreview.net/forum?id=oKlEOT83gI" target="_blank">
+          <h5>Risk Sensitive Dead-end Identification in Safety-Critical Offline Reinforcement Learning</h5>
+        </a>
+        <p>Taylor W. Killian, Sonali Parbhoo, Marzyeh Ghassemi </p>
+      </li>
+
+      <li>
+        <a href="https://openreview.net/pdf?id=dltUedmUVT" target="_blank">
+          <h5>Temporal Difference Learning with Compressed Updates: Error-Feedback meets Reinforcement Learning</h5>
+        </a>
+        <p>Aritra Mitra, George J. Pappas, Hamed Hassani</p>
+      </li>
+
+      <li>
+        <a href="https://openreview.net/forum?id=NljBlZ6hmG" target="_blank">
+          <h5>Action Noise in Off-Policy Deep Reinforcement Learning: Impact on Exploration and Performance</h5>
+        </a>
+        <p>Jakob Hollenstein, Sayantan Auddy, Matteo Saveriano, Erwan Renaudo, Justus Piater</p>
+      </li>
+
+      <li>
+        <a href="https://openreview.net/forum?id=iA2KQyoun1" target="_blank">
+          <h5>Granger Causal Interaction Skill Chains</h5>
+        </a>
+        <p>Caleb Chuck, Kevin Black, Aditya Arjun, Yuke Zhu, Scott Niekum</p>
+      </li>
+  
+      <li>
+        <a href="https://openreview.net/forum?id=UQXdQyoRZh" target="_blank">
+          <h5>On Uncertainty in Deep State Space Models for Model-Based Reinforcement Learning</h5>
+        </a>
+        <p>Philipp Becker, Gerhard Neumann</p>
+      </li>
+  
+      <li>
+        <a href="https://www.jair.org/index.php/jair/article/view/15155" target="_blank">
+          <h5>
+            Mitigating Value Hallucination in Dyna-Style Planning via Multistep Predecessor Models
+          </h5>
+        </a>
+        <p>
+          Farzane Aminmansour, Taher Jafferjee, Ehsan Imani, Erin J. Talvitie, Michael Bowling, Martha White
+          </p>
+      </li>
+  </ol>
+</div>
+
+
+
+  </ol>
+</div>
+
+<!-- <div class="cards row">
+</div> -->
+<script src="static/js/modules/urlParams.js"></script>
+<script src="static/js/modules/typeaheadSetup.js"></script>
+<script src="static/js/modules/lazyLoad.js"></script>
+<script src="static/js/data/persistor.js"></script>
+<script src="static/js/data/wrangle.js"></script>
+<!-- <script src="static/js/views/papers.js"></script> -->
+<script>
+  $(document).ready(function () {
+    tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
+    start();
+  });
+</script>
+
+{% endblock %}
+
+{% block footer %}
+
+<div class="gdpr bg-dark text-light" style="padding: 10pt; position: fixed; bottom: 0; display: none;">
+  We use cookies to store which papers have been visited.
+  <div class="gdpr-btn btn btn-sm btn-info" style="margin-left: 15pt;">
+    I agree
+  </div>
+</div>
+<script src="static/js/modules/gdprCookies.js"></script>
+
+{% endblock %}
