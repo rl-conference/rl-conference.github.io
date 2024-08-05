@@ -1,5 +1,6 @@
 ## About RLC
-The first Reinforcement Learning Conference (RLC) will be held in Amherst, Massachusetts from August 9–12, 2024. RLC is an annual international conference focusing on reinforcement learning. RLC provides an archival venue where reinforcement learning researchers can interact and share their research in a more focused setting than typical large machine learning venues. The RLC peer review process prioritizes rigorous methodology over perceived importance, aiming to foster scholarly discussions on both well\-established and emerging topics in RL.
+The first Reinforcement Learning Conference (RLC) will take place from August 9–12, 2024, at the University of Massachusetts Amherst, located at [1 Campus Center Way, Amherst, MA](https://maps.app.goo.gl/W6MYsTRJcNGK5bYeA).
+RLC is an annual international conference focusing on reinforcement learning. RLC provides an archival venue where reinforcement learning researchers can interact and share their research in a more focused setting than typical large machine learning venues. The RLC peer review process prioritizes rigorous methodology over perceived importance, aiming to foster scholarly discussions on both well\-established and emerging topics in RL.
 Papers accepted by RLC are published as articles in the [Reinforcement Learning Journal (RLJ)](//rlj.cs.umass.edu).
 
 
