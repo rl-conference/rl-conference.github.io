@@ -178,6 +178,7 @@ def papers():
     # data["papers"] = site_data["papers"]
     return render_template("papers.html", **data)
 
+
 @app.route("/accepted_journal_papers.html")
 def accepted_journal_papers():
     data = _data()
@@ -226,9 +227,9 @@ def schedule():
     data = _data()
     data["day"] = {
         "speakers": site_data["speakers"],
-        "highlighted": [
-            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
-        ],
+        # "highlighted": [
+        #     format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
+        # ],
     }
     return render_template("schedule.html", **data)
 
