@@ -103,7 +103,7 @@ async function make_cal(handleResize = true) {
       time(schedule) {
         return `<strong>${moment(schedule.start.getTime())
           .tz(timezoneName)
-          .format("hh:mm")}</strong> ${schedule.title}`;
+          .format("hh:mm")}</strong> ${schedule.title} ${schedule.location ? `(${schedule.location})` : ""}`;
       },
       milestone(schedule) {
         return `<span class="calendar-font-icon ic-milestone-b"></span> <span style="background-color: ${schedule.bgColor}"> M: ${schedule.title}</span>`;
@@ -116,14 +116,14 @@ async function make_cal(handleResize = true) {
   });
   calendar.setDate(Date.parse(min_date));
   calendar.createSchedules(events);
-  calendar.on({
-    clickSchedule(e) {
-      const s = e.schedule;
-      if (s.location.length > 0) {
-        window.open(s.location, "_blanket");
-      }
-    },
-  });
+  // calendar.on({
+  //   clickSchedule(e) {
+  //     const s = e.schedule;
+  //     if (s.location.length > 0) {
+  //       window.open(s.location, "_blanket");
+  //     }
+  //   },
+  // });
 
   all_cals.push(calendar);
 
@@ -171,14 +171,14 @@ async function make_cal(handleResize = true) {
 
     cal.setDate(day.toDate());
     cal.createSchedules(events);
-    cal.on({
-      clickSchedule(e) {
-        const s = e.schedule;
-        if (s.location.length > 0) {
-          window.open(s.location, "_blanket");
-        }
-      },
-    });
+    // cal.on({
+    //   clickSchedule(e) {
+    //     // const s = e.schedule;
+    //     // if (s.location.length > 0) {
+    //     //   window.open(s.location, "_blanket");
+    //     // }
+    //   },
+    // });
 
     all_cals.push(cal);
     const cols = config.calendar.colors;
