@@ -4,6 +4,8 @@ import csv
 import json
 import os
 import pathlib
+from collections import defaultdict
+from datetime import datetime
 
 import frontmatter
 import markdown2
@@ -18,9 +20,75 @@ from flask import (
 )
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
+from zoneinfo import ZoneInfo
 
 site_data = {}
 by_uid = {}
+
+
+def assign_session_id(start_time, end_time):
+    # Create a unique identifier based on start and end times
+    return f"{start_time.strftime('%H%M')}-{end_time.strftime('%H%M')}"
+
+
+def format_time_range(start_time, end_time):
+    """
+    Format a time range in the "8:30 AM - 9:30 AM" format.
+
+    :param start_time: A datetime object representing the start time
+    :param end_time: A datetime object representing the end time
+    :return: A formatted string representing the time range
+    """
+    start_str = start_time.strftime("%I:%M %p").lstrip("0")
+    end_str = end_time.strftime("%I:%M %p").lstrip("0")
+    return f"{start_str} - {end_str}"
+
+
+def events_by_day(data):
+    def extract_date(date_string):
+        return datetime.fromisoformat(date_string).date()
+
+    def format_eastern_time(utc_time_str):
+        utc_time = datetime.fromisoformat(utc_time_str)
+        eastern_time = utc_time.astimezone(ZoneInfo("America/New_York"))
+        return eastern_time.strftime("%H%M")
+
+    def convert_eastern_time(utc_time_str):
+        utc_time = datetime.fromisoformat(utc_time_str)
+        return utc_time.astimezone(ZoneInfo("America/New_York"))
+
+    # Group events by day
+    events_by_day = defaultdict(list)
+    session_ids = defaultdict(lambda: defaultdict(lambda: 0))
+    ids_by_date = defaultdict(lambda: 0)
+
+    for event in data:
+        event_date = extract_date(event["start"])
+        formatted_start = format_eastern_time(event["start"])
+        formatted_end = format_eastern_time(event["end"])
+        event["formatted_time"] = f"time-{formatted_start} / time-{formatted_end}"
+        event["time_range"] = format_time_range(
+            convert_eastern_time(event["start"]), convert_eastern_time(event["end"])
+        )
+        session_id = assign_session_id(
+            convert_eastern_time(event["start"]), convert_eastern_time(event["end"])
+        )
+        if session_id in session_ids[event_date]:
+            event["session_id"] = f"{session_ids[event_date][session_id]}"
+        else:
+            ids_by_date[event_date] += 1
+            session_ids[event_date][session_id] = ids_by_date[event_date]
+            event["session_id"] = f"{session_ids[event_date][session_id]}"
+
+        events_by_day[event_date].append(event)
+
+    # Sort events within each day by start time
+    for day, events in events_by_day.items():
+        events_by_day[day] = sorted(events, key=lambda x: x["start"])
+
+    print(events_by_day)
+
+    return events_by_day
 
 
 def main(site_data_path):
@@ -231,7 +299,10 @@ def schedule():
         #     format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
         # ],
     }
-    return render_template("schedule.html", **data)
+    jsons = (pathlib.Path.cwd() / "sitedata/main_calendar.json").read_text()
+    data["calendar"] = json.loads(jsons)
+    data["events_by_day"] = events_by_day(data["calendar"])
+    return render_template("schedule2.html", **data)
 
 
 @app.route("/workshops.html")

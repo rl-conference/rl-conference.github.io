@@ -1,0 +1,222 @@
+{% set active_page = "Schedule" %}
+{% set page_title = "Schedule" %}
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+
+<style>
+    .schedule {
+        display: grid;
+        grid-gap: 1em;
+        grid-auto-flow: column;
+        grid-template-rows:
+            [days] auto [time-0800] 0.5fr [time-0815] 0.5fr [time-0830] 0.5fr [time-0845] 0.5fr [time-0900] 0.5fr [time-0915] 0.5fr [time-0930] 0.5fr [time-0945] 0.5fr [time-1000] 0.5fr [time-1015] 0.5fr [time-1030] 0.5fr [time-1045] 0.5fr [time-1100] 0.5fr [time-1115] 0.5fr [time-1130] 0.5fr [time-1145] 0.5fr [time-1200] 0.5fr [time-1215] 0.5fr [time-1230] 0.5fr [time-1245] 0.5fr [time-1300] 0.5fr [time-1315] 0.5fr [time-1330] 0.5fr [time-1345] 0.5fr [time-1400] 0.5fr [time-1415] 0.5fr [time-1430] 0.5fr [time-1445] 0.5fr [time-1500] 0.5fr [time-1515] 0.5fr [time-1530] 0.5fr [time-1545] 0.5fr [time-1600] 0.5fr [time-1615] 0.5fr [time-1630] 0.5fr [time-1645] 0.5fr [time-1700] 0.5fr [time-1715] 0.5fr [time-1730] 0.5fr [time-1745] 0.5fr [time-1800] 0.5fr [time-1815] 0.5fr [time-1830] 0.5fr [time-1845] 0.5fr [time-1900] 0.5fr [time-1915] 0.5fr [time-1930] 0.5fr [time-1945] 0.5fr [time-2000] 0.5fr [time-2015] 0.5fr [time-2030] 0.5fr [time-2045] 0.5fr [time-2100] 0.5fr;
+        grid-template-columns:
+            [day-1-start] 0.5fr [day-1-end day-2-start] 0.5fr [day-2-end day-3-start] 0.5fr [day-3-end day-4-start] 0.5fr [day-4-end];
+    }
+
+    @media screen and (min-width:700px) {
+        .schedule {
+            display: grid;
+            grid-gap: 1em;
+            grid-auto-flow: column;
+            grid-template-rows:
+                [days] auto [time-0800] 0.5fr [time-0815] 0.5fr [time-0830] 0.5fr [time-0845] 0.5fr [time-0900] 0.5fr [time-0915] 0.5fr [time-0930] 0.5fr [time-0945] 0.5fr [time-1000] 0.5fr [time-1015] 0.5fr [time-1030] 0.5fr [time-1045] 0.5fr [time-1100] 0.5fr [time-1115] 0.5fr [time-1130] 0.5fr [time-1145] 0.5fr [time-1200] 0.5fr [time-1215] 0.5fr [time-1230] 0.5fr [time-1245] 0.5fr [time-1300] 0.5fr [time-1315] 0.5fr [time-1330] 0.5fr [time-1345] 0.5fr [time-1400] 0.5fr [time-1415] 0.5fr [time-1430] 0.5fr [time-1445] 0.5fr [time-1500] 0.5fr [time-1515] 0.5fr [time-1530] 0.5fr [time-1545] 0.5fr [time-1600] 0.5fr [time-1615] 0.5fr [time-1630] 0.5fr [time-1645] 0.5fr [time-1700] 0.5fr [time-1715] 0.5fr [time-1730] 0.5fr [time-1745] 0.5fr [time-1800] 0.5fr [time-1815] 0.5fr [time-1830] 0.5fr [time-1845] 0.5fr [time-1900] 0.5fr [time-1915] 0.5fr [time-1930] 0.5fr [time-1945] 0.5fr [time-2000] 0.5fr [time-2015] 0.5fr [time-2030] 0.5fr [time-2045] 0.5fr [time-2100] 0.5fr;
+            grid-template-columns:
+                [times] 4em [day-1-start] 0.5fr [day-1-end day-2-start] 0.5fr [day-2-end day-3-start] 0.5fr [day-3-end day-4-start] 0.5fr [day-4-end];
+        }
+
+    }
+
+    .time-slot {
+        display: none;
+    }
+
+    @media screen and (min-width:700px) {
+        .time-slot {
+            display: block;
+            grid-column: times;
+        }
+    }
+
+    /* .day-slot {
+        display: none;
+    } */
+
+    .session-day {
+        font-size: 0.8rem;
+    }
+
+    /* @supports(display:grid) {
+        @media screen and (min-width:700px) { */
+    .day-slot {
+        display: flex;
+        justify-content: center;
+        font-size: 1rem !important;
+        padding: 10px 5px;
+        position: sticky;
+        top: 6.4rem;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, .9);
+    }
+
+    /* }
+    } */
+
+    /* Small-screen & fallback styles */
+    .session {
+        margin-bottom: 1em;
+    }
+
+    @supports(display:grid) {
+        @media screen and (min-width: 700px) {
+            .session {
+                margin: 0;
+            }
+        }
+    }
+
+    .session {
+        padding: .5em;
+        border-radius: 2px;
+        font-size: 14px;
+    }
+
+    .session-title,
+    .session-time,
+    .session-day,
+    .session-presenter {
+        display: block;
+    }
+
+    .session-title,
+    .time-slot {
+        margin: 0;
+        font-size: 1.1em;
+    }
+
+    .session-title a {
+        color: #fff;
+        text-decoration-style: dotted;
+
+        &:hover {
+            font-style: italic;
+        }
+
+        &:focus {
+            outline: 2px dotted rgba(255, 255, 255, .8);
+        }
+    }
+
+    .day-slot,
+    .time-slot {
+        font-weight: bold;
+        font-size: .75em;
+    }
+
+    .day-1 {
+        background-color: #1259B2;
+        color: #fff;
+    }
+
+    .day-2 {
+        background-color: #687f00;
+        color: #fff;
+    }
+
+    .day-3 {
+        background-color: #544D69;
+        color: #fff;
+    }
+
+    .day-4 {
+        background-color: #c35500;
+        color: #fff;
+    }
+
+    .day-all {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ccc;
+        color: #000;
+        box-shadow: none;
+    }
+
+    .text {
+        max-width: 750px;
+        font-size: 18px;
+        margin: 0 auto 50px;
+    }
+
+    .meta {
+        color: #555;
+        font-style: italic;
+    }
+
+    .meta a {
+        color: #555;
+    }
+
+    hr {
+        margin: 40px 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="content" style="padding: 2rem 0;">
+
+    <h2 id="schedule-heading">Conference Schedule</h2>
+    <div class="schedule" aria-labelledby="schedule-heading">
+
+        <span class="day-slot" aria-hidden="true" style="grid-column: day-1; grid-row: days;">Friday, August 9th</span>
+        <span class="day-slot" aria-hidden="true" style="grid-column: day-2; grid-row: days;">Saturday, August
+            10th</span>
+        <span class="day-slot" aria-hidden="true" style="grid-column: day-3; grid-row: days;">Sunday, August 11th</span>
+        <span class="day-slot" aria-hidden="true" style="grid-column: day-4; grid-row: days;">Monday, August 12th</span>
+
+        <h2 class="time-slot" style="grid-row: time-0800;">8:00am</h2>
+        <h2 class="time-slot" style="grid-row: time-0900;">9:00am</h2>
+        <h2 class="time-slot" style="grid-row: time-1000;">10:00am</h2>
+        <h2 class="time-slot" style="grid-row: time-1100;">11:00am</h2>
+        <h2 class="time-slot" style="grid-row: time-1200;">12:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-1300;">1:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-1400;">2:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-1500;">3:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-1600;">4:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-1700;">5:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-1800;">6:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-1900;">7:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-2000;">8:00pm</h2>
+        <h2 class="time-slot" style="grid-row: time-2100;">9:00pm</h2>
+
+        {% for day, events in events_by_day.items()|sort%}
+        {% set outer_loop = loop %}
+        {% for event in events_by_day[day] %}
+
+        <div class="session session-{{ event.session_id }} day-{{ outer_loop.index }}"
+            style="grid-column: day-{{ outer_loop.index }}; grid-row: {{ event.formatted_time }};">
+            <h3 class="session-title">{{ event.title }}</h3>
+            <span class="session-time">{{ event.time_range }}</span>
+            {% if event.location %}
+            {% if event.location.split("\n")|length > 1 %}
+            <hr style="margin: 10px 0;" />
+            <div>
+                {% for line in event.location.split("\n") %}
+                <span class="session-day" style="padding: 0.2rem 0;">{{ line }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            <span class="session-day">{{ event.location }}</span>
+            {% endif %}
+            {% endif %}
+        </div>
+
+        {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
