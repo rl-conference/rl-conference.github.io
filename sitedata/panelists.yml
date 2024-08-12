@@ -34,7 +34,7 @@ panel_2:
   - role: Panelist
     name: David Abel
     aff: Google Deepmind
-    im: static/images/david_abel.jpg
+    im: static/images/david_abel.JPG
     # tw: BrunoSilvaUMass
     website: https://david-abel.github.io/
   - role: Panelist
