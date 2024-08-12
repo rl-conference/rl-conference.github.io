@@ -183,6 +183,13 @@ def sponsorship():
         data[key] = site_data["sponsors"][key]
     return render_template("sponsorship.html", **data)
 
+@app.route("/panels.html")
+def panels():
+    data = _data()
+    for key in site_data["panelists"]:
+        data[key] = site_data["panelists"][key]
+    return render_template("panels.html", **data)
+
 
 @app.route("/help.html")
 def about():
