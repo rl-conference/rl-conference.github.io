@@ -1,5 +1,5 @@
 ## RLC 2025
-RLC 2025 will be held at the University of Alberta in Edmonton! More details to come soon!
+### RLC 2025 will be held at the University of Alberta in Edmonton! More details to come soon!
 
 ## About RLC
 The first Reinforcement Learning Conference (RLC) will take place from August 9–12, 2024, at the University of Massachusetts Amherst, located at [1 Campus Center Way, Amherst, MA](https://maps.app.goo.gl/W6MYsTRJcNGK5bYeA).
