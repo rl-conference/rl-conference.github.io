@@ -1,3 +1,6 @@
+## RLC 2025
+RLC 2025 will be held at the University of Alberta in Edmonton! More details to come soon!
+
 ## About RLC
 The first Reinforcement Learning Conference (RLC) will take place from August 9–12, 2024, at the University of Massachusetts Amherst, located at [1 Campus Center Way, Amherst, MA](https://maps.app.goo.gl/W6MYsTRJcNGK5bYeA).
 RLC is an annual international conference focusing on reinforcement learning. RLC provides an archival venue where reinforcement learning researchers can interact and share their research in a more focused setting than typical large machine learning venues. The RLC peer review process prioritizes rigorous methodology over perceived importance, aiming to foster scholarly discussions on both well\-established and emerging topics in RL.
