@@ -1,0 +1,442 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- External Javascript libs_ext  -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+    integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+    integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+    integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+
+
+  <!-- Library libs_ext -->
+  <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+
+
+  <!--    Internal Libs -->
+  <script src="static/js/data/api.js"></script>
+
+  
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+  <!-- External Fonts (no google for china) -->
+  <link href="static/css/Lato.css" rel="stylesheet" />
+  <link href="static/css/Exo.css" rel="stylesheet" />
+  <link href="static/css/Cuprum.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/main.css" />
+  <!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
+  <link rel="stylesheet" href="static/css/fa_solid.css" />
+  <link rel="stylesheet" href="static/css/lazy_load.css" />
+  <link rel="stylesheet" href="static/css/typeahead.css" />
+
+  <title>RLC 2024</title>
+  
+
+  <meta property="og:title" content="Reinforcement Learning Conference 2024" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="static/images/logo_with_title.png" />
+  <meta property="og:url" content="https://rl-conference.cc" />
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+</head>
+
+<body>
+
+  <!-- Move this into CSS!!! Why does this not load unless it's here! -->
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      color: rgb(239, 27, 27);
+      padding-top: 8px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .dropbtn {
+      background-color: #d51313;
+      /* Changed from #4CAF50 to gray */
+      color: rgb(206, 19, 19);
+      /* padding-top: 10px; */
+      /* padding-bottom: 10px; */
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-collapse .dropdown-content {
+        left: 0;
+      }
+    }
+
+
+    .dropdown-content a {
+      /* color: black; */
+      color: rgba(0, 0, 0, .65);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      border-radius: inherit;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown>span {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+      color: rgba(15, 15, 15, 0.5);
+      /* Apply the RGBA background color */
+    }
+  </style>
+
+  <!-- NAV -->
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
+    <div class="container">
+      <a class="navbar-brand" href="/2024/index.html">
+        <img class="logo" src="static/images/rlc-logo.svg" height="auto"
+             width="150px" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/index.html">Home</a>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Program</span>
+            <div class="dropdown-content">
+              <a href="/2024/calendar.html?tz=US/Eastern">Schedule</a>
+              <a href="/2024/accepted_workshops.html">Workshops</a>
+              <a href="https://rlj.cs.umass.edu/2024/2024issue.html">Accepted Papers</a>
+              <a href="/2024/accepted_journal_papers.html">Journal Track Papers (previously published)</a>
+              <a href="/2024/papers.html">Paper Schedule</a>
+              <a href="/2024/panels.html">Panels</a>
+
+            </div>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this like this -->
+            <span>Submissions</span>
+            <div class="dropdown-content">
+              <a href="/2024/call_for_papers.html">Call for Papers</a>
+              <a href="/2024/call_for_workshops.html">Call for Workshops</a>
+              <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScuLxUE3mwr48n2Xdiasp3FTkpiY9foZrQ9LvofeBEgnWFlpQ/viewform">Journal
+                Paper Presentations</a>
+              <a href="/2024/review_process.html">Review Process</a>
+              <a
+                      href="https://docs.google.com/document/d/1IzXv7LmlmDVNZeEElMfOG3IJVIhoZYSZWA25ZSteg18/edit?usp=sharing">Reviewer
+                Guidelines</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="https://umass.irisregistration.com/Form/RLC">Register</a>
+          </li>
+
+
+
+          <li class="dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Attend</span>
+            <div class="dropdown-content">
+              <a href="/2024/travel_info.html">Travel Information</a>
+              <a href="/2024/hotels.html">Hotels</a>
+              <a href="/2024/code_of_conduct.html">Code of Conduct</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/organizers.html">Organizers</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/help.html">FAQ</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/blogs.html">Blogs</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/sponsorship.html">Sponsors</a>
+          </li>
+
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+  
+  <!-- User Overrides -->
+  
+<style>
+  .back {
+    background: url("static/images/old_chapel_small.jpg") no-repeat center;
+    background-size: cover;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+  }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
+</style>
+
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+      <h2 class="dropshadow">
+        REINFORCEMENT <br> LEARNING <br> CONFERENCE
+      </h2>
+      <h2 class="p-5 dropshadow">
+        August 9-12, 2024<br>
+        Amherst, MA
+      </h2>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+       
+    </div>
+    <!-- Content -->
+    <div class="content">
+      
+
+<style>
+  .date-summary-row {
+    display: flex;
+  }
+  .date-summary-cell {
+    flex: 1; /* Each cell will take up equal space */
+    text-align: left; /* Align the text to the left */
+    padding: 8px; /* Add some padding for spacing, adjust as needed */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  .firstback {
+  background-color: #D3D3D3; /* This sets the background color to light gray */
+  border-radius: 15px;
+  overflow: hidden;
+}
+</style>
+
+
+<h1>RLC Reviewer Guidelines 2024</h1>
+<p>RLC is introducing a new reviewing process (<a href="https://rl-conference.cc/review_process.html">link</a>) with two types of reviewers: technical and senior. The purpose of this document is to make clear the role of each reviewer type and what goes into each type of review. It is worth stressing that this will be notably different from the typical NeurIPS/ICLR/ICML review process. We are changing things up, because the RLC PC believes the usual process is not working well.</p>
+<p>At a high level, let’s distinguish these two types of reviews. A <strong>technical review</strong> is more or less a list of technical errors in the paper. There is no commentary on novelty, significance, or impact. This is not an oversight on our part. It is very intentional. A <strong>senior review</strong> is a typical review, but much closer to what is expected of a TMLR paper review: focus on claims matching evidence.</p>
+<p>With terms set, let’s get into the details of technical reviews. It is important that both reviewer types read and understand the following two sections to get the full picture of what we are trying to implement.</p>
+<h2>Technical reviews for RLC</h2>
+<p>Please organize your review into major errors and minor errors. <strong>Major errors</strong> are things that would jeopardize the paper’s ability to support its claims. These include things such as:</p>
+<ul>
+<li><strong>Math errors:</strong> vacuous theorem statements, flaws in a proof, etc</li>
+<li><strong>Overclaiming:</strong> like claiming false things about a new method that is not supported by the theory or empirical evidence given<ul>
+<li><strong>Example:</strong> claiming a new method is significantly better than another based on invalid statistics, such as learning curves averaged over 5 seeds with overlapping shaded regions.</li>
+<li><strong>Example:</strong> A new TD learning method is developed with the hopes that it leads to learning richer feature sets with neural networks. It is shown that it achieves higher performance, but there is no measure of what representations are being learned. Any claim regarding the method’s representation learning ability would be unsupported by the experiments.</li>
+</ul>
+</li>
+<li>Missing literature: that would have impacted the development of the ideas in the paper.</li>
+<li>Related, this <strong>idea has been done before</strong>, and the paper’s treatment is nearly identical to prior work.</li>
+<li><strong>Collection of minor errors</strong> that, when taken together, make it very difficult to understand the purpose of the paper: poor polish, organization, inconsistent notation, undefined terms, etc. Things that on their own are minor but when co-occurring in mass can make a paper difficult to follow.</li>
+<li><strong>Unclear problem statement:</strong> we do not know what problem is being solved or the paper did not motivate the problem and it's unclear why it matters. </li>
+</ul>
+<p>Below we list a few common flaws in empirical work. Many of these can be seen as minor errors, but do become major errors when combined with overclaiming. However, since the empirical practices in RL are often substandard, we will specifically name a few common errors that should be noted in a technical review:</p>
+<ul>
+<li><strong>Missing information</strong> like the number of trials (i.e., seeds), the definition of shaded regions / errorbars, not describing how hyperparameters were dealt with</li>
+<li><strong>Using measures of variance as a measure of confidence:</strong> plotting standard deviation is not the same as a confidence interval</li>
+<li><strong>Lack of justification for chosen statistical analysis:</strong> using standard error without justification (assumes normality and known variance), using IQM (interquartile mean) without justifying why top and bottom percentiles should be excluded</li>
+<li><strong>Missing baselines:</strong> relevant baselines that would help us understand the new method (e.g., if claiming a new continuous action method works well, SAC or PPO are likely a useful baseline). Avoid asking for all the baselines, this is not needed and often just makes things less clear</li>
+<li><strong>Misrepresenting baselines:</strong> using default hyperparameters of agent X, from the literature, on an MDP that agent X has never been applied to. This is appropriate if just to demonstrate X must be tuned for this new MDP, but it is not evidence that X performs poorly on this new MDP.</li>
+<li><strong>Tuning the hyperparameters of the new method only:</strong> All RL agents are sensitive to hypers. We know this is problem dependent. Showing tuned performance is better than another untuned method is misleading.</li>
+<li><strong>Claiming SOTA:</strong> This is almost impossible to establish. It requires more seeds than you think, careful tuning of hypers (very expensive), valid confidence intervals (likely studentized bootstrap). Rarely informative. Rarely true.</li>
+<li><strong>Ranking methods without rigorous statistical support:</strong> It is OK to say method A appears better than B in our experiments without claiming significance. It is not okay to make ranking claims based on too few seeds (3 and 5 are way too few). How many seeds do we need? This is a statistical question based on the underlying performance distributions. <strong>The number of required seeds is not defined by community common practice.</strong></li>
+</ul>
+<p>The last point is actually a general principle. The goal of the technical review is to identify errors that would suggest the claims of the paper don’t match the evidence. To determine this you must weigh the evidence provided and determine if it is valid. One run (seed) could be enough to support the right claim. You must evaluate each experiment and the statistical evidence provided, not appeal to what other accepted papers do or do not do!</p>
+<p>Let’s move on to minor errors. These are things that can be corrected and do not jeopardize the main message of the paper:</p>
+<ul>
+<li>Grammar, spelling, and general polish</li>
+<li>Plot styles</li>
+<li>Missing citations that are not critical missing baselines or ideas that would change the work</li>
+<li>Undefined notation</li>
+<li>Minor math errors</li>
+<li>Missing details</li>
+</ul>
+<p>Finally, it is worth listing a few criticisms that are overused in reviews and are largely invalid—avoid putting these statements in your review!</p>
+<ul>
+<li><strong>“Not enough environments! The method may not be general”.</strong> True of all current RL algorithms. This request is largely nonsense. Maybe you mean you want to see if the method works with images? Did the authors state that as a goal? Why is that important?</li>
+<li><strong>“Environments are too simple!”</strong> Is Mountain Car simple? Yes, but so is Atari. This is arbitrary taste-making. The paper should explain why each environment was used and what we learned</li>
+<li><strong>“New method is not SOTA”.</strong> This is nearly impossible to show, and only relevant if the paper states this as a goal</li>
+<li><strong>“New method is too simple”. “New method only combines existing ideas”.</strong> Complexity != contribution</li>
+<li><strong>“No theoretical justification”.</strong> Theory is but one form of evidence and is not required in every paper.</li>
+</ul>
+<p>The guidelines above are not strict rules, and it is possible that some accepted papers may violate these guidelines with good reason. As such, the primary requirement for a paper to be accepted is that it clearly synthesizes new knowledge and that knowledge is of sufficient interest to the RL community. </p>
+<h2>Senior Reviewer Guidelines</h2>
+<p>The principles of the RLC should be reflected in the review process:</p>
+<p><strong>The RLC peer review process prioritizes rigorous methodology over perceived importance, aiming to foster scholarly discussions on both well-established and emerging topics in RL.</strong></p>
+<p>As such, the overall advice to senior reviewers is to <strong>focus on three things:</strong> (1) does the work provide evidence supporting the main contributions proposed by the authors—claims matched by evidence? (2) Is there an audience for the work? (3) What knowledge gap did the paper address?  </p>
+<p>To make this concise, we provide three main guidelines to remember when reviewing. </p>
+<ul>
+<li><strong>Answer three key questions for yourself</strong>, to make a decision to Accept or Reject:<ul>
+<li>What is the specific question/problem tackled by the paper?</li>
+<li>Is the approach well motivated, including being well-placed in the literature?</li>
+<li>Does the paper support the claims? This includes determining if results, whether theoretical or empirical, are correct and if they are scientifically rigorous.</li>
+</ul>
+</li>
+<li><strong>Organize your review as follows (inspired by <a href="https://www.dropbox.com/scl/fi/4sfm8x3qlm3xp05xs0cdg/review-advice.rtf?rlkey=t2dvidfscp87w83us8tk0gn57&amp;e=1&amp;dl=0">Sutton’s guide for writing good reviews</a>):</strong> <ul>
+<li>Summarize what the paper claims to do/contribute. Be positive and generous.</li>
+<li>Clearly state your decision (accept or reject) with one or two key reasons for this choice.</li>
+<li>Provide supporting arguments for the reasons for the decision.</li>
+<li>Provide additional feedback with the aim to improve the paper. Make it clear that these points are here to help, and not necessarily part of your decision assessment.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Additional Resources</h2>
+<p>For great in-depth resources on reviewing, see these resources:</p>
+<ul>
+<li>Daniel Dennet: <a href="https://www.brainpickings.org/2014/03/28/daniel-dennett-rapoport-rules-criticism/">Criticising with Kindness</a>.</li>
+<li>Comprehensive advice: <a href="https://niklaselmqvist.medium.com/mistakes-reviewers-make-ce3a4c595aa2">Mistakes Reviewers Make</a>.</li>
+<li>Views from multiple reviewers: <a href="https://acl2017.wordpress.com/2017/02/23/last-minute-reviewing-advice/">Last minute reviewing advice</a>.</li>
+<li><a href="https://iclr.cc/Conferences/2020/ReviewerGuide">Sample excellent reviews</a> from ICLR 2020 reviewer instructions.</li>
+<li><a href="https://www.dropbox.com/scl/fi/4sfm8x3qlm3xp05xs0cdg/review-advice.rtf?rlkey=t2dvidfscp87w83us8tk0gn57&amp;dl=0">Rich Sutton’s guide for writing good reviews</a>.</li>
+</ul>
+
+
+    </div>
+  </div>
+  
+  
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "UA-");
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer bg-light p-4">
+    <div class="container">
+      <p class="float-right"><a href="#">Back to Top</a></p>
+      <p class="text-center">© 2024 Reinforcement Learning Conference Organization Committee</p>
+    </div>
+  </footer>
+
+  <!-- Code for hash tags -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (window.location.hash !== "") {
+        $(`a[href="${window.location.hash}"]`).tab("show");
+      }
+
+      $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+        const hash = $(e.target).attr("href");
+        if (hash.substr(0, 1) === "#") {
+          const position = $(window).scrollTop();
+          window.location.replace(`#${hash.substr(1)}`);
+          $(window).scrollTop(position);
+        }
+      });
+    });
+  </script>
+  <!--    <script src="static/js/modules/lazyLoad.js"></script>-->
+  
+</body>
+
+</html>
