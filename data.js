@@ -108,12 +108,11 @@ listOfOrganizers = [new Organizer("Adam White", "General Chair", "data/organizer
     new Organizer("Roberta Raileanu", "Awards Chair", "data/organizers/rr.jpg"),
     new Organizer("Martha White", "Local Chair", "data/organizers/mw.webp"),
     new Organizer("Mike Bowling", "Local Chair", "data/organizers/mb.jpg"),
-    new Organizer("Patrick Pilarski", "Local Chair", "data/organizers/pp.jpg"),
+    new Organizer("Patrick Pilarski", "Local and Volunteer Chair", "data/organizers/pp.jpg"),
     new Organizer("Glen Berseth", "Sponsorship Chair", "data/organizers/gb.webp"),
     new Organizer("Audrey Durand", "Sponsorship Chair", "data/organizers/ad.jpg"),
     new Organizer("Josiah Hanna", "Workshop Chair", "data/organizers/jh.jpeg"),
     new Organizer("Claire Vernade", "Workshop Chair", "data/organizers/cv.jpg"),
-    new Organizer("Patrick Pilarski", "Volunteer Chair", "data/organizers/pp.jpg"),
     new Organizer("Eugene Vinitsky", "Communication Chair", "data/organizers/ev.jpg"),
     new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
     new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png")
