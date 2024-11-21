@@ -717,6 +717,10 @@ video {
   display: none;
 }
 
+.aspect-\[5\/3\] {
+  aspect-ratio: 5/3;
+}
+
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
@@ -854,9 +858,9 @@ video {
      object-position: bottom;
 }
 
-.object-center {
-  -o-object-position: center;
-     object-position: center;
+.object-left {
+  -o-object-position: left;
+     object-position: left;
 }
 
 .p-0 {
@@ -1027,6 +1031,10 @@ video {
     display: none;
   }
 
+  .md\:aspect-\[7\/3\] {
+    aspect-ratio: 7/3;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1042,6 +1050,10 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:aspect-auto {
+    aspect-ratio: auto;
+  }
+
   .lg\:h-\[32rem\] {
     height: 32rem;
   }
