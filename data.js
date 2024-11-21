@@ -67,7 +67,7 @@ listOfMenuItems = [
     // new MenuItem("Organizers", "#"),
 
     // new MenuItemWithSubmenu("Year", [ new MenuItem("2024", "2024/index.html"), new MenuItem("2025", "index.html")] ),
-    new MenuItemWithSubmenu("Submit", [new MenuItem("Call&nbspfor&nbspPapers", "callforpapers.html"),  new MenuItem("Review&nbspProcess", "reviewProcess.html"), new MenuItem("Reviewer&nbspGuidelines", "guidelines.html")] ),
+    // new MenuItemWithSubmenu("Submit", [new MenuItem("Call&nbspfor&nbspPapers", "callforpapers.html"),  new MenuItem("Review&nbspProcess", "reviewProcess.html"), new MenuItem("Reviewer&nbspGuidelines", "guidelines.html")] ),
     new MenuItem("Organizers", "organizers.html"),
     new MenuItemWithSubmenu("Year", [new MenuItem("2024", "/2024/index.html"),  new MenuItem("2025", "index.html")] ),
     // new MenuItem("Register", "#"),
