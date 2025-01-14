@@ -7,7 +7,7 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8">
-    <title id="mainPageTitleforSEO">Organizers</title>
+    <title id="mainPageTitleforSEO">Advisors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,16 @@
           rel="stylesheet">
 </head>
 
+<!--<div id="backgroundImage" class="fixed -z-20 h-screen w-full">-->
+<!--</div>-->
+<!--<style>-->
+<!--    #backgroundImage {-->
+<!--        background-image: url('data/backgroundGradients/RLC.svg');-->
+<!--        background-repeat: no-repeat;-->
+<!--        background-size: cover;-->
+<!--        background-position: center;-->
+<!--    }-->
+<!--</style>-->
 <body>
 
 
@@ -66,29 +76,21 @@
                 </div>
             </div>
             <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
+                <!--                <div class=" ">-->
+                <!--                    <img alt="RLC logo" class="rounded-md lg:h-[32rem]  w-full object-cover object-bottom"-->
+                <!--                         src="data/images/edmonton.webp"/>-->
+                <!--                </div>-->
+                <!--                <div class="absolute m-1 p-1  rounded-md font-rubik lg:text-6xl mg:text-4xl sm:text-3xl text-2xl text-rlgrey bottom-0 right-0">-->
+                <!--                    University of Alberta-->
+                <!--                </div>-->
             </div>
 
-            <h1
-                class="text-4xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Contact Us</h1>
 
-            <div id="contactInfo" class="mx-auto grid m-2 p-2 text-center  grid-cols-2 gap-4 lg:gap-5">
-                <div class="text-right m-2 p-2">General Chairs</div>
-                <div class="text-left m-2 p-2">general-chairs@rl-conference.cc</div>
-                
-                <div class="text-right m-2 p-2">Communication Chairs</div>
-                <div class="text-left m-2 p-2">comms@rl-conference.cc</div>
 
-                <div class="text-right m-2 p-2">Program Chairs</div>
-                <div class="text-left m-2 p-2">program-chairs@rl-conference.cc</div>
-
-                <div class="text-right m-2 p-2">Sponsorship Chairs</div>
-                <div class="text-left m-2 p-2">sponsorship@rl-conference.cc</div>
-
-                <div class="text-right m-2 p-2">RLC Board</div>
-                <div class="text-left m-2 p-2">board@rl-conference.cc</div>
-
-                <div class="text-right m-2 p-2">Workshop Chairs</div>
-                <div class="text-left m-2 p-2">workshops@rl-conference.cc</div>
+            <h1 id="heading1"
+                class="text-4xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Advisory Committee</h1>
+            <div id="advisoryCom"
+                 class=" grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-4 lg:gap-10">
             </div>
         </div>
 
@@ -109,6 +111,30 @@
 </body>
 <!--Javascript code for generating the HTML-->
 <script src="menu.js"></script>
+<script>
+
+    // add advisory committee members
+    for (var i = 0; i < listOfAdvisoryCommittee.length; i++) {
+        var div = document.createElement('div');
+        div.className = "bg-rlgrey/70   rounded-md   ";
+        var img = document.createElement('img');
+        img.src = listOfAdvisoryCommittee[i].image;
+        img.className = "rounded-md object-cover w-full";
+        div.appendChild(img);
+        var h1 = document.createElement('h1');
+        h1.className = "text-xl  text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(listOfAdvisoryCommittee[i].name));
+        div.appendChild(h1);
+        var p = document.createElement('p');
+        p.className = "text-xl  font-roboto text-center text-pretty  mt-0 p-0 m-1 mb-8";
+        p.appendChild(document.createTextNode(listOfAdvisoryCommittee[i].affiliation));
+        div.appendChild(p);
+        document.getElementById('advisoryCom').appendChild(div);
+    }
+
+   
+
+</script>
 <div class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"></div>
 </html>
 
