@@ -70,6 +70,7 @@ listOfMenuItems = [
     new MenuItemWithSubmenu("Submit", [new MenuItem("Call&nbspfor&nbspPapers", "callforpapers.html"),  new MenuItem("Submission&nbspInstructions", "submissionInstructions.html")] ),
     new MenuItem("Organizers", "organizers.html"),
     new MenuItemWithSubmenu("Year", [new MenuItem("2024", "/2024/index.html"),  new MenuItem("2025", "index.html")] ),
+    new MenuItem("Contact&nbspUs", "contact.html"),
     // new MenuItem("Register", "#"),
     // new MenuItem("Attend", "#"),
     // new MenuItem("Organizers", "#"),
