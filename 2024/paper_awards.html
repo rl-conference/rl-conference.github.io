@@ -1,0 +1,458 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- External Javascript libs_ext  -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+    integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+    integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+    integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+
+
+  <!-- Library libs_ext -->
+  <script src="/2024/static/js/libs_ext/typeahead.bundle.js"></script>
+
+
+  <!--    Internal Libs -->
+  <script src="/2024/static/js/data/api.js"></script>
+
+  
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+  <!-- External Fonts (no google for china) -->
+  <link href="/2024/static/css/Lato.css" rel="stylesheet" />
+  <link href="/2024/static/css/Exo.css" rel="stylesheet" />
+  <link href="/2024/static/css/Cuprum.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/2024/static/css/main.css" />
+  <!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
+  <link rel="stylesheet" href="/2024/static/css/fa_solid.css" />
+  <link rel="stylesheet" href="/2024/static/css/lazy_load.css" />
+  <link rel="stylesheet" href="/2024/static/css/typeahead.css" />
+
+  <title>RLC 2024: Blog Post</title>
+  
+
+  <meta property="og:title" content="Reinforcement Learning Conference 2024" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/2024/static/images/logo_with_title.png" />
+  <meta property="og:url" content="https://rl-conference.cc" />
+
+  <link rel="icon" type="image/svg+xml" href="/2024/static/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+</head>
+
+<body>
+
+  <!-- Move this into CSS!!! Why does this not load unless it's here! -->
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      color: rgb(239, 27, 27);
+      padding-top: 8px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .dropbtn {
+      background-color: #d51313;
+      /* Changed from #4CAF50 to gray */
+      color: rgb(206, 19, 19);
+      /* padding-top: 10px; */
+      /* padding-bottom: 10px; */
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-collapse .dropdown-content {
+        left: 0;
+      }
+    }
+
+
+    .dropdown-content a {
+      /* color: black; */
+      color: rgba(0, 0, 0, .65);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      border-radius: inherit;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown>span {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+      color: rgba(15, 15, 15, 0.5);
+      /* Apply the RGBA background color */
+    }
+  </style>
+
+  <!-- NAV -->
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
+    <div class="container">
+      <a class="navbar-brand" href="/2024/index.html">
+        <img class="logo" src="static/images/rlc-logo.svg" height="auto"
+             width="150px" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/index.html">Home</a>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Program</span>
+            <div class="dropdown-content">
+              <a href="/2024/calendar.html?tz=US/Eastern">Schedule</a>
+              <a href="/2024/accepted_workshops.html">Workshops</a>
+              <a href="https://rlj.cs.umass.edu/2024/2024issue.html">Accepted Papers</a>
+              <a href="/2024/accepted_journal_papers.html">Journal Track Papers (previously published)</a>
+              <a href="/2024/papers.html">Paper Schedule</a>
+              <a href="/2024/panels.html">Panels</a>
+
+            </div>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this like this -->
+            <span>Submissions</span>
+            <div class="dropdown-content">
+              <a href="/2024/call_for_papers.html">Call for Papers</a>
+              <a href="/2024/call_for_workshops.html">Call for Workshops</a>
+              <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScuLxUE3mwr48n2Xdiasp3FTkpiY9foZrQ9LvofeBEgnWFlpQ/viewform">Journal
+                Paper Presentations</a>
+              <a href="/2024/review_process.html">Review Process</a>
+              <a
+                      href="https://docs.google.com/document/d/1IzXv7LmlmDVNZeEElMfOG3IJVIhoZYSZWA25ZSteg18/edit?usp=sharing">Reviewer
+                Guidelines</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="https://umass.irisregistration.com/Form/RLC">Register</a>
+          </li>
+
+
+
+          <li class="dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Attend</span>
+            <div class="dropdown-content">
+              <a href="/2024/travel_info.html">Travel Information</a>
+              <a href="/2024/hotels.html">Hotels</a>
+              <a href="/2024/code_of_conduct.html">Code of Conduct</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/organizers.html">Organizers</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/help.html">FAQ</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/blogs.html">Blogs</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/sponsorship.html">Sponsors</a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/playlist?list=PLEA9Mnr-L18lI_I-EkyAc1-gXgBj52oV5">Recordings</a>
+          </li>
+
+          <li class="dropdown">
+            <span>Year</span>
+            <div class="dropdown-content">
+              <a href="/2024/index.html">2024</a>
+              <a href="/index.html">2025</a>
+            </div>
+          </li>
+
+
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  <!-- User Overrides -->
+  
+<style>
+  .back {
+    background: url("/2024/static/images/old_chapel_small.jpg") no-repeat center;
+    background-size: cover;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+  }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
+</style>
+<meta property="og:title" content="Reinforcement Learning Conference 2024" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/2024/static/images/logo_with_title.png" />
+<meta property="og:url" content="https://rl-conference.cc" />
+
+
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+      <h2 class="dropshadow">
+        REINFORCEMENT <br> LEARNING <br> CONFERENCE
+      </h2>
+      <h2 class="p-5 dropshadow">
+        August 9-12, 2024<br>
+        Amherst, MA
+      </h2>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+       
+    </div>
+    <!-- Content -->
+    <div class="content">
+      
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post</title>
+</head>
+<body>
+    <div>
+        <h1>Announcing the RLC 2024 Outstanding Paper Awards</h1>
+
+<p>We are honoured to announce the winners of the Outstanding Paper Awards at the First Reinforcement Learning Conference. As we outlined in another blog post, papers are awarded at RLC based on specific aspects of their contribution. We describe the process we used to select the awarded papers after. </p>
+
+<p>This year’s awards consist of seven papers, one per category. The awarded papers are listed below in alphabetical order by award name. Congratulations to all the authors! </p>
+
+<p><strong>Outstanding Paper Award on Applications of RL</strong>
+M. Vasco, T. Seno, K. Kawamoto, K. Subramanian, P. R. Wurman, and P. Stone: <em>A Super-human Vision-based Reinforcement Learning Agent for Autonomous Racing in Gran Turismo</em>. <a href="https://rlj.cs.umass.edu/2024/papers/Paper213.html">Link to paper</a>.</p>
+
+<p><em>This paper demonstrates for the first time that RL agents can achieve super-human performance in a high-fidelity racing simulator using only local features at execution time. Until now, this has only been possible by relying on global features or privileged information, which is unfeasible in practice. Hence, this work constitutes substantial progress in the application of RL for autonomous racing.</em></p>
+
+<p><strong>Outstanding Paper Award on Empirical Methods in RL Research</strong>
+K. Javed, A. Sharifnassab, and R. S. Sutton: <em>SwiftTD: A Fast and Robust Algorithm for Temporal Difference Learning</em>. <a href="https://rlj.cs.umass.edu/2024/papers/Paper111.html">Link to paper</a>.</p>
+
+<p><em>This paper proposes a new online temporal-difference algorithm for the prediction problem in RL with strong empirical performance when using linear function approximation. This paper stood out for its thoroughness, breadth, and depth of experiments that went above and beyond to provide empirical evidence of how the algorithm works. Examples include ablating all the relevant components, visualizing predictions and credit assigned to each pixel, running extensive hyperparameter searches for all baselines, and more.</em></p>
+
+<p><strong>Outstanding Paper Award on Empirical Resourcefulness in RL</strong>
+A. Raffin, O. Sigaud, J. Kober, A. Albu-Schaeffer, J. Silvério, and F. Stulp: <em>An Open-Loop Baseline for Reinforcement Learning Locomotion Tasks</em>. <a href="https://rlj.cs.umass.edu/2024/papers/Paper18.html">Link to paper</a>.</p>
+
+<p><em>This paper challenges common practices in RL by introducing a simple, low-cost method that is competitive with state-of-the-art deep RL algorithms on locomotion tasks. The proposed method generates periodic joint motions using simple oscillators. It performs strongly both in simulation and transfer to a real-world quadruped robot, further highlighting the practicality of this approach. This paper raises an interesting discussion about the trade-offs between cost, complexity, and generality when using deep RL, making it a valuable contribution to Empirical Resourcefulness in RL.</em></p>
+
+<p><strong>Outstanding Paper Award on Pioneering Vision in RL</strong>
+C. Cousins, K. Asadi, E. Lobo, and M. Littman. <em>On Welfare-Centric Fair Reinforcement Learning</em>. <a href="https://rlj.cs.umass.edu/2024/papers/Paper133.html">Link to paper</a>.</p>
+
+<p><em>This paper introduces a new framework for fair reinforcement learning, which allows for different societal ideals of fairness to be encoded through a welfare function rather than optimizing for a specific definition of fairness. The paper stood out for its clear exposition, motivation, and comprehensive theoretical results. This paper’s pioneering vision on fairness in RL opens the door to new research directions where society and other relevant parties agree on the notion of fairness rather than the algorithmic designer.</em></p>
+
+<p><strong>Outstanding Paper Award on Scientific Understanding in RL</strong>
+M. Suau, M. T. J. Spaan, and F. A. Oliehoek. Bad Habits: <em>Policy Confounding and Out-of-Trajectory Generalization in RL</em>. <a href="https://rlj.cs.umass.edu/2024/papers/Paper216.html">Link to paper</a>.</p>
+
+<p><em>This paper furthers our scientific understanding of why RL agents struggle to generalize to new scenarios at test time, paving the way to developing more robust RL algorithms. The paper characterizes the phenomenon of policy confounding through the lens of causality, whereby when following specific trajectories, RL agents can learn behaviours based on spurious correlations (between observations and rewards) because the policy is confounded with the data. The paper shows that on-policy algorithms can learn representations that are sufficient for the trajectory induced by the optimal policy but do not necessarily generalize well to new states, making agents non-robust to changes in the environment’s dynamics.</em></p>
+
+<p><strong>Outstanding Paper Award on Support Tools for RL Research</strong>
+D. Corsi, D. Camponogara, and A. Farinelli: <em>Aquatic Navigation: A Challenging Benchmark for Deep Reinforcement Learning</em>. <a href="https://rlj.cs.umass.edu/2024/papers/Paper131.html">Link to paper</a>.</p>
+
+<p><em>This paper develops a simulator for aquatic navigation using real-world data and proposes it as a new benchmark for RL algorithms. This environment poses a challenge to RL algorithms due to its unpredictable and non-stationary dynamics induced by complex fluid dynamics. Reinforcement learning frequently benefits from the often unpraised work of designing new simulators that capture different facets of the problems we care about, and this environment could very well be another one. Designing RL algorithms for aquatic navigation is a novel application that can have significant practical interest, making this work a valuable contribution to Support Tools for RL Research.</em></p>
+
+<p><strong>Outstanding Paper Award on the Theory of RL</strong>
+W. Xu, S. Dong, and B. Van Roy. <em>Posterior Sampling for Continuing Environments</em>. <a href="https://rlj.cs.umass.edu/2024/papers/Paper277.html">Link to paper</a>.</p>
+
+<p><em>This paper develops a new exploration method for the understudied continuing RL problem, showing how one can extend the posterior sampling algorithm originally designed for the episodic setting to the continuing setting. This is achieved by showing how one can reinterpret existing methods to resample a new policy at every time step instead of doing so at the beginning of each episode, an approach which is also effective in high-dimensional state spaces. The resampling probability can be used by the agent to dynamically adjust its planning horizon, thus better handling infinite-horizon problems. This paper stood out through its theoretical rigour in adapting algorithms from the episodic to the continuing setting, being one of the first papers to do so, potentially serving as a catalyst for more research on this topic.</em></p>
+
+<h2>Our Process</h2>
+
+<p>We selected these papers very carefully after following the process we designed. We decided to award papers for specific aspects of their contribution because we wanted to disentangle awards from aspects such as perceived novelty, impact, high scores, or the topic of the paper. This means that we were okay with an awarded paper having flaws in aspects that were not considered for that specific award; we were much more focused on identifying papers that did one specific thing really well.</p>
+
+<p>Before describing the process we followed, notice we ended up adding a new category from what we had initially announced. As we reviewed the potential papers to be awarded, we realized that we were conflating papers with good empirical design and papers that supported empirical research. Because of that, we split the general “Outstanding Paper Award on Empirical Reinforcement Learning Research” into “Outstanding Paper Award on Empirical Methods in RL Research” and “Outstanding Paper Award on Support Tools for RL Research”.</p>
+
+<p>With that out of the way, let us describe our process. First, we considered papers with conference organizers (at any level) as authors ineligible for the award, even when those papers were explicitly nominated for an award. We paid close attention to all papers explicitly nominated for an outstanding paper award. Still, we considered all other accepted papers for the award, regardless of the recommendation the area chair gave (Borderline accept, Weak accept, Accept). We chose to do so to give all papers a chance of being recognized with an award and increase robustness by considering alternative opinions (outside the review process). In addition, reviewers may not nominate papers they consider borderline, while our goal is to recognize papers that excel in a particular aspect rather than being flawless across the board. This was also needed to select papers for the two subcategories on “Support Tools for RL Research” and “Empirical Methods in RL Research” since reviewers were only provided with a single category on “Empirical RL Research” meant to encompass both of these. </p>
+
+<p>We selected the awarded papers in a three-stage process where the two of us did the work independently. At every stage, we would independently come up with a list of nominations, and we would then meet to discuss and decide which papers would go to the next stage. In the first stage, we read the abstracts of all the accepted papers and the meta-reviews, and we selected approximately 50 of those papers (out of a total of 113 accepted papers) for a more careful analysis. In the second stage, we additionally read each paper's reviews and looked at key aspects of the paper itself, coming up with a shortlist of 2-3 papers per category. We read each of these remaining 20 papers, specifically considering the category they were being considered for. As a purely hypothetical example, we would be comfortable awarding a paper on the Theory of RL that has very strong theoretical results but has flaws in its empirical evaluation. We wouldn’t award a paper on Empirical Methods in RL with a weak empirical design. Fortunately, at the end of this long process, we had come up, independently, with the exact same paper to be awarded in each category!</p>
+
+<p>Five of the seven awarded papers received an “Accept” recommendation, and two received a “Borderline Accept” from the area chair. Only three had received a nomination from the reviewers.</p>
+
+<p>Our approach allowed us to award a much more diverse set of papers, and we genuinely hope that it will help the community recognize a wider range of papers as valuable contributions. This process allowed us to award fantastic papers that would have a much harder time being recognized in more traditional review processes. Papers with small and large-scale experiments, with and without theoretical results, and with extremely simple and very complex ideas were all awarded here, and we believe this diversity can only strengthen our community.</p>
+
+<p>One more time, congratulations to all the authors!</p>
+
+<p>Below, you can find the updated list of award categories:</p>
+
+<p><em>*Outstanding Paper Award on Empirical Methods in Reinforcement Learning Research *</em>
+<em>This award recognizes papers that make significant contributions to the empirical methods of reinforcement learning research. Examples include addressing fundamental practical challenges in reinforcement learning or introducing new empirical practices or methodologies. These papers should show a high standard of practical relevance and experimental rigour.</em></p>
+
+<p><strong>Outstanding Paper Award on Support Tools for Reinforcement Learning Research</strong>
+<em>This award recognizes papers that make significant contributions to support tools for reinforcement learning research. Examples include introducing new environments, datasets, benchmarks, evaluation metrics, visualization techniques, or frameworks and tools that will further enable empirical research in reinforcement learning. These papers should show a high standard of practical relevance, accessibility, ease of use and reproducibility.</em></p>
+
+<p><strong>Outstanding Paper Award on Applications of Reinforcement Learning</strong>
+<em>This award aims to acknowledge papers that demonstrate substantial progress in the application of reinforcement learning to complex, real-world problems. This award seeks to highlight groundbreaking work formulating real-world problems using the reinforcement learning framework, introducing a new application domain or challenge to reinforcement learning, or developing reinforcement learning methods that make significant progress on practical scenarios.  The papers should display a notable level of practical utility and uphold a high standard of scientific rigour.</em></p>
+
+<p><strong>Outstanding Paper Award on Empirical Resourcefulness in Reinforcement Learning</strong>
+<em>This award honours papers that demonstrate resourcefulness in empirical research. These are papers that ingeniously overcome the high computational cost of empirical research in reinforcement learning, promoting more frugal empirical research. Examples include showcasing original, cost-effective methodologies and resource-efficient experimental designs. The papers should embody high standards of creativity and practicality without sacrificing experimental rigour.</em></p>
+
+<p><strong>Outstanding Paper Award on Pioneering Vision in Reinforcement Learning</strong>
+*This award highlights papers that stand out with their forward-thinking vision and blue-sky ideas in reinforcement learning. The papers awarded in this category will present groundbreaking, visionary ideas, theories, or techniques in reinforcement learning, potentially reshaping current perspectives or paving new avenues for research and applications. The papers must demonstrate originality, creativity, and the potential to inspire transformative advancements in reinforcement learning. *</p>
+
+<p><strong>Outstanding Paper Award on Scientific Understanding in Reinforcement Learning</strong>
+<em>This award celebrates papers that significantly advance scientific understanding in the domain of reinforcement learning. It encourages the development of a well-founded, clear understanding of the behaviour of existing algorithms or the nuances of different problem formulations or different environments. Awarded papers will fill gaps in our understanding of the field; they will bring clarity to unexplored aspects of existing algorithms, they will provide evidence to dispute common assumptions, or they will better justify common practices in the field. They should also demonstrate excellence in scientific rigour and clarity of exposition with very well-defined claims.</em></p>
+
+<p><strong>Outstanding Paper Award on the Theory of Reinforcement Learning</strong>
+<em>This award acknowledges papers that provide exceptional theoretical contributions to the field of reinforcement learning. Examples include theoretical unifications, new theoretical frameworks or formalisms, mathematical models, results, and theoretical insights into existing RL practices. The papers must exhibit a high level of technical proficiency and innovation.</em></p>
+
+<p>RLC 2024 Award Chairs
+Marlos C. Machado and Roberta Raileanu</p>
+
+    </div>
+</body>
+</html>
+
+    </div>
+  </div>
+  
+  
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "UA-");
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer bg-light p-4">
+    <div class="container">
+      <p class="float-right"><a href="#">Back to Top</a></p>
+      <p class="text-center">© 2024 Reinforcement Learning Conference Organization Committee</p>
+    </div>
+  </footer>
+
+  <!-- Code for hash tags -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (window.location.hash !== "") {
+        $(`a[href="${window.location.hash}"]`).tab("show");
+      }
+
+      $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+        const hash = $(e.target).attr("href");
+        if (hash.substr(0, 1) === "#") {
+          const position = $(window).scrollTop();
+          window.location.replace(`#${hash.substr(1)}`);
+          $(window).scrollTop(position);
+        }
+      });
+    });
+  </script>
+  <!--    <script src="static/js/modules/lazyLoad.js"></script>-->
+  
+</body>
+
+</html>
