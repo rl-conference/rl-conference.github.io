@@ -965,6 +965,10 @@ video {
   text-align: right;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .font-bai {
   font-family: Bai Jamjuree, sans-serif;
 }
@@ -1108,6 +1112,14 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
   .lg\:aspect-auto {
     aspect-ratio: auto;
   }
