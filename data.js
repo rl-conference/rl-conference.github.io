@@ -23,6 +23,15 @@ class AdvisoryCommittee {
     }
 }
 
+/// Advisory committee ///
+class KeynoteSpeaker {
+    constructor(name, affiliation, image) {
+        this.name = name;
+        this.affiliation = affiliation;
+        this.image = image;
+    }
+}
+
 listOfAdvisoryCommittee = [new AdvisoryCommittee("Peter Stone", "The University of Texas at Austin / SonyAI", "data/advisoryCom/ps.jpg"),
     new AdvisoryCommittee("Satinder Singh", "University of Michigan / DeepMind", "data/advisoryCom/ss.jpg"),
     new AdvisoryCommittee("Emma Brunskill", "Stanford University", "data/advisoryCom/eb.jpg"),
@@ -38,7 +47,12 @@ listOfAdvisoryCommittee = [new AdvisoryCommittee("Peter Stone", "The University 
     new AdvisoryCommittee("Andrew Barto", "University of Massachusetts Amherst", "data/advisoryCom/ab.jpg"),
     new AdvisoryCommittee("Benjamin Van Roy", "Stanford University / DeepMind", "data/advisoryCom/bvr.jpg")]
 
-
+listOfKeynoteSpeakers = [new KeynoteSpeaker("Leslie Kaelbling", "Massachusetts Institute of Technology", "data/keynoteSpeakers/lk.jpg"),
+    new KeynoteSpeaker("Peter Dayan", "Max Planck Institute for Biological Cybernetics", "data/keynoteSpeakers/pd.webp"),
+    new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies", "data/keynoteSpeakers/rs.webp"),
+    new KeynoteSpeaker("Dale Schuurmans", "University of Alberta / Google DeepMind", "data/keynoteSpeakers/ds.webp"),
+    new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta", "data/keynoteSpeakers/jp.webp"),
+    new KeynoteSpeaker("Michael Littman", "Brown University", "data/keynoteSpeakers/ml.webp")]
 
 
 ///// Menu Items /////

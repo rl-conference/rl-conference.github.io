@@ -131,7 +131,12 @@
                     </table>
                 </div>
             </div>
-            <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">University of Alberta</h1>
+            <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">Keynote Speakers</h1>
+            <div id ="keynoteSpeakers" class=" grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-6  gap-4 mx-auto m-1 p-1">
+        
+            </div>
+
+            <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">University of Alberta</h1>
             <div id="picturesEdmonton"
                  class=" grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4 mx-auto m-1 p-1">
                 <img alt="Edmonton" class="rounded-md object-cover w-full"
@@ -177,24 +182,23 @@
 <script src="menu.js"></script>
 <script>
 
-    // add advisory committee members
-    // for (var i = 0; i < listOfAdvisoryCommittee.length; i++) {
-    //     var div = document.createElement('div');
-    //     div.className = "bg-rlgrey/70   rounded-md   ";
-    //     var img = document.createElement('img');
-    //     img.src = listOfAdvisoryCommittee[i].image;
-    //     img.className = "rounded-md object-cover w-full";
-    //     div.appendChild(img);
-    //     var h1 = document.createElement('h1');
-    //     h1.className = "text-base  text-blue text-center font-rubik p-1 m-1";
-    //     h1.appendChild(document.createTextNode(listOfAdvisoryCommittee[i].name));
-    //     div.appendChild(h1);
-    //     var p = document.createElement('p');
-    //     p.className = "text-sm  font-roboto text-center text-pretty m-1 p-1";
-    //     p.appendChild(document.createTextNode(listOfAdvisoryCommittee[i].affiliation));
-    //     div.appendChild(p);
-    //     document.getElementById('advisoryCom').appendChild(div);
-    // }
+// listOfKeynoteSpeakers = [new KeynoteSpeaker("Leslie Kaelbling", "Massachusetts Institute of Technology", "data/keynoteSpeakers/lk.jpg"),
+//     new KeynoteSpeaker("Peter Dayan", "Max Planck Institute for Biological Cybernetics", "data/keynoteSpeakers/dp.webp"),
+//     new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies", "data/keynoteSpeakers/rs.webp"),
+//     new KeynoteSpeaker("Dale Schuurmans", "University of Alberta / Google DeepMind", "data/keynoteSpeakers/rh.webp"),
+//     new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta", "data/keynoteSpeakers/eb.webp"),
+//     new KeynoteSpeaker("Michael Littman", "Brown University", "data/keynoteSpeakers/ml.webp")]
+
+// Add keynote speakers
+for (let i = 0; i < listOfKeynoteSpeakers.length; i++) {
+    let keynoteSpeaker = listOfKeynoteSpeakers[i];
+    let keynoteSpeakerDiv = document.createElement("div");
+    keynoteSpeakerDiv.className = "rounded-md shadow-md m-1";
+    keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full' src='" + keynoteSpeaker.image + "'><div class='p-1 m-1 text-center font-rubik text-base text-blue'>" + keynoteSpeaker.name + "</div><div class='p-1 m-1 text-center font-roboto text-base text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
+    document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
+}
+
+
 
 </script>
 <div class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"></div>
