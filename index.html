@@ -193,7 +193,7 @@
 for (let i = 0; i < listOfKeynoteSpeakers.length; i++) {
     let keynoteSpeaker = listOfKeynoteSpeakers[i];
     let keynoteSpeakerDiv = document.createElement("div");
-    keynoteSpeakerDiv.className = "rounded-md shadow-md m-1";
+    keynoteSpeakerDiv.className = "rounded-md  m-1";
     keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full' src='" + keynoteSpeaker.image + "'><div class='p-1 m-1 text-center font-rubik text-base text-blue'>" + keynoteSpeaker.name + "</div><div class='p-1 m-1 text-center font-roboto text-base text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
     document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
 }
