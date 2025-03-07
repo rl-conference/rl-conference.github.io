@@ -49,9 +49,9 @@ listOfAdvisoryCommittee = [new AdvisoryCommittee("Peter Stone", "The University 
 
 listOfKeynoteSpeakers = [new KeynoteSpeaker("Leslie Kaelbling", "Massachusetts Institute of Technology", "data/keynoteSpeakers/lk.jpg"),
     new KeynoteSpeaker("Peter Dayan", "Max Planck Institute for Biological Cybernetics", "data/keynoteSpeakers/pd.webp"),
-    new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies", "data/keynoteSpeakers/rs.webp"),
+    new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies / Amii", "data/keynoteSpeakers/rs.webp"),
     new KeynoteSpeaker("Dale Schuurmans", "University of Alberta / Google DeepMind", "data/keynoteSpeakers/ds.webp"),
-    new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta", "data/keynoteSpeakers/jp.webp"),
+    new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta / Mila", "data/keynoteSpeakers/jp.webp"),
     new KeynoteSpeaker("Michael Littman", "Brown University", "data/keynoteSpeakers/ml.webp")]
 
 
