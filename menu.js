@@ -51,6 +51,10 @@ showMenu = function () {
 }
 
 // Add footer
+twitter = "https://x.com/RL_Conference"
+bluesky = "https://bsky.app/profile/rl-conference.bsky.social"
 doc = document.getElementById("footerText")
-doc.innerHTML = footerText
+doc.innerHTML = footerText + 
+    ' | <a href="' + twitter + '" class="text-rldarkblue-900 hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">X (Twitter)</a>' + 
+    ' | <a href="' + bluesky + '" class="text-rldarkblue-900 hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">Bluesky</a>'
 
