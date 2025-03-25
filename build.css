@@ -899,9 +899,9 @@ video {
   background-color: rgb(27 58 158 / var(--tw-bg-opacity, 1));
 }
 
-.bg-rldarkblue-700 {
+.bg-midblue {
   --tw-bg-opacity: 1;
-  background-color: rgb(19 93 145 / var(--tw-bg-opacity, 1));
+  background-color: rgb(37 110 212 / var(--tw-bg-opacity, 1));
 }
 
 .bg-rldarkblue-900 {
@@ -1165,9 +1165,9 @@ video {
   color: rgb(21 65 97 / var(--tw-text-opacity, 1));
 }
 
-.hover\:text-rllightblue-300:hover {
+.hover\:text-rllightblue-100:hover {
   --tw-text-opacity: 1;
-  color: rgb(150 195 216 / var(--tw-text-opacity, 1));
+  color: rgb(232 240 246 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:block {
