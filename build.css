@@ -918,6 +918,11 @@ video {
   background-color: rgb(37 110 212 / var(--tw-bg-opacity, 1));
 }
 
+.bg-rldarkblue-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 248 254 / var(--tw-bg-opacity, 1));
+}
+
 .bg-rldarkblue-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(21 65 97 / var(--tw-bg-opacity, 1));
@@ -942,11 +947,6 @@ video {
 .bg-rllightblue-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(244 248 251 / var(--tw-bg-opacity, 1));
-}
-
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .object-cover {
@@ -1167,12 +1167,6 @@ video {
 
 .transition-colors {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-shadow {
-  transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
