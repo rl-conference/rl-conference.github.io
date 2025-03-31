@@ -923,6 +923,10 @@ video {
   background-color: rgb(241 248 254 / var(--tw-bg-opacity, 1));
 }
 
+.bg-rldarkblue-50\/50 {
+  background-color: rgb(241 248 254 / 0.5);
+}
+
 .bg-rldarkblue-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(21 65 97 / var(--tw-bg-opacity, 1));
@@ -1239,10 +1243,6 @@ video {
 @media (min-width: 768px) {
   .md\:aspect-\[7\/3\] {
     aspect-ratio: 7/3;
-  }
-
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:grid-cols-3 {

@@ -84,28 +84,52 @@
 
                 <h1 class="text-4xl  text-blue text-center font-rubik p-2 m-2 mb-10 ">Book Accommodation for RLC 2025</h1>
                 
-                <div class="grid md:grid-cols-2 gap-6 p-4">
+                <div class="grid md:grid-cols-3 gap-6 p-4">
                     <!-- Campus Tower Card -->
-                    <div class="rounded-lg  p-6">
-                        <h2 class="text-2xl font-rubik text-rldarkblue-900 mb-4">Campus Tower</h2>
-                        <div class="font-roboto text-gray-700 space-y-3">
-                            <p class="font-bold">• The recommended option</p>
-                            <p>• Within walking distance of the conference center</p>
+                    <div class="rounded-lg bg-rldarkblue-50/50    p-6 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl font-rubik text-rldarkblue-900 mb-4 text-center">Campus Tower</h2>
+                            <div class="font-roboto text-gray-700 space-y-3">
+                                <p class="">• The recommended option</p>
+                                <p>• At walking distance from the conference center</p> 
+                                <p>• Negotiated rate for RLC attendees: $164/night</p>
+                            </div>
                         </div>
-                            <button onclick="window.location.href='https://reservations.campustower.com/112042?groupID=4713002#/guestsandrooms'" class="mt-6 bg-rldarkblue-900 text-white font-rubik py-2 px-6 rounded-md hover:bg-rldarkblue-700 transition-colors w-full">
-                            Book Campus Tower
+                        <button onclick="window.location.href='https://reservations.campustower.com/112042?groupID=4713002#/guestsandrooms'" class="mt-6 bg-rldarkblue-900 text-white font-rubik py-2 px-6 rounded-md hover:bg-rldarkblue-700 transition-colors w-full">
+                            Book at Negotiated Rate
                         </button>
                     </div>
 
                     <!-- HotelMap Card -->
-                    <div class="rounded-lg p-6">
-                        <h2 class="text-2xl font-rubik text-rldarkblue-900 mb-4">HotelMap</h2>
-                        <div class="font-roboto text-gray-700 space-y-3">
-                            <p>• Multiple hotel options around the conference center</p>
-                            <p>• Various price points</p>
+                    <div class="rounded-lg bg-rldarkblue-50/50    p-6 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl font-rubik text-rldarkblue-900 mb-4 text-center">HotelMap</h2>
+                            <div class="font-roboto text-gray-700 space-y-3">
+                                <p>• Multiple hotel options around the conference center</p>
+                                <p>• Various price points</p>
+                                <p>• Many options with-in walking distance</p>
+                                <p>• Many options accessible by a direct LRT line</p>
+                            </div>
                         </div>
                         <button onclick="window.location.href='hotelmap.html'" class="mt-6 bg-rldarkblue-900 text-white font-rubik py-2 px-6 rounded-md hover:bg-rldarkblue-700 transition-colors w-full">
                             View HotelMap Options
+                        </button>
+                    </div>
+
+                    <!-- Lister Residence Card -->
+                    <div class="rounded-lg bg-rldarkblue-50/50    p-6 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl font-rubik text-rldarkblue-900 mb-4 text-center">Lister Residence</h2>
+                            <div class="font-roboto text-gray-700 space-y-3">
+                                <p>• Dormitory-style accommodations</p>
+                                <p>• Shared bathroom facilities</p>
+                                <p>• Linen and towel service included</p>
+                                <p>• Single room: $77/night</p>
+                                <p>• Double room: $88/night</p>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='https://www.ualberta.ca/en/conference-services/accommodation/summer-accommodation.html'" class="mt-6 bg-rldarkblue-900 text-white font-rubik py-2 px-6 rounded-md hover:bg-rldarkblue-700 transition-colors w-full">
+                            Book Lister Residence
                         </button>
                     </div>
                 </div>
