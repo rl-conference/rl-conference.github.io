@@ -82,7 +82,7 @@ listOfMenuItems = [
 
     // new MenuItemWithSubmenu("Year", [ new MenuItem("2024", "2024/index.html"), new MenuItem("2025", "index.html")] ),
     new MenuItemWithSubmenu("Submit", [new MenuItem("Call&nbspfor&nbspPapers", "callforpapers.html"), new MenuItem("Call&nbspfor&nbspWorkshops", "callforworkshops.html"), new MenuItem("Submission&nbspInstructions", "submissionInstructions.html") , new MenuItem("Review&nbspInstructions", "https://docs.google.com/document/d/1ZGDiRiAjfkTZCS36e9h4qwITYBDfLAxBltR4Kd0IXAE/edit?usp=sharing"), new MenuItem("Journal&nbspto&nbspConference", "https://docs.google.com/forms/d/e/1FAIpQLScpQ4WRsQa9MEki8B7lZbh2GGAnycPqjtS8-CIHmWgg49RwIg/viewform")] ),
-    new MenuItem("Register", "register.html"),
+    new MenuItemWithSubmenu("Attend", [new MenuItem("Registration", "register.html"),  new MenuItem("Accommodation", "hotels.html")] ),
     new MenuItemWithSubmenu("Participate", [new MenuItem("Review&nbsp(Self&nbspNomination)", "participate.html"),  new MenuItem("Sponsor", "sponsors.html")] ),
     new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"),  new MenuItem("Advisors", "advisors.html"),  new MenuItem("Reviewers", "reviewers.html")] ),
     new MenuItemWithSubmenu("Year", [new MenuItem("2024", "/2024/index.html"),  new MenuItem("2025", "index.html")] ),
