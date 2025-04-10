@@ -109,15 +109,13 @@ for (let i = 0; i < list_of_accepted_workshops.length; i++) {
     workshopElement.classList.add("bg-rllightblue-50", "border-rldarkblue-900", "rounded-lg");
     workshopElement.innerHTML = `
         <div class="p-4 bg-rllightblue-50 rounded-md">
-            <div class="grid grid-cols-1">
-                <h2 class="text-2xl font-rubik text-blue">
-                    ${workshop.link === '#' ? 
-                        workshop.name : 
-                        `<a href="${workshop.link}" class="hover:text-rldarkblue-500">${workshop.name}</a>`
-                    }
+                <h2 class="text-2xl font-rubik text-rldarkblue-900">${workshop.name}
                 </h2>
-            </div>
-            <p class="text-gray-600 mb-2">${workshop.description}</p>
+                 ${workshop.link === '#' ? 
+                        `<p class="text-gray-600">Coming soon</p>` : 
+                        `<a href="${workshop.link}" class="text-blue hover:text-rldarkblue-500">Website</a>`
+                    }
+            <p class=" mb-2"><span class="font-bold">Abstract:</span> ${workshop.description}</p>
         </div>
     `;
     document.getElementById("acceptedWorkshops").appendChild(workshopElement);
