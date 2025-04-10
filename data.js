@@ -137,10 +137,11 @@ listOfOrganizers = [new Organizer("Adam White", "General Chair", "data/organizer
 ]
 
 class Workshop {
-    constructor(name, link, description) {
+    constructor(name, link, description, contacts) {
         this.name = name;
         this.link = link;
         this.description = description;
+        this.contacts = contacts;
     }
 }
 
