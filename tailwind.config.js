@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["index.html", "guidelines.html", "organizers.html", "reviewProcess.html", "callforpapers.html", "recordings.html", "submissionInstructions.html", "contact.html", "advisors.html", "reviewers.html", "sponsors.html", "reviewinstructions.html", "participate.html", "register.html", "hotels.html", "hotelmap.html", "registration_confirmation.html", "code_of_conduct.html"],
+  content: ["index.html", "guidelines.html", "organizers.html", "reviewProcess.html", "callforpapers.html", "recordings.html", "submissionInstructions.html", "contact.html", "advisors.html", "reviewers.html", "sponsors.html", "reviewinstructions.html", "participate.html", "register.html", "hotels.html", "hotelmap.html", "registration_confirmation.html", "code_of_conduct.html", "explore_edmonton.html", "accepted_workshops.html"],
   theme: {
     colors: {
       'rlyellow': {
@@ -61,7 +61,7 @@ module.exports = {
     },
     safelist: [
       "backdrop-blur-sm", "font-rubik" ,"text-xl" ,"ml-4" ,"mr-4" ,"text-rldarkblue-900" ,"hover:text-rldarkblue-500" ,"hover:cursor-pointer", "flex" ,"flex-row-reverse",
-        "right-20", "bg-white", "m-6", "p-6"
+        "right-20", "bg-white", "m-6", "p-6" , "bg-rllightblue-50"
 
     ]
   },

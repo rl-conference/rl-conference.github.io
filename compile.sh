@@ -1,1 +1,1 @@
-npx tailwindcss  --output build.css
+./tailwindcss  --output build.css

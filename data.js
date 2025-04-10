@@ -76,6 +76,7 @@ class MenuItemWithSubmenu {
 
 listOfMenuItems = [
     new MenuItem("Home", "index.html"),
+    new MenuItemWithSubmenu("Program", [ new MenuItem("Accepted&nbspWorkshops", "accepted_workshops.html")]),
     // new MenuItem("Submit", "#"),
     // new MenuItem("Attend", "#"),
     // new MenuItem("Organizers", "#"),
@@ -134,6 +135,15 @@ listOfOrganizers = [new Organizer("Adam White", "General Chair", "data/organizer
     new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
     new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png")
 ]
+
+class Workshop {
+    constructor(name, link, description) {
+        this.name = name;
+        this.link = link;
+        this.description = description;
+    }
+}
+
 //
 // listOfGeneralChair = [new Organizer("Adam White", "General Chair", "data/organizers/aw.jpg")]
 //
