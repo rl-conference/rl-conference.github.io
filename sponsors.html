@@ -71,23 +71,28 @@
 
 
                 <div class="my-auto">
-                    <h1 class="text-4xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">RLC 2025 Sponsors</h1>
+                    <h1 class="text-4xl  text-blue text-center font-rubik p-2 m-2 mt-20 mb-10 ">RLC 2025 Sponsors</h1>
+                        
 
-                    
 
-                    <div class="text-2xl text-center font-roboto p-2 m-2">Are you interested in sponsoring RLC 2025?
-                        <div class="text-2xl text-center font-roboto p-2 m-2 mt-4">Email us at <a
-                                class="text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
-                                href='mailto:sponsorship@rl-conference.cc'>sponsorship@rl-conference.cc</a></div>
+                    <div id="sponsors" class="grid m-2 p-2  grid-cols-3 gap-4 lg:gap-10">
 
                     </div>
-                    <div class="text-2xl text-center font-roboto p-2 m-2 mt-4">
-                        Download the sponsorship prospectus
+
+                    <h1 class="text-4xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Sponsor RLC 2025</h1>
+
+                    <div class="text-center font-roboto p-2 m-2">Are you interested in sponsoring RLC 2025?  Download the sponsorship prospectus
                         <a href="data/RLC2025SponsorshipProspectus.pdf"
                             class="text-rldarkblue-700 hover:text-rldarkblue-500 hover:cursor-pointer">
-                           here
-                        </a>
+                           here</a>, and 
+                        email us at <a
+                                class="text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                                href='mailto:sponsorship@rl-conference.cc'>sponsorship@rl-conference.cc</a> for more information.
+            
+                                   
+                        
                     </div>
+                   
                 </div>
             </div>
 
@@ -108,8 +113,83 @@
 </body>
 <!--Javascript code for generating the HTML-->
 <script src="menu.js"></script>
+
+<script>
+
+class Sponsor {
+    constructor(name, link, image, level, description) {
+        this.name = name;
+        this.link = link;
+        this.image = image;
+        this.level = level;
+        this.description = description;
+    }
+}
+
+listOfSponsors = [
+  
+    new Sponsor(
+        "D. E. Shaw Group",
+        "https://www.deshaw.com",
+        "data/sponsors/deshaw.svg",
+        "Diamond",
+        "A global investment and technology development firm"
+    ),
+    new Sponsor(
+        "Sony AI",
+        "https://ai.sony",
+        "data/sponsors/sony.svg",
+        "Gold",
+        "Sony AI, a division of Sony Research, was founded as a subsidiary of Sony Group on April 1, 2020, with the mission to 'unleash human imagination and creativity with AI.' Sony AI aims to combine cutting edge research and development of artificial intelligence with Sony Group's imaging and sensing technology, robotics technology, and entertainment assets such as movies, music, and games to accelerate Sony’s transformation into an AI powered company and to create new business opportunities. To achieve this, Sony AI has launched several flagship projects to date aimed at the evolution and application of AI technology in the areas of Gaming and interaction, Imaging & Sensing, AI for Creators, and AI Ethics. For more information visit https://ai.sony.com"
+    ),
+    new Sponsor(
+        "Apple",
+        "https://machinelearning.apple.com",
+        "data/sponsors/apple.svg",
+        "Silver",
+        "Apple is where individual imaginations gather together, committing to the values that lead to great work. Here, you’ll do more than join something — you’ll add something."
+    )
+]
+
+for (var i = 0; i < listOfSponsors.length; i++) {
+    var div = document.createElement('div');
+    div.className = "border-2 border-rllightblue-50 rounded-lg m-1 p-1 flex flex-col items-center";
+    
+    var h0 = document.createElement('h1');
+    h0.className = "text-4xl text-blue text-center font-rubik p-1 m-1 pb-0";
+    h0.appendChild(document.createTextNode(listOfSponsors[i].level));
+    div.appendChild(h0);
+
+    var img = document.createElement('img');
+    img.src = listOfSponsors[i].image;
+    img.className = "rounded-md aspect-square p-16 w-full";
+    div.appendChild(img);
+
+    
+    
+    var h1 = document.createElement('h1');
+    h1.className = "text-2xl text-blue text-center font-rubik p-1 m-1 pb-0";
+    h1.appendChild(document.createTextNode(listOfSponsors[i].name));
+    div.appendChild(h1);
+    
+    var p = document.createElement('p');
+    p.className = " font-robot text-pretty mt-0 p-0 m-1 mb-2 h-32 overflow-y-auto";
+    p.appendChild(document.createTextNode(listOfSponsors[i].description));
+    div.appendChild(p);
+    
+    var a = document.createElement('a');
+    a.href = listOfSponsors[i].link;
+    a.className = "text-blue text-center hover:text-rldarkblue-500";
+    a.appendChild(document.createTextNode("Visit Website"));
+    div.appendChild(a);
+    
+    document.getElementById('sponsors').appendChild(div);
+}
+    
+</script>
 <div
-    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer">
+    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer
+    rounded-md object-cover aspect-square w-full text-xl text-blue text-center font-rubik p-1 m-1 pb-0 text-blue hover:text-rldarkblue-500 text-xl font-roboto text-center text-pretty mt-0 p-0 m-1 mb-8 text-xl text-2xl text-3xl text-4xl text-5xl h-32 w-full m-4 p-4 p-16 border-2 border-rldarkblue-900 ">
 </div>
 
 </html>
