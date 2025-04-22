@@ -787,6 +787,10 @@ video {
   height: 8rem;
 }
 
+.h-48 {
+  height: 12rem;
+}
+
 .h-dvh {
   height: 100dvh;
 }
