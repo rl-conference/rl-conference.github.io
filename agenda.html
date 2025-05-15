@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RLC 2025 - Week of August 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="build.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="shortcut icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <meta name="apple-mobile-web-app-title" content="RLC"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+</head>
+
+<body class="bg-rlgrey font-rubik text-rldarkblue-900 p-6">
+
+  <!-- Include Menu -->
+  <script src="jquery.js"></script>
+  <script src="data.js"></script>
+
+  <div class="container mx-auto">
+    <div class="flex flex-col min-h-screen justify-between">
+      <div>
+        <!-- MENU BAR -->
+        <div class="m-2 grid grid-cols-3 items-center rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+          <div class="p-2 w-full rounded-md">
+            <div class="hidden lg:block max-w-60">
+              <img alt="Company logo" src="data/logos/rlc-logo.svg" />
+            </div>
+            <div class="block pt-1 lg:hidden max-w-60">
+              <img alt="Company logo" src="data/logos/rlc-logo.svg" />
+            </div>
+          </div>
+          <div></div>
+          <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md"></div>
+          <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md">
+            <div class="relative flex flex-row-reverse">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                   stroke="currentColor"
+                   class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                   onclick="showMenu()">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+              </svg>
+              <div id="collapsedMenuItems"
+                   class="absolute top-10 z-10 hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border border-black">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE TITLE -->
+        <h1 class="text-4xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule: August 5–9</h1>
+
+        <!-- SCHEDULE -->
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          <!-- Repeat Day Blocks Here (unchanged) -->
+          <!-- Tuesday -->
+          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-3 text-blue">Tuesday, Aug 5</h2>
+            <p class="mb-2"><strong>9:00 AM - 5:00 PM:</strong> Workshops (10 parallel sessions)</p>
+            <p><strong>5:00 PM:</strong> Light Reception</p>
+          </div>
+
+          <!-- Wednesday -->
+          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-3 text-blue">Wednesday, Aug 6</h2>
+            <p class="mb-2"><strong>8:45 AM:</strong> Opening Comments</p>
+            <p class="mb-2"><strong>9:00 AM:</strong> Keynote</p>
+            <p class="mb-2"><strong>10:00 AM:</strong> 15-minute Break</p>
+            <p class="mb-2"><strong>10:15 AM:</strong> Orals (6 parallel sessions)</p>
+            <p class="mb-2"><strong>11:15 AM:</strong> 30-minute Break</p>
+            <p class="mb-2"><strong>11:45 AM:</strong> Orals (6 parallel sessions)</p>
+            <p class="mb-2"><strong>12:30 PM:</strong> Lunch</p>
+            <p class="mb-2"><strong>2:00 PM:</strong> Keynote</p>
+            <p class="mb-2"><strong>3:00 PM - 6:00 PM:</strong> Poster Session</p>
+            <p><strong>6:00 PM:</strong> Banquet (Edmonton Convention Center)</p>
+          </div>
+
+          <!-- Thursday -->
+          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-3 text-blue">Thursday, Aug 7</h2>
+            <p class="mb-2"><strong>9:00 AM:</strong> Keynote</p>
+            <p class="mb-2"><strong>10:00 AM:</strong> 15-minute Break</p>
+            <p class="mb-2"><strong>10:15 AM:</strong> Orals (6 parallel sessions)</p>
+            <p class="mb-2"><strong>11:15 AM:</strong> 30-minute Break</p>
+            <p class="mb-2"><strong>11:45 AM:</strong> Orals (6 parallel sessions)</p>
+            <p class="mb-2"><strong>12:30 PM:</strong> Lunch</p>
+            <p class="mb-2"><strong>2:00 PM:</strong> Keynote</p>
+            <p class="mb-2"><strong>3:00 PM - 6:00 PM:</strong> Poster Session</p>
+            <p><strong>Evening:</strong> Dinner on your own</p>
+          </div>
+
+          <!-- Friday -->
+          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-3 text-blue">Friday, Aug 8</h2>
+            <p class="mb-2"><strong>9:00 AM:</strong> Keynote</p>
+            <p class="mb-2"><strong>10:00 AM:</strong> 15-minute Break</p>
+            <p class="mb-2"><strong>10:15 AM:</strong> Orals (6 parallel sessions)</p>
+            <p class="mb-2"><strong>11:15 AM:</strong> 30-minute Break</p>
+            <p class="mb-2"><strong>11:45 AM:</strong> Orals (6 parallel sessions)</p>
+            <p class="mb-2"><strong>12:30 PM:</strong> Lunch</p>
+            <p class="mb-2"><strong>2:00 PM:</strong> Keynote: Rich Sutton</p>
+            <p class="mb-2"><strong>3:00 PM - 6:00 PM:</strong> Poster Session</p>
+            <p><strong>Evening:</strong> Dinner on your own</p>
+          </div>
+          <!-- ... (Wednesday–Saturday blocks unchanged) -->
+          <!-- Final block -->
+          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-3 text-blue">Saturday, Aug 9</h2>
+            <p class="mb-2"><strong>9:00 AM:</strong> Breakfast & Meet-ups</p>
+            <p class="mb-2"><strong>10:00 AM:</strong> Town Hall</p>
+            <p><strong>11:00 AM - 1:00 PM:</strong> Socials, Meet-ups, Excursions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load menu functionality -->
+  <script src="menu.js"></script>
+</body>
+</html>

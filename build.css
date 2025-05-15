@@ -682,6 +682,10 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -906,6 +910,10 @@ video {
   border-top-right-radius: 0.375rem;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-0 {
   border-width: 0px;
 }
@@ -951,6 +959,11 @@ video {
 .bg-rldarkblue-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(21 65 97 / var(--tw-bg-opacity, 1));
+}
+
+.bg-rlgrey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-rlgrey\/100 {
@@ -1136,6 +1149,10 @@ video {
   font-weight: 700;
 }
 
+.font-semibold {
+  font-weight: 600;
+}
+
 .text-blue {
   --tw-text-opacity: 1;
   color: rgb(27 58 158 / var(--tw-text-opacity, 1));
@@ -1161,18 +1178,15 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.text-rllightblue-100 {
-  --tw-text-opacity: 1;
-  color: rgb(232 240 246 / var(--tw-text-opacity, 1));
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.underline {
-  text-decoration-line: underline;
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-md {
@@ -1224,14 +1238,14 @@ video {
   color: rgb(36 148 211 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-rldarkblue-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(22 118 179 / var(--tw-text-opacity, 1));
+}
+
 .hover\:text-rldarkblue-900:hover {
   --tw-text-opacity: 1;
   color: rgb(21 65 97 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-rllightblue-100:hover {
-  --tw-text-opacity: 1;
-  color: rgb(232 240 246 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:block {
@@ -1283,11 +1297,6 @@ video {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -1321,6 +1330,10 @@ video {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-6 {
