@@ -5,6 +5,7 @@
 <!-- Changes below this can cause problems -->
 
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <title id="mainPageTitleforSEO">RLC 2025</title>
@@ -12,22 +13,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
     <link href="build.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-    <meta name="apple-mobile-web-app-title" content="RLC"/>
-    <link rel="manifest" href="/site.webmanifest"/>
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RLC" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta id="seodescription" name="description" content="">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <!--<div id="backgroundImage" class="fixed -z-20 h-screen w-full">-->
@@ -40,185 +43,197 @@
 <!--        background-position: center;-->
 <!--    }-->
 <!--</style>-->
+
 <body>
 
 
-<div class="container  mx-auto ">
-    <div class="flex flex-col min-h-screen justify-between">
-        <div>
-            <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
-                <div class="p-2 w-full rounded-md">
-                    <div class="hidden lg:block max-w-60">
-                        <img alt="Company logo" src="data/logos/rlc-logo.svg"/>
+    <div class="container  mx-auto ">
+        <div class="flex flex-col min-h-screen justify-between">
+            <div>
+                <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                    <div class="p-2 w-full rounded-md">
+                        <div class="hidden lg:block max-w-60">
+                            <img alt="Company logo" src="data/logos/rlc-logo.svg" />
+                        </div>
+                        <div class="block pt-1 lg:hidden max-w-60">
+                            <img alt="Company logo" src="data/logos/rlc-logo.svg" />
+                        </div>
                     </div>
-                    <div class="block pt-1 lg:hidden max-w-60">
-                        <img alt="Company logo" src="data/logos/rlc-logo.svg"/>
+                    <div></div>
+                    <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+
                     </div>
-                </div>
-                <div></div>
-                <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+                    <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
+                        <div class="relative flex flex-row-reverse">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                                onclick="showMenu()">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                            </svg>
+                            <div id="collapsedMenuItems"
+                                class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
 
-                </div>
-                <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
-                    <div class="relative flex flex-row-reverse">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                             stroke="currentColor"
-                             class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
-                             onclick="showMenu()">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>
-                        </svg>
-                        <div id="collapsedMenuItems"
-                             class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
-
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-          
-            
-            <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
-                <div class=" ">
-                    <img alt="RLC logo" class="rounded-md w-full object-cover object-left aspect-[5/3] md:aspect-[7/3] lg:aspect-auto"
-                         src="data/images/university_alberta.jpg"/>
-                </div>
-            </div>
-            
-            <div class="  m-1 p-1  rounded-md    border-0 border-rldarkblue-900">
-                <p class="text-base md:text-xl   font-roboto text-center text-pretty m-2 p-2">
-                    The second Reinforcement Learning Conference (RLC) will take place from August 5th to 9th,
-                    2025, at the University of Alberta, Edmonton.</p>
-            </div>
-            <div class="grid lg:grid-cols-6 grid-cols-1 m-1 p-1">
-                <div class="  m-2 p-2  rounded-md lg:col-span-3">
-                    <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2">About RLC</h1>
-                    <p class=" text-base  font-roboto text-left text-pretty m-2 p-2">
-                        RLC provides a venue where reinforcement learning researchers can interact and share their
-                        research in a more focused setting than typical large machine learning venues.
-                        All work presented at RLC is published in the associated <a
-                            class="text-blue hover:text-rldarkblue-500"
-                            href="https://rlj.cs.umass.edu/">Reinforcement Learning Journal (RLJ)</a>.
-                        The RLJ is an independent, peer-reviewed journal that serves as a primary source of scholarly
-                        articles. The RLC enhances the reach and impact of the research published within the journal by
-                        allowing authors to present and elaborate on their findings that are published in RLJ.
-                    </p>
+                <!-- Registration Banner -->
+                <div class="bg-midblue  text-white pl-8 pr-8 p-4 m-1 mb-4 rounded-md shadow-md">
+                    <div class="container mx-auto text-center">
+                      
+                        <p class="font-roboto text-xl md:text-base mt-2 text-rllightblue-100">
+                            An author from each paper is required to register and attend the conference. If there are exceptional circumstances that prohibit you from attending, then please email comms@rl-conference.cc.
+                    </div>
                 </div>
 
 
-                <div class="  m-2 p-2 lg:col-span-2">
-                    <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">Important Dates</h1>
-                    <!--                    Make table-->
-                    <table class="table-auto w-full m-2 p-2">
-
-                        <tbody>
-                        <tr>
-                            <td class="text-left p-1 m-2">Abstract submission deadline</td>
-                            <td class="text-left p-1 m-2">February 21, 2025</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left p-1 m-2">Paper submission deadline</td>
-                            <td class="text-left p-1 m-2">February 28, 2025</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left p-1 m-2">Author notification</td>
-                            <td class="text-left p-1 m-2">May 9, 2025</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left p-1 m-2">Early bird registration deadline</td>
-                            <td class="text-left p-1 m-2"><s>May 15</s> May 30, 2025</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left p-1 m-2">Conference</td>
-                            <td class="text-left p-1 m-2">August 5-9, 2025</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
+                    <div class=" ">
+                        <img alt="RLC logo"
+                            class="rounded-md w-full object-cover object-left aspect-[5/3] md:aspect-[7/3] lg:aspect-auto"
+                            src="data/images/university_alberta.jpg" />
+                    </div>
                 </div>
-                <div class="  m-2 p-2">
-                    <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">Quick Links</h1>
-                    <table class="table-auto w-full m-2 p-2">
 
-                        <tbody>
-                        <tr>
-                            <td class="text-center p-1 m-2"><a class="text-blue hover:text-rldarkblue-500" href="register.html">Register</a></td>
 
-                        </tr>
-                        <tr>
-                            <td class="text-center p-1 m-2"><a  class="text-blue hover:text-rldarkblue-500" href="agenda.html">Conference Schedule</a></td>
-
-                        </tr>
-                        <tr>
-                            <td class="text-center p-1 m-2"><a class="text-blue hover:text-rldarkblue-500" href="accepted_workshops.html">Workshops</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="  m-1 p-1  rounded-md    border-0 border-rldarkblue-900">
+                    <p class="text-base md:text-xl   font-roboto text-center text-pretty m-2 p-2">
+                        The second Reinforcement Learning Conference (RLC) will take place from August 5th to 9th,
+                        2025, at the University of Alberta, Edmonton.</p>
                 </div>
+                <div class="grid lg:grid-cols-6 grid-cols-1 m-1 p-1">
+                    <div class="  m-2 p-2  rounded-md lg:col-span-3">
+                        <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2">About RLC</h1>
+                        <p class=" text-base  font-roboto text-left text-pretty m-2 p-2">
+                            RLC provides a venue where reinforcement learning researchers can interact and share their
+                            research in a more focused setting than typical large machine learning venues.
+                            All work presented at RLC is published in the associated <a
+                                class="text-blue hover:text-rldarkblue-500"
+                                href="https://rlj.cs.umass.edu/">Reinforcement Learning Journal (RLJ)</a>.
+                            The RLJ is an independent, peer-reviewed journal that serves as a primary source of
+                            scholarly
+                            articles. The RLC enhances the reach and impact of the research published within the journal
+                            by
+                            allowing authors to present and elaborate on their findings that are published in RLJ.
+                        </p>
+                    </div>
+
+
+                    <div class="  m-2 p-2 lg:col-span-2">
+                        <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">Important Dates</h1>
+                        <!--                    Make table-->
+                        <table class="table-auto w-full m-2 p-2">
+
+                            <tbody>
+                                <tr>
+                                    <td class="text-left p-1 m-2">Abstract submission deadline</td>
+                                    <td class="text-left p-1 m-2">February 21, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left p-1 m-2">Paper submission deadline</td>
+                                    <td class="text-left p-1 m-2">February 28, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left p-1 m-2">Author notification</td>
+                                    <td class="text-left p-1 m-2">May 9, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left p-1 m-2">Early bird registration deadline</td>
+                                    <td class="text-left p-1 m-2"><s>May 15</s> May 30, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left p-1 m-2">Conference</td>
+                                    <td class="text-left p-1 m-2">August 5-9, 2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="  m-2 p-2">
+                        <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">Quick Links</h1>
+                        <table class="table-auto w-full m-2 p-2">
+
+                            <tbody>
+                                <tr>
+                                    <td class="text-center p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                            href="register.html">Register</a></td>
+
+                                </tr>
+                                <tr>
+                                    <td class="text-center p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                            href="agenda.html">Conference Schedule</a></td>
+
+                                </tr>
+                                <tr>
+                                    <td class="text-center p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                            href="accepted_workshops.html">Workshops</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">Keynote Speakers</h1>
+                <div id="keynoteSpeakers"
+                    class=" grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-6  gap-4 mx-auto m-1 p-1">
+
+                </div>
+
+                <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">University of Alberta</h1>
+                <div id="picturesEdmonton"
+                    class=" grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4 mx-auto m-1 p-1">
+                    <img alt="Edmonton" class="rounded-md object-cover w-full" src="data/images/campus7.webp" />
+                    <img alt="Edmonton" class="rounded-md object-cover w-full" src="data/images/campus2.webp" />
+                    <img alt="Edmonton" class="rounded-md object-cover w-full" src="data/images/campusWinter.webp" />
+                    <img alt="Edmonton" class="rounded-md object-cover w-full" src="data/images/campus5.webp" />
+                    <img alt="Edmonton" class="rounded-md object-cover w-full" src="data/images/campus6.webp" />
+                    <img alt="Edmonton" class="rounded-md object-cover w-full" src="data/images/campus8.webp" />
+
+
+                </div>
+
             </div>
-            <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">Keynote Speakers</h1>
-            <div id ="keynoteSpeakers" class=" grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-6  gap-4 mx-auto m-1 p-1">
-        
-            </div>
-
-            <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">University of Alberta</h1>
-            <div id="picturesEdmonton"
-                 class=" grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4 mx-auto m-1 p-1">
-                <img alt="Edmonton" class="rounded-md object-cover w-full"
-                     src="data/images/campus7.webp"/>
-                <img alt="Edmonton" class="rounded-md object-cover w-full"
-                     src="data/images/campus2.webp"/>
-                <img alt="Edmonton" class="rounded-md object-cover w-full"
-                     src="data/images/campusWinter.webp"/>
-                <img alt="Edmonton" class="rounded-md object-cover w-full"
-                     src="data/images/campus5.webp"/>
-                <img alt="Edmonton" class="rounded-md object-cover w-full"
-                     src="data/images/campus6.webp"/>
-                <img alt="Edmonton" class="rounded-md object-cover w-full"
-                     src="data/images/campus8.webp"/>
 
 
-            </div>
-
-        </div>
-
-
-        <div class="grid grid-cols-2 items-center  ">
-            <div id="footerText"
-                 class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
-            </div>
-            <div class="p-2 m-1 w-full">
-                <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
-                    <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg"/></div>
+            <div class="grid grid-cols-2 items-center  ">
+                <div id="footerText"
+                    class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+                </div>
+                <div class="p-2 m-1 w-full">
+                    <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+                        <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 </body>
 <!--Javascript code for generating the HTML-->
 <script src="menu.js"></script>
 <script>
 
-// listOfKeynoteSpeakers = [new KeynoteSpeaker("Leslie Kaelbling", "Massachusetts Institute of Technology", "data/keynoteSpeakers/lk.jpg"),
-//     new KeynoteSpeaker("Peter Dayan", "Max Planck Institute for Biological Cybernetics", "data/keynoteSpeakers/dp.webp"),
-//     new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies", "data/keynoteSpeakers/rs.webp"),
-//     new KeynoteSpeaker("Dale Schuurmans", "University of Alberta / Google DeepMind", "data/keynoteSpeakers/rh.webp"),
-//     new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta", "data/keynoteSpeakers/eb.webp"),
-//     new KeynoteSpeaker("Michael Littman", "Brown University", "data/keynoteSpeakers/ml.webp")]
+    // listOfKeynoteSpeakers = [new KeynoteSpeaker("Leslie Kaelbling", "Massachusetts Institute of Technology", "data/keynoteSpeakers/lk.jpg"),
+    //     new KeynoteSpeaker("Peter Dayan", "Max Planck Institute for Biological Cybernetics", "data/keynoteSpeakers/dp.webp"),
+    //     new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies", "data/keynoteSpeakers/rs.webp"),
+    //     new KeynoteSpeaker("Dale Schuurmans", "University of Alberta / Google DeepMind", "data/keynoteSpeakers/rh.webp"),
+    //     new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta", "data/keynoteSpeakers/eb.webp"),
+    //     new KeynoteSpeaker("Michael Littman", "Brown University", "data/keynoteSpeakers/ml.webp")]
 
-// Add keynote speakers
-for (let i = 0; i < listOfKeynoteSpeakers.length; i++) {
-    let keynoteSpeaker = listOfKeynoteSpeakers[i];
-    let keynoteSpeakerDiv = document.createElement("div");
-    keynoteSpeakerDiv.className = "rounded-md  m-1";
-    keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full' src='" + keynoteSpeaker.image + "'><div class='p-1 m-1 text-center font-rubik text-base text-blue'>" + keynoteSpeaker.name + "</div><div class='p-1 m-1 text-center font-roboto text-base text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
-    document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
-}
+    // Add keynote speakers
+    for (let i = 0; i < listOfKeynoteSpeakers.length; i++) {
+        let keynoteSpeaker = listOfKeynoteSpeakers[i];
+        let keynoteSpeakerDiv = document.createElement("div");
+        keynoteSpeakerDiv.className = "rounded-md  m-1";
+        keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full' src='" + keynoteSpeaker.image + "'><div class='p-1 m-1 text-center font-rubik text-base text-blue'>" + keynoteSpeaker.name + "</div><div class='p-1 m-1 text-center font-roboto text-base text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
+        document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
+    }
 
 
 
 </script>
-<div class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer hover:text-rldarkblue-600 bg-midblue"></div>
-</html>
+<div
+    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer hover:text-rldarkblue-600 bg-midblue">
+</div>
 
+</html>
