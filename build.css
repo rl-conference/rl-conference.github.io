@@ -807,6 +807,10 @@ video {
   min-height: 100vh;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-40 {
   width: 10rem;
 }
@@ -1294,8 +1298,12 @@ video {
     aspect-ratio: 7/3;
   }
 
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
+  .md\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .md\:grid-cols-4 {
@@ -1394,8 +1402,8 @@ video {
     display: block;
   }
 
-  .xl\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .xl\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .xl\:grid-cols-4 {
