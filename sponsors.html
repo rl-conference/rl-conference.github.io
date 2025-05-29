@@ -75,7 +75,7 @@
                         
 
 
-                    <div id="sponsors" class="grid m-2 p-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4  lg:gap-10">
+                    <div id="sponsors" class="grid m-2 p-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4  lg:gap-10">
 
                     </div>
 
@@ -148,6 +148,13 @@ listOfSponsors = [
         "data/sponsors/apple.svg",
         "Silver",
         "Apple is where individual imaginations gather together, committing to the values that lead to great work. Here, you’ll do more than join something — you’ll add something."
+    ),
+    new Sponsor(
+        "General Catalyst",
+        "https://www.generalcatalyst.com/",
+        "data/sponsors/generalcatalyst.svg",
+        "Bronze",
+        "General Catalyst is a global investment and transformation company that partners with the world’s most ambitious entrepreneurs to drive resilience and applied AI. We support founders with a long-term view who challenge the status quo, partnering with them from seed to growth stage and beyond. With offices in San Francisco, New York City, Boston, Berlin, Bangalore, and London, we have supported the growth of 800+ businesses, including Airbnb, Anduril, Applied Intuition, Commure, Glean, Guild, Gusto, Helsing, Hubspot, Kayak, Livongo, Mistral, Ramp,  Samsara, Snap, Stripe, Sword, and Zepto."
     )
 ]
 
@@ -156,7 +163,7 @@ for (var i = 0; i < listOfSponsors.length; i++) {
     div.className = " rounded-lg m-1 p-1 flex flex-col items-center";
     
     var h0 = document.createElement('h1');
-    h0.className = "text-4xl text-blue text-center font-rubik p-1 m-1 pb-0";
+    h0.className = "md:text-4xl xl:text-6xl text-blue text-center font-rubik p-1 m-1 pb-0";
     h0.appendChild(document.createTextNode(listOfSponsors[i].level));
     div.appendChild(h0);
 
