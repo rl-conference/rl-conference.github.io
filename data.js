@@ -130,6 +130,7 @@ listOfOrganizers = [new Organizer("Adam White", "General Chair", "data/organizer
     new Organizer("Martha White", "Local Chair", "data/organizers/mw.webp"),
     new Organizer("Mike Bowling", "Local Chair", "data/organizers/mb.jpg"),
     new Organizer("Patrick Pilarski", "Local and Volunteers Chair", "data/organizers/pp.jpg"),
+    new Organizer("Alex Lewandowski", "Local Chair", "data/organizers/al.jpg"),
     new Organizer("Glen Berseth", "Sponsorship Chair", "data/organizers/gb.webp"),
     new Organizer("Audrey Durand", "Sponsorship Chair", "data/organizers/ad.jpg"),
     new Organizer("Josiah Hanna", "Workshop Chair", "data/organizers/jh.jpeg"),
