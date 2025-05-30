@@ -75,7 +75,7 @@
                         
 
 
-                    <div id="sponsors" class="grid m-2 p-2 grid-cols-1 md:grid-cols-1 xl:grid-cols-1 md:w-1/2 xl:w-1/3 w-3/4 mx-auto gap-4  lg:gap-10">
+                    <div id="sponsors" class="grid m-2 p-2 grid-cols-1 md:grid-cols-1 xl:grid-cols-1  mx-auto gap-4 lg:gap-10">
 
                     </div>
 
@@ -160,43 +160,50 @@ listOfSponsors = [
 
 for (var i = 0; i < listOfSponsors.length; i++) {
     var div = document.createElement('div');
-    div.className = " rounded-lg m-1 p-1 flex flex-col items-center";
-    
-    var h0 = document.createElement('h1');
-    h0.className = "text-4xl text-blue text-center font-rubik p-1 m-1 pb-0";
-    h0.appendChild(document.createTextNode(listOfSponsors[i].level));
-    div.appendChild(h0);
-
+    div.className = "grid rounded-lg  rounded-lg grid-cols-1 lg:grid-cols-2 rounded-lg m-1 p-1 flex flex-col items-center";
     var img = document.createElement('img');
     img.src = listOfSponsors[i].image;
-    img.className = "rounded-md aspect-square p-16 w-full";
+    img.className = "bg-white rounded-md aspect-square p-4 m-4 w-3/4 mx-auto";
     div.appendChild(img);
 
     
-    
+    var divTemp = document.createElement('div');
+    divTemp.className ="p-4 m-4"
     var h1 = document.createElement('h1');
-    h1.className = "text-2xl text-blue text-center font-rubik p-1 m-1 pb-0";
+    h1.className = "text-xl text-center font-rubik p-1 m-1 pb-0";
     h1.appendChild(document.createTextNode(listOfSponsors[i].name));
-    div.appendChild(h1);
+    divTemp.appendChild(h1);
     
     var p = document.createElement('p');
-    p.className = " font-roboto text-pretty mt-0 p-0 m-1 mb-2 h-48 overflow-y-auto";
+    p.className = " font-roboto text-pretty p-2 m-2";
     p.appendChild(document.createTextNode(listOfSponsors[i].description));
-    div.appendChild(p);
+    divTemp.appendChild(p);
     
+
+    var divTemp3 = document.createElement('div');
+    divTemp3.className = "text-center";
     var a = document.createElement('a');
     a.href = listOfSponsors[i].link;
-    a.className = "text-blue text-xl p-2 text-center hover:text-rldarkblue-500";
+    a.className = "text-blue text-xl p-2 m-2 text-center hover:text-rldarkblue-500";
     a.appendChild(document.createTextNode("Visit Website"));
-    div.appendChild(a);
+    divTemp3.appendChild(a);
+    divTemp.appendChild(divTemp3);
+    div.appendChild(divTemp);
     
-    document.getElementById('sponsors').appendChild(div);
+    var divTemp2 = document.createElement('div');
+    divTemp2.className = "border-2 m-4 p-4 border-rldarkblue-900 rounded-lg"
+    var h0 = document.createElement('h1');
+    h0.className = " text-4xl text-blue  text-center font-rubik p-1 m-1 pb-0";
+    h0.appendChild(document.createTextNode(listOfSponsors[i].level));
+    divTemp2.appendChild(h0);
+    divTemp2.appendChild(div);
+    document.getElementById('sponsors').appendChild(divTemp2);
 }
     
 </script>
 <div
     class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer
-    rounded-md object-cover aspect-square w-full text-xl text-blue text-center font-rubik p-1 m-1 pb-0 text-blue hover:text-rldarkblue-500 text-xl font-roboto text-center text-pretty mt-0 p-0 m-1 mb-8 text-xl text-2xl text-3xl text-4xl text-5xl h-32 w-full m-4 p-4 p-16 border-2 border-rldarkblue-900 border-rllightblue-200 border-midblue text-pretty h-48">
+    rounded-md object-cover aspect-square w-full text-xl text-blue text-center font-rubik p-1 m-1 pb-0 text-blue hover:text-rldarkblue-500 text-xl font-roboto text-center text-pretty mt-0 p-0 m-1 mb-8 text-xl text-2xl text-3xl text-4xl text-5xl h-32 w-full m-4 p-4 p-16 border-2 border-rldarkblue-900 border-rllightblue-200 border-midblue text-pretty h-48 w-full text-right bg-white">
 </div>
 
 </html>
