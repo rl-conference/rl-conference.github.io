@@ -75,7 +75,6 @@ class MenuItemWithSubmenu {
 
 
 listOfMenuItems = [
-    new MenuItem("Home", "index.html"),
     new MenuItemWithSubmenu("Program", [ new MenuItem("Accepted&nbspWorkshops", "accepted_workshops.html"),
     new MenuItem("Accepted&nbspPapers", "https://openreview.net/group?id=rl-conference.cc/RLC/2025/Conference#tab-accept"),
     new MenuItem("Schedule", "schedule.html")]),
