@@ -2,7 +2,7 @@
 module.exports = {
     content: ["index.html", "guidelines.html", "organizers.html", "reviewProcess.html", "callforpapers.html", "recordings.html", "submissionInstructions.html",
         "contact.html", "advisors.html", "reviewers.html", "sponsors.html", "reviewinstructions.html", "participate.html", "register.html", "hotels.html",
-        "hotelmap.html", "registration_confirmation.html", "code_of_conduct.html", "explore_edmonton.html", "accepted_workshops.html", "schedule.html"],
+        "hotelmap.html", "registration_confirmation.html", "code_of_conduct.html", "explore_edmonton.html", "accepted_workshops.html", "schedule.html", "local_info.html"],
     theme: {
         colors: {
             'rlyellow': {

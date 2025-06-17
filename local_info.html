@@ -1,0 +1,145 @@
+<!doctype html>
+<script src="jquery.js"></script>
+<script src="data.js"></script>
+
+<!-- Changes below this can cause problems -->
+
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="mainPageTitleforSEO">Book a Hotel for RLC 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link href="build.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RLC" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta id="seodescription" name="description" content="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="container  mx-auto ">
+        <div class="flex flex-col min-h-screen justify-between">
+            <div>
+                <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                    <div class="p-2 w-full rounded-md">
+                        <div class="hidden lg:block max-w-60">
+                            <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+                        </div>
+                        <div class="block pt-1 lg:hidden max-w-60">
+                            <a href="index.html"><img alt="Company logo"  src="data/logos/rlc-logo.svg" /></a>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+
+                    </div>
+                    <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
+                        <div class="relative flex flex-row-reverse">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                                onclick="showMenu()">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                            </svg>
+                            <div id="collapsedMenuItems"
+                                class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
+                </div>
+
+                <div class="m-2 p-2">
+
+                    <h2 class="text-2xl m-2 p-2 text-blue text-center font-rubik ">Main Information</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                      <p><strong>Airport transportation</strong>: The Route 747 bus runs from the airport to Century Park station, from which you can transfer and take the LRT to University station. There are also ride-sharing apps, such as Uber, which can take you to and from the airport and city.</p>
+                  
+                      <p><strong>Conference venue</strong>: RLC 2025 will be held at the University of Alberta. Note that registration will also provide a transit pass for local city transportation.</p>
+                  
+                      <p><strong>Banquet</strong>: A banquet dinner will be held on Wednesday August 7th (6pm) at Edmonton Convention Centre. From University station, take a north-bound train to Central station. From there, it is a ~5 minute walk west along Jasper Ave.</p>
+                    </div>
+                  
+                    <h2 class="text-2xl m-2 p-2 text-blue text-center font-rubik ">Venue Details</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                      <p><strong>Location and directions</strong>: The conference will be held in The Centennial Centre for Interdisciplinary Science (CCIS). See below for directions from University station to CCIS.</p>
+                  
+                      <p><strong>Poster printing</strong>: <a href="https://subprint.ca/" class="text-blue-600 underline">SUBPrint can provide poster printing service</a>, and it is located on the south-west corner of the main quad (see the map below). We suggest that you place an order for your printing ahead of time, due to increased demand.</p>
+                  
+                      <img src="data/map.png" alt="Walking directions from University station to the Centennial Centre for Interdisciplinary Science" class="p-4 md:w-1/2 mx-auto rounded shadow-md">
+                  
+                      <p><strong>City transportation</strong>: Public transportation, via Edmonton Transport Service (ETS), is available to the University of Alberta campus. University station is connected to the city by light-rail transit (LRT), as well as by bus. Common bus routes to and from the university include the 4 (going east-west) and the 8 (going north-south).</p>
+                  
+                      <p><strong>Wi-Fi access</strong>: There are two WiFi networks for use on the University of Alberta campus: Eduroam and UofA-Guest. Note that Eduroam requires university login credentials from your home institution.</p>
+                    </div>
+                  
+                    <h2 class="text-2xl m-2 p-2 text-blue text-center font-rubik ">Food Options</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                      <p><strong>Conference-provided</strong>: Lunch will be provided from Wednesday to Friday.</p>
+                  
+                      <p><strong>On campus</strong>: Student Union Building and HUB Mall both have fast-food options.</p>
+                  
+                      <p><strong>Near campus (&lt;20 min walk)</strong>: Farrow Garneau, Sugarbowl, Mukja Korean Street Food, Osmow's Shawarma, Nosh Cafe.</p>
+                  
+                      <p><strong>Further from campus (30+ min walk, ~10 min bus)</strong>: There are many restaurants along 82 ave, also known as Whyte ave.</p>
+                    </div>
+                  
+                    <h2 class="text-2xl m-2 p-2 text-blue text-center font-rubik ">Other Local Information</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                      <p><strong>Weather expectations</strong>: Expect sunny days, cool nights and a dry climate.</p>
+                  
+                      <p><strong>Explore Edmonton</strong>: <a href="https://exploreedmonton.com/" class="text-blue-600 underline">Local resource for festivals and events in the city</a></p>
+                  
+                      <p><strong>Edmonton Unlimited</strong>: <a href="https://edmontonunlimited.com/" class="text-blue-600 underline">Local tech ecosystem and innovation hub.</a></p>
+                  
+                      <p><strong>Attractions accessible by transit</strong>: Royal Alberta Museum, Art Gallery of Alberta, Muttart Conservatory</p>
+                  
+                      <p><strong>Attractions requiring car transport</strong>: Fort Edmonton Park, University of Alberta Botanic Garden, Elk Island National Park</p>
+                    </div>
+                  
+                  </div>
+                  
+                
+            </div>
+            <div class="grid grid-cols-2 items-center  ">
+                <div id="footerText"
+                    class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+                </div>
+                <div class="p-2 m-1 w-full">
+                    <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+                        <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="menu.js"></script>
+<div
+    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer">
+</div>
+
+</html>
