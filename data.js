@@ -78,7 +78,7 @@ listOfMenuItems = [
     new MenuItemWithSubmenu("Program", [ new MenuItem("Accepted&nbspWorkshops", "accepted_workshops.html"),
     new MenuItem("Accepted&nbspPapers", "https://openreview.net/group?id=rl-conference.cc/RLC/2025/Conference#tab-accept"),
     new MenuItem("Schedule", "schedule.html")]),
-    new MenuItemWithSubmenu("Submit", [new MenuItem("Call&nbspfor&nbspPapers", "callforpapers.html"), new MenuItem("Call&nbspfor&nbspWorkshops", "callforworkshops.html"), new MenuItem("Submission&nbspInstructions", "submissionInstructions.html") , new MenuItem("Review&nbspInstructions", "https://docs.google.com/document/d/1ZGDiRiAjfkTZCS36e9h4qwITYBDfLAxBltR4Kd0IXAE/edit?usp=sharing"), new MenuItem("Journal&nbspto&nbspConference", "https://docs.google.com/forms/d/e/1FAIpQLScpQ4WRsQa9MEki8B7lZbh2GGAnycPqjtS8-CIHmWgg49RwIg/viewform")] ),
+    new MenuItemWithSubmenu("Submit", [new MenuItem("Call&nbspfor&nbspSocials", "call_for_socials.html"), new MenuItem("Call&nbspfor&nbspPapers", "callforpapers.html"), new MenuItem("Call&nbspfor&nbspWorkshops", "callforworkshops.html"), new MenuItem("Submission&nbspInstructions", "submissionInstructions.html") , new MenuItem("Review&nbspInstructions", "https://docs.google.com/document/d/1ZGDiRiAjfkTZCS36e9h4qwITYBDfLAxBltR4Kd0IXAE/edit?usp=sharing"), new MenuItem("Journal&nbspto&nbspConference", "https://docs.google.com/forms/d/e/1FAIpQLScpQ4WRsQa9MEki8B7lZbh2GGAnycPqjtS8-CIHmWgg49RwIg/viewform")] ),
 
     new MenuItemWithSubmenu("Attend", [new MenuItem("Registration", "register.html"),  new MenuItem("Accommodation", "hotels.html"), new MenuItem("Code&nbspof&nbspConduct", "code_of_conduct.html"), new MenuItem("Information&nbspfor&nbspAttendees", "local_info.html")]),
     new MenuItem("Sponsors", "sponsors.html"),
