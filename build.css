@@ -1379,6 +1379,10 @@ video {
     gap: 2.5rem;
   }
 
+  .lg\:gap-20 {
+    gap: 5rem;
+  }
+
   .lg\:gap-4 {
     gap: 1rem;
   }

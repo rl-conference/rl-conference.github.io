@@ -116,54 +116,8 @@
 
 <script>
 
-class Sponsor {
-    constructor(name, link, image, level, description) {
-        this.name = name;
-        this.link = link;
-        this.image = image;
-        this.level = level;
-        this.description = description;
-    }
-}
 
-listOfSponsors = [
-  
-    new Sponsor(
-        "The D. E. Shaw Group",
-        "https://www.deshaw.com",
-        "data/sponsors/deshaw.svg",
-        "Diamond",
-        "The D. E. Shaw group is a global investment and technology development firm founded in 1988 with more than 2,500 people around the world. Technology is integral to virtually everything our firm does, which is why we seek exceptional software developers with a range of quantitative and programming abilities. Members of our technical staff collaborate on challenging problems that directly impact the firm’s continued success, utilizing their excellent analytical, mathematical, and software design skills as well as some of the most advanced computing resources in the world."
-    ),
-    new Sponsor(
-        "Sony AI",
-        "https://ai.sony",
-        "data/sponsors/sony.svg",
-        "Gold",
-        "Sony AI, a division of Sony Research, was founded as a subsidiary of Sony Group on April 1, 2020, with the mission to 'unleash human imagination and creativity with AI.' Sony AI aims to combine cutting edge research and development of artificial intelligence with Sony Group's imaging and sensing technology, robotics technology, and entertainment assets such as movies, music, and games to accelerate Sony’s transformation into an AI powered company and to create new business opportunities. To achieve this, Sony AI has launched several flagship projects to date aimed at the evolution and application of AI technology in the areas of Gaming and interaction, Imaging & Sensing, AI for Creators, and AI Ethics. For more information visit https://ai.sony.com"
-    ),
-    new Sponsor(
-        "Apple",
-        "https://machinelearning.apple.com",
-        "data/sponsors/apple.svg",
-        "Silver",
-        "Apple is where individual imaginations gather together, committing to the values that lead to great work. Here, you’ll do more than join something — you’ll add something."
-    ),
-    new Sponsor(
-        "Artificial Agency",
-        "http://artificial.agency",
-        "data/sponsors/artificialagency.svg",
-        "Silver",
-        "Artificial.Agency is building the next breakthrough in AI-driven gaming, a behavior engine which delivers general runtime decision-making out of the box. The behavior engine allows games to make engaging, runtime, context-specific decisions in complex situations. This technology not only enhances realism but also amplifies player engagement with a more interactive and responsive game environment. Moreover, it grants designers unprecedented tools to create innovative game mechanics, expanding the horizons of interactive storytelling and gameplay."
-    ),
-    new Sponsor(
-        "General Catalyst",
-        "https://www.generalcatalyst.com/",
-        "data/sponsors/generalcatalyst.svg",
-        "Bronze",
-        "General Catalyst is a global investment and transformation company that partners with the world’s most ambitious entrepreneurs to drive resilience and applied AI. We support founders with a long-term view who challenge the status quo, partnering with them from seed to growth stage and beyond. With offices in San Francisco, New York City, Boston, Berlin, Bangalore, and London, we have supported the growth of 800+ businesses, including Airbnb, Anduril, Applied Intuition, Commure, Glean, Guild, Gusto, Helsing, Hubspot, Kayak, Livongo, Mistral, Ramp,  Samsara, Snap, Stripe, Sword, and Zepto."
-    )
-]
+
 
 for (var i = 0; i < listOfSponsors.length; i++) {
     var div = document.createElement('div');

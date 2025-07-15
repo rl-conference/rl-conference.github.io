@@ -124,7 +124,7 @@
                     <div class="  m-2 p-2 lg:col-span-2">
                         <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">Important Dates</h1>
                         <!--                    Make table-->
-                        <table class="table-auto w-full m-2 p-2">
+                        <table class="table-auto w-full m-2 p-2 font-roboto">
 
                             <tbody>
                                 <tr>
@@ -156,26 +156,26 @@
 
                             <tbody>
                                 <tr>
-                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500 font-roboto"
                                             href="register.html">Register</a></td>
 
                                 </tr>
                                 <tr>
-                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500 font-roboto"
                                             href="schedule.html">Conference Schedule</a></td>
 
                                 </tr>
                                 <tr>
-                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500 font-roboto"
                                             href="accepted_workshops.html">Workshops</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500 font-roboto"
                                             href="https://openreview.net/group?id=rl-conference.cc/RLC/2025/Conference#tab-accept">Accepted Papers</a></td>
                                     
                                 </tr>
                                 <tr>
-                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500"
+                                    <td class="p-1 m-2"><a class="text-blue hover:text-rldarkblue-500 font-roboto"
                                         href="local_info.html">Information for Attendees/FAQs</a></td>
                                 </tr>
                             </tbody>
@@ -186,6 +186,16 @@
                 <div id="keynoteSpeakers"
                     class=" grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-6  gap-4 mx-auto m-1 p-1">
 
+                </div>
+
+                <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">Sponsors</h1>
+                <div id="sponsors"
+                    class=" grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  lg:gap-20 gap-4 mx-auto m-1 p-1">
+
+                </div>
+                <div class="text-center font-roboto p-2 m-2 mb-10">
+                    Read more about our sponsors 
+                    <a href="sponsors.html" class="text-blue hover:text-rldarkblue-500">here</a>.
                 </div>
 
                 <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">University of Alberta</h1>
@@ -222,14 +232,7 @@
 <script src="menu.js"></script>
 <script>
 
-    // listOfKeynoteSpeakers = [new KeynoteSpeaker("Leslie Kaelbling", "Massachusetts Institute of Technology", "data/keynoteSpeakers/lk.jpg"),
-    //     new KeynoteSpeaker("Peter Dayan", "Max Planck Institute for Biological Cybernetics", "data/keynoteSpeakers/dp.webp"),
-    //     new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies", "data/keynoteSpeakers/rs.webp"),
-    //     new KeynoteSpeaker("Dale Schuurmans", "University of Alberta / Google DeepMind", "data/keynoteSpeakers/rh.webp"),
-    //     new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta", "data/keynoteSpeakers/eb.webp"),
-    //     new KeynoteSpeaker("Michael Littman", "Brown University", "data/keynoteSpeakers/ml.webp")]
-
-    // Add keynote speakers
+   
     for (let i = 0; i < listOfKeynoteSpeakers.length; i++) {
         let keynoteSpeaker = listOfKeynoteSpeakers[i];
         let keynoteSpeakerDiv = document.createElement("div");
@@ -238,7 +241,14 @@
         document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
     }
 
-
+    // Add sponsors
+    for (let i = 0; i < listOfSponsors.length; i++) {
+        let sponsor = listOfSponsors[i];
+        let sponsorDiv = document.createElement("div");
+        sponsorDiv.className = "rounded-md m-1 mx-auto my-auto m-2 p-2";
+        sponsorDiv.innerHTML = "<a href='" + sponsor.link + "' target='_blank' rel='noopener'><img alt='" + sponsor.name + "' class='my-auto mx-auto rounded-t-md object-cover w-full' src='" + sponsor.image + "'></a>";
+        document.getElementById("sponsors").appendChild(sponsorDiv);
+    }
 
 </script>
 <div
