@@ -159,6 +159,13 @@ listOfSponsors = [
         "The D. E. Shaw group is a global investment and technology development firm founded in 1988 with more than 2,500 people around the world. Technology is integral to virtually everything our firm does, which is why we seek exceptional software developers with a range of quantitative and programming abilities. Members of our technical staff collaborate on challenging problems that directly impact the firm’s continued success, utilizing their excellent analytical, mathematical, and software design skills as well as some of the most advanced computing resources in the world."
     ),
     new Sponsor(
+        "Amii / Government of Alberta",
+        "#",
+        "data/sponsors/abamii.svg",
+        "Diamond",
+        ""
+    ),
+    new Sponsor(
         "Sony AI",
         "https://ai.sony",
         "data/sponsors/sony.svg",
@@ -178,6 +185,20 @@ listOfSponsors = [
         "data/sponsors/artificialagency.svg",
         "Silver",
         "Artificial.Agency is building the next breakthrough in AI-driven gaming, a behavior engine which delivers general runtime decision-making out of the box. The behavior engine allows games to make engaging, runtime, context-specific decisions in complex situations. This technology not only enhances realism but also amplifies player engagement with a more interactive and responsive game environment. Moreover, it grants designers unprecedented tools to create innovative game mechanics, expanding the horizons of interactive storytelling and gameplay."
+    ),
+    new Sponsor(
+        "Google DeepMind",
+        "https://deepmind.google",
+        "data/sponsors/deepmind.svg",
+        "Bronze",
+        ""
+    ),
+    new Sponsor(
+        "University of Alberta",
+        "https://ualberta.ca",
+        "data/sponsors/uoa.svg",
+        "Bronze",
+        ""
     ),
     new Sponsor(
         "General Catalyst",
