@@ -159,9 +159,16 @@ listOfSponsors = [
         "The D. E. Shaw group is a global investment and technology development firm founded in 1988 with more than 2,500 people around the world. Technology is integral to virtually everything our firm does, which is why we seek exceptional software developers with a range of quantitative and programming abilities. Members of our technical staff collaborate on challenging problems that directly impact the firm’s continued success, utilizing their excellent analytical, mathematical, and software design skills as well as some of the most advanced computing resources in the world."
     ),
     new Sponsor(
-        "Amii / Government of Alberta",
-        "#",
-        "data/sponsors/abamii.svg",
+        "Amii",
+        "http://amii.ca/",
+        "data/sponsors/amii.svg",
+        "Diamond",
+        "Amii is one of Canada’s three national AI institutes, advancing the country’s leadership in artificial intelligence as part of the Pan-Canadian AI Strategy. We work alongside Mila, the Vector Institute, and CIFAR to drive world-class research, develop top AI talent, and support the responsible use of AI across industries. Together, we’re positioning Canada as a global leader in AI innovation."
+    ),
+    new Sponsor(
+        "Government of Alberta",
+        "https://www.alberta.ca/technology-and-innovation",
+        "data/sponsors/goalberta.svg",
         "Diamond",
         ""
     ),
