@@ -7,16 +7,16 @@ from pathlib import Path
 # Configuration
 GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/10vIj9H787kYQLOmYnfSsFsqHMpBYKA-59kmwNhitP9I/export?format=csv&gid=584174710"
 
-print("Reading data from Google Sheet A15:P27...")
+print("Reading data from Google Sheet A15:Q27...")
 
 # Read the full sheet
 df = pd.read_csv(GOOGLE_SHEET_URL, header=None)
 
-# Extract only A15:P27 (rows 14-26, columns 0-15 in 0-based indexing)
-data_range = df.iloc[14:27, 0:16]  # A15:P27
+# Extract only A15:Q27 (rows 14-26, columns 0-16 in 0-based indexing)
+data_range = df.iloc[14:27, 0:17]  # A15:Q27
 
 print(f"Data shape: {data_range.shape}")
-print("\nRaw data from A15:P27:")
+print("\nRaw data from A15:Q27:")
 print(data_range.to_string())
 
 # Convert to list of lists for easier processing
@@ -26,7 +26,7 @@ raw_data = data_range.values.tolist()
 headers = [str(cell).strip() if pd.notna(cell) else f"Col_{i}" for i, cell in enumerate(raw_data[0])]
 print(f"\nHeaders: {headers}")
 
-# Process the remaining rows (A16:P27)
+# Process the remaining rows (A16:Q27)
 talks_by_date = defaultdict(list)
 
 for row_data in raw_data[1:]:  # Skip header row
@@ -61,6 +61,13 @@ for row_data in raw_data[1:]:  # Skip header row
             theme = value
             break
     
+    # Extract room information
+    room = ""
+    for header, value in row_dict.items():
+        if "room" in header.lower() and value:
+            room = value
+            break
+    
     # Extract talks from remaining columns
     talks = []
     for header, value in row_dict.items():
@@ -75,9 +82,10 @@ for row_data in raw_data[1:]:  # Skip header row
         talks_by_date[date].append({
             "track": track,
             "theme": theme,
+            "room": room,
             "talks": talks
         })
-        print(f"Added: Date={date}, Track={track}, Theme={theme}, Talks={len(talks)}")
+        print(f"Added: Date={date}, Track={track}, Theme={theme}, Room={room}, Talks={len(talks)}")
 
 print(f"\nFound data for {len(talks_by_date)} dates")
 
@@ -144,20 +152,6 @@ html_part = '''<!DOCTYPE html>
 
         <!-- PAGE TITLE -->
         <h1 class="text-4xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule: August 5–9</h1>
-        
-        <!-- EXPORT CONTROLS -->
-        <div class="mb-6 text-center">
-          <button id="exportCalendar" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-            Export Selected to Calendar
-          </button>
-          <button id="selectAll" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2">
-            Select All
-          </button>
-          <button id="deselectAll" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
-            Deselect All
-          </button>
-          <div id="selectedCount" class="mt-2 text-gray-600">0 events selected</div>
-        </div>
 
         <!-- SCHEDULE -->
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -167,18 +161,11 @@ html_part = '''<!DOCTYPE html>
               <div class="mb-2 p-1">8:30 AM - 5 PM</div>
               <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
             </div>
-                         <div class="grid grid-cols-12 items-center">
-               <div class="col-span-1">
-                 <input type="checkbox" class="calendar-event" 
-                        data-title="Workshops (8 parallel sessions)"
-                        data-start="2025-08-05T09:00:00"
-                        data-end="2025-08-05T17:00:00"
-                        data-location="Conference Center">
-               </div>
-               <div class="mb-2 p-1 col-span-3">9 AM - 5 PM</div>
-               <div class="mb-2 col-span-8 p-1"> <a href="./accepted_workshops.html"
-                   class="text-blue hover:text-rldarkblue-500" ">Workshops</a> (8 parallel sessions)</div>
-             </div> 
+            <div class="grid grid-cols-3">
+              <div class="mb-2 p-1">9 AM - 5 PM</div>
+              <div class="mb-2 col-span-2 p-1"> <a href="./accepted_workshops.html"
+                  class="text-blue hover:text-rldarkblue-500" ">Workshops</a> (8 parallel sessions)</div>
+            </div> 
                          <div class=" grid grid-cols-3">
                    <div class="mb-2 p-1">12:30 PM - 2 PM</div>
                    <div class="mb-2 col-span-2 p-1">Lunch</div>
@@ -232,7 +219,15 @@ html_part = '''<!DOCTYPE html>
               </div>
               <div class="grid grid-cols-3">
                 <div class="mb-2 p-1">6 PM</div>
-                <div class="mb-2 col-span-2 p-1">Banquet (Edmonton Convention Center)</div>
+                <div class="mb-2 col-span-2 p-1">
+                  Banquet (Edmonton Convention Center)
+                  <div class="ml-4 mt-2 text-sm text-gray-700">
+                    <ul class="list-disc pl-5">
+                      <li>Improv with RapidFire Theatre</li>
+                      <li>Puzzle Hunt by Michael Bowling and Michael Littman</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -339,7 +334,16 @@ html_part = '''<!DOCTYPE html>
           </div>
           <h1 class='text-4xl font-bai text-center text-blue mt-20 p-2 m-2'>Oral Talks</h1>
           <div id="oral_talks">
-          
+          <div class="grid grid-cols-2 items-center  ">
+                <div id="footerText"
+                    class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+                </div>
+                <div class="p-2 m-1 w-full">
+                    <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+                        <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
       </div>
@@ -362,7 +366,12 @@ for date in sorted(talks_by_date.keys()):
         oral_talks_parts.append("<div class='bg-rllightblue-50 shadow rounded-lg p-6'>")
         track_text = f"Track {session['track']}" if session['track'] else "Track"
         theme_text = f": {session['theme']}" if session['theme'] else ""
-        oral_talks_parts.append(f"<h3 class='text-xl font-semibold mb-3 text-blue m-2 p-2'>{track_text}{theme_text}</h3>")
+        oral_talks_parts.append(f"<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>{track_text}{theme_text}</h3>")
+        
+        # Add room information on a separate line with prominent styling
+        if session['room']:
+            oral_talks_parts.append(f"<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>📍 Room: {session['room']}</div>")
+        
         oral_talks_parts.append("<ol class='list-decimal p-2 m-2'>")
         for talk in session['talks']:
             oral_talks_parts.append(f"<li class='p-1'>{talk}</li>")
