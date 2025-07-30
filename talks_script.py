@@ -151,10 +151,18 @@ html_part = '''<!DOCTYPE html>
         </div>
 
         <!-- PAGE TITLE -->
-        <h1 class="text-4xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule: August 5–9</h1>
+        <h1 class="text-4xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule: August 4–9</h1>
 
         <!-- SCHEDULE -->
+        
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-3 text-blue">Monday, August 4</h2>
+            <div class="grid grid-cols-3">
+              <div class="mb-2 p-1">2 PM - 6 PM</div>
+              <div class="mb-2 col-span-2 p-1">Pre-registration badge pickup</div>
+            </div>
+          </div>
           <div class="bg-rllightblue-50 shadow rounded-lg p-6">
             <h2 class="text-xl font-semibold mb-3 text-blue">Tuesday, August 5</h2>
             <div class="grid grid-cols-3">
