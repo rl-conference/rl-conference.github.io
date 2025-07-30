@@ -115,7 +115,7 @@ listOfOrganizers = [new Organizer("Adam White", "General Chair", "data/organizer
     new Organizer("Andrew Patterson", "Program Chair", "data/organizers/ap.jpg"),
     new Organizer("Brad Knox", "Keynote and Scheduling Chair", "data/organizers/bk.png"),
     new Organizer("Tom Schaul", "Keynote and Scheduling Chair", "data/organizers/ts.jpg"),
-    new Organizer("Scott Jordan", "Keynote and Scheduling Chair", "data/organizers/sj.webp"),
+    new Organizer("Emma Jordan", "Keynote and Scheduling Chair", "data/organizers/ej.webp"),
     new Organizer("Roberta Raileanu", "Awards Chair", "data/organizers/rr.jpg"),
     new Organizer("Martha White", "Local Chair", "data/organizers/mw.webp"),
     new Organizer("Mike Bowling", "Local Chair", "data/organizers/mb.jpg"),
