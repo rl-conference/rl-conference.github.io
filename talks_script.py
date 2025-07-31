@@ -166,7 +166,7 @@ html_part = '''<!DOCTYPE html>
             <div class="grid grid-cols-4">
               <div class="mb-2 p-1">2 PM - 6 PM</div>
               <div class="mb-2 col-span-2 p-1">Pre-registration badge pickup</div>
-              <div><a class="underline text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/cVW46WhHfzj4srNK7" target="_blank">CCIS</a></div>
+              <div><a class="text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/cVW46WhHfzj4srNK7" target="_blank">CCIS</a></div>
             </div>
           </div>
           <div class="bg-rllightblue-50 shadow  rounded-lg p-1 sm:p-6">
@@ -334,7 +334,7 @@ html_part = '''<!DOCTYPE html>
                       </ul>
                     </div>
                   </div>
-                  <div> Edmonton Convention Center (Hall D) <a class="underline text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/F5pci1LgWb8msWYo7" target="_blank">Google Maps Link</a></div>
+                  <div> <a class="underline text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/F5pci1LgWb8msWYo7" target="_blank">Edmonton Convention Center (Hall D)</a> <br> (Not on campus)</div>
                 </div>
               </div>
 
@@ -575,7 +575,7 @@ for date in sorted(talks_by_date.keys()):
         
         # Add room information on a separate line with prominent styling
         if session['room']:
-            oral_talks_parts.append(f"<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>📍 Room: {session['room']}</div>")
+            oral_talks_parts.append(f"<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: {session['room']}</div>")
         
         oral_talks_parts.append("<ol class='list-decimal p-2 m-2'>")
         for talk in session['talks']:
