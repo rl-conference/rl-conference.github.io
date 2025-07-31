@@ -161,7 +161,7 @@ html_part = '''<!DOCTYPE html>
             <div class="grid grid-cols-4 font-semibold">
               <div class="mb-2 p-1">Time</div>
               <div class="mb-2 col-span-2 p-1">Event</div>
-              <div class="mb-2 p-1">Room</div>
+              <div class="mb-2 p-1">Location</div>
             </div>
             <div class="grid grid-cols-4">
               <div class="mb-2 p-1">2 PM - 6 PM</div>
@@ -174,13 +174,9 @@ html_part = '''<!DOCTYPE html>
             <div class="grid grid-cols-4 font-semibold">
               <div class="mb-2 p-1">Time</div>
               <div class="mb-2 col-span-2 p-1">Event</div>
-              <div class="mb-2 p-1">Room</div>
+              <div class="mb-2 p-1">Location</div>
             </div>
-            <div class="grid grid-cols-4">
-              <div class="mb-2 p-1">8:30 AM - 5 PM</div>
-              <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
-              <div></div>
-            </div>
+        
               <div class=" grid grid-cols-4">
               <div class="mb-2 p-1">12:30 PM - 2 PM</div>
               <div class="mb-2 col-span-2 p-1">Lunch</div>
@@ -189,51 +185,51 @@ html_part = '''<!DOCTYPE html>
             <div class="grid grid-cols-4">
               <div class="mb-2 p-1">9 AM - 5 PM</div>
               <div class="mb-2 col-span-2 p-1">Workshop on Programmatic Reinforcement Learning</div>
-              <div class="ml-2 text-gray-600 italic">BS M-137</div>
+              <div class="mb-2">BS M-137</div>
             </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
                   <div class="mb-2 col-span-2 p-1">Reinforcement Learning and Video Games</div>
-                  <div class="ml-2 text-gray-600 italic">BS M-145</div>
+                  <div class="mb-2">BS M-145</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
                   <div class="mb-2 col-span-2 p-1">Inductive Biases in Reinforcement Learning</div>
-                  <div class="ml-2 text-gray-600 italic">BS M-149</div>
+                  <div class="mb-2">BS M-149</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
                   <div class="mb-2 col-span-2 p-1">Coordination and Cooperation in Multi-Agent Reinforcement Learning
                   </div>
-                  <div class="ml-2 text-gray-600 italic">CCIS 1-140</div>
+                  <div class="mb-2">CCIS 1-140</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
                   <div class="mb-2 col-span-2 p-1">Practical Insights into RL for Real Systems</div>
-                  <div class="ml-2 text-gray-600 italic">CCIS 1-160</div>
+                  <div class="mb-2">CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
                   <div class="mb-2 col-span-2 p-1">The Causal Reinforcement Learning Workshop</div>
-                  <div class="ml-2 text-gray-600 italic">BS M-141</div>
+                  <div class="mb-2">BS M-141</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
                   <div class="mb-2 col-span-2 p-1">Workshop on RL Beyond Rewards: Ingredients for Developing Generalist
                     Agents</div>
-                  <div class="ml-2 text-gray-600 italic">CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
                   <div class="mb-2 col-span-2 p-1">Finding the Frame: A Workshop for Examining Conceptual Frameworks in
                     RL</div>
-                  <div class="ml-2 text-gray-600 italic">CCIS 1-440</div>
+                  <div class="mb-2">CCIS 1-440</div>
                 </div>
 
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">5 PM - 6:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Reviewer Recognition</div>
-                  <div></div>
+                  <div class="mb-2 col-span-2 p-1">Reviewer Recognition Event</div>
+                  <div class="mb-2">University (faculty) Club</div>
                 </div>
               </div>
 
@@ -243,13 +239,9 @@ html_part = '''<!DOCTYPE html>
                  <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Room</div>
+                  <div class="mb-2 p-1">Location</div>
                 </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">8:30 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
-                  <div></div>
-                </div>
+          
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">8:45 AM - 9 AM</div>
                   <div class="mb-2 col-span-2 p-1">Opening Comments</div>
@@ -264,22 +256,22 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms</div>
-                  <div>CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                   <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 2: RL from human feedback, Imitation Learning</div>
-                  <div>CCIS 1-440</div>
+                  <div class="mb-2">CCIS 1-440</div>
                 </div>
                   <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 3: Hierarchical RL, Planning algorithms</div>
-                  <div>  CCIS 1-140</div>
+                  <div class="mb-2">  CCIS 1-140</div>
                 </div>
                   <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
-                  <div>  CCIS 1-160</div>
+                  <div class="mb-2">  CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div></div>
@@ -289,22 +281,22 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms</div>
-                  <div>CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 2: RL from human feedback, Imitation Learning</div>
-                  <div>CCIS 1-440</div>
+                  <div class="mb-2">CCIS 1-440</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 3: Hierarchical RL, Planning algorithms</div>
-                  <div>  CCIS 1-140</div>
+                  <div class="mb-2">  CCIS 1-140</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
-                  <div>  CCIS 1-160</div>
+                  <div class="mb-2">  CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
@@ -343,13 +335,9 @@ html_part = '''<!DOCTYPE html>
                  <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Room</div>
+                  <div class="mb-2 p-1">Location</div>
                 </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">8:30 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
-                  <div></div>
-                </div>
+             
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 10 AM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Joelle Pineau</div>
@@ -358,22 +346,22 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 1: Deep RL</div>
-                  <div>CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 2: Social and economic aspects, Neuroscience and cognitive science</div>
-                  <div>CCIS 1-440</div>
+                  <div class="mb-2">CCIS 1-440</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 3: Exploration</div>
-                  <div>CCIS 1-140</div>
+                  <div class="mb-2">CCIS 1-140</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Theoretical RL, Bandit algorithms</div>
-                  <div>CCIS 1-160</div>
+                  <div class="mb-2">CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div></div>
@@ -383,34 +371,34 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 1: Deep RL</div>
-                  <div>CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 2: Social and economic aspects, Neuroscience and cognitive science</div>
-                  <div>CCIS 1-440</div>
+                  <div class="mb-2">CCIS 1-440</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 3: Exploration</div>
-                  <div>CCIS 1-140</div>
+                  <div class="mb-2">CCIS 1-140</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Theoretical RL, Bandit algorithms</div>
-                  <div>CCIS 1-160</div>
+                  <div class="mb-2">CCIS 1-160</div>
                 </div>
-               
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">12:45 PM - 1:45 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Sponsor Talk by Amii</div>
+                  <div class="mb-2">CCIS 1-140</div>
+                </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
                   <div class="mb-2 col-span-2 p-1">Lunch</div>
                   <div></div>
                 </div>
-                 <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">During lunch</div>
-                  <div class="mb-2 col-span-2 p-1">Sponsor Talk by Amii</div>
-                  <div>CCIS 1-140</div>
-                </div>
+                
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">2 PM - 3 PM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Michael Littman</div>
@@ -435,12 +423,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Room</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">8:30 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
-                  <div></div>
+                  <div class="mb-2 p-1">Location</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 10 AM</div>
@@ -450,22 +433,22 @@ html_part = '''<!DOCTYPE html>
                <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms, Deep RL</div>
-                  <div>CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 2: Applied RL</div>
-                  <div>CCIS 1-440</div>
+                  <div class="mb-2">CCIS 1-440</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 3: Multi-agent RL</div>
-                  <div>CCIS 1-140</div>
+                  <div class="mb-2">CCIS 1-140</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Foundations</div>
-                  <div>CCIS 1-160</div>
+                  <div class="mb-2">CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div></div>
@@ -475,22 +458,22 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms, Deep RL</div>
-                  <div>CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 2: Applied RL</div>
-                  <div>CCIS 1-440</div>
+                  <div class="mb-2">CCIS 1-440</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 3: Multi-agent RL</div>
-                  <div>CCIS 1-140</div>
+                  <div class="mb-2">CCIS 1-140</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Foundations</div>
-                  <div>CCIS 1-160</div>
+                  <div class="mb-2">CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
@@ -518,7 +501,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Room</div>
+                  <div class="mb-2 p-1">Location</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 10 AM</div>
@@ -528,7 +511,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10 AM - 11 AM</div>
                   <div class="mb-2 col-span-2 p-1">Town Hall</div>
-                  <div>CCIS 1-430</div>
+                  <div class="mb-2">CCIS 1-430</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11 AM - 1 PM</div>
