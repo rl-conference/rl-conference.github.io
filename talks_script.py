@@ -170,7 +170,7 @@ html_part = '''<!DOCTYPE html>
             </div>
           </div>
           <div class="bg-rllightblue-50 shadow  rounded-lg p-1 sm:p-6">
-            <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Tuesday, August 5</h2>
+            <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Tuesday, August 5 (Workshops)</h2>
             <div class="grid grid-cols-4 font-semibold">
               <div class="mb-2 p-1">Time</div>
               <div class="mb-2 col-span-2 p-1">Event</div>
