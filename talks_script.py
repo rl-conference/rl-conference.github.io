@@ -155,220 +155,277 @@ html_part = '''<!DOCTYPE html>
 
         <!-- SCHEDULE -->
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
-            <h2 class="text-xl font-semibold mb-3 text-blue">Monday, August 4</h2>
-            <div class="grid grid-cols-3">
+        <div class="grid grid-cols-1 p-1 sm:m-2 sm:p-2 lg:m-10 lg:p-10 gap-6 text-sm sm:text-base">
+          <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
+            <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Monday, August 4</h2>
+            <div class="grid grid-cols-4 font-semibold">
+              <div class="mb-2 p-1">Time</div>
+              <div class="mb-2 col-span-2 p-1">Event</div>
+              <div class="mb-2 p-1">Room</div>
+            </div>
+            <div class="grid grid-cols-4">
               <div class="mb-2 p-1">2 PM - 6 PM</div>
               <div class="mb-2 col-span-2 p-1">Pre-registration badge pickup</div>
+              <div></div>
             </div>
           </div>
-          <div class="bg-rllightblue-50 shadow rounded-lg p-6">
-            <h2 class="text-xl font-semibold mb-3 text-blue">Tuesday, August 5</h2>
-            <div class="grid grid-cols-3">
+          <div class="bg-rllightblue-50 shadow  rounded-lg p-1 sm:p-6">
+            <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Tuesday, August 5</h2>
+            <div class="grid grid-cols-4 font-semibold">
+              <div class="mb-2 p-1">Time</div>
+              <div class="mb-2 col-span-2 p-1">Event</div>
+              <div class="mb-2 p-1">Room</div>
+            </div>
+            <div class="grid grid-cols-4">
               <div class="mb-2 p-1">8:30 AM - 5 PM</div>
               <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
+              <div></div>
             </div>
-         <div class=" grid grid-cols-3">
-                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-                   <div class="mb-2 col-span-2 p-1">Lunch</div>
-               </div>
-                <div class="grid grid-cols-3">
+              <div class=" grid grid-cols-4">
+              <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+              <div class="mb-2 col-span-2 p-1">Lunch</div>
+              <div></div>
+            </div>
+            <div class="grid grid-cols-4">
+              <div class="mb-2 p-1">9 AM - 5 PM</div>
+              <div class="mb-2 col-span-2 p-1">Workshop on Programmatic Reinforcement Learning</div>
+              <div class="ml-2 text-gray-600 italic">BS M-137</div>
+            </div>
+                <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Workshop on Programmatic Reinforcement Learning <span class="ml-2 text-gray-600 italic">Room BS M-137</span></div>
+                  <div class="mb-2 col-span-2 p-1">Reinforcement Learning and Video Games</div>
+                  <div class="ml-2 text-gray-600 italic">BS M-145</div>
                 </div>
-                <div class="grid grid-cols-3">
+                <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Reinforcement Learning and Video Games <span class="ml-2 text-gray-600 italic">Room BS M-145</span></div>
+                  <div class="mb-2 col-span-2 p-1">Inductive Biases in Reinforcement Learning</div>
+                  <div class="ml-2 text-gray-600 italic">BS M-149</div>
                 </div>
-                <div class="grid grid-cols-3">
+                <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Inductive Biases in Reinforcement Learning <span class="ml-2 text-gray-600 italic">Room BS M-149</span></div>
-                </div>
-                <div class="grid grid-cols-3">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Coordination and Cooperation in Multi-Agent Reinforcement Learning <span class="ml-2 text-gray-600 italic">Room CCIS 1-140</span></div>
-                </div>
-                <div class="grid grid-cols-3">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Practical Insights into RL for Real Systems <span class="ml-2 text-gray-600 italic">Room CCIS 1-160</span></div>
-                </div>
-                <div class="grid grid-cols-3">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">The Causal Reinforcement Learning Workshop <span class="ml-2 text-gray-600 italic">Room BS M-141</span></div>
-                </div>
-                <div class="grid grid-cols-3">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Workshop on RL Beyond Rewards: Ingredients for Developing Generalist Agents <span class="ml-2 text-gray-600 italic">Room CCIS 1-430</span></div>
-                </div>
-                <div class="grid grid-cols-3">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Finding the Frame: A Workshop for Examining Conceptual Frameworks in RL <span class="ml-2 text-gray-600 italic">Room CCIS 1-440</span></div>
-                </div>
-             
-                      
-               <div class="grid grid-cols-3">
-                 <div class="mb-2 p-1">5 PM - 6:30 PM</div>
-                 <div class="mb-2 col-span-2 p-1">Reviewer Recognition</div>
-               </div>
-             </div>
-
-            <!-- Wednesday -->
-            <div class=" bg-rllightblue-50 shadow rounded-lg p-6">
-              <h2 class="text-xl font-semibold mb-3 text-blue">Wednesday, August 6</h2>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">8:30 AM - 5 PM</div>
-                <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">8:45 AM - 9 AM</div>
-                <div class="mb-2 col-span-2 p-1">Opening Comments</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">9 AM - 10 AM</div>
-                <div class="mb-2 col-span-2 p-1">Keynote: Leslie Kaelbling</div>
-              </div>
-              <div class="text-center">
-                <div class="m-2 p-2 font-semibold">20-minute Break</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-              </div>
-              <div class="text-center">
-                <div class="m-2 p-2 font-semibold">30-minute Break</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-                <div class="mb-2 col-span-2 p-1">Lunch</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">2 PM - 3 PM</div>
-                <div class="mb-2 col-span-2 p-1">Keynote: Dale Schuurmans</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">3 PM - 6 PM</div>
-                <div class="mb-2 col-span-2 p-1">Poster Session</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">6 PM</div>
-                <div class="mb-2 col-span-2 p-1">
-                  Banquet (Edmonton Convention Center)
-                  <div class="ml-4 mt-2 text-sm text-gray-700">
-                    <ul class="list-disc pl-5">
-                      <li>Improv with RapidFire Theatre</li>
-                      <li>Puzzle Hunt by Michael Bowling and Michael Littman</li>
-                    </ul>
+                  <div class="mb-2 col-span-2 p-1">Coordination and Cooperation in Multi-Agent Reinforcement Learning
                   </div>
+                  <div class="ml-2 text-gray-600 italic">CCIS 1-140</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 5 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Practical Insights into RL for Real Systems</div>
+                  <div class="ml-2 text-gray-600 italic">CCIS 1-160</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 5 PM</div>
+                  <div class="mb-2 col-span-2 p-1">The Causal Reinforcement Learning Workshop</div>
+                  <div class="ml-2 text-gray-600 italic">BS M-141</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 5 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Workshop on RL Beyond Rewards: Ingredients for Developing Generalist
+                    Agents</div>
+                  <div class="ml-2 text-gray-600 italic">CCIS 1-430</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 5 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Finding the Frame: A Workshop for Examining Conceptual Frameworks in
+                    RL</div>
+                  <div class="ml-2 text-gray-600 italic">CCIS 1-440</div>
+                </div>
+
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">5 PM - 6:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Reviewer Recognition</div>
+                  <div></div>
                 </div>
               </div>
-            </div>
 
-            <div class="bg-rllightblue-50 shadow rounded-lg p-6">
-              <h2 class="text-xl font-semibold mb-3 text-blue">Thursday, August 7</h2>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">8:30 AM - 5 PM</div>
-                <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
+              <!-- Wednesday -->
+              <div class=" bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Wednesday, August 6</h2>
+                 <div class="grid grid-cols-4 font-semibold">
+                  <div class="mb-2 p-1">Time</div>
+                  <div class="mb-2 col-span-2 p-1">Event</div>
+                  <div class="mb-2 p-1">Room</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">8:30 AM - 5 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">8:45 AM - 9 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Opening Comments</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 10 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Keynote: Leslie Kaelbling</div>
+                  <div></div>
+                </div>
+               
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div></div>
+                </div>
+      
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Lunch</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">2 PM - 3 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Keynote: Dale Schuurmans</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">3 PM - 6 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Poster Session</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">6 PM</div>
+                  <div class="mb-2 col-span-2 p-1">
+                    Banquet (Edmonton Convention Center)
+                    <div class="ml-4 mt-2 text-sm text-gray-700">
+                      <ul class="list-disc pl-5">
+                        <li>Doors open at 6:00 PM</li>
+                        <li>Buffet dinner begins at 6:30 PM</li>
+                        <li>Improv with Rapid Fire Theatre at 8:00 PM</li>
+                        <li>Puzzle Hunt by Michael Bowling and Michael Littman</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
               </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">9 AM - 10 AM</div>
-                <div class="mb-2 col-span-2 p-1">Keynote: Joelle Pineau</div>
-              </div>
-              <div class="text-center">
-                <div class="m-2 p-2 font-semibold">20-minute Break</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-              </div>
-              <div class="text-center">
-                <div class="m-2 p-2 font-semibold">30-minute Break</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-                <div class="mb-2 col-span-2 p-1">Lunch</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">2 PM - 3 PM</div>
-                <div class="mb-2 col-span-2 p-1">Keynote: Michael Littman</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">3 PM - 6 PM</div>
-                <div class="mb-2 col-span-2 p-1">Poster Session</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">6 PM</div>
-                <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
-              </div>
-            </div>
 
-            <!-- Friday -->
-            <div class="bg-rllightblue-50 shadow rounded-lg p-6">
-              <h2 class="text-xl font-semibold mb-3 text-blue">Friday, August 8</h2>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">8:30 AM - 5 PM</div>
-                <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
+              <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Thursday, August 7</h2>
+                 <div class="grid grid-cols-4 font-semibold">
+                  <div class="mb-2 p-1">Time</div>
+                  <div class="mb-2 col-span-2 p-1">Event</div>
+                  <div class="mb-2 p-1">Room</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">8:30 AM - 5 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 10 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Keynote: Joelle Pineau</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Lunch</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">2 PM - 3 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Keynote: Michael Littman</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">3 PM - 6 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Poster Session</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">6 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
+                  <div></div>
+                </div>
               </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">9 AM - 10 AM</div>
-                <div class="mb-2 col-span-2 p-1">Keynote: Peter Dayan</div>
-              </div>
-              <div class="text-center">
-                <div class="m-2 p-2 font-semibold">20-minute Break</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-              </div>
-              <div class="text-center">
-                <div class="m-2 p-2 font-semibold">30-minute Break</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-                <div class="mb-2 col-span-2 p-1">Lunch</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">2:00 PM - 3:00 PM</div>
-                <div class="mb-2 col-span-2 p-1">Keynote: Richard S. Sutton</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">3 PM - 6 PM</div>
-                <div class="mb-2 col-span-2 p-1">Poster Session</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">6 PM</div>
-                <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
-              </div>
-            </div>
 
-            <div class="bg-rllightblue-50 shadow rounded-lg p-6">
-              <h2 class="text-xl font-semibold mb-3 text-blue">Saturday, August 9</h2>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">9 AM - 10 AM</div>
-                <div class="mb-2 col-span-2 p-1">Breakfast & Meet-ups</div>
+              <!-- Friday -->
+              <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Friday, August 8</h2>
+                <div class="grid grid-cols-4 font-semibold">
+                  <div class="mb-2 p-1">Time</div>
+                  <div class="mb-2 col-span-2 p-1">Event</div>
+                  <div class="mb-2 p-1">Room</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">8:30 AM - 5 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Coffee and drinks</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 10 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Keynote: Peter Dayan</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Lunch</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">2:00 PM - 3:00 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Keynote: Richard S. Sutton</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">3 PM - 6 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Poster Session</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">6 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
+                  <div></div>
+                </div>
               </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">10 AM - 11 AM</div>
-                <div class="mb-2 col-span-2 p-1">Town Hall</div>
-              </div>
-              <div class="grid grid-cols-3">
-                <div class="mb-2 p-1">11 AM - 1 PM</div>
-                <div class="mb-2 col-span-2 p-1">Socials, Meet-ups, Excursions</div>
+
+              <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Saturday, August 9</h2>
+                <div class="grid grid-cols-4 font-semibold">
+                  <div class="mb-2 p-1">Time</div>
+                  <div class="mb-2 col-span-2 p-1">Event</div>
+                  <div class="mb-2 p-1">Room</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">9 AM - 10 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Breakfast & Meet-ups</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10 AM - 11 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Town Hall</div>
+                  <div></div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11 AM - 1 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Socials, Meet-ups, Excursions</div>
+                  <div></div>
+                  </div>
               </div>
             </div>
-          </div>
           <h1 class='text-4xl font-bai text-center text-blue mt-20 p-2 m-2'>Oral Talks</h1>
           <div id="oral_talks">
           <div class="grid grid-cols-2 items-center  ">
@@ -411,7 +468,7 @@ for date in sorted(talks_by_date.keys()):
         
         oral_talks_parts.append("<ol class='list-decimal p-2 m-2'>")
         for talk in session['talks']:
-            oral_talks_parts.append(f"<li class='p-1'>{talk}</li>")
+            oral_talks_parts.append(f"<li class='p-1 text-sm sm:text-base'>{talk}</li>")
         oral_talks_parts.append("</ol></div>")
     
     oral_talks_parts.append("</div>")
