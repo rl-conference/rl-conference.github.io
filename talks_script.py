@@ -239,7 +239,7 @@ html_part = '''<!DOCTYPE html>
 
               <!-- Wednesday -->
               <div class=" bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Wednesday, August 6</h2>
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Wednesday, August 6</h2>
                  <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
@@ -263,14 +263,48 @@ html_part = '''<!DOCTYPE html>
                
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms</div>
+                  <div>CCIS 1-430 (508, TF)</div>
+                </div>
+                  <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 2: RL from human feedback, Imitation Learning</div>
+                  <div>CCIS 1-440 (413, TF)</div>
+                </div>
+                  <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 3: Hierarchical RL, Planning algorithms</div>
+                  <div>  CCIS 1-140 (155, EC)</div>
+                </div>
+                  <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
+                  <div>  CCIS 1-160 (155, EC)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div></div>
+                  <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
                   <div></div>
                 </div>
-      
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-                  <div></div>
+                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms</div>
+                  <div>CCIS 1-430 (508, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 2: RL from human feedback, Imitation Learning</div>
+                  <div>CCIS 1-440 (413, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 3: Hierarchical RL, Planning algorithms</div>
+                  <div>  CCIS 1-140 (155, EC)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
+                  <div>  CCIS 1-160 (155, EC)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
@@ -290,7 +324,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">6 PM</div>
                   <div class="mb-2 col-span-2 p-1">
-                    Banquet (Edmonton Convention Center)
+                    Banquet
                     <div class="ml-4 mt-2 text-sm text-gray-700">
                       <ul class="list-disc pl-5">
                         <li>Doors open at 6:00 PM</li>
@@ -300,12 +334,12 @@ html_part = '''<!DOCTYPE html>
                       </ul>
                     </div>
                   </div>
-                  <div></div>
+                  <div>Edmonton Convention Center</div>
                 </div>
               </div>
 
               <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Thursday, August 7</h2>
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Thursday, August 7</h2>
                  <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
@@ -323,13 +357,43 @@ html_part = '''<!DOCTYPE html>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-                  <div></div>
+                  <div class="mb-2 col-span-2 p-1">Track 1: Deep RL</div>
+                  <div>CCIS 1-430 (508, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 2: Social and economic aspects, Neuroscience and cognitive science</div>
+                  <div>CCIS 1-440 (413, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 3: Exploration</div>
+                  <div>CCIS 1-140 (155, EC)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 4: Theoretical RL, Bandit algorithms</div>
+                  <div>CCIS 1-160 (155, EC)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-                  <div></div>
+                  <div class="mb-2 col-span-2 p-1">Track 1: Deep RL</div>
+                  <div>CCIS 1-430 (508, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 2: Social and economic aspects, Neuroscience and cognitive science</div>
+                  <div>CCIS 1-440 (413, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 3: Exploration</div>
+                  <div>CCIS 1-140 (155, EC)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 4: Theoretical RL, Bandit algorithms</div>
+                  <div>CCIS 1-160 (155, EC)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
@@ -355,7 +419,8 @@ html_part = '''<!DOCTYPE html>
 
               <!-- Friday -->
               <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Friday, August 8</h2>
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Friday, August 8</h2>
+                
                 <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
@@ -371,15 +436,50 @@ html_part = '''<!DOCTYPE html>
                   <div class="mb-2 col-span-2 p-1">Keynote: Peter Dayan</div>
                   <div></div>
                 </div>
+               <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms, Deep RL</div>
+                  <div>CCIS 1-430 (508, TF)</div>
+                </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
+                  <div class="mb-2 col-span-2 p-1">Track 2: Applied RL</div>
+                  <div>CCIS 1-440 (413, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 3: Multi-agent RL</div>
+                  <div>CCIS 1-140 (155, EC)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 4: Foundations</div>
+                  <div>CCIS 1-160 (155, EC)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div></div>
+                  <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
                   <div></div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Orals (4 parallel sessions)</div>
-                  <div></div>
+                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms, Deep RL</div>
+                  <div>CCIS 1-430 (508, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 2: Applied RL</div>
+                  <div>CCIS 1-440 (413, TF)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 3: Multi-agent RL</div>
+                  <div>CCIS 1-140 (155, EC)</div>
+                </div>
+                <div class="grid grid-cols-4">
+                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                  <div class="mb-2 col-span-2 p-1">Track 4: Foundations</div>
+                  <div>CCIS 1-160 (155, EC)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
@@ -403,7 +503,7 @@ html_part = '''<!DOCTYPE html>
               </div>
 
               <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue">Saturday, August 9</h2>
+                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Saturday, August 9</h2>
                 <div class="grid grid-cols-4 font-semibold">
                   <div class="mb-2 p-1">Time</div>
                   <div class="mb-2 col-span-2 p-1">Event</div>
@@ -423,7 +523,7 @@ html_part = '''<!DOCTYPE html>
                   <div class="mb-2 p-1">11 AM - 1 PM</div>
                   <div class="mb-2 col-span-2 p-1">Socials, Meet-ups, Excursions</div>
                   <div></div>
-                  </div>
+                </div>
               </div>
             </div>
           <h1 class='text-4xl font-bai text-center text-blue mt-20 p-2 m-2'>Oral Talks</h1>
