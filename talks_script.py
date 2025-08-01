@@ -151,7 +151,7 @@ html_part = '''<!DOCTYPE html>
         </div>
 
         <!-- PAGE TITLE -->
-        <h1 class="text-4xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule: August 4–9</h1>
+        <h1 class="md:text-4xl text-2xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule: August 4–9</h1>
 
         <!-- SCHEDULE -->
         

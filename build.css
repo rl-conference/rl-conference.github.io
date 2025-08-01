@@ -1207,10 +1207,6 @@ video {
   font-weight: 600;
 }
 
-.italic {
-  font-style: italic;
-}
-
 .text-blue {
   --tw-text-opacity: 1;
   color: rgb(27 58 158 / var(--tw-text-opacity, 1));
@@ -1375,6 +1371,11 @@ video {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .md\:text-base {
