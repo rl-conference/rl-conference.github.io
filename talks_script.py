@@ -245,12 +245,12 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">8:45 AM - 9 AM</div>
                   <div class="mb-2 col-span-2 p-1">Opening Comments</div>
-                  <div></div>
+                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 10 AM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Leslie Kaelbling</div>
-                  <div></div>
+                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
                 </div>
                
                 <div class="grid grid-cols-4">
@@ -271,7 +271,7 @@ html_part = '''<!DOCTYPE html>
                   <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
-                  <div class="mb-2">  CCIS 1-160</div>
+                  <div class="mb-2">CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div></div>
@@ -291,12 +291,12 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 3: Hierarchical RL, Planning algorithms</div>
-                  <div class="mb-2">  CCIS 1-140</div>
+                  <div class="mb-2">CCIS 1-140</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
                   <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
-                  <div class="mb-2">  CCIS 1-160</div>
+                  <div class="mb-2">CCIS 1-160</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">12:30 PM - 2 PM</div>
@@ -306,7 +306,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">2 PM - 3 PM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Dale Schuurmans</div>
-                  <div></div>
+                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">3 PM - 6 PM</div>
@@ -341,7 +341,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 10 AM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Joelle Pineau</div>
-                  <div></div>
+                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
@@ -402,7 +402,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">2 PM - 3 PM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Michael Littman</div>
-                  <div></div>
+                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">3 PM - 6 PM</div>
@@ -428,7 +428,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">9 AM - 10 AM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Peter Dayan</div>
-                  <div></div>
+                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
                 </div>
                <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
@@ -483,7 +483,7 @@ html_part = '''<!DOCTYPE html>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">2:00 PM - 3:00 PM</div>
                   <div class="mb-2 col-span-2 p-1">Keynote: Richard S. Sutton</div>
-                  <div></div>
+                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
                 </div>
                 <div class="grid grid-cols-4">
                   <div class="mb-2 p-1">3 PM - 6 PM</div>
