@@ -669,11 +669,6 @@ video {
   margin-right: auto;
 }
 
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -844,10 +839,6 @@ video {
   width: 15rem;
 }
 
-.w-\[400px\] {
-  width: 400px;
-}
-
 .w-full {
   width: 100%;
 }
@@ -858,10 +849,6 @@ video {
 
 .max-w-60 {
   max-width: 15rem;
-}
-
-.max-w-full {
-  max-width: 100%;
 }
 
 .table-auto {
@@ -1307,12 +1294,6 @@ video {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-md {
