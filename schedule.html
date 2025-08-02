@@ -61,585 +61,873 @@
         <!-- PAGE TITLE -->
         <h1 class="md:text-4xl text-2xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule: August 4–9</h1>
 
-        <!-- SCHEDULE -->
-        
-        <div class="grid grid-cols-1 p-1 sm:m-2 sm:p-2 lg:m-10 lg:p-10 gap-6 text-sm sm:text-base">
-          <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-            <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Monday, August 4</h2>
-            <div class="grid grid-cols-4 font-semibold">
-              <div class="mb-2 p-1">Time</div>
-              <div class="mb-2 col-span-2 p-1">Event</div>
-              <div class="mb-2 p-1">Location</div>
-            </div>
-            <div class="grid grid-cols-4">
-              <div class="mb-2 p-1">2 PM - 6 PM</div>
-              <div class="mb-2 col-span-2 p-1">Pre-registration badge pickup</div>
-              <div><a class="text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/cVW46WhHfzj4srNK7" target="_blank">CCIS</a></div>
-            </div>
-          </div>
-          <div class="bg-rllightblue-50 shadow  rounded-lg p-1 sm:p-6">
-            <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Tuesday, August 5 (Workshops)</h2>
-            <div class="grid grid-cols-4 font-semibold">
-              <div class="mb-2 p-1">Time</div>
-              <div class="mb-2 col-span-2 p-1">Event</div>
-              <div class="mb-2 p-1">Location</div>
-            </div>
-        
-              <div class=" grid grid-cols-4">
-              <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-              <div class="mb-2 col-span-2 p-1">Lunch</div>
-              <div></div>
-            </div>
-            <div class="grid grid-cols-4">
-              <div class="mb-2 p-1">9 AM - 5 PM</div>
-              <div class="mb-2 col-span-2 p-1">Workshop on Programmatic Reinforcement Learning</div>
-              <div class="mb-2">BS M-137</div>
-            </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Reinforcement Learning and Video Games</div>
-                  <div class="mb-2">BS M-145</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Inductive Biases in Reinforcement Learning</div>
-                  <div class="mb-2">BS M-149</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Coordination and Cooperation in Multi-Agent Reinforcement Learning
-                  </div>
-                  <div class="mb-2">CCIS 1-140</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Practical Insights into RL for Real Systems</div>
-                  <div class="mb-2">CCIS 1-160</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">The Causal Reinforcement Learning Workshop</div>
-                  <div class="mb-2">BS M-141</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Workshop on RL Beyond Rewards: Ingredients for Developing Generalist
-                    Agents</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 5 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Finding the Frame: A Workshop for Examining Conceptual Frameworks in
-                    RL</div>
-                  <div class="mb-2">CCIS 1-440</div>
-                </div>
+        <!-- DAY NAVIGATION BUTTONS -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 p-4">
+          <button onclick="showDay('monday')" id="btn-monday" class="day-btn bg-blue text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-500 transition-colors">
+            Mon Aug 4 (Pre-registration)
+          </button>
+          <button onclick="showDay('tuesday')" id="btn-tuesday" class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Tue Aug 5 (Workshops)
+          </button>
+          <button onclick="showDay('wednesday')" id="btn-wednesday" class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Wed Aug 6
+          </button>
+          <button onclick="showDay('thursday')" id="btn-thursday" class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Thu Aug 7
+          </button>
+          <button onclick="showDay('friday')" id="btn-friday" class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Fri Aug 8
+          </button>
+          <button onclick="showDay('saturday')" id="btn-saturday" class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Sat Aug 9
+          </button>
+        </div>
 
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">5 PM - 6:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Reviewer Recognition Event</div>
-                  <div class="mb-2">University (faculty) Club</div>
-                </div>
-              </div>
-
-              <!-- Wednesday -->
-              <div class=" bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Wednesday, August 6</h2>
-                 <div class="grid grid-cols-4 font-semibold">
-                  <div class="mb-2 p-1">Time</div>
-                  <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Location</div>
-                </div>
+        <!-- SCHEDULE CONTENT -->
+        <div class="p-1 sm:m-2 sm:p-2 lg:m-10 lg:p-10 text-sm sm:text-base">
           
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">8:45 AM - 9 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Opening Comments</div>
-                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 10 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Keynote: Leslie Kaelbling</div>
-                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
-                </div>
-               
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                  <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 2: RL from human feedback, Imitation Learning</div>
-                  <div class="mb-2">CCIS 1-440</div>
-                </div>
-                  <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 3: Hierarchical RL, Planning algorithms</div>
-                  <div class="mb-2">  CCIS 1-140</div>
-                </div>
-                  <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
-                  <div class="mb-2">CCIS 1-160</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div></div>
-                  <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 2: RL from human feedback, Imitation Learning</div>
-                  <div class="mb-2">CCIS 1-440</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 3: Hierarchical RL, Planning algorithms</div>
-                  <div class="mb-2">CCIS 1-140</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 4: Evaluation, Benchmarks</div>
-                  <div class="mb-2">CCIS 1-160</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Lunch</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">2 PM - 3 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Keynote: Dale Schuurmans</div>
-                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">3 PM - 6 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Poster Session</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">6 PM</div>
-                  <div class="mb-2 col-span-2 p-1">
-                    Banquet
-                    <div class="ml-4 mt-2 text-sm text-gray-700">
-                      <ul class="list-disc pl-5">
-                        <li>Doors open at 6:00 PM</li>
-                        <li>Buffet dinner begins at 6:30 PM</li>
-                        <li>Improv with Rapid Fire Theatre at 8:00 PM</li>
-                        <li>Puzzle Hunt by Michael Bowling and Michael Littman</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div> <a class="underline text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/F5pci1LgWb8msWYo7" target="_blank">Edmonton Convention Center (Hall D)</a> <br> (Not on campus)</div>
-                </div>
+          <!-- Monday -->
+          <div id="day-monday" class="day-content">
+            <div class="rounded-lg p-1 sm:p-6">
+              <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Monday, August 4</h2>
+              <div class="grid grid-cols-4 font-semibold">
+                <div class="mb-2 p-1">Time</div>
+                <div class="mb-2 col-span-2 p-1">Event</div>
+                <div class="mb-2 p-1">Location</div>
               </div>
-
-              <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Thursday, August 7</h2>
-                 <div class="grid grid-cols-4 font-semibold">
-                  <div class="mb-2 p-1">Time</div>
-                  <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Location</div>
-                </div>
-             
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 10 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Keynote: Joelle Pineau</div>
-                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 1: Deep RL</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 2: Social and economic aspects, Neuroscience and cognitive science</div>
-                  <div class="mb-2">CCIS 1-440</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 3: Exploration</div>
-                  <div class="mb-2">CCIS 1-140</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 4: Theoretical RL, Bandit algorithms</div>
-                  <div class="mb-2">CCIS 1-160</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div></div>
-                  <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 1: Deep RL</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 2: Social and economic aspects, Neuroscience and cognitive science</div>
-                  <div class="mb-2">CCIS 1-440</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 3: Exploration</div>
-                  <div class="mb-2">CCIS 1-140</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 4: Theoretical RL, Bandit algorithms</div>
-                  <div class="mb-2">CCIS 1-160</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">12:45 PM - 1:45 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Sponsor Talk by Amii</div>
-                  <div class="mb-2">CCIS 1-140</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Lunch</div>
-                  <div></div>
-                </div>
-                
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">2 PM - 3 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Keynote: Michael Littman</div>
-                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">3 PM - 6 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Poster Session</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">6 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
-                  <div></div>
-                </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">2 PM - 6 PM</div>
+                <div class="mb-2 col-span-2 p-1">Pre-registration badge pickup</div>
+                <div><a class="text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/cVW46WhHfzj4srNK7" target="_blank">CCIS</a></div>
               </div>
-
-              <!-- Friday -->
-              <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Friday, August 8</h2>
-                
-                <div class="grid grid-cols-4 font-semibold">
-                  <div class="mb-2 p-1">Time</div>
-                  <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Location</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 10 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Keynote: Peter Dayan</div>
-                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
-                </div>
-               <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms, Deep RL</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 2: Applied RL</div>
-                  <div class="mb-2">CCIS 1-440</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 3: Multi-agent RL</div>
-                  <div class="mb-2">CCIS 1-140</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 4: Foundations</div>
-                  <div class="mb-2">CCIS 1-160</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div></div>
-                  <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 1: RL algorithms, Deep RL</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 2: Applied RL</div>
-                  <div class="mb-2">CCIS 1-440</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 3: Multi-agent RL</div>
-                  <div class="mb-2">CCIS 1-140</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Track 4: Foundations</div>
-                  <div class="mb-2">CCIS 1-160</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">12:30 PM - 2 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Lunch</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">2:00 PM - 3:00 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Keynote: Richard S. Sutton</div>
-                  <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">3 PM - 6 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Poster Session</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">6 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
-                  <div></div>
-                </div>
-              </div>
-
-              <div class="bg-rllightblue-50 shadow rounded-lg p-1 sm:p-6">
-                <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Saturday, August 9</h2>
-                <div class="grid grid-cols-4 font-semibold">
-                  <div class="mb-2 p-1">Time</div>
-                  <div class="mb-2 col-span-2 p-1">Event</div>
-                  <div class="mb-2 p-1">Location</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">9 AM - 10 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Breakfast & Meet-ups</div>
-                  <div></div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">10 AM - 11 AM</div>
-                  <div class="mb-2 col-span-2 p-1">Town Hall</div>
-                  <div class="mb-2">CCIS 1-430</div>
-                </div>
-                <div class="grid grid-cols-4">
-                  <div class="mb-2 p-1">11 AM - 1 PM</div>
-                  <div class="mb-2 col-span-2 p-1">Socials, Meet-ups, Excursions</div>
-                  <div></div>
-                </div>
-              </div>
-            </div>
-          <h1 class='text-4xl font-bai text-center text-blue mt-20 p-2 m-2'>Oral Talks</h1>
-          <div id="oral_talks">
-<h2 class='text-3xl font-bai text-center text-blue m-4 p-4'>Aug 6</h2>
-<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 1: RL algorithms</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-430</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Burning RED: Unlocking Subtask-Driven Reinforcement Learning and Risk-Awareness in Average-Reward Markov Decision Processes</li>
-<li class='p-1 text-sm sm:text-base'>RL$^3$: Boosting Meta Reinforcement Learning via RL inside RL$^2$</li>
-<li class='p-1 text-sm sm:text-base'>Fast Adaptation with Behavioral Foundation Models</li>
-<li class='p-1 text-sm sm:text-base'>Understanding Learned Representations and Action Collapse in Visual Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions</li>
-<li class='p-1 text-sm sm:text-base'>ProtoCRL: Prototype-based Network for Continual Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Offline Reinforcement Learning with Domain-Unlabeled Data</li>
-<li class='p-1 text-sm sm:text-base'>SPEQ: Offline Stabilization Phases for Efficient Q-Learning in High Update-To-Data Ratio Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Offline Reinforcement Learning with Wasserstein Regularization via Optimal Transport Maps</li>
-<li class='p-1 text-sm sm:text-base'>Zero-Shot Reinforcement Learning Under Partial Observability</li>
-<li class='p-1 text-sm sm:text-base'>Adaptive Submodular Policy Optimization</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 2: RL from human feedback, Imitation Learning</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-440</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Online Intrinsic Rewards for Decision Making Agents from Large Language Model Feedback</li>
-<li class='p-1 text-sm sm:text-base'>Nonparametric Policy Improvement in Continuous Action Spaces via Expert Demonstrations</li>
-<li class='p-1 text-sm sm:text-base'>DisDP: Robust Imitation Learning via Disentangled Diffusion Policies</li>
-<li class='p-1 text-sm sm:text-base'>Mitigating Goal Misgeneralization via Minimax Regret</li>
-<li class='p-1 text-sm sm:text-base'>Modelling human exploration with light-weight meta reinforcement learning algorithms</li>
-<li class='p-1 text-sm sm:text-base'>Towards Improving Reward Design in RL: A Reward Alignment Metric for RL Practitioners</li>
-<li class='p-1 text-sm sm:text-base'>PAC Apprenticeship Learning with Bayesian Active Inverse Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Offline Action-Free Learning of Ex-BMDPs by Comparing Diverse Datasets</li>
-<li class='p-1 text-sm sm:text-base'>One Goal, Many Challenges: Robust Preference Optimization Amid Content-Aware and Multi-Source Noise</li>
-<li class='p-1 text-sm sm:text-base'>Goals vs. Rewards: A Comparative Study of Objective Specification Mechanisms</li>
-<li class='p-1 text-sm sm:text-base'>Reward Distance Comparisons Under Transition Sparsity</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 3: Hierarchical RL, Planning algorithms</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-140</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>AVID: Adapting Video Diffusion Models to World Models</li>
-<li class='p-1 text-sm sm:text-base'>The Confusing Instance Principle for Online Linear Quadratic Control</li>
-<li class='p-1 text-sm sm:text-base'>Long-Horizon Planning with Predictable Skills</li>
-<li class='p-1 text-sm sm:text-base'>Optimal discounting for offline input-driven MDP</li>
-<li class='p-1 text-sm sm:text-base'>A Timer-Enforced Hybrid Supervisor for Robust, Chatter-Free Policy Switching</li>
-<li class='p-1 text-sm sm:text-base'>Focused Skill Discovery: Learning to Control Specific State Variables while Minimizing Side Effects</li>
-<li class='p-1 text-sm sm:text-base'>Representation Learning and Skill Discovery with Empowerment</li>
-<li class='p-1 text-sm sm:text-base'>Compositional Instruction Following with Language Models and Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Composition and Zero-Shot Transfer with Lattice Structures in Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Double Horizon Model-Based Policy Optimization</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 4: Evaluation, Benchmarks</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-160</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Which Experiences Are Influential for RL Agents? Efficiently Estimating The Influence of Experiences</li>
-<li class='p-1 text-sm sm:text-base'>Offline vs. Online Learning in Model-based RL: Lessons for Data Collection Strategies</li>
-<li class='p-1 text-sm sm:text-base'>Multi-Task Reinforcement Learning Enables Parameter Scaling</li>
-<li class='p-1 text-sm sm:text-base'>Benchmarking Massively Parallelized Multi-Task Reinforcement Learning for Robotics Tasks</li>
-<li class='p-1 text-sm sm:text-base'>PufferLib 2.0: Reinforcement Learning at 1M steps/s</li>
-<li class='p-1 text-sm sm:text-base'>Uncovering RL Integration in SSL Loss: Objective-Specific Implications for Data-Efficient RL</li>
-<li class='p-1 text-sm sm:text-base'>Benchmarking Partial Observability in Reinforcement Learning with a Suite of Memory-Improvable Domains</li>
-<li class='p-1 text-sm sm:text-base'>How Should We Meta-Learn Reinforcement Learning Algorithms?</li>
-<li class='p-1 text-sm sm:text-base'>AdaStop: adaptive statistical testing for sound comparisons of Deep RL agents</li>
-<li class='p-1 text-sm sm:text-base'>MixUCB: Enhancing Safe Exploration in Contextual Bandits with Human Oversight</li>
-</ol></div>
-</div>
-<h2 class='text-3xl font-bai text-center text-blue m-4 p-4'>Aug 7</h2>
-<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 1: Deep RL</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-430</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Understanding the Effectiveness of Learning Behavioral Metrics in Deep Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Impoola: The Power of Average Pooling for Image-based Deep Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Eau De $Q$-Network: Adaptive Distillation of Neural Networks in Deep Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Disentangling Recognition and Decision Regrets in Image-Based Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Make the Pertinent Salient: Task-Relevant Reconstruction for Visual Control with Distractions</li>
-<li class='p-1 text-sm sm:text-base'>Pretraining Decision Transformers with Reward Prediction for In-Context Multi-task Structured Bandit Learning</li>
-<li class='p-1 text-sm sm:text-base'>Sampling from Energy-based Policies using Diffusion</li>
-<li class='p-1 text-sm sm:text-base'>Optimistic critics can empower small actors</li>
-<li class='p-1 text-sm sm:text-base'>Scalable Real-Time Recurrent Learning Using Columnar-Constructive Networks</li>
-<li class='p-1 text-sm sm:text-base'>AGaLiTe: Approximate Gated Linear Transformers for Online Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Deep Reinforcement Learning with Gradient Eligibility Traces</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 2: Social and economic aspects, Neuroscience and cognitive science</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-440</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Pareto Optimal Learning from Preferences with Hidden Context</li>
-<li class='p-1 text-sm sm:text-base'>When and Why Hyperbolic Discounting Matters for Reinforcement Learning Interventions</li>
-<li class='p-1 text-sm sm:text-base'>Reinforcement Learning from Human Feedback with High-Confidence Safety Guarantees</li>
-<li class='p-1 text-sm sm:text-base'>Towards Large Language Models that Benefit for All: Benchmarking Group Fairness in Reward Models</li>
-<li class='p-1 text-sm sm:text-base'>Reinforcement Learning for Human-AI Collaboration via Probabilistic Intent Inference</li>
-<li class='p-1 text-sm sm:text-base'>High-Confidence Policy Improvement from Human Feedback</li>
-<li class='p-1 text-sm sm:text-base'>Building Sequential Resource Allocation Mechanisms without Payments</li>
-<li class='p-1 text-sm sm:text-base'>From Explainability to Interpretability: Interpretable Reinforcement Learning Via Model Explanations</li>
-<li class='p-1 text-sm sm:text-base'>Learning Fair Pareto-Optimal Policies in Multi-Objective Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>AI in a vat: Fundamental limits of efficient world modelling for safe agent sandboxing</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 3: Exploration</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-140</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Uncertainty Prioritized Experience Replay</li>
-<li class='p-1 text-sm sm:text-base'>Pure Exploration for Constrained Best Mixed Arm Identification with a Fixed Budget</li>
-<li class='p-1 text-sm sm:text-base'>Quantitative Resilience Modeling for Autonomous Cyber Defense</li>
-<li class='p-1 text-sm sm:text-base'>Learning to Explore in Diverse Reward Settings via Temporal-Difference-Error Maximization</li>
-<li class='p-1 text-sm sm:text-base'>Syllabus: Portable Curricula for Reinforcement Learning Agents</li>
-<li class='p-1 text-sm sm:text-base'>Exploration-Free Reinforcement Learning with Linear Function Approximation</li>
-<li class='p-1 text-sm sm:text-base'>Value Bonuses using Ensemble Errors for Exploration in Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Intrinsically Motivated Discovery of Temporally Abstract Graph-based Models of the World</li>
-<li class='p-1 text-sm sm:text-base'>An Optimisation Framework for Unsupervised Environment Design</li>
-<li class='p-1 text-sm sm:text-base'>Epistemically-guided forward-backward exploration</li>
-<li class='p-1 text-sm sm:text-base'>RLeXplore: Accelerating Research in Intrinsically-Motivated Reinforcement Learning</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 4: Theoretical RL, Bandit algorithms</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-160</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>A Finite-Time Analysis of Distributed Q-Learning</li>
-<li class='p-1 text-sm sm:text-base'>Finite-Time Analysis of Minimax Q-Learning</li>
-<li class='p-1 text-sm sm:text-base'>Improved Regret Bound for Safe Reinforcement Learning via Tighter Cost Pessimism and Reward Optimism</li>
-<li class='p-1 text-sm sm:text-base'>Non-Stationary Latent Auto-Regressive Bandits</li>
-<li class='p-1 text-sm sm:text-base'>A Finite-Sample Analysis of an Actor-Critic Algorithm for Mean-Variance Optimization in a Discounted MDP</li>
-<li class='p-1 text-sm sm:text-base'>Leveraging priors on distribution functions for multi-arm bandits</li>
-<li class='p-1 text-sm sm:text-base'>Multi-task Representation Learning for Fixed Budget Pure-Exploration in Linear and Bilinear Bandits</li>
-<li class='p-1 text-sm sm:text-base'>On Slowly-varying Non-stationary Bandits</li>
-<li class='p-1 text-sm sm:text-base'>Empirical Bound Information-Directed Sampling</li>
-<li class='p-1 text-sm sm:text-base'>Thompson Sampling for Constrained Bandits</li>
-<li class='p-1 text-sm sm:text-base'>Achieving Limited Adaptivity for Multinomial Logistic Bandits</li>
-</ol></div>
-</div>
-<h2 class='text-3xl font-bai text-center text-blue m-4 p-4'>Aug 8</h2>
-<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 1: RL algorithms, Deep RL</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-430</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Bayesian Meta-Reinforcement Learning with Laplace Variational Recurrent Networks</li>
-<li class='p-1 text-sm sm:text-base'>Cascade - A sequential ensemble method for continuous control tasks</li>
-<li class='p-1 text-sm sm:text-base'>HANQ: Hypergradients, Asymmetry, and Normalization for Fast and Stable Deep $Q$-Learning</li>
-<li class='p-1 text-sm sm:text-base'>Rectifying Regression in Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Efficient Morphology-Aware Policy Transfer to New Embodiments</li>
-<li class='p-1 text-sm sm:text-base'>Finer Behavioral Foundation Models via Auto-Regressive Features and Advantage Weighting</li>
-<li class='p-1 text-sm sm:text-base'>Concept-Based Off-Policy Evaluation</li>
-<li class='p-1 text-sm sm:text-base'>Multiple-Frequencies Population-Based Training</li>
-<li class='p-1 text-sm sm:text-base'>AVG-DICE: Stationary Distribution Correction by Regression</li>
-<li class='p-1 text-sm sm:text-base'>Iterated Q-Network: Beyond One-Step Bellman Updates in Deep Reinforcement Learning</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 2: Applied RL</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-440</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Action Mapping for Reinforcement Learning in Continuous Environments with Constraints</li>
-<li class='p-1 text-sm sm:text-base'>Chargax: A JAX Accelerated EV Charging Simulator</li>
-<li class='p-1 text-sm sm:text-base'>WOFOSTGym: A Crop Simulator for Learning Annual and Perennial Crop Management Strategies</li>
-<li class='p-1 text-sm sm:text-base'>Drive Fast, Learn Faster: On-Board RL for High Performance Autonomous Racing</li>
-<li class='p-1 text-sm sm:text-base'>Multi-Agent Reinforcement Learning for Inverse Design in Photonic Integrated Circuits</li>
-<li class='p-1 text-sm sm:text-base'>Gaussian Process Q-Learning for Finite-Horizon Markov Decision Process</li>
-<li class='p-1 text-sm sm:text-base'>Hybrid Classical/RL Local Planner for Ground Robot Navigation</li>
-<li class='p-1 text-sm sm:text-base'>V-Max: Making RL Practical for Autonomous Driving</li>
-<li class='p-1 text-sm sm:text-base'>Shaping Laser Pulses with Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>Learning Sub-Second Routing Optimization in Computer Networks requires Packet-Level Dynamics</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 3: Multi-agent RL</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-140</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Reinforcement Learning for Finite Space Mean-Field Type Game</li>
-<li class='p-1 text-sm sm:text-base'>Collaboration Promotes Group Resilience in Multi-Agent RL</li>
-<li class='p-1 text-sm sm:text-base'>Foundation Model Self-Play: Open-Ended Strategy Innovation via Foundation Models</li>
-<li class='p-1 text-sm sm:text-base'>Hierarchical Multi-agent Reinforcement Learning for Cyber Network Defense</li>
-<li class='p-1 text-sm sm:text-base'>Efficient Information Sharing for Training Decentralized Multi-Agent World Models</li>
-<li class='p-1 text-sm sm:text-base'>Adaptive Reward Sharing to Enhance Learning in the Context of Multiagent Teams</li>
-<li class='p-1 text-sm sm:text-base'>Seldonian Reinforcement Learning for Ad Hoc Teamwork</li>
-<li class='p-1 text-sm sm:text-base'>Joint-Local Grounded Action Transformation for Sim-to-Real Transfer in Multi-Agent Traffic Control</li>
-<li class='p-1 text-sm sm:text-base'>TransAM: Transformer-Based Agent Modeling for Multi-Agent Systems via Local Trajectory Encoding</li>
-<li class='p-1 text-sm sm:text-base'>PEnGUiN: Partially Equivariant Graph NeUral Networks for Sample Efficient MARL</li>
-<li class='p-1 text-sm sm:text-base'>Human-Level Competitive Pokémon via Scalable Offline Reinforcement Learning with Transformers</li>
-</ol></div>
-<div class='bg-rllightblue-50 shadow rounded-lg p-6'>
-<h3 class='text-xl font-semibold mb-1 text-blue m-2 p-2'>Track 4: Foundations</h3>
-<div class='bg-blue-100 border-l-4 border-blue-500 text-lg font-bold text-blue-800 mb-3 m-2 p-3 rounded-r'>Room: CCIS 1-160</div>
-<ol class='list-decimal p-2 m-2'>
-<li class='p-1 text-sm sm:text-base'>Effect of a slowdown correlated to the current state of the environment on an asynchronous learning architecture</li>
-<li class='p-1 text-sm sm:text-base'>Average-Reward Soft Actor-Critic</li>
-<li class='p-1 text-sm sm:text-base'>Your Learned Constraint is Secretly a Backward Reachable Tube</li>
-<li class='p-1 text-sm sm:text-base'>Recursive Reward Aggregation</li>
-<li class='p-1 text-sm sm:text-base'>On the Effect of Regularization in Policy Mirror Descent</li>
-<li class='p-1 text-sm sm:text-base'>Investigating the Utility of Mirror Descent in Off-policy Actor-Critic</li>
-<li class='p-1 text-sm sm:text-base'>Rethinking the Foundations for Continual Reinforcement Learning</li>
-<li class='p-1 text-sm sm:text-base'>An Analysis of Action-Value Temporal-Difference Methods That Learn State Values</li>
-<li class='p-1 text-sm sm:text-base'>Reinforcement Learning with Adaptive Temporal Discounting</li>
-</ol></div>
-</div>
-          <div class="grid grid-cols-2 items-center  ">
-                <div id="footerText"
-                    class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
-                </div>
-                <div class="p-2 m-1 w-full">
-                    <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
-                        <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
-                    </div>
-                </div>
             </div>
           </div>
+
+          <!-- Tuesday -->
+          <div id="day-tuesday" class="day-content hidden">
+            <div class="rounded-lg p-1 sm:p-6">
+              <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Tuesday, August 5 (Workshops)</h2>
+              <div class="grid grid-cols-4 font-semibold">
+                <div class="mb-2 p-1">Time</div>
+                <div class="mb-2 col-span-2 p-1">Event</div>
+                <div class="mb-2 p-1">Location</div>
+              </div>
+          
+              <div class=" grid grid-cols-4">
+                <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+                <div class="mb-2 col-span-2 p-1">Lunch</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">Workshop on Programmatic Reinforcement Learning</div>
+                <div class="mb-2">BS M-137</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">Reinforcement Learning and Video Games</div>
+                <div class="mb-2">BS M-145</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">Inductive Biases in Reinforcement Learning</div>
+                <div class="mb-2">BS M-149</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">Coordination and Cooperation in Multi-Agent Reinforcement Learning</div>
+                <div class="mb-2">CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">Practical Insights into RL for Real Systems</div>
+                <div class="mb-2">CCIS 1-160</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">The Causal Reinforcement Learning Workshop</div>
+                <div class="mb-2">BS M-141</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">Workshop on RL Beyond Rewards: Ingredients for Developing Generalist Agents</div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 5 PM</div>
+                <div class="mb-2 col-span-2 p-1">Finding the Frame: A Workshop for Examining Conceptual Frameworks in RL</div>
+                <div class="mb-2">CCIS 1-440</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">5 PM - 6:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">Reviewer's Recognition Event</div>
+                <div class="mb-2">University (faculty) Club</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wednesday -->
+          <div id="day-wednesday" class="day-content hidden">
+            <div class="rounded-lg p-1 sm:p-6">
+              <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Wednesday, August 6</h2>
+              <div class="grid grid-cols-4 font-semibold">
+                <div class="mb-2 p-1">Time</div>
+                <div class="mb-2 col-span-2 p-1">Event</div>
+                <div class="mb-2 p-1">Location</div>
+              </div>
+        
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">8:45 AM - 9 AM</div>
+                <div class="mb-2 col-span-2 p-1">Opening Comments</div>
+                <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 10 AM</div>
+                <div class="mb-2 col-span-2 p-1">Keynote: Leslie Kaelbling</div>
+                <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
+              </div>
+             
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 1: RL algorithms</span>
+                    <button onclick="toggleTrack('wed-track-1')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-1" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Burning RED: Unlocking Subtask-Driven Reinforcement Learning and Risk-Awareness in Average-Reward Markov Decision Processes</li>
+                      <li>RL\(^3\): Boosting Meta Reinforcement Learning via RL inside RL\(^2\)</li>
+                      <li>Fast Adaptation with Behavioral Foundation Models</li>
+                      <li>Understanding Learned Representations and Action Collapse in Visual Reinforcement Learning</li>
+                      <li>Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions</li>
+                      <li>ProtoCRL: Prototype-based Network for Continual Reinforcement Learning</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4 mt-2 mb-2">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 2: RL from human feedback, Imitation Learning</span>
+                    <button onclick="toggleTrack('wed-track-2')" class="bg-blue text-white px-2 py-1 m-2 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Online Intrinsic Rewards for Decision Making Agents from Large Language Model Feedback</li>
+                      <li>Nonparametric Policy Improvement in Continuous Action Spaces via Expert Demonstrations</li>
+                      <li>DisDP: Robust Imitation Learning via Disentangled Diffusion Policies</li>
+                      <li>Mitigating Goal Misgeneralization via Minimax Regret</li>
+                      <li>Modelling human exploration with light-weight meta reinforcement learning algorithms</li>
+                      <li>Towards Improving Reward Design in RL: A Reward Alignment Metric for RL Practitioners</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-440</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 3: Hierarchical RL, Planning algorithms</span>
+                    <button onclick="toggleTrack('wed-track-3')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-3" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>AVID: Adapting Video Diffusion Models to World Models</li>
+                      <li>The Confusing Instance Principle for Online Linear Quadratic Control</li>
+                      <li>Long-Horizon Planning with Predictable Skills</li>
+                      <li>Optimal discounting for offline input-driven MDP</li>
+                      <li>A Timer-Enforced Hybrid Supervisor for Robust, Chatter-Free Policy Switching</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">  CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 4: Evaluation, Benchmarks</span>
+                    <button onclick="toggleTrack('wed-track-4')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-4" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Which Experiences Are Influential for RL Agents? Efficiently Estimating The Influence of Experiences</li>
+                      <li>Offline vs. Online Learning in Model-based RL: Lessons for Data Collection Strategies</li>
+                      <li>Multi-Task Reinforcement Learning Enables Parameter Scaling</li>
+                      <li>Benchmarking Massively Parallelized Multi-Task Reinforcement Learning for Robotics Tasks</li>
+                      <li>PufferLib 2.0: Reinforcement Learning at 1M steps/s</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-160</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div></div>
+                <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 1: RL algorithms</span>
+                    <button onclick="toggleTrack('wed-track-1-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-1-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="7">
+                      <li>Offline Reinforcement Learning with Domain-Unlabeled Data</li>
+                      <li>SPEQ: Offline Stabilization Phases for Efficient Q-Learning in High Update-To-Data Ratio Reinforcement Learning</li>
+                      <li>Offline Reinforcement Learning with Wasserstein Regularization via Optimal Transport Maps</li>
+                      <li>Zero-Shot Reinforcement Learning Under Partial Observability</li>
+                      <li>Adaptive Submodular Policy Optimization</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 2: RL from human feedback, Imitation Learning</span>
+                    <button onclick="toggleTrack('wed-track-2-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-2-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="7">
+                      <li>PAC Apprenticeship Learning with Bayesian Active Inverse Reinforcement Learning</li>
+                      <li>Offline Action-Free Learning of Ex-BMDPs by Comparing Diverse Datasets</li>
+                      <li>One Goal, Many Challenges: Robust Preference Optimization Amid Content-Aware and Multi-Source Noise</li>
+                      <li>Goals vs. Rewards: A Comparative Study of Objective Specification Mechanisms</li>
+                      <li>Reward Distance Comparisons Under Transition Sparsity</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-440</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 3: Hierarchical RL, Planning algorithms</span>
+                    <button onclick="toggleTrack('wed-track-3-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-3-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="6">
+                      <li>Focused Skill Discovery: Learning to Control Specific State Variables while Minimizing Side Effects</li>
+                      <li>Representation Learning and Skill Discovery with Empowerment</li>
+                      <li>Compositional Instruction Following with Language Models and Reinforcement Learning</li>
+                      <li>Composition and Zero-Shot Transfer with Lattice Structures in Reinforcement Learning</li>
+                      <li>Double Horizon Model-Based Policy Optimization</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 4: Evaluation, Benchmarks</span>
+                    <button onclick="toggleTrack('wed-track-4-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="wed-track-4-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="6">
+                      <li>Uncovering RL Integration in SSL Loss: Objective-Specific Implications for Data-Efficient RL</li>
+                      <li>Benchmarking Partial Observability in Reinforcement Learning with a Suite of Memory-Improvable Domains</li>
+                      <li>How Should We Meta-Learn Reinforcement Learning Algorithms?</li>
+                      <li>AdaStop: adaptive statistical testing for sound comparisons of Deep RL agents</li>
+                      <li>MixUCB: Enhancing Safe Exploration in Contextual Bandits with Human Oversight</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-160</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+                <div class="mb-2 col-span-2 p-1">Lunch</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">2 PM - 3 PM</div>
+                <div class="mb-2 col-span-2 p-1">Keynote: Dale Schuurmans</div>
+                <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">3 PM - 6 PM</div>
+                <div class="mb-2 col-span-2 p-1">Poster Session</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">6 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  Banquet
+                  <div class="mt-2 text-sm text-gray-700">
+                    <ul class="list-disc pl-4">
+                      <li>Doors open at 6:00 PM</li>
+                      <li>Buffet dinner begins at 6:30 PM</li>
+                      <li>Improv with Rapid Fire Theatre at 8:00 PM</li>
+                      <li>Puzzle Hunt by Michael Bowling and Michael Littman</li>
+                    </ul>
+                  </div>
+                </div>
+                <div> <a class="underline text-blue hover:text-rldarkblue-500" href="https://maps.app.goo.gl/F5pci1LgWb8msWYo7" target="_blank">Edmonton Convention Center (Hall D)</a> <br> (Not on campus)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thursday -->
+          <div id="day-thursday" class="day-content hidden">
+            <div class="rounded-lg p-1 sm:p-6">
+              <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Thursday, August 7</h2>
+              <div class="grid grid-cols-4 font-semibold">
+                <div class="mb-2 p-1">Time</div>
+                <div class="mb-2 col-span-2 p-1">Event</div>
+                <div class="mb-2 p-1">Location</div>
+              </div>
+           
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 10 AM</div>
+                <div class="mb-2 col-span-2 p-1">Keynote: Joelle Pineau</div>
+                <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 1: Deep RL</span>
+                    <button onclick="toggleTrack('thu-track-1')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-1" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Understanding the Effectiveness of Learning Behavioral Metrics in Deep Reinforcement Learning</li>
+                      <li>Impoola: The Power of Average Pooling for Image-based Deep Reinforcement Learning</li>
+                      <li>Eau De \(Q\)-Network: Adaptive Distillation of Neural Networks in Deep Reinforcement Learning</li>
+                      <li>Disentangling Recognition and Decision Regrets in Image-Based Reinforcement Learning</li>
+                      <li>Make the Pertinent Salient: Task-Relevant Reconstruction for Visual Control with Distractions</li>
+                      <li>Pretraining Decision Transformers with Reward Prediction for In-Context Multi-task Structured Bandit Learning</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 2: Social and economic aspects, Neuroscience and cognitive science</span>
+                    <button onclick="toggleTrack('thu-track-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Pareto Optimal Learning from Preferences with Hidden Context</li>
+                      <li>When and Why Hyperbolic Discounting Matters for Reinforcement Learning Interventions</li>
+                      <li>Reinforcement Learning from Human Feedback with High-Confidence Safety Guarantees</li>
+                      <li>Towards Large Language Models that Benefit for All: Benchmarking Group Fairness in Reward Models</li>
+                      <li>Reinforcement Learning for Human-AI Collaboration via Probabilistic Intent Inference</li>
+                      
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-440</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 3: Exploration</span>
+                    <button onclick="toggleTrack('thu-track-3')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-3" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Uncertainty Prioritized Experience Replay</li>
+                      <li>Pure Exploration for Constrained Best Mixed Arm Identification with a Fixed Budget</li>
+                      <li>Quantitative Resilience Modeling for Autonomous Cyber Defense</li>
+                      <li>Learning to Explore in Diverse Reward Settings via Temporal-Difference-Error Maximization</li>
+                      <li>Syllabus: Portable Curricula for Reinforcement Learning Agents</li>
+                      <li>Exploration-Free Reinforcement Learning with Linear Function Approximation</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 4: Theoretical RL, Bandit algorithms</span>
+                    <button onclick="toggleTrack('thu-track-4')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-4" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>A Finite-Time Analysis of Distributed Q-Learning</li>
+                      <li>Finite-Time Analysis of Minimax Q-Learning</li>
+                      <li>Improved Regret Bound for Safe Reinforcement Learning via Tighter Cost Pessimism and Reward Optimism</li>
+                      <li>Non-Stationary Latent Auto-Regressive Bandits</li>
+                      <li>A Finite-Sample Analysis of an Actor-Critic Algorithm for Mean-Variance Optimization in a Discounted MDP</li>
+                      <li>Leveraging priors on distribution functions for multi-arm bandits</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-160</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div></div>
+                <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 1: Deep RL</span>
+                    <button onclick="toggleTrack('thu-track-1-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-1-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="7">
+                      <li>Sampling from Energy-based Policies using Diffusion</li>
+                      <li>Optimistic critics can empower small actors</li>
+                      <li>Scalable Real-Time Recurrent Learning Using Columnar-Constructive Networks</li>
+                      <li>AGaLiTe: Approximate Gated Linear Transformers for Online Reinforcement Learning</li>
+                      <li>Deep Reinforcement Learning with Gradient Eligibility Traces</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 2: Social and economic aspects, Neuroscience and cognitive science</span>
+                    <button onclick="toggleTrack('thu-track-2-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-2-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="6">
+                      <li>High-Confidence Policy Improvement from Human Feedback</li>
+                      <li>Building Sequential Resource Allocation Mechanisms without Payments</li>
+                      <li>From Explainability to Interpretability: Interpretable Reinforcement Learning Via Model Explanations</li>
+                      <li>Learning Fair Pareto-Optimal Policies in Multi-Objective Reinforcement Learning</li>
+                      <li>AI in a vat: Fundamental limits of efficient world modelling for safe agent sandboxing</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-440</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 3: Exploration</span>
+                    <button onclick="toggleTrack('thu-track-3-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-3-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="7">
+                      <li>Value Bonuses using Ensemble Errors for Exploration in Reinforcement Learning</li>
+                      <li>Intrinsically Motivated Discovery of Temporally Abstract Graph-based Models of the World</li>
+                      <li>An Optimisation Framework for Unsupervised Environment Design</li>
+                      <li>Epistemically-guided forward-backward exploration</li>
+                      <li>RLeXplore: Accelerating Research in Intrinsically-Motivated Reinforcement Learning</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 4: Theoretical RL, Bandit algorithms</span>
+                    <button onclick="toggleTrack('thu-track-4-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="thu-track-4-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="7">
+                      <li>Multi-task Representation Learning for Fixed Budget Pure-Exploration in Linear and Bilinear Bandits</li>
+                      <li>On Slowly-varying Non-stationary Bandits</li>
+                      <li>Empirical Bound Information-Directed Sampling</li>
+                      <li>Thompson Sampling for Constrained Bandits</li>
+                      <li>Achieving Limited Adaptivity for Multinomial Logistic Bandits</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-160</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">12:45 PM - 1:45 PM</div>
+                <div class="mb-2 col-span-2 p-1">Sponsor Talk by Amii</div>
+                <div class="mb-2">CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+                <div class="mb-2 col-span-2 p-1">Lunch</div>
+                <div></div>
+              </div>
+              
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">2 PM - 3 PM</div>
+                <div class="mb-2 col-span-2 p-1">Keynote: Michael Littman</div>
+                <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">3 PM - 6 PM</div>
+                <div class="mb-2 col-span-2 p-1">Poster Session</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">6 PM</div>
+                <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Friday -->
+          <div id="day-friday" class="day-content hidden">
+            <div class="rounded-lg p-1 sm:p-6">
+              <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Friday, August 8</h2>
+              
+              <div class="grid grid-cols-4 font-semibold">
+                <div class="mb-2 p-1">Time</div>
+                <div class="mb-2 col-span-2 p-1">Event</div>
+                <div class="mb-2 p-1">Location</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 10 AM</div>
+                <div class="mb-2 col-span-2 p-1">Keynote: Peter Dayan</div>
+                <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
+              </div>
+             <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 1: RL algorithms, Deep RL</span>
+                    <button onclick="toggleTrack('fri-track-1')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-1" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Bayesian Meta-Reinforcement Learning with Laplace Variational Recurrent Networks</li>
+                      <li>Cascade - A sequential ensemble method for continuous control tasks</li>
+                      <li>HANQ: Hypergradients, Asymmetry, and Normalization for Fast and Stable Deep \(Q\)-Learning</li>
+                      <li>Rectifying Regression in Reinforcement Learning</li>
+                      <li>Efficient Morphology-Aware Policy Transfer to New Embodiments</li>
+                      
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 2: Applied RL</span>
+                    <button onclick="toggleTrack('fri-track-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Action Mapping for Reinforcement Learning in Continuous Environments with Constraints</li>
+                      <li>Chargax: A JAX Accelerated EV Charging Simulator</li>
+                      <li>WOFOSTGym: A Crop Simulator for Learning Annual and Perennial Crop Management Strategies</li>
+                      <li>Drive Fast, Learn Faster: On-Board RL for High Performance Autonomous Racing</li>
+                      <li>Multi-Agent Reinforcement Learning for Inverse Design in Photonic Integrated Circuits</li>
+                      
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-440</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 3: Multi-agent RL</span>
+                    <button onclick="toggleTrack('fri-track-3')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-3" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Reinforcement Learning for Finite Space Mean-Field Type Game</li>
+                      <li>Collaboration Promotes Group Resilience in Multi-Agent RL</li>
+                      <li>Foundation Model Self-Play: Open-Ended Strategy Innovation via Foundation Models</li>
+                      <li>Hierarchical Multi-agent Reinforcement Learning for Cyber Network Defense</li>
+                      <li>Efficient Information Sharing for Training Decentralized Multi-Agent World Models</li>
+                      <li>Adaptive Reward Sharing to Enhance Learning in the Context of Multiagent Teams</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10:20 AM - 11:15 AM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 4: Foundations</span>
+                    <button onclick="toggleTrack('fri-track-4')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-4" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3">
+                      <li>Effect of a slowdown correlated to the current state of the environment on an asynchronous learning architecture</li>
+                      <li>Average-Reward Soft Actor-Critic</li>
+                      <li>Your Learned Constraint is Secretly a Backward Reachable Tube</li>
+                      <li>Recursive Reward Aggregation</li>
+                      <li>On the Effect of Regularization in Policy Mirror Descent</li>
+                      
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-160</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div></div>
+                <div class="mb-2 col-span-2 p-1 m-2 text-center font-semibold">30 min break</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 1: RL algorithms, Deep RL</span>
+                    <button onclick="toggleTrack('fri-track-1-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-1-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="6">
+                      <li>Finer Behavioral Foundation Models via Auto-Regressive Features and Advantage Weighting</li>
+                      <li>Concept-Based Off-Policy Evaluation</li>
+                      <li>Multiple-Frequencies Population-Based Training</li>
+                      <li>AVG-DICE: Stationary Distribution Correction by Regression</li>
+                      <li>Iterated Q-Network: Beyond One-Step Bellman Updates in Deep Reinforcement Learning</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 2: Applied RL</span>
+                    <button onclick="toggleTrack('fri-track-2-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-2-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="6">
+                      <li>Gaussian Process Q-Learning for Finite-Horizon Markov Decision Process</li>
+                      <li>Hybrid Classical/RL Local Planner for Ground Robot Navigation</li>
+                      <li>V-Max: Making RL Practical for Autonomous Driving</li>
+                      <li>Shaping Laser Pulses with Reinforcement Learning</li>
+                      <li>Learning Sub-Second Routing Optimization in Computer Networks requires Packet-Level Dynamics</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-440</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 3: Multi-agent RL</span>
+                    <button onclick="toggleTrack('fri-track-3-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-3-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="7">
+                      <li>Seldonian Reinforcement Learning for Ad Hoc Teamwork</li>
+                      <li>Joint-Local Grounded Action Transformation for Sim-to-Real Transfer in Multi-Agent Traffic Control</li>
+                      <li>TransAM: Transformer-Based Agent Modeling for Multi-Agent Systems via Local Trajectory Encoding</li>
+                      <li>PEnGUiN: Partially Equivariant Graph NeUral Networks for Sample Efficient MARL</li>
+                      <li>Human-Level Competitive Pokémon via Scalable Offline Reinforcement Learning with Transformers</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-140</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11:45 AM - 12:30 PM</div>
+                <div class="mb-2 col-span-2 p-1">
+                  <div class="flex items-center gap-2">
+                    <span>Track 4: Foundations</span>
+                    <button onclick="toggleTrack('fri-track-4-2')" class="bg-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
+                      +
+                    </button>
+                  </div>
+                  <div id="fri-track-4-2" class="hidden mt-2 bg-gray-50 rounded">
+                    <ol class="list-decimal list-inside text-xs space-y-1 mb-3" start="6">
+                      <li>Investigating the Utility of Mirror Descent in Off-policy Actor-Critic</li>
+                      <li>Rethinking the Foundations for Continual Reinforcement Learning</li>
+                      <li>An Analysis of Action-Value Temporal-Difference Methods That Learn State Values</li>
+                      <li>Reinforcement Learning with Adaptive Temporal Discounting</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="mb-2">CCIS 1-160</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">12:30 PM - 2 PM</div>
+                <div class="mb-2 col-span-2 p-1">Lunch</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">2:00 PM - 3:00 PM</div>
+                <div class="mb-2 col-span-2 p-1">Keynote: Richard S. Sutton</div>
+                <div>CCIS 1-430 (Overflow: CCIS 1-440)</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">3 PM - 6 PM</div>
+                <div class="mb-2 col-span-2 p-1">Poster Session</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">6 PM</div>
+                <div class="mb-2 col-span-2 p-1">Dinner on your own</div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saturday -->
+          <div id="day-saturday" class="day-content hidden">
+            <div class="rounded-lg p-1 sm:p-6">
+              <h2 class="text-base sm:text-xl font-semibold mb-3 text-blue text-center">Saturday, August 9</h2>
+              <div class="grid grid-cols-4 font-semibold">
+                <div class="mb-2 p-1">Time</div>
+                <div class="mb-2 col-span-2 p-1">Event</div>
+                <div class="mb-2 p-1">Location</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">9 AM - 10 AM</div>
+                <div class="mb-2 col-span-2 p-1">Breakfast & Meet-ups</div>
+                <div></div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">10 AM - 11 AM</div>
+                <div class="mb-2 col-span-2 p-1">Town Hall</div>
+                <div class="mb-2">CCIS 1-430</div>
+              </div>
+              <div class="grid grid-cols-4">
+                <div class="mb-2 p-1">11 AM - 1 PM</div>
+                <div class="mb-2 col-span-2 p-1">Socials, Meet-ups, Excursions</div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+
+
         </div>
       </div>
 
+      <div class="grid grid-cols-2 items-center">
+        <div id="footerText" class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+        </div>
+        <div class="p-2 m-1 w-full">
+          <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
+            <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
+          </div>
+        </div>
+      </div>
+      
+
+      <script>
+        function showDay(dayId) {
+          // Hide all day contents
+          const dayContents = document.querySelectorAll('.day-content');
+          dayContents.forEach(content => {
+            content.classList.add('hidden');
+          });
+          
+          // Reset all buttons to inactive state
+          const buttons = document.querySelectorAll('.day-btn');
+          buttons.forEach(btn => {
+            btn.classList.remove('bg-blue', 'text-white');
+            btn.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+          });
+          
+          // Show selected day
+          const selectedDay = document.getElementById('day-' + dayId);
+          if (selectedDay) {
+            selectedDay.classList.remove('hidden');
+          }
+          
+          // Set selected button to active state
+          const selectedButton = document.getElementById('btn-' + dayId);
+          if (selectedButton) {
+            selectedButton.classList.remove('bg-rldarkblue-200', 'text-rldarkblue-900');
+            selectedButton.classList.add('bg-blue', 'text-white');
+          }
+        }
+        
+        function toggleTrack(trackId) {
+          const trackContent = document.getElementById(trackId);
+          if (trackContent) {
+            const isHidden = trackContent.classList.contains('hidden');
+            trackContent.classList.toggle('hidden');
+            
+            // Find the button that corresponds to this track and update its text
+            const button = document.querySelector(`button[onclick="toggleTrack('${trackId}')"]`);
+            if (button) {
+              if (isHidden) {
+                button.textContent = '×';
+              } else {
+                button.textContent = '+';
+              }
+            }
+          }
+        }
+
+        // Initialize with Monday shown
+        document.addEventListener('DOMContentLoaded', function() {
+          showDay('monday');
+        });
+      </script>
+
       <!-- Load menu functionality -->
-      <script src="menu.js"></script>
+    
 </body>
+<script src="menu.js"></script>
 
 </html>
