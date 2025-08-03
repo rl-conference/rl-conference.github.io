@@ -117,6 +117,7 @@ new Organizer("Brad Knox", "Keynote and Scheduling Chair", "data/organizers/bk.p
 new Organizer("Tom Schaul", "Keynote and Scheduling Chair", "data/organizers/ts.jpg"),
 new Organizer("Emma Jordan", "Keynote and Scheduling Chair", "data/organizers/ej.webp"),
 new Organizer("Roberta Raileanu", "Awards Chair", "data/organizers/rr.jpg"),
+new Organizer("Ida Momennejad", "Awards Chair", "data/organizers/im.jpg"),
 new Organizer("Martha White", "Local Chair", "data/organizers/mw.webp"),
 new Organizer("Mike Bowling", "Local Chair", "data/organizers/mb.jpg"),
 new Organizer("Patrick Pilarski", "Local and Volunteers Chair", "data/organizers/pp.jpg"),
@@ -127,8 +128,7 @@ new Organizer("Josiah Hanna", "Workshop Chair", "data/organizers/jh.jpeg"),
 new Organizer("Claire Vernade", "Workshop Chair", "data/organizers/cv.jpg"),
 new Organizer("Eugene Vinitsky", "Communication Chair", "data/organizers/ev.jpg"),
 new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
-new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png"),
-new Organizer("Ida Momennejad", "", "data/organizers/im.jpg")
+new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png")
 ]
 
 class Workshop {
