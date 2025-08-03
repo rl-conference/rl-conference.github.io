@@ -127,7 +127,8 @@ new Organizer("Josiah Hanna", "Workshop Chair", "data/organizers/jh.jpeg"),
 new Organizer("Claire Vernade", "Workshop Chair", "data/organizers/cv.jpg"),
 new Organizer("Eugene Vinitsky", "Communication Chair", "data/organizers/ev.jpg"),
 new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
-new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png")
+new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png"),
+new Organizer("Ida Momennejad", "", "data/organizers/im.jpg")
 ]
 
 class Workshop {
