@@ -132,11 +132,12 @@ new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png
 ]
 
 class Workshop {
-    constructor(name, link, description, contacts) {
+    constructor(name, link, description, contacts, room) {
         this.name = name;
         this.link = link;
         this.description = description;
         this.contacts = contacts;
+        this.room = room;
     }
 }
 
