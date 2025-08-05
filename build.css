@@ -1326,6 +1326,10 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.outline {
+  outline-style: solid;
+}
+
 .backdrop-blur-md {
   --tw-backdrop-blur: blur(12px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -1369,6 +1373,11 @@ video {
   background-color: rgb(19 93 145 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-rldarkblue-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 65 97 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:text-rldarkblue-400:hover {
   --tw-text-opacity: 1;
   color: rgb(75 174 229 / var(--tw-text-opacity, 1));
@@ -1387,6 +1396,11 @@ video {
 .hover\:text-rldarkblue-900:hover {
   --tw-text-opacity: 1;
   color: rgb(21 65 97 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:block {

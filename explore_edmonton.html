@@ -2,13 +2,18 @@
 <script src="jquery.js"></script>
 <script src="data.js"></script>
 
-<!-- Changes below this can cause problems -->
-
 <html lang="en-us">
 
 <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WJ8BP2WZ');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
-    <title id="mainPageTitleforSEO">Explore Edmonton</title>
+    <title id="mainPageTitleforSEO">Explore Edmonton - RLC 2025</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +29,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="RLC" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta id="seodescription" name="description" content="">
+    <meta id="seodescription" name="description" content="Discover the best of Edmonton during RLC 2025 - from local cuisine to outdoor adventures, arts and culture, and vibrant nightlife.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,37 +38,27 @@
         rel="stylesheet">
 </head>
 
-<!--<div id="backgroundImage" class="fixed -z-20 h-screen w-full">-->
-<!--</div>-->
-<!--<style>-->
-<!--    #backgroundImage {-->
-<!--        background-image: url('data/backgroundGradients/RLC.svg');-->
-<!--        background-repeat: no-repeat;-->
-<!--        background-size: cover;-->
-<!--        background-position: center;-->
-<!--    }-->
-<!--</style>-->
-
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ8BP2WZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-
-    <div class="container  mx-auto ">
+    <div class="container mx-auto">
         <div class="flex flex-col min-h-screen justify-between">
             <div>
-                <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                <div class="m-2 grid grid-cols-3 items-center rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
                     <div class="p-2 w-full rounded-md">
                         <div class="hidden lg:block max-w-60">
-                            <img alt="Company logo" src="data/logos/rlc-logo.svg" />
+                            <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
                         </div>
                         <div class="block pt-1 lg:hidden max-w-60">
-                            <img alt="Company logo" src="data/logos/rlc-logo.svg" />
+                            <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
                         </div>
                     </div>
                     <div></div>
-                    <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
-
-                    </div>
-                    <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
+                    <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md"></div>
+                    <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md">
                         <div class="relative flex flex-row-reverse">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor"
@@ -73,25 +68,255 @@
                                     d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                             </svg>
                             <div id="collapsedMenuItems"
-                                class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
-
+                                class="absolute top-10 z-10 hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
+                <div class="relative bg-rlgrey/50 backdrop-blur-md m-1 rounded-md shadow-md"></div>
+
+                <h1 class="text-4xl text-blue text-center font-rubik p-2 m-2">Explore Edmonton</h1>
+                <p class="text-center font-roboto text-lg mb-8 px-4">Discover the best of Edmonton during RLC 2025</p>
+
+                <!-- Category Navigation -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8 px-4">
+                    <button onclick="showCategory('food')" class="category-btn active bg-rldarkblue-900 text-white px-6 py-2 rounded-md font-rubik hover:bg-rldarkblue-700 transition duration-300">Food & Dining</button>
+                    <button onclick="showCategory('activities')" class="category-btn bg-rllightblue-50 text-rldarkblue-900 px-6 py-2 rounded-md font-rubik hover:bg-rldarkblue-900 hover:text-white transition duration-300">Activities & Sports</button>
+                    <button onclick="showCategory('nature')" class="category-btn bg-rllightblue-50 text-rldarkblue-900 px-6 py-2 rounded-md font-rubik hover:bg-rldarkblue-900 hover:text-white transition duration-300">Nature & Parks</button>
+                    <button onclick="showCategory('nightlife')" class="category-btn bg-rllightblue-50 text-rldarkblue-900 px-6 py-2 rounded-md font-rubik hover:bg-rldarkblue-900 hover:text-white transition duration-300">Nightlife</button>
+                    <button onclick="showCategory('shopping')" class="category-btn bg-rllightblue-50 text-rldarkblue-900 px-6 py-2 rounded-md font-rubik hover:bg-rldarkblue-900 hover:text-white transition duration-300">Shopping</button>
+                    <button onclick="showCategory('arts')" class="category-btn bg-rllightblue-50 text-rldarkblue-900 px-6 py-2 rounded-md font-rubik hover:bg-rldarkblue-900 hover:text-white transition duration-300">Arts & Culture</button>
                 </div>
 
-                <h1 class="text-4xl  text-blue text-center font-rubik p-2 m-2 mb-10 ">Explore Edmonton</h1>
-                
-                
-            </div>
-            <div class="grid grid-cols-2 items-center  ">
-                <div id="footerText"
-                    class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+                <!-- Food Section -->
+                <div id="food" class="category-section">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Savoy's Express</h3>
+                            <p class="text-sm text-gray-600 mb-2">On Campus</p>
+                            <p class="text-sm font-semibold mb-2">Indian</p>
+                            <p class="text-sm mb-4">Located on campus inside HUB mall, their lunch special has great portions!</p>
+                            <a href="https://savoys.ca/express/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Farrow Garneau</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm font-semibold mb-2">Cafe</p>
+                            <p class="text-sm mb-4">Fantastic sandwiches, coffee, baked goods.</p>
+                            <a href="https://farrowsandwiches.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Sugar Bowl</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm font-semibold mb-2">Bistro / Pub</p>
+                            <p class="text-sm mb-4">A cozy and historic spot serving brunch and pub food with an extensive beer list.</p>
+                            <a href="https://www.thesugarbowl.org/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">High Level Diner</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm font-semibold mb-2">Diner</p>
+                            <p class="text-sm mb-4">A long-standing Edmonton favourite serving classic diner fare. Famous for its brunch and cinnamon buns.</p>
+                            <a href="https://www.highleveldiner.com/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Sepp's Pizza</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm font-semibold mb-2">Pizza</p>
+                            <p class="text-sm mb-4">New York-style pizzeria offering classic and creative pizzas with high-quality ingredients.</p>
+                            <a href="https://seppspizza.com/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Made by Marcus</h3>
+                            <p class="text-sm text-gray-600 mb-2">Long Walk / Short Bus</p>
+                            <p class="text-sm font-semibold mb-2">Ice Cream</p>
+                            <p class="text-sm mb-4">An artisanal ice cream shop known for its unique and creative flavours made from scratch with local ingredients. A must try!</p>
+                            <a href="https://www.instagram.com/madebymarcus/?hl=en" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Instagram →</a>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Activities Section -->
+                <div id="activities" class="category-section hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Wilson Climbing Centre</h3>
+                            <p class="text-sm text-gray-600 mb-2">On Campus</p>
+                            <p class="text-sm mb-4">Climbing gym on campus (day passes available)</p>
+                            <a href="https://www.ualberta.ca/en/campus-community-recreation/our-programs/wilson-climbing-centre/rates.html" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Van Vliet Athletic Complex</h3>
+                            <p class="text-sm text-gray-600 mb-2">On Campus</p>
+                            <p class="text-sm mb-4">$10 day pass available to access fitness center (lots of weights+cardio options), pool, basketball gym, climbing center</p>
+                            <a href="https://www.ualberta.ca/en/campus-community-recreation/facilities/north-campus/index.html" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">University Bike Library</h3>
+                            <p class="text-sm text-gray-600 mb-2">On Campus</p>
+                            <p class="text-sm mb-4">U of A community bike shop offers fantastic deal of $5.00 daily and $15.00 weekly rates for rentals! DIY Repairs as well (limited hours, check website)</p>
+                            <a href="https://www2.su.ualberta.ca/services/sustainsu/projects/bikelibrary/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Edmonton River Float</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus</p>
+                            <p class="text-sm mb-4">Float the North Saskatchewan River through downtown Edmonton!</p>
+                            <a href="https://edmontonriverfloat.com/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">GTFO Escape Entertainment</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus / LRT</p>
+                            <p class="text-sm mb-4">Room you've got to try: Europa Colony 4836. This is a competitive sci-fi room where you race against another team to survive!</p>
+                            <a href="https://www.letsgtfo.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Drive at WEM</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus</p>
+                            <p class="text-sm mb-4">Epic go-kart track located inside West Edmonton Mall.</p>
+                            <a href="https://www.wem.ca/play/attractions/drive" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nature Section -->
+                <div id="nature" class="category-section hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Silver Fox Trail</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm mb-4">Beautiful gravel trail for walking/biking along the river! Connects to the main river valley trail system.</p>
+                            <a href="https://www.mypacer.com/routes/oi2qec/silver-fox-hiking-trail-edmonton-alberta" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Emily Murphy Park</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm mb-4">A popular riverside park with picnic sites, a boat launch, and access to the river valley trail system.</p>
+                            <a href="https://www.edmonton.ca/activities_parks_recreation/parks_rivervalley/emily-murphy-park" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Muttart Conservatory</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus / LRT</p>
+                            <p class="text-sm mb-4">Botanical gardens housed in iconic glass pyramids, each with a different climate and plant life (temperate, arid, tropical).</p>
+                            <a href="https://www.edmonton.ca/attractions_events/muttart-conservatory" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Elk Island National Park</h3>
+                            <p class="text-sm text-gray-600 mb-2">Car</p>
+                            <p class="text-sm mb-4">This National Park is just 35 minutes east of Edmonton. The prairie plateau is home to the largest population of hoofed mammals in all of Canada.</p>
+                            <a href="https://parks.canada.ca/pn-np/ab/elkisland" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">University of Alberta Botanic Garden</h3>
+                            <p class="text-sm text-gray-600 mb-2">Car</p>
+                            <p class="text-sm mb-4">A stunning 240-acre garden (including a Japanese garden).</p>
+                            <a href="https://www.ualberta.ca/botanic-garden/index.html" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nightlife Section -->
+                <div id="nightlife" class="category-section hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Little Wolf Restaurant</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm mb-4">Snack bar and cocktail-spot nestled in the heart of the Garneau neighborhood.</p>
+                            <a href="https://www.littlewolfrestaurant.com/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">The Black Dog Freehouse</h3>
+                            <p class="text-sm text-gray-600 mb-2">Long Walk / Short Bus</p>
+                            <p class="text-sm mb-4">Energetic tavern featuring bar bites, drink specials & DJs, plus a rooftop patio. A Whyte Ave institution.</p>
+                            <a href="https://blackdog.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">The Starlite Room</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus / LRT</p>
+                            <p class="text-sm mb-4">A historic live music venue in downtown Edmonton hosting a wide range of local and international acts.</p>
+                            <a href="https://starliteroom.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Nowhere Wine Bar</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus / LRT</p>
+                            <p class="text-sm mb-4">A cozy, intimate wine bar. The owners are fanatics about wine and are constantly exploring and discovering the best wines of the world!</p>
+                            <a href="https://www.nowherewinebar.com/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping Section -->
+                <div id="shopping" class="category-section hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Old Strathcona Farmers' Market</h3>
+                            <p class="text-sm text-gray-600 mb-2">Long Walk / Short Bus</p>
+                            <p class="text-sm mb-4">A year-round indoor market held every Saturday, featuring over 130 vendors selling local produce, crafts, and prepared foods.</p>
+                            <a href="https://osfm.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Gravity Pope</h3>
+                            <p class="text-sm text-gray-600 mb-2">Long Walk / Short Bus</p>
+                            <p class="text-sm mb-4">This Whyte Ave legend is Edmonton's most beloved shoe store. You can also drop by their brand new clothing boutique only one block down from Gravity Pope Shoes.</p>
+                            <a href="https://www.gravitypope.com/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Porch Light Books</h3>
+                            <p class="text-sm text-gray-600 mb-2">Long Walk / Short Bus</p>
+                            <p class="text-sm mb-4">Popular used and new bookshop!</p>
+                            <a href="https://www.porchlightbooks.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">West Edmonton Mall</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus</p>
+                            <p class="text-sm mb-4">North America's largest shopping mall, featuring over 800 stores, an indoor waterpark, amusement park, and more.</p>
+                            <a href="https://exploreedmonton.com/articles/your-guide-to-west-edmonton-mall" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arts & Culture Section -->
+                <div id="arts" class="category-section hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Metro Cinema</h3>
+                            <p class="text-sm text-gray-600 mb-2">Short Walk</p>
+                            <p class="text-sm mb-4">An independent, non-profit cinema dedicated to screening unique, classic, and international films.</p>
+                            <a href="https://metrocinema.org/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Royal Alberta Museum</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus / LRT</p>
+                            <p class="text-sm mb-4">The largest museum in western Canada, featuring extensive natural and human history exhibits.</p>
+                            <a href="https://royalalbertamuseum.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Art Gallery of Alberta</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus / LRT</p>
+                            <p class="text-sm mb-4">A striking building in the heart of the Arts District, showcasing historical and contemporary art from Alberta and beyond.</p>
+                            <a href="https://www.youraga.ca/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                        <div class="rounded-lg bg-rllightblue-50 p-6">
+                            <h3 class="text-xl font-rubik text-blue mb-2">Edmonton Folk Festival</h3>
+                            <p class="text-sm text-gray-600 mb-2">Bus / LRT</p>
+                            <p class="text-sm mb-2">August 7-10</p>
+                            <p class="text-sm mb-4">The jam-packed four days of folk music, great food and a stellar setting during the Edmonton Folk Music Festival has become a summer institution in the city.</p>
+                            <a href="https://edmontonfolkfest.org/" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900 text-sm">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info Section -->
+                <div class="text-left m-2 p-2 mt-8 font-roboto text-lg">
+                    <h2 class="text-2xl font-rubik text-blue mb-4">Getting Around Edmonton</h2>
+                    <p class="mb-4">Edmonton has an excellent public transit system with buses and LRT (Light Rail Transit). The University of Alberta campus is well-connected, and many attractions are easily accessible by public transit.</p>
+                    <p class="mb-4">For real-time transit information, visit <a href="https://www.edmonton.ca/edmonton-transit-system-ets" target="_blank" class="text-rldarkblue-600 hover:text-rldarkblue-900">Edmonton Transit System</a>.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 items-center">
+                <div id="footerText" class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base"></div>
                 <div class="p-2 m-1 w-full">
-                    <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+                    <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
                         <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
                     </div>
                 </div>
@@ -99,10 +324,27 @@
         </div>
     </div>
 
+    <script src="menu.js"></script>
+    <script>
+        function showCategory(category) {
+            // Hide all category sections
+            document.querySelectorAll('.category-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-rldarkblue-900', 'text-white');
+                btn.classList.add('bg-rllightblue-50', 'text-rldarkblue-900');
+            });
+            
+            // Show selected category
+            document.getElementById(category).classList.remove('hidden');
+            
+            // Add active class to clicked button
+            event.target.classList.remove('bg-rllightblue-50', 'text-rldarkblue-900');
+            event.target.classList.add('bg-rldarkblue-900', 'text-white');
+        }
+    </script>
 </body>
-<script src="menu.js"></script>
-<div
-    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer">
-</div>
-
 </html>
