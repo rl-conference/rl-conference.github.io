@@ -224,8 +224,16 @@
               <div class="bg-rldarkblue-50/50 rounded-lg p-4  border-blue m-2">
                 <h3 class="text-base sm:text-xl  mb-3 text-rldarkblue-900 text-center mx-auto font-medium">9 AM - 10 AM</h3>
                 <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">Keynote: Leslie
-                    Kaelbling</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">
+                    <div class="font-semibold">Keynote: Leslie Kaelbling</div>
+                    <div class="text-sm text-gray-600 mt-1">RL: Rational Learning</div>
+                    <button onclick="toggleAbstract('leslie-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                      Show abstract
+                    </button>
+                    <div id="leslie-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700">
+                      The classical approach to AI designed systems that were rational at run-time: they had explicit representations of beliefs, goals, and plans and ran inference algorithms, online, to select actions. The rational approach was criticized (by the behaviorists) and modified (by the probabilists) but persisted in some form. More recently, relatively unstructured data-driven end-to-end approaches have demonstrated great success in a wide variety of domains, and began to seem like a plausible route to general-purpose intelligent robots. However, most recently, we have begun to see the limits of pure behavior learning and many practitioners are re-integrating forms of search and explicit reasoning into their approaches. I will revisit the rational-agent approach to the design of intelligent robots, from the perspectives of engineering effort, computational efficiency, cognitive modeling and understandability. I will present some current research focused on understanding the roles of learning in runtime-rational agents with the ultimate aim of constructing general-purpose human-level intelligent robots.
+                    </div>
+                  </div>
                   <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS
                     1-440)</div>
                 </div>
@@ -453,8 +461,16 @@
               <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                 <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">2 PM - 3 PM</h3>
                 <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">Keynote: Dale
-                    Schuurmans</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">
+                    <div class="font-semibold">Keynote: Dale Schuurmans</div>
+                    <div class="text-sm text-gray-600 mt-1">Large Language Models and Computation</div>
+                    <button onclick="toggleAbstract('dale-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                      Show abstract
+                    </button>
+                    <div id="dale-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700">
+                      The ability of large generative models to respond naturally to text, image and audio inputs has created significant excitement. Particularly interesting is the ability of these models to generate outputs that resemble coherent reasoning and computational sequences. I will discuss the inherent computational capability of large language models and show that autoregressive decoding supports universal computation, even without pre-training. The co-existence of informal and formal computational systems in the same model does not change what is computable, but does provide new means for eliciting desired behaviour. I will then discuss how post-training, in an attempt to make a model more directable, faces severe computational limits on what can be achieved, but that accounting for these limits can improve outcomes.
+                    </div>
+                  </div>
                   <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
                   </div>
                 </div>
@@ -598,7 +614,15 @@
             <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
               <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">9 AM - 10 AM</h3>
               <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Keynote: Joelle Pineau
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Joelle Pineau</div>
+                  <div class="text-sm text-gray-600 mt-1">Beyond Bellman's Legacy: Rethinking What We Value</div>
+                  <button onclick="toggleAbstract('joelle-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="joelle-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700">
+                    Reinforcement learning has long relied on a precise, recursive notion of value rooted in Bellman's formulation—but as RL systems increasingly interact with humans and shape society, this definition proves both powerful and limited. This talk explores the evolution of value in RL, and the personal, philosophical, cultural, and institutional dimensions of what we choose to optimize. We'll ask not just how to compute value, but whose values we encode—and how RL might reflect and enrich, rather than constrain, the futures we care about.
+                  </div>
                 </div>
                 <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
                 </div>
@@ -840,8 +864,15 @@
             <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
               <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">2 PM - 3 PM</h3>
               <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Keynote: Michael
-                  Littman
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Michael Littman</div>
+                  <div class="text-sm text-gray-600 mt-1">Efficient RL/AI via Interaction and Teaching: The Importance of Theory</div>
+                  <button onclick="toggleAbstract('michael-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="michael-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700">
+                    Splashy RL/AI headlines sometimes obscure a deep truth---we can't really tell if these systems reliably do what we train them to do. In this talk, I assert that theory, that is, mathematical analysis, is a critical conceptual and even practical tool for helping build systems we can trust. I will survey some illustrative results on two mechanisms that are underused in modern systems but I believe are absolutely essential to the future of the field: interaction and teaching. After sketching some "existence" proofs that show how these techniques can make otherwise intractable problems tractable, I will make a plea for more focused efforts to move the idea of scalable systems with guarantees into the RL/AI mainstream.
+                  </div>
                 </div>
                 <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
                 </div>
@@ -871,7 +902,15 @@
             <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
               <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">9 AM - 10 AM</h3>
               <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Keynote: Peter Dayan
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Peter Dayan</div>
+                  <div class="text-sm text-gray-600 mt-1">The Marriage of Natural and Engineered Reinforcement Learning</div>
+                  <button onclick="toggleAbstract('peter-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="peter-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700">
+                    Natural and engineered reinforcement learning (RL) have been on- and off-again bedfellows for more than 70 years. There are many themes that are actually central to both, but they are often couched and characterized in different terms. This is true of debates in behavioural psychology between camps associated with Thorndike and Tolman which pre-figured what we would now understand in terms of model-free and model-based RL, or of temporal difference prediction errors that we can find partly reflected in the activity of particular classes of neurons in the brain. I will offer some snapshots from this long marriage, and speculate about the grandchildren.
+                  </div>
                 </div>
                 <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
                 </div>
@@ -1091,8 +1130,16 @@
             <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
               <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">2:00 PM - 3:00 PM</h3>
               <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Keynote: Richard S.
-                  Sutton</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Richard S. Sutton</div>
+                  <div class="text-sm text-gray-600 mt-1">The Oak Architecture: A Vision of SuperIntelligence from Experience</div>
+                  <button onclick="toggleAbstract('rich-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="rich-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700">
+                    As AI has become a huge industry, to a large extent it has lost its way. What is needed to get us back on track to true intelligence? We need agents that learn continually. We need world models and planning. We need knowledge that is high-level and learnable. We need to meta-learn how to generalize. The Oak architecture is one answer to all these needs. In overall outline it is a model-based RL architecture with three special features: 1) all of its components learn continually, 2) each learned weight has a dedicated step-size parameter that is meta-learned using online cross-validation, and 3) abstractions in state and time are continually created in a five-step progression: Feature Construction, posing a SubTask based on the feature, learning an Option to solve the subtask, learning a Model of the option, and Planning using the option's model (the FC-STOMP progression). The Oak architecture is rather meaty; in this talk we give an outline and point to the many works, prior and co-temporaneous, that are contributing to its overall vision of how superintelligence can arise from an agent's experience.
+                  </div>
+                </div>
                 <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
                 </div>
               </div>
@@ -1341,6 +1388,23 @@
           if (sectionButton) {
             sectionButton.classList.remove('bg-blue', 'text-white');
             sectionButton.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+          }
+        }
+
+        function toggleAbstract(abstractId) {
+          const abstract = document.getElementById(abstractId);
+          const button = document.querySelector(`button[onclick="toggleAbstract('${abstractId}')"]`);
+          
+          if (abstract && button) {
+            if (abstract.classList.contains('hidden')) {
+              // Show abstract
+              abstract.classList.remove('hidden');
+              button.textContent = 'Hide abstract';
+            } else {
+              // Hide abstract
+              abstract.classList.add('hidden');
+              button.textContent = 'Show abstract';
+            }
           }
         }
 
