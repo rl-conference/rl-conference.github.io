@@ -75,7 +75,7 @@ class MenuItemWithSubmenu {
 
 
 listOfMenuItems = [
-    new MenuItem("Schedule", "schedule.html#tuesday"),
+    new MenuItem("Schedule", "schedule.html#wednesday"),
     new MenuItemWithSubmenu("Program", [
         new MenuItem("Food & Activities", "explore_edmonton.html"),  new MenuItem("Accepted&nbspWorkshops", "accepted_workshops.html"), new MenuItem("Information&nbspfor&nbspAttendees", "local_info.html"),
         new MenuItem("Accepted&nbspPapers", "https://rlj.cs.umass.edu/2025/2025issue.html")]),
