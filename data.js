@@ -77,7 +77,7 @@ class MenuItemWithSubmenu {
 listOfMenuItems = [
     new MenuItem("Schedule", "schedule.html#wednesday"),
     new MenuItemWithSubmenu("Program", [
-        new MenuItem("Food & Activities",  "explore_edmonton.html"), new MenuItem("Schedule", "schedule.html#wednesday"), new MenuItem("Accepted&nbspWorkshops", "accepted_workshops.html"), new MenuItem("Information&nbspfor&nbspAttendees", "local_info.html"),
+        new MenuItem("Food & Activities",  "explore_edmonton.html"), new MenuItem("Schedule", "schedule.html#wednesday"), new MenuItem("Outstanding&nbspPapers", "RLC2025Awards.html"), new MenuItem("Accepted&nbspWorkshops", "accepted_workshops.html"), new MenuItem("Information&nbspfor&nbspAttendees", "local_info.html"),
         new MenuItem("Accepted&nbspPapers", "https://rlj.cs.umass.edu/2025/2025issue.html")]),
     new MenuItemWithSubmenu("Submit", [new MenuItem("Call&nbspfor&nbspSocials", "call_for_socials.html"), new MenuItem("Call&nbspfor&nbspPapers", "callforpapers.html"), new MenuItem("Call&nbspfor&nbspWorkshops", "callforworkshops.html"), new MenuItem("Submission&nbspInstructions", "submissionInstructions.html"), new MenuItem("Review&nbspInstructions", "https://docs.google.com/document/d/1ZGDiRiAjfkTZCS36e9h4qwITYBDfLAxBltR4Kd0IXAE/edit?usp=sharing"), new MenuItem("Journal&nbspto&nbspConference", "https://docs.google.com/forms/d/e/1FAIpQLScpQ4WRsQa9MEki8B7lZbh2GGAnycPqjtS8-CIHmWgg49RwIg/viewform")]),
 
