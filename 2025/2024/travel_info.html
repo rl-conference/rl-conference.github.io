@@ -1,0 +1,588 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- External Javascript libs_ext  -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+    integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+    integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+    integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+
+
+  <!-- Library libs_ext -->
+  <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+
+
+  <!--    Internal Libs -->
+  <script src="static/js/data/api.js"></script>
+
+  
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+  <!-- External Fonts (no google for china) -->
+  <link href="static/css/Lato.css" rel="stylesheet" />
+  <link href="static/css/Exo.css" rel="stylesheet" />
+  <link href="static/css/Cuprum.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/main.css" />
+  <!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
+  <link rel="stylesheet" href="static/css/fa_solid.css" />
+  <link rel="stylesheet" href="static/css/lazy_load.css" />
+  <link rel="stylesheet" href="static/css/typeahead.css" />
+
+  <title>RLC 2024: Travel Info</title>
+  
+
+  <meta property="og:title" content="Reinforcement Learning Conference 2024" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="static/images/logo_with_title.png" />
+  <meta property="og:url" content="https://rl-conference.cc" />
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+</head>
+
+<body>
+
+  <!-- Move this into CSS!!! Why does this not load unless it's here! -->
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      color: rgb(239, 27, 27);
+      padding-top: 8px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .dropbtn {
+      background-color: #d51313;
+      /* Changed from #4CAF50 to gray */
+      color: rgb(206, 19, 19);
+      /* padding-top: 10px; */
+      /* padding-bottom: 10px; */
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-collapse .dropdown-content {
+        left: 0;
+      }
+    }
+
+
+    .dropdown-content a {
+      /* color: black; */
+      color: rgba(0, 0, 0, .65);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      border-radius: inherit;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown>span {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+      color: rgba(15, 15, 15, 0.5);
+      /* Apply the RGBA background color */
+    }
+  </style>
+
+  <!-- NAV -->
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
+      <div class="container">
+          <a class="navbar-brand" href="/2024/index.html">
+              <img class="logo" src="static/images/rlc-logo.svg" height="auto"
+                   width="150px" />
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+
+
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/2024/index.html">Home</a>
+                  </li>
+
+
+
+                  <li class="nav-item dropdown">
+                      <!-- TODO: Do not do this -->
+                      <span>Program</span>
+                      <div class="dropdown-content">
+                          <a href="/2024/calendar.html?tz=US/Eastern">Schedule</a>
+                          <a href="/2024/accepted_workshops.html">Workshops</a>
+                          <a href="https://rlj.cs.umass.edu/2024/2024issue.html">Accepted Papers</a>
+                          <a href="/2024/accepted_journal_papers.html">Journal Track Papers (previously published)</a>
+                          <a href="/2024/papers.html">Paper Schedule</a>
+                          <a href="/2024/panels.html">Panels</a>
+
+                      </div>
+                  </li>
+
+
+
+                  <li class="nav-item dropdown">
+                      <!-- TODO: Do not do this like this -->
+                      <span>Submissions</span>
+                      <div class="dropdown-content">
+                          <a href="/2024/call_for_papers.html">Call for Papers</a>
+                          <a href="/2024/call_for_workshops.html">Call for Workshops</a>
+                          <a
+                                  href="https://docs.google.com/forms/d/e/1FAIpQLScuLxUE3mwr48n2Xdiasp3FTkpiY9foZrQ9LvofeBEgnWFlpQ/viewform">Journal
+                              Paper Presentations</a>
+                          <a href="/2024/review_process.html">Review Process</a>
+                          <a
+                                  href="https://docs.google.com/document/d/1IzXv7LmlmDVNZeEElMfOG3IJVIhoZYSZWA25ZSteg18/edit?usp=sharing">Reviewer
+                              Guidelines</a>
+                      </div>
+                  </li>
+
+
+
+                  <li class="nav-item ">
+                      <a class="nav-link" href="https://umass.irisregistration.com/Form/RLC">Register</a>
+                  </li>
+
+
+
+                  <li class="dropdown">
+                      <!-- TODO: Do not do this -->
+                      <span>Attend</span>
+                      <div class="dropdown-content">
+                          <a href="/2024/travel_info.html">Travel Information</a>
+                          <a href="/2024/hotels.html">Hotels</a>
+                          <a href="/2024/code_of_conduct.html">Code of Conduct</a>
+                      </div>
+                  </li>
+
+
+
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/2024/organizers.html">Organizers</a>
+                  </li>
+
+
+
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/2024/help.html">FAQ</a>
+                  </li>
+
+
+
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/2024/blogs.html">Blogs</a>
+                  </li>
+
+
+
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/2024/sponsorship.html">Sponsors</a>
+                  </li>
+
+
+              </ul>
+
+
+          </div>
+      </div>
+  </nav>
+
+  
+  <!-- User Overrides -->
+  
+<style>
+  .back {
+    background: url("static/images/old_chapel_small.jpg") no-repeat center;
+    background-size: cover;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+  }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
+</style>
+<meta property="og:title" content="Reinforcement Learning Conference 2024" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="static/images/logo_with_title.png" />
+<meta property="og:url" content="https://rl-conference.cc" />
+
+
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+      <h2 class="dropshadow">
+        REINFORCEMENT <br> LEARNING <br> CONFERENCE
+      </h2>
+      <h2 class="p-5 dropshadow">
+        August 9-12, 2024<br>
+        Amherst, MA
+      </h2>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+       
+    </div>
+    <!-- Content -->
+    <div class="content">
+      
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post</title>
+</head>
+<body>
+    <div>
+        <h1>Getting to UMass Amherst</h1>
+<p>Address: <a href="https://maps.app.goo.gl/GsnZ4FgxH8e2vgu59">Campus Center Auditorium, Campus Center, 1 Campus Center Way, Amherst, MA 01003</a></p>
+<h2>Renting a car</h2>
+<p>While chartered shuttles connect attendees from nearby airports, and a local bus system operates within the Amherst area, renting a car offers the most flexibility for getting around during your stay. Public transportation options, including buses and trains, are limited, particularly for reaching Amherst from airports.
+The conference venue is also a 20-25 minute walk from downtown Amherst.
+However, it should be noted that an on-campus dining hall will be open for the duration of the conference, so it is not necessary to go into town for food unless desired. On-campus parking in a garage near the venue is available at a rate up to a maximum of $6.50 per car per entry. Discounted parking passes will be available at the on-site registration desk.</p>
+<p>If you are not able to rent a car, there are chartered shuttles and bus lines from nearby airports, as well as a local bus system to get around the Amherst area and to off-campus accommodations. These options are discussed in greater detail below.</p>
+<h2>Transportation from Airports</h2>
+<h4><a href="https://bradleyairport.com/">Bradley International Airport (BDL)</a></h4>
+<p><a href="https://maps.app.goo.gl/pNV5wnQrYPYQDFT4A">Schoephoester Rd, Windsor Locks, Connecticut</a></p>
+<p>Getting to UMass from Bradley Airport is approximately 45 miles (80 km) from UMass.</p>
+<ul>
+    <li><strong>Renting a car</strong> (~50min drive)</li>
+    <ul>
+        <li>
+            <a href="https://bradleyairport.com/directions-parking/rental-cars/">Bradley Airport car rental</a>
+        </li>
+    </ul>
+    <li><strong>Hire a shuttle</strong></li>
+    <ul>
+        <li>
+            <a href="http://www.valleytransporter.com/">Valley Transporter</a> &mdash; <a href="tel:413-253-1350">(413) 253-1350</a>
+            <ul>
+                <li>This is a convenient option that provides shuttle transportation door-to-door from the airport terminal to your residence hall or hotel. Reservations are required.</li>
+            </ul>
+        </li>
+        <li>
+            <a href="http://www.seemoshuttle.com/">Seemo Shuttle</a> &mdash; <a href="tel:413-586-1120">(413) 586-1120</a>
+            <ul>
+                <li>
+                    Private minivans service offering door-to-door service.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.bluebirdairporttransportation.com/about/">Bluebird Transportation</a> &mdash; <a href=tel:413-221-4512">(413) 221-4512</a>
+            <ul>
+                <li>
+                    Service for passengers traveling between Western Massachusetts and airports and cities of Hartford, Boston, and New York.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://michaels-limo.com/">Michael's Limousine & Transportation Service</a> &mdash; <a href="tel:800-533-8470">(800) 533-8470</a>
+        </li>
+        <li>
+            <a href="https://www.mylimo5.com/">Exclusive Car Service Inc.</a> &mdash; <a href="tel:413-534-3505">(413) 534-3505</a>
+        </li>
+    </ul>
+    <li><strong>There are no bus or train services from Bradley to UMass Amherst.</strong></li>
+    <li><strong>Do NOT rely on the availability of taxis (or ride-sharing services) at Bradley.</strong></li>
+</ul>
+
+<hr>
+
+<h4><a href="http://www.massport.com/logan-airport/">Boston Logan International Airport (BOS)</a></h4>
+<p><a href="https://maps.app.goo.gl/LVBb1Xqjq549ru6s9">1 Harborside Dr, Boston, Massachusetts</a></p>
+<p>Getting to UMass from Logan Airport is approximately 95 miles (160 km). See <a href="https://vimeo.com/354886096">this video</a> for detailed instructions.</p>
+<ul>
+    <li><strong>Renting a car</strong> (~3-hour drive)</li>
+    <ul>
+        <li><a href="https://www.massport.com/logan-airport/getting-to-logan/car-rentals">Logan Airport car rental</a></li>
+    </ul>
+    <li><strong>Hire a shuttle</strong></li>
+    <ul>
+        <li>
+            <a href="http://www.valleytransporter.com/">Valley Transporter</a> &mdash; <a href="tel:413-253-1350">(413) 253-1350</a>
+            <ul>
+                <li>This is a convenient option that provides shuttle transportation door-to-door from the airport terminal to your residence hall or hotel. Reservations are required.</li>
+            </ul>
+        </li>
+        <li>
+            <a href="http://www.seemoshuttle.com/">Seemo Shuttle</a> &mdash; <a href="tel:413-586-1120">(413) 586-1120</a>
+            <ul>
+                <li>
+                    Private minivans service offering door-to-door service.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.bluebirdairporttransportation.com/about/">Bluebird Transportation</a> &mdash; <a href=tel:413-221-4512">(413) 221-4512</a>
+            <ul>
+                <li>
+                    Service for passengers traveling between Western Massachusetts and airports and cities of Hartford, Boston, and New York.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://michaels-limo.com/">Michael's Limousine & Transportation Service</a> &mdash; <a href="tel:800-533-8470">(800) 533-8470</a>
+        </li>
+        <li>
+            <a href="https://www.mylimo5.com/">Exclusive Car Service Inc.</a> &mdash; <a href="tel:413-534-3505">(413) 534-3505</a>
+        </li>
+    </ul>
+    <li><strong>By bus</strong> (approximately 4 hours, depending on traffic and time of departure)</li>
+    <ul>
+        <li>
+            <a href="https://peterpanbus.com/">Peter Pan Bus Lines</a> &mdash; <a href="tel:800-343-9999">(800) 343-9999</a>
+            <ul>
+                <li>This bus stops directly at the UMass campus</li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.greyhound.com/">Greyhound</a> &mdash; <a href="tel:800-231-2222">(800) 231-2222</a>
+            <ul>
+                <li>Greyhound services the neighboring town of Northampton, MA. Upon arrival in Northampton, you can use local transportation (<a href="http://www.pvta.com/">PVTA buses</a>) to get to UMass. You can plan your trip <a href="https://www.umass.edu/transportation/transit">here</a>.</li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.ourbus.com/">OurBus</a> &mdash; <a href="tel:844-800-6828">(844) 800-6828</a>
+            <ul>
+                <li>This bus stops directly at the UMass campus</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Note</strong>: When you arrive at the airport, if you are taking an OurBus, please go to <a href="https://www.ourbus.com/stopdetails/airportterminalC">Terminal C (Arrivals), Lower Level, Passenger Pick-up Zone</a>. If you are taking a Peter Pan bus, go to the Lower Level (Arrivals). The bus stops outside of Terminals A, B, C, and E. <a href="https://peterpanbus.com/locations/massachusetts/boston-logan/">Follow the orange and white signs for "Scheduled Bus"</a>. The bus departure time listed on your ticket is the time the bus departs from Terminal A, before going to the other stops at the airport (i.e., Terminals B, C, and E). If you are taking a Greyhound bus, you will need to take public transportation (the Silver Line - SL1) to Boston South Station to get to your bus. This takes about 20 minutes, and it is a free service.
+        </li>
+    </ul>
+</ul>
+
+<hr>
+
+<h4><a href="http://www.panynj.gov/airports/jfk.html">New York John F. Kennedy Airport (JFK)</a></h4>
+<p><a href="https://maps.app.goo.gl/b9BTUxhAQEjxESEE6">Queens, New York 11430</a></p>
+<p>Getting to UMass from theJFK airport is approximately 160 miles (250 km).</p>
+<ul>
+    <li><strong>Renting a car</strong> (~3-hour drive)</li>
+    <li><strong>Hire a shuttle.</strong></li>
+    <ul>
+        <li>
+            <a href="http://www.valleytransporter.com/">Valley Transporter</a> &mdash; <a href="tel:413-253-1350">(413) 253-1350</a>
+            <ul>
+                <li>This is a convenient option that provides shuttle transportation door-to-door from the airport terminal to your residence hall or hotel. Reservations are required.</li>
+            </ul>
+        </li>
+        <li>
+            <a href="http://www.seemoshuttle.com/">Seemo Shuttle</a> &mdash; <a href="tel:413-586-1120">(413) 586-1120</a>
+            <ul>
+                <li>
+                    Private minivans service offering door-to-door service.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.bluebirdairporttransportation.com/about/">Bluebird Transportation</a> &mdash; <a href=tel:413-221-4512">(413) 221-4512</a>
+            <ul>
+                <li>
+                    Service for passengers traveling between Western Massachusetts and airports and cities of Hartford, Boston, and New York.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://michaels-limo.com/">Michael's Limousine & Transportation Service</a> &mdash; <a href="tel:800-533-8470">(800) 533-8470</a>
+        </li>
+        <li>
+            <a href="https://www.mylimo5.com/">Exclusive Car Service Inc.</a> &mdash; <a href="tel:413-534-3505">(413) 534-3505</a>
+        </li>
+    </ul>
+    <li><strong>By bus</strong> (approximately 5 hours, depending on traffic and time of departure)</li>
+    <ul>
+        <li>
+            <a href="https://peterpanbus.com/">Peter Pan Bus Lines</a> &mdash; <a href="tel:800-343-9999">(800) 343-9999</a>
+            <ul>
+                <li>This bus stops directly at the UMass campus</li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.greyhound.com/">Greyhound</a> &mdash; <a href="tel:800-231-2222">(800) 231-2222</a>
+            <ul>
+                <li>Greyhound services the neighboring town of Northampton, MA. Upon arrival in Northampton, you can use local transportation (<a href="http://www.pvta.com/">PVTA buses</a>) to get to UMass. You can plan your trip <a href="https://www.umass.edu/transportation/transit">here</a>.</li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://www.ourbus.com/">OurBus</a> &mdash; <a href="tel:844-800-6828">(844) 800-6828</a>
+            <ul>
+                <li>This bus stops directly at the UMass campus</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Note:</strong> When you arrive at JFK, if you are taking an OurBus, please go to Terminal 7 (Arrivals Level). <a href="https://www.ourbus.com/stopdetails/jfk-terminalseven">The bus will stop on the ground level at Passenger Pickup A or B</a>. This is the furthest lane from the terminal building. If you are taking a Peter Pan or Greyhound bus, you will need to take public transportation to the <a href="https://maps.app.goo.gl/PcjRmJxwAmBf2vcD7">New York Port Authority Bus Terminal</a>, where you will get your bus. Plan your trip using the <a href="https://new.mta.info/">MTA Trip Planner website</a>.
+        </li>
+    </ul>
+    <li><strong>By train</strong> (approximate 5-6 hours, depending on the time of departure)</li>
+    <ul>
+        <li>
+            <a href="https://www.amtrak.com/home.html">Amtrak</a> &mdash; <a href="tel:800-872-7245">(800) 872-7245</a>
+        </li>
+        <li>
+            <strong>Note</strong>: When you arrive at JFK, you will need to take public transportation to Penn Station (Moynihan Train Hall), where you will get your Amtrak train. Plan your trip using the <a href="https://new.mta.info/">MTA Trip Planner</a> website. You can take Amtrak to the neighboring town of Northampton, MA. Upon arrival in Northampton, you can use local transportation (<a href="http://www.pvta.com/">PVTA buses</a>) to get to UMass. You can plan your trip <a href="https://www.umass.edu/transportation/transit">here</a>.
+
+        </li>
+    </ul>
+</ul>
+
+<h2>Local Transportation - Getting around the Pioneer Valley</h2>
+<h4>Busses</h4>
+<ul>
+    <li> <a href="https://www.pvta.com/">Pioneer Valley Transit Authority (PVTA)</a></li>
+    <ul>
+        <li>PVTA is a local bus service that serves the Amherst area, the UMass Amherst campus (as well as the other <a href="https://www.umass.edu/gateway/five-college-consortium">Five Colleges</a>), and other nearby Pioneer Valley locations, such as the towns of Northampton, South Hadley, Sunderland, Deerfield, Belchertown, and Granby. It is <a href="https://www.wwlp.com/news/local-news/pvta-offering-free-bus-and-paratransit-services-for-the-summer/">free</a> throughout the Summer. You can plan your trip <a href="https://www.umass.edu/transportation/transit">here</a>.</li>
+    </ul>
+</ul>
+
+<h4>Renting a car / car sharing</h4>
+<ul>
+    <li><a href="https://www.zipcar.com/universities/university-of-massachusetts-amherst">Zipcar</a></li>
+    <ul>
+        <li>
+            UMass partners with Zipcar to bring self-service, on-demand car sharing to the area. To use Zipcars, register as a member and reserve a car online. When you are done, return the car to the same location where you picked it up. Access to Zipcars is 24/7.
+        </li>
+    </ul>
+</ul>
+
+<h4>Ride Sharing Services</h4>
+<p><strong>Please note that ride sharing is highly limited in the area and cannot be relied upon for availability at all times/locations.</strong></p>
+<ul>
+    <li><a href="https://www.uber.com/">Uber</a></li>
+    <li><a href="https://www.lyft.com/">Lyft</a></li>
+</ul>
+
+<h4>Taxi Services (Amherst area)</h4>
+<ul>
+    <li><a href="https://www.go-massachusetts.com/Ambassador-Taxi-and-Transportation/">Ambassador Taxi Service</a> &mdash; <a href="tel:413-345-8912">(413) 345-8912</a></li>
+    <li><a href="https://celebritycabcompany.com/contact-us">Celebrity Cab Company</a> &mdash; <a href="tel:413-253-7330">(413) 253-7330</a></li>
+</ul>
+
+<p style="margin-bottom: 7.5rem;"></span>
+    </div>
+</body>
+</html>
+
+    </div>
+  </div>
+  
+  
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "UA-");
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer bg-light p-4">
+    <div class="container">
+      <p class="float-right"><a href="#">Back to Top</a></p>
+      <p class="text-center">© 2024 Reinforcement Learning Conference Organization Committee</p>
+    </div>
+  </footer>
+
+  <!-- Code for hash tags -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (window.location.hash !== "") {
+        $(`a[href="${window.location.hash}"]`).tab("show");
+      }
+
+      $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+        const hash = $(e.target).attr("href");
+        if (hash.substr(0, 1) === "#") {
+          const position = $(window).scrollTop();
+          window.location.replace(`#${hash.substr(1)}`);
+          $(window).scrollTop(position);
+        }
+      });
+    });
+  </script>
+  <!--    <script src="static/js/modules/lazyLoad.js"></script>-->
+  
+</body>
+
+</html>

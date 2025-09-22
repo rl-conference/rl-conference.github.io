@@ -1,0 +1,139 @@
+<!doctype html>
+<script src="jquery.js"></script>
+<script src="data.js"></script>
+
+<!-- Changes below this can cause problems -->
+
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title id="mainPageTitleforSEO">RLC 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+    <link href="build.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <meta name="apple-mobile-web-app-title" content="RLC"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <meta id="seodescription" name="description" content="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+<div class="container  mx-auto ">
+    <div class="flex flex-col min-h-screen justify-between">
+        <div>
+            <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                <div class="p-2 w-full rounded-md">
+                    <div class="hidden lg:block max-w-60">
+                        <img alt="Company logo" src="data/logos/rlc-logo.svg"/>
+                    </div>
+                    <div class="block pt-1 lg:hidden max-w-60">
+                        <img alt="Company logo" src="data/logos/rlc-logo.svg"/>
+                    </div>
+                </div>
+                <div></div>
+                <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+
+                </div>
+                <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
+                    <div class="relative flex flex-row-reverse">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                             onclick="showMenu()">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>
+                        </svg>
+                        <div id="collapsedMenuItems"
+                             class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <!-- Tabs -->
+            <div class="tabs">
+
+            </div>
+
+            <div class="content">
+                <h1 class="text-4xl text-center m-4 p-4">Keynotes</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mx-auto" id="recordings">
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="grid grid-cols-2 items-center  ">
+            <div id="footerText"
+                 class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+            </div>
+            <div class="p-2 m-1 w-full">
+                <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+                    <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<!--Javascript code for generating the HTML-->
+<script src="menu.js"></script>
+<script>
+    // add recordings
+
+    // class for youtube recordings
+    class YoutubeRecording {
+        constructor(url, title, speaker) {
+            this.src = url;
+            this.title = title;
+            this.speaker = speaker;
+        }
+    }
+
+    listOfRecordings = [new YoutubeRecording('https://www.youtube.com/embed/5Dw4OoJK9Qw?si=g239uJeMuFq1DOrM', "Practical Reinforcement Learning: Lessons from 30 Years of Research", "Peter Stone"),
+        new YoutubeRecording("https://www.youtube.com/embed/Az5BoT7lCYo?si=iMC3uNeXYeqeKwqY", "Reinforcement Learning in the Age of Foundation Models", "Sergey Levine"),
+        new YoutubeRecording("https://www.youtube.com/embed/Woj56riDb24?si=yRPzcs3oCso4Tvip", "Accelerating Science and Data-Driven Decision-Making in Noisy Worlds", "Emma Brunskill"),
+        new YoutubeRecording("https://www.youtube.com/embed/pkpJMNjvgXw?si=L1ByETiB9cLvxtFU", "Towards Superhuman Intelligence", "David Silver"),
+        new YoutubeRecording("https://www.youtube.com/embed/5FfkvHjrOtk?si=qdElZvvLKglj7dkM", "People are a Feature (Not a Bug)", "Finale Doshi-Velez"),
+        new YoutubeRecording("https://www.youtube.com/embed/-gQNM7rAWP0?si=yTnkjP0UZq96NZYi", "In the Beginning ML was RL", "Andy Barto")
+    ]
+    const recordings = document.getElementById("recordings");
+    // loop over the list of recordings and add them to the page
+    for (const recording of listOfRecordings) {
+        const recordingDiv = document.createElement("div");
+        recordingDiv.classList.add("rounded-md");
+        recordingDiv.classList.add("bg-blue");
+        recordingDiv.classList.add("mt-6");
+        recordingDiv.innerHTML = `
+        <h3 class="mb-0 pb-0 text-2xl ml-2 pl-2 pt-2 mt-2 mr-2 pr-2 ">${recording.title}</h3>
+        <p class="mt-0 pt-0 text-base text-blue text-slate-500 ml-2 pl-2 pb-2 mb-2 pr-2 mr-2 ">${recording.speaker}</p>
+        <div class="m-2 p-2 w-full embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" class="rounded-md embed-responsive-item" src="${recording.src}" allowfullscreen></iframe>
+        </div>
+        `;
+        recordings.appendChild(recordingDiv);
+    }
+</script>
+<div class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"></div>
+</html>
+

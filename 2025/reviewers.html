@@ -1,0 +1,259 @@
+<!doctype html>
+<script src="jquery.js"></script>
+<script src="data.js"></script>
+
+<!-- Changes below this can cause problems -->
+
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="mainPageTitleforSEO">Reviewers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link href="build.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RLC" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta id="seodescription" name="description" content="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<!--<div id="backgroundImage" class="fixed -z-20 h-screen w-full">-->
+<!--</div>-->
+<!--<style>-->
+<!--    #backgroundImage {-->
+<!--        background-image: url('data/backgroundGradients/RLC.svg');-->
+<!--        background-repeat: no-repeat;-->
+<!--        background-size: cover;-->
+<!--        background-position: center;-->
+<!--    }-->
+<!--</style>-->
+
+<body>
+
+
+    <div class="container  mx-auto ">
+        <div class="flex flex-col min-h-screen justify-between">
+            <div>
+                <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                    <div class="p-2 w-full rounded-md">
+                        <div class="hidden lg:block max-w-60">
+                            <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+                        </div>
+                        <div class="block pt-1 lg:hidden max-w-60">
+                            <a href="index.html"><img alt="Company logo"  src="data/logos/rlc-logo.svg" /></a>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+
+                    </div>
+                    <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
+                        <div class="relative flex flex-row-reverse">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                                onclick="showMenu()">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                            </svg>
+                            <div id="collapsedMenuItems"
+                                class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
+                </div>
+
+                <h1 class="text-4xl  text-blue text-center font-rubik p-2 m-2 ">RLC Reviewers</h1>
+            
+                <!-- 2025 Section -->
+                <h1 class="text-3xl  text-blue text-center font-rubik p-2 m-2 mt-8 ">2025</h1>
+            
+                <h2 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Senior Area Chairs</h2>
+                <div id="sacs2025"
+                    class="grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 lg:gap-6">
+                </div>
+                
+                <h2 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">Area Chairs</h2>
+                <div id="acs2025"
+                    class="grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 lg:gap-6">
+                </div>
+                
+               
+                
+                <h2 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Senior Reviewers</h2>
+                <div id="srs2025"
+                    class="grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 lg:gap-6">
+                </div>
+                
+                <h2 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Technical Reviewers</h2>
+                <div id="trs2025"
+                    class="grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 lg:gap-4">
+                </div>
+
+                <!-- 2024 Section -->
+                <h1 class="text-3xl  text-blue text-center font-rubik p-2 m-2 mt-16 ">2024</h1>
+                
+                <h2 class="text-2xl  text-blue text-center font-rubik p-2 m-2 ">Area Chairs</h2>
+                <div id="acs2024"
+                    class="grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 lg:gap-6">
+                </div>
+                
+                <h2 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Senior Reviewers</h2>
+                <div id="srs2024"
+                    class="grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 lg:gap-6">
+                </div>
+                
+                <h2 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Technical Reviewers</h2>
+                <div id="trs2024"
+                    class="grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 lg:gap-4">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="grid grid-cols-2 items-center  ">
+            <div id="footerText" class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+            </div>
+            <div class="p-2 m-1 w-full">
+                <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+                    <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+<!--Javascript code for generating the HTML-->
+<script src="menu.js"></script>
+<script>
+
+
+// Area Chair (44 records)
+const ACs2025 = ["Akhil Bagaria", "Alborz Geramifard", "Allen Nie", "Amy Zhang", "Benjamin Eysenbach", "Branislav Kveton", "Brett Daley", "Chen-Yu Wei", "Christopher Amato", "Clement Gehring", "Csaba Szepesvari", "David Meger", "Dennis J. N. J. Soemers", "ERIC EATON", "Erin J Talvitie", "Felipe Leno da Silva", "Ishan Durugkar", "Jonathan Lee", "Joni Pajarinen", "Junhyuk Oh", "Kavosh Asadi", "Khimya Khetarpal", "Ling Pan", "Lucas Lehnert", "Marek Petrik", "Mark Rowland", "Matteo Papini", "Matthew Kyle Schlegel", "Michael Wellman", "Mohammad Ghavamzadeh", "Pan Xu", "Peter Stone", "Qinghua Liu", "Rohan Chandra", "Ronald Parr", "Roy Fox", "Samuel Sokota", "Sharan Vaswani", "Shengpu Tang", "Steffen Udluft", "Steven James", "Tengyang Xie", "Thomas Walsh", "Wilka Torrico Carvalho"];
+
+// Senior Area Chair (17 records)
+const SACs2025 = ["Adith Swaminathan", "Amir-massoud Farahmand", "Andre Barreto", "Bruno Castro da Silva", "Cameron Allen", "David Abel", "Eugene Vinitsky", "George Konidaris", "Gergely Neu", "Josiah Hanna", "Lihong Li", "Nan Jiang", "Pablo Samuel Castro", "Scott M. Jordan", "Shangtong Zhang", "Tom Schaul", "Yash Chandak"];
+
+// Senior Reviewer (138 records)
+const SRs2025 = ["Abhishek Naik", "Adrian Orenstein", "Alessio Russo", "Alex Ayoub", "Alex Lewandowski", "Alisa Devlic", "Alper Ahmetoglu", "Andrea Baisero", "André Biedenkapp", "Anita Taosheng De Mello Koch", "Anna Hakhverdyan", "Antonin Raffin", "Arash Tavakoli", "Arnob Ghosh", "Arnu Pretorius", "Arsalan Sharifnassab", "Arushi Jain", "Ben M Abbatematteo", "Bojun Huang", "Braham Snyder", "Brahma S Pavse", "Bryan Chan", "Carlo D'Eramo", "Chin Pang Ho", "Chuanbo Hua", "Chun Kai Ling", "Claas A Voelcker", "Conor F. Hayes", "Craig Sherstan", "Daniel Hernandez", "Daniel S. Brown", "David Abel", "David Szepesvari", "Davide Corsi", "Davide Maran", "Diego Gomez", "Dilip Arumugam", "Edan Jacob Meyer", "Eiji Uchibe", "Elita Lobo", "Enrico Marchesini", "Eric Graves", "Esraa Elelimy", "Federico Berto", "Gabor Mihucz", "Garrett Warnell", "Gautham Vasan", "Georg Martius", "Geraud Nangue Tasse", "Golnaz Mesbahi", "Han Wang", "Hao Sun", "Haolin Liu", "Harley Wiltzer", "Harrison Waldon", "Harshit Sikchi", "Hongyao Tang", "Huiling Wang", "Ivana Dusparic", "J. A. Hernandez", "Jacob Thomas Adkins", "James Kostas", "Jannis BlÃ¼ml", "Jayakumar Subramanian", "Jesse Zhang", "Jiaxun Cui", "John D Martin", "John Winder", "Kerrick Johnstonbaugh", "Kevin Roice", "Khurram Javed", "Kishan Panaganti", "Kristopher De Asis", "Lawson L. S. Wong", "Lucas Nunes Alegre", "Mark Nemecek", "Matthijs T. J. Spaan", "Mauricio Tec", "Maximilian Igl", "Michel Ma", "Miguel Suau", "Minsu Kim", "Mirco Mutti", "Mohamed Elsayed", "MohammadJavad Azizi", "Muhammad Aneeq uz Zaman", "Nicholas Corrado", "Niklas Lauffer", "Nikolaus H. R. Howe", "Nishanth Anand", "Nolan Bard", "Olya Mastikhina", "Parham Mohammad Panahi", "Peter Henderson", "Philip Amortila", "Prabhat Nagarajan", "Puze Liu", "Qinqing Zheng", "Rafael Rodriguez-Sanchez", "Raghu Rajan", "Raksha Kumar Kumaraswamy", "Reinaldo Augusto da Costa Bianchi", "Riccardo Zamboni", "Robert J. Moss", "Ruo Yu Tao", "Sajad Khodadadian", "Sammie Katt", "Samuel Neumann", "Samuele Tosatto", "Scott Fujimoto", "Shibhansh Dohare", "Shivam Garg", "Shruti Mishra", "Shuai Li", "Simone Parisi", "Subhojyoti Mukherjee", "Takuma Seno", "Taylor Wayne Killian", "Theresa Eimer", "Thiago D. Simão", "Tianwei Ni", "Tom Silver", "Victor-Alexandru Darvariu", "Visak Kumar", "Wendelin Boehmer", "Wesley Chung", "Will Schwarzer", "Xingzi Xu", "Xuanfei Ren", "Xueguang Lyu", "Yi Wu", "Yi Zhao", "Yifeng Zhu", "Yudong Luo", "Yunhao Tang", "Zaiwei Chen", "kiante brantley", "odalric-ambrym maillard"];
+
+// Technical Reviewer (209 records)
+const TRs2025 = ["Abdelhakim Benechehab", "Abdulaziz Almuzairee", "Abitha Thankaraj", "Adam Jelley", "Adam Labiosa", "Adriana Hugessen", "Adrien Bolland", "Ahmed Agha", "Aishwarya Mandyam", "Akansha Kalra", "Alexander Levine", "Alexander Zook", "Alexandra Burushkina", "Aline Weber", "Amin Rakhsha", "Andoni RodrÃ­guez", "Andrea Baisero", "Andrea Menta", "Anikait Singh", "Armin Karamzade", "Arun Verma", "Athar MahmoudiNejad", "Audrey Huang", "Ayush Jain", "Bin Liu", "Blossom Metevier", "Bo Liu", "Calarina Muslimani", "Caleb Chuck", "Changling Li", "Chenran Li", "Chenyang Zhao", "Christopher Zeitler", "Chunhui Li", "Connor Mattson", "Dabal Pedamonti", "Daniel Beechey", "Daniel Melcer", "Daphne Cornelisse", "Devon Jarvis", "Dhruv Sreenivas", "Eliot Xing", "Ethan H Blaser", "Fahim Shahriar", "Forest Agostinelli", "Frieda Rong", "Gaoyue Zhou", "Gaspard Lambrechts", "Georgy Antonov", "Gersi Doko", "Guang Yang", "HAOXING TIAN", "Hadi Nekoei", "Haipeng Chen", "Haozhu Wang", "Harley Wiltzer", "Harry Zhao", "Harshil Kotamreddy", "He Wang", "Hector Kohler", "Hon Tik Tse", "Hyunin Lee", "Igor Krawczuk", "Itai Shufaro", "Jacob Adamczyk", "Jacob Austin Beck", "James Staley", "Jan Achterhold", "Jan de Priester", "Jasmine Jerry Aloor", "Jiafei Lyu", "Jiajun Wu", "Jiamin He", "Jian Li", "Jianhong Wang", "Jiashun Liu", "Jiaxu Xing", "Jiayu Yao", "Jieyi Bi", "Jin Cheng", "Jinglin Chen", "Jinzhao Li", "Jiuqi Wang", "Joe Watson", "Johannes Ackermann", "Jonathan Daniel Chang", "Jonathan Ta", "Joy He-Yueya", "João Guilherme Madeira Araújo", "João Silvério", "Julian Dierkes", "Jung-Hoon Cho", "Junkyu Lee", "Junxiong Wang", "Kale-ab Abebe Tessera", "Karim Ahmed Abdel Sadek", "Kellen Kanarios", "Kevin Tan", "Kyungmin Kim", "Levente Kocsis", "Linfeng Zhao", "Linh Pham Van Le", "Liv d'Aliberti", "Lucas de Araujo Cruz", "Léopold Maytié", "Mahdi Kallel", "Mahesh Viswanathan", "Mahsa Asadi", "Mandana Samiei", "Marc Weber", "Marcos Menon Jose", "Marin Vlastelica Pogančić", "Matin Aghaei", "Matthew Thomas Jackson", "Max Rudolph", "Michael Lu", "Miguel Morales", "Milad Aghajohari", "Mirco Musolesi", "Misagh Soltani", "Misha Lvovsky", "Mitsuhiko Nakamoto", "Mohamad Hosein Danesh", "Mohamed Ayman Mohamed", "Montaser Mohammedalamen", "Motoki Omura", "Nadav Amir", "Nico Meyer", "Niklas Lauffer", "Ning Shi", "Olivia P. Dizon-Paradis", "Omar Adalat", "Owen Oertell", "Patrick Shafto", "Prashant Ganesh", "Qiang Fu", "Qingyue Zhao", "Qining Zhang", "Quentin Delfosse", "Raghuram Ramanujan", "Rahul V Kulkarni", "Raphael Boige", "Reginald McLean", "Renhao Zhang", "Riley Simmons-Edler", "Robin Schiewer", "Roger Creus Castanyer", "Rongqi Fan", "Rémy Chaput", "Sahand Rezaei-Shoshtari", "Sebastian Griesbach", "Sebastian Sztwiertnia", "Shi Dong", "Shivam Goel", "Shreyas Sundara Raman", "Shruti Mishra", "Shuang Wu", "Shunichi Akatsuka", "Siddarth Chandrasekar", "Siddhant Agarwal", "Sobhan Mohammadpour", "Sonali Parbhoo", "Sotetsu Koyamada", "Srinivas Shakkottai", "Steven Tang", "Stone Tao", "Tao Wang", "Thang Nhat Duong", "Thommen Karimpanal George", "Théo VINCENT", "Tian Xu", "Tiange Luo", "Tianhao Wang", "Tianying Ji", "Tristan Bester", "Tyler Kastner", "Uladzislau Sobal", "Victor Kolev", "Wanqiao Xu", "Washington Garcia", "Weiqin Chen", "Weiye Zhao", "Woojin Jeong", "Xiang Vincent Li", "Xianyuan Zhan", "Xingtu Liu", "Xinyu Liu", "Yaniv Oren", "Yao-Xiang Ding", "Yash Shukla", "Yashaswini Murthy", "Yi-Shan Wu", "Yining Ma", "Yixin Tan", "Yixuan Zhang", "Yiyi Zhang", "Young Wu", "Yu Luo", "Yu Yang", "Yueying Li", "Yuqian Fu", "Yuxin Chen", "Zakariae EL ASRI", "Zhang-Wei Hong", "Zhao Yang", "Zhiyuan Zhou", "Zhizun Wang", "Zhongwen Xu", "Ziping Xu"];
+
+
+    // List of reviewers 
+    TRs2024 = ["Abitha Thankaraj", "Aishwarya Mandyam", "Aivar Sootla", "Alex Ayoub", "Alex Zook", "Alexandra Burushkina", "Alexandra Burushkina", "Aline Weber", "Aly Lidayan", "Anna Hakhverdyan", "Arash Tavakoli", "Arrasy Rahman", "Arun Verma", "Baris Kayalibay", "Blossom Metevier", "Chenhao Li", "Daniel Nikolaev Nikovski", "David Szepesvari", "Devesh K. Jha", "Dhawal Gupta", "Dilip Arumugam", "Eloi Alonso", "Esraa Elelimy", "Ethan Blaser", "Eugene Vinitsky", "Felix Berkenkamp", "Feryal Behbahani", "Gaoyue Zhou", "Golnaz Mesbahi", "Hadi Nekoei", "Haitong Ma", "Harley Wiltzer", "Harshit Sikchi", "Hengshuai Yao", "Hongyao Tang", "Igor Krawczuk", "Jacek Cyranka", "Jacob Adkins", "James E. Kostas", "Jesse Zhang", "Jiafei Lyu", "Jiamin He", "Jian Li", "Jianhong Wang", "Jiayu Yao", "Jinglin Chen", "Jiuqi Wang", "Jonas Nüßlein", "Jorge Mendez-Mendez", "Joy He-Yueya", "Junkyu Lee", "Kefan Dong", "Kevin Roice", "Khurram Javed", "Lucas Nunes Alegre", "Lukas Schäfer", "Luke Kapeluck", "Maximilian Zorn", "Miguel Morales", "Miguel Suau", "Minghuan Liu", "Mirco Musolesi", "Mirco Mutti", "Mitsuhiko Nakamoto", "Mohamed Elsayed", "Mohammad Nomaan Qureshi", "Nico Meyer", "Ning Shi", "Nino Vieillard", "Noah Golowich", "Oliver Järnefelt", "Owen Lockwood", "Parameswaran Kamalaruban", "Parham Mohammad Panahi", "Patrick Shafto", "Peide Huang", "Philipp Altmann", "Philipp Scholl", "Pierluca D'Oro", "Qingfeng Lan", "Riley Simmons-Edler", "Rong-Jun Qin", "Ruo Yu Tao", "Sahand Rezaei-Shoshtari", "Samuel Neumann", "Samuel Sokota", "Sasha Salter", "Scott M. Jordan", "Seohong Park", "Sergey A. Shuvaev", "Seungyong Moon", "Shengpu Tang", "Shibhansh Dohare", "Shreyas Chaudhari", "Shuze Liu", "Srinivas Shakkottai", "Steven James", "Taylor W. Killian", "Thomas Gabor", "Thommen George Karimpanal", "Thomy Phan", "Tian Xu", "Tianhao Wang", "Tongzhou Wang", "Vincent Adam", "Vincent Liu", "Washington Garcia", "Weiye Zhao", "Wesley Chung", "Will Schwarzer", "William Chen", "Xiang Li", "Xianyuan Zhan", "Xiaochi Qian", "Xingyu Zhou", "Yao Shu", "Yash Shukla", "Yihan Du", "Zakaria Mhammedi", "Zelin Zhao", "Zhanhong Jiang", "Zhengling Qi", "Ziniu Li", "Zongzhang Zhang", "Zuxin Liu"];
+
+    SRs2024 = ["Adam White", "Aditya Modi", "Ahmed Hendawy", "Aidan Scannell", "Alberto Maria Metelli", "Alex Lewandowski", "An Thai Le", "Andre Barreto", "Arnav Kumar Jain", "Aryaman Reddi", "Benjamin Eysenbach", "Bernardo Avila Pires", "Brahma S Pavse", "Brett Daley", "Cameron Allen", "Cédric Colas", "Chen-Yu Wei", "Chin Pang Ho", "Chris Nota", "Christoph Dann", "Christopher Mutschler", "Chuanhao Li", "Clare Lyle", "Clement Gehring", "Craig Sherstan", "Daniel Hein", "Daniel Palenicek", "David Abel", "David Krueger", "Dennis J. N. J. Soemers", "Diego Gomez", "Eiji Uchibe", "Emmanuel Bengio", "Enrico Marchesini", "Erick Delage", "Erin J Talvitie", "Feryal Behbahani", "Firas Al-Hafez", "Florin Gogianu", "Francisco M Garcia", "Ge Li", "Gheorghe Comanici", "Giorgia Ramponi", "Guy Tennenholtz", "Ishan Durugkar", "Janarthanan Rajendran", "Jannis Blüml", "Jefferson Huang", "Jesse Farebrother", "Johan Ferret", "Kyle Hsu", "Lawson L.S. Wong", "Loic Matthey", "Mahdi Kallel", "Mandana Samiei", "Marc Lanctot", "Martin Klissarov", "Matteo Papini", "Matthew Kyle Schlegel", "Mehdi Fatemi", "Mohamed Elsayed", "Nicholas E. Corrado", "Nikolaus H. R. Howe", "Nishanth Anand", "Olivier Sigaud", "Onur Celik", "Peter Henderson", "Philip Amortila", "Philip J. Ball", "Philipp Becker", "Phillip Swazinna", "Prabhat Nagarajan", "Puze Liu", "Qinqing Zheng", "Qiyang Li", "Raksha Kumaraswamy", "Riashat Islam", "Richard Valenzano", "Robert Loftin", "Sahand Rezaei-Shoshtari", "Sam Devlin", "Sam Lobel", "Samin Yeasar Arnob", "Sammie Katt", "Scott Fujimoto", "Sebastian Griesbach", "Sergio Valcarcel Macua", "Shray Bansal", "Shuhang Chen", "Siddarth Venkatraman", "Sitao Luan", "Subhojyoti Mukherjee", "Tabish Rashid", "Tetsuro Morimura", "Théo Vincent", "Thomas Walsh", "Veronica Chelu", "Victoria Dean", "Vivek Veeriah", "Wendelin Boehmer", "Wilka Carvalho", "Xueguang Lyu", "Yangchen Pan", "Yash Chandak", "Yi Wan", "Yi Wu", "Yudong Luo", "Yunhao Tang", "Zhiyao Luo"];
+
+    ACs2024 = ["Amir-massoud Farahmand", "Matthieu Geist", "Steffen Udluft", "Christopher Amato", "Csaba Szepesvari", "Joni Pajarinen", "Ben Van Roy", "Jens Kober", "Carlo D'Eramo", "Pierre-Yves Oudeyer", "Pablo Samuel Castro", "Marlos Machado", "Marcello Restelli", "Akshay Krishnamurthy", "Gerhard neumann", "Ashley Edwards", "Tom Zahavy", "Tom Schaul", "Roberto Calandra", "Marek Petrik", "Harm van Seijen", "Richard Sutton", "Jan Peters", "Jivko Sinapov", "Bruno Castro da Silva", "Pierre-Luc Bacon", "Peter Stone", "Ida Momennejad", "Lihong Li", "Shangtong Zhang", "Diana Borsa", "Katja Hofmann", "Will Dabney", "Hado van Hasselt", "Martha White", "Scott Jordan"]
+
+    // 2025 REVIEWERS
+    // add 2025 area chairs
+    for (var i = 0; i < ACs2025.length; i++) {
+        var div = document.createElement('div');
+        div.className = " ";
+        var h1 = document.createElement('h1');
+        h1.className = " text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(ACs2025[i]));
+        div.appendChild(h1);
+        document.getElementById("acs2025").appendChild(div);
+    }
+
+    // add 2025 senior area chairs
+    for (var i = 0; i < SACs2025.length; i++) {
+        var div = document.createElement('div');
+        div.className = " ";
+        var h1 = document.createElement('h1');
+        h1.className = " text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(SACs2025[i]));
+        div.appendChild(h1);
+        document.getElementById("sacs2025").appendChild(div);
+    }
+
+    // add 2025 senior reviewers
+    for (var i = 0; i < SRs2025.length; i++) {
+        var div = document.createElement('div');
+        div.className = " ";
+        var h1 = document.createElement('h1');
+        h1.className = " text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(SRs2025[i]));
+        div.appendChild(h1);
+        document.getElementById("srs2025").appendChild(div);
+    }
+
+    // add 2025 technical reviewers
+    for (var i = 0; i < TRs2025.length; i++) {
+        var div = document.createElement('div');
+        div.className = " ";
+        var h1 = document.createElement('h1');
+        h1.className = " text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(TRs2025[i]));
+        div.appendChild(h1);
+        document.getElementById("trs2025").appendChild(div);
+    }
+
+    // 2024 REVIEWERS
+    // add 2024 area chairs
+    for (var i = 0; i < ACs2024.length; i++) {
+        var div = document.createElement('div');
+        div.className = " ";
+        var h1 = document.createElement('h1');
+        h1.className = " text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(ACs2024[i]));
+        div.appendChild(h1);
+        document.getElementById("acs2024").appendChild(div);
+    }
+
+    // add 2024 senior reviewers
+    for (var i = 0; i < SRs2024.length; i++) {
+        var div = document.createElement('div');
+        div.className = " ";
+        var h1 = document.createElement('h1');
+        h1.className = " text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(SRs2024[i]));
+        div.appendChild(h1);
+        document.getElementById("srs2024").appendChild(div);
+    }
+
+    // add 2024 technical reviewers
+    for (var i = 0; i < TRs2024.length; i++) {
+        var div = document.createElement('div');
+        div.className = " ";
+        var h1 = document.createElement('h1');
+        h1.className = " text-blue text-center font-rubik p-1 m-1 pb-0";
+        h1.appendChild(document.createTextNode(TRs2024[i]));
+        div.appendChild(h1);
+        document.getElementById("trs2024").appendChild(div);
+    }
+
+
+
+
+
+</script>
+<div
+    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer">
+</div>
+
+</html>

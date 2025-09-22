@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.32 539.78">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b3a9e;
+      }
+
+      .cls-2 {
+        fill: #49b6f9;
+      }
+
+      .cls-3 {
+        fill: #83dcff;
+      }
+
+      .cls-4 {
+        fill: #1e77e0;
+      }
+    </style>
+  </defs>
+  <g id="Canvas_1" data-name="Canvas 1">
+    <g id="Canvas_1_Layer_1" data-name="Canvas 1 Layer 1">
+      <g id="Graphic_34" data-name="Graphic 34">
+        <path class="cls-2" d="M8.98,126.4L218.61,5.37C224.69,1.86,231.63,0,238.66,0s13.97,1.86,20.06,5.37l84.21,48.62-113.56,65.56,17.96,10.37,113.56-65.56,107.46,62.04-229.68,132.6L8.98,126.4Z"/>
+      </g>
+      <g id="Graphic_35" data-name="Graphic 35">
+        <path class="cls-1" d="M72.57,268.15l73.26,42.3v-20.73l-73.26-42.3v20.73ZM114.41,473.22v-93.42l-17.96-10.37v93.42l-76.4-44.11c-12.37-7.14-20.05-20.45-20.05-34.74v-242.06l229.68,132.61v120.34l-70.31-40.59v20.73l70.31,40.59v124.15l-115.28-66.55Z"/>
+      </g>
+      <g id="Graphic_36" data-name="Graphic 36">
+        <path class="cls-4" d="M247.64,274.56l84.63-48.86v180.9l145.05-83.75v61.16c0,14.28-7.68,27.59-20.06,34.74l-209.63,121.03v-265.21Z"/>
+      </g>
+      <g id="Graphic_37" data-name="Graphic 37">
+        <path class="cls-3" d="M350.23,215.33l127.1-73.38v160.17l-127.1,73.38v-160.17Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

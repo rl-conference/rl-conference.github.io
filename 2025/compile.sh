@@ -1,0 +1,1 @@
+./tailwindcss  --output build.css

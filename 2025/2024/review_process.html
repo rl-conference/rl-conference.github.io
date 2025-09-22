@@ -1,0 +1,448 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- External Javascript libs_ext  -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+    integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+    integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+    integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+
+
+  <!-- Library libs_ext -->
+  <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+
+
+  <!--    Internal Libs -->
+  <script src="static/js/data/api.js"></script>
+
+  
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+  <!-- External Fonts (no google for china) -->
+  <link href="static/css/Lato.css" rel="stylesheet" />
+  <link href="static/css/Exo.css" rel="stylesheet" />
+  <link href="static/css/Cuprum.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/main.css" />
+  <!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
+  <link rel="stylesheet" href="static/css/fa_solid.css" />
+  <link rel="stylesheet" href="static/css/lazy_load.css" />
+  <link rel="stylesheet" href="static/css/typeahead.css" />
+
+  <title>RLC 2024</title>
+  
+
+  <meta property="og:title" content="Reinforcement Learning Conference 2024" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="static/images/logo_with_title.png" />
+  <meta property="og:url" content="https://rl-conference.cc" />
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+</head>
+
+<body>
+
+  <!-- Move this into CSS!!! Why does this not load unless it's here! -->
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      color: rgb(239, 27, 27);
+      padding-top: 8px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .dropbtn {
+      background-color: #d51313;
+      /* Changed from #4CAF50 to gray */
+      color: rgb(206, 19, 19);
+      /* padding-top: 10px; */
+      /* padding-bottom: 10px; */
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-collapse .dropdown-content {
+        left: 0;
+      }
+    }
+
+
+    .dropdown-content a {
+      /* color: black; */
+      color: rgba(0, 0, 0, .65);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      border-radius: inherit;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown>span {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+      color: rgba(15, 15, 15, 0.5);
+      /* Apply the RGBA background color */
+    }
+  </style>
+
+  <!-- NAV -->
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
+    <div class="container">
+      <a class="navbar-brand" href="/2024/index.html">
+        <img class="logo" src="static/images/rlc-logo.svg" height="auto"
+             width="150px" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/index.html">Home</a>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Program</span>
+            <div class="dropdown-content">
+              <a href="/2024/calendar.html?tz=US/Eastern">Schedule</a>
+              <a href="/2024/accepted_workshops.html">Workshops</a>
+              <a href="https://rlj.cs.umass.edu/2024/2024issue.html">Accepted Papers</a>
+              <a href="/2024/accepted_journal_papers.html">Journal Track Papers (previously published)</a>
+              <a href="/2024/papers.html">Paper Schedule</a>
+              <a href="/2024/panels.html">Panels</a>
+
+            </div>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this like this -->
+            <span>Submissions</span>
+            <div class="dropdown-content">
+              <a href="/2024/call_for_papers.html">Call for Papers</a>
+              <a href="/2024/call_for_workshops.html">Call for Workshops</a>
+              <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScuLxUE3mwr48n2Xdiasp3FTkpiY9foZrQ9LvofeBEgnWFlpQ/viewform">Journal
+                Paper Presentations</a>
+              <a href="/2024/review_process.html">Review Process</a>
+              <a
+                      href="https://docs.google.com/document/d/1IzXv7LmlmDVNZeEElMfOG3IJVIhoZYSZWA25ZSteg18/edit?usp=sharing">Reviewer
+                Guidelines</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="https://umass.irisregistration.com/Form/RLC">Register</a>
+          </li>
+
+
+
+          <li class="dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Attend</span>
+            <div class="dropdown-content">
+              <a href="/2024/travel_info.html">Travel Information</a>
+              <a href="/2024/hotels.html">Hotels</a>
+              <a href="/2024/code_of_conduct.html">Code of Conduct</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/organizers.html">Organizers</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/help.html">FAQ</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/blogs.html">Blogs</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/sponsorship.html">Sponsors</a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/playlist?list=PLEA9Mnr-L18lI_I-EkyAc1-gXgBj52oV5">Recordings</a>
+          </li>
+
+          <li class="dropdown">
+            <span>Year</span>
+            <div class="dropdown-content">
+              <a href="/2024/index.html">2024</a>
+              <a href="/index.html">2025</a>
+            </div>
+          </li>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+  
+  <!-- User Overrides -->
+  
+<style>
+  .back {
+    background: url("static/images/old_chapel_small.jpg") no-repeat center;
+    background-size: cover;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+  }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
+</style>
+
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+      <h2 class="dropshadow">
+        REINFORCEMENT <br> LEARNING <br> CONFERENCE
+      </h2>
+      <h2 class="p-5 dropshadow">
+        August 9-12, 2024<br>
+        Amherst, MA
+      </h2>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+       
+    </div>
+    <!-- Content -->
+    <div class="content">
+      
+
+<style>
+  .date-summary-row {
+    display: flex;
+  }
+  .date-summary-cell {
+    flex: 1; /* Each cell will take up equal space */
+    text-align: left; /* Align the text to the left */
+    padding: 8px; /* Add some padding for spacing, adjust as needed */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  .firstback {
+  background-color: #D3D3D3; /* This sets the background color to light gray */
+  border-radius: 15px;
+  overflow: hidden;
+}
+</style>
+
+
+<h1>Review Process for RLC 2024</h1>
+<h2>Why this matters</h2>
+<p>The quality of a conference depends on the quality of the work published there. One of the most important things we can do is put in place structures that make it more feasible to identify incorrectness in submitted papers and avoid rejecting good work. </p>
+<p>The goal of this proposal is to improve the quality of reviews. This benefits authors, who get better feedback, and also benefits RLC by improving the quality of papers.</p>
+<p>One issue is that the community has grown very quickly. This growth has increased the burden on senior researchers, making it less feasible to devote time to reviewing and to training the next generation of reviewers. Junior researchers do not get the same opportunity to develop their reviewing abilities. Further, junior reviewers may have a harder time appreciating the importance of the work, especially if it looks different than the papers they are used to, yet are unfairly tasked with assessing novelty.  </p>
+<h2>Proposal for the review process</h2>
+<p>A key criteria for the RLC is stated as follows. “The RLC peer review process prioritizes rigorous methodology over perceived importance, aiming to foster scholarly discussions on both well-established and emerging topics in RL.” The below review process reflects this principle. <strong>Note</strong>: It is the opinion of the PC that focusing the review process on correctness will not result in an increased acceptance rate compared with the current review process.</p>
+<p>Another fundamental principle is to make the review process as lightweight as possible. Extra work just detracts from spending time reading the paper carefully and writing a good review. The trend for improvements to reviewing has been to <strong>add more work</strong> to improve reviewing; the goal of this proposal is to <strong>reduce workload</strong>. </p>
+<h3>High-level overview</h3>
+<ul>
+<li>We have only two reviewers per paper: a senior reviewer (SR) and a technical reviewer (TR). The TR only checks correctness. The SR writes a regular review covering novelty, significance, and correctness.</li>
+<li>There is one Senior Area Chair (SAC) for each paper, that checks these reviews and is responsible for finding emergency reviews. (Note: We use the term SAC rather than AC to match terminology in OpenReview, explained more below)</li>
+<li>There is no author rebuttal nor author discussion period. However, the SAC can ask authors direct questions.</li>
+<li>If the technical review is marked inadequate by the SAC and SR, then it is removed. Note that an SAC can first talk to the TR for improvements, instead of immediately choosing to remove. In the case of removal of a technical review, then the TR is replaced.<ul>
+<li>There is a pool of emergency TRs.</li>
+<li>If a TR has all their reviews removed, then they are not listed as a reviewer for the RLC.</li>
+</ul>
+</li>
+<li>The SAC writes a meta-review. It is expected that they will have discussed with the SR to try to get to a consensus. All cases where the SAC recommends rejection when the SR recommends acceptance will be reviewed by the Program Chairs.</li>
+</ul>
+<h3>Motivation for two reviews</h3>
+<p>There may be concerns that two reviews is insufficient, due to noise in the process. This structure for reviewing, however, should already be lower noise. The reasons are as follows. </p>
+<ul>
+<li>The acceptance principle of the conference (quoted above) allows us to avoid making calls between borderline papers. Noise typically affects these papers the most.</li>
+<li>A key part is to be careful about reviewer selection. This includes separating into the two roles (SR and TR). It also assumes we will more carefully select SACs, SRs and TRs.</li>
+<li>Bad reviews can be removed.</li>
+<li>The SAC and SR can collectively make decisions. It relies more on the SAC to also look at the paper. There may be scaling issues in the future, but for the first RL Conference, this is not a worry.</li>
+<li>A reviewer can actually do a better job when the review burden is lower. Namely, the same set of reviewers will produce less noisy reviews. </li>
+</ul>
+<p>It is important to recognize that adding more reviews does not necessarily decrease variance. Adding more reviews changes the distribution, and this distribution might actually have higher variance (e.g., we add less reliable reviewers). Even worse, this distribution might have high bias—we want to get closer to the distribution of expert reviewers, not a broad distribution over senior researchers, students, bloggers, and others that the current review pools are built from. Also note that for journal papers it is common for an Action Editor to make decisions based only on two reviews. </p>
+<h3>More details about the review process</h3>
+<ul>
+<li>The TR only checks correctness. They write a review discussing correctness. They give no scores.<ul>
+<li>Box for Major Errors, Box for Minor Errors </li>
+<li>Error types: Academic misconduct/Plagiarism (with link to work that is copied), Missing Literature (minor if it's just a citation, major if it represents missing baselines of ideas that could have been included), Math errors, Empirical errors</li>
+<li>The TR <strong>will not include</strong> statements about sufficient novelty</li>
+<li>A short document will be provided outlining typical major and minor errors</li>
+</ul>
+</li>
+<li>The SR writes a standard review. They have four scores: Reject, Borderline Accept, Weak Accept, Accept. The meanings of these categories are respectively<ul>
+<li><strong>Reject</strong></li>
+<li><strong>Borderline Accept:</strong> This paper would not be bad to publish, but there'd be little lost if it was not.</li>
+<li><strong>Weak Accept:</strong> There is some value in this paper being published.</li>
+<li><strong>Accept:</strong> There is very high value in this paper being published; and not doing so would be harmful (to getting great ideas)</li>
+<li><strong>Note:</strong> the plan is to accept all papers that are not marked reject. However, some falling in the borderline category might be rejected pending adjustment of the process due to unforeseen outcomes (e.g., more accepted papers than people we have the capacity for, etc.)</li>
+</ul>
+</li>
+<li>The SR and SAC can ask the authors questions as needed. Questions can be asked before reviews are submitted, during the reviewer discussion phase and even after the discussion phase. The authors will be informed to expect this and be ready.</li>
+<li>The reviewer discussion phase includes both the SR and TR.</li>
+<li>The SR and SAC can give written feedback to the TR on their review (recommended but not required). There will also be a rating given (Reject review, Acceptable and Excellent).</li>
+</ul>
+<h3>Other details about the implementation</h3>
+<ul>
+<li>We will use OpenReview. </li>
+<li>The conference is double-blind. </li>
+<li>Reviewers and SACs can see each other’s names.</li>
+<li>Everything will be kept hidden from the public: reviews, discussion, rejected papers.</li>
+<li>OpenReview does not yet have the ability to have multiple reviewer roles. We had to map to existing roles, meaning TRs are listed as Reviewers and SRs as Area Chairs. It also means we use the term Senior Area Chair above, for a role that is typically called an Area Chair, again to avoid naming confusion. </li>
+</ul>
+<h3>Timeline</h3>
+<ul>
+<li><strong>Feb 1:</strong> Submission site is opened</li>
+<li><strong>Mar 1:</strong> Abstract submission deadline</li>
+<li><strong>Mar 8:</strong> Submission deadline (anywhere on earth)</li>
+<li><strong>Mar 9 - Mar 15:</strong> Paper bidding</li>
+<li><strong>Mar 17:</strong> Finalize paper assignment</li>
+<li><strong>Mar 31:</strong> Reviews due (2 weeks to review)</li>
+<li><strong>Apr 1 - Apr 14 (2 weeks):</strong> [Review adjustment phase] SAC asks SRs or TRs to adjust their review if needed, SR/SAC read technical reviews and label as accept or reject, SAC assigns emergency reviewers as needed</li>
+<li><strong>Apr 15 - Apr 26:</strong> Reviewer discussion phase (authors may be contacted with questions)</li>
+<li><strong>Apr 30:</strong> Meta-reviews from SACs due</li>
+<li><strong>May 15:</strong> Decision notification</li>
+<li><strong>Aug 9-12:</strong> Conference</li>
+</ul>
+
+
+    </div>
+  </div>
+  
+  
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "UA-");
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer bg-light p-4">
+    <div class="container">
+      <p class="float-right"><a href="#">Back to Top</a></p>
+      <p class="text-center">© 2024 Reinforcement Learning Conference Organization Committee</p>
+    </div>
+  </footer>
+
+  <!-- Code for hash tags -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (window.location.hash !== "") {
+        $(`a[href="${window.location.hash}"]`).tab("show");
+      }
+
+      $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+        const hash = $(e.target).attr("href");
+        if (hash.substr(0, 1) === "#") {
+          const position = $(window).scrollTop();
+          window.location.replace(`#${hash.substr(1)}`);
+          $(window).scrollTop(position);
+        }
+      });
+    });
+  </script>
+  <!--    <script src="static/js/modules/lazyLoad.js"></script>-->
+  
+</body>
+
+</html>

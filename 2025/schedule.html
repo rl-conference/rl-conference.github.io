@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WJ8BP2WZ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <title>RLC 2025 - Schedule</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link href="build.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="RLC" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<body class="bg-rlgrey font-rubik text-rldarkblue-900 p-6">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ8BP2WZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Include Menu -->
+  <script src="jquery.js"></script>
+  <script src="data.js"></script>
+
+  <div class="container mx-auto">
+    <div class="flex flex-col min-h-screen justify-between">
+      <div>
+        <div class="m-2 grid grid-cols-3 items-center rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+          <div class="p-2 w-full rounded-md">
+            <div class="hidden lg:block max-w-60">
+              <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+            </div>
+            <div class="block pt-1 lg:hidden max-w-60">
+              <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+            </div>
+          </div>
+          <div></div>
+          <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md"></div>
+          <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md">
+            <div class="relative flex flex-row-reverse">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                onclick="showMenu()">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+              </svg>
+              <div id="collapsedMenuItems"
+                class="absolute top-10 z-10 hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border border-black">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE TITLE -->
+        <h1 class="md:text-4xl text-2xl  font-bai text-center text-blue mb-10 mt-10">RLC 2025 Schedule</h1>
+
+        <!-- DAY NAVIGATION BUTTONS -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 p-4">
+          <button onclick="showDay('monday')" id="btn-monday"
+            class="day-btn bg-blue text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-500 transition-colors">
+            Mon Aug 4 (Pre-registration)
+          </button>
+          <button onclick="showDay('tuesday')" id="btn-tuesday"
+            class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Tue Aug 5 (Workshops)
+          </button>
+          <button onclick="showDay('wednesday')" id="btn-wednesday"
+            class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Wed Aug 6
+          </button>
+          <button onclick="showDay('thursday')" id="btn-thursday"
+            class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Thu Aug 7
+          </button>
+          <button onclick="showDay('friday')" id="btn-friday"
+            class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Fri Aug 8
+          </button>
+          <button onclick="showDay('saturday')" id="btn-saturday"
+            class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Sat Aug 9
+          </button>
+          <button onclick="showDay('socials')" id="btn-socials"
+            class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+            Socials
+          </button>
+        </div>
+
+        <!-- SCHEDULE CONTENT -->
+        <div class="p-1 sm:m-2 sm:p-2 lg:m-10 lg:p-10 text-sm sm:text-base">
+
+          <!-- Monday -->
+          <div id="day-monday" class="day-content">
+            <div class="rounded-lg p-1 md:p-6">
+              <h2 class="text-base sm:text-2xl  font-roboto text-blue font-semibold text-center mb-10">📅 Monday, August
+                4
+              </h2>
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue">
+                <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">2 PM - 6 PM
+                </h3>
+                <div class="grid md:grid-cols-2 grid-cols-1">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Pre-registration
+                    badge pickup</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 <a
+                      class="text-blue hover:text-rldarkblue-500 text-base sm:text-base "
+                      href="https://maps.app.goo.gl/cVW46WhHfzj4srNK7" target="_blank">CCIS</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tuesday -->
+          <div id="day-tuesday" class="day-content hidden">
+            <div class="rounded-lg p-1 md:p-6">
+              <h2 class="text-base sm:text-2xl  font-roboto text-blue font-semibold text-center mb-2">📅 Tuesday,
+                August 5
+                (Workshops)</h2>
+                <div class="text-sm font-roboto  italics text-center mb-10">Coffee and drinks provided from 8:30 AM to 5 PM</div>
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">12:30 PM - 2
+                  PM</h3>
+                <div class="grid grid-cols-2 items-center">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Lunch</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS hallway across from CCIS 1-440 on the ground level</div>
+                </div>
+              </div>
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM - 5 PM
+                </h3>
+                <div class="grid md:grid-cols-2 grid-cols-1">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://prl-workshop.github.io/" class="text-blue hover:text-rldarkblue-500 underline">Workshop on
+                    Programmatic Reinforcement Learning</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic md:mb-1 mb-10">📍 BS M-137</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://sites.google.com/view/rlvg-workshop-2025/home" class="text-blue hover:text-rldarkblue-500 underline">Reinforcement
+                    Learning and Video Games</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic md:mb-1 mb-10">📍 BS M-145</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://sites.google.com/view/ibrl-workshop/home" class="text-blue hover:text-rldarkblue-500 underline">Inductive Biases in
+                    Reinforcement Learning</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic md:mb-1 mb-10">📍 BS M-149</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://sites.google.com/view/cocomarl2025/" class="text-blue hover:text-rldarkblue-500 underline">Coordination and
+                    Cooperation in Multi-Agent Reinforcement Learning</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic md:mb-1 mb-10">📍 CCIS 1-140</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://rl4rs.github.io/RL4RS/" class="text-blue hover:text-rldarkblue-500 underline">Practical Insights
+                    into RL for Real Systems</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic md:mb-1 mb-10">📍 CCIS 1-160</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://sites.google.com/uci.edu/crlw2025/" class="text-blue hover:text-rldarkblue-500 underline">The Causal
+                    Reinforcement Learning Workshop</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic md:mb-1 mb-10">📍 BS M-141</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://rlbrew2-workshop.github.io/" class="text-blue hover:text-rldarkblue-500 underline">Workshop on RL
+                    Beyond Rewards: Ingredients for Developing Generalist Agents</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic md:mb-1 mb-10">📍 CCIS 1-430</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                    <a href="https://sites.google.com/view/findingtheframe/home" class="text-blue hover:text-rldarkblue-500 underline">Finding the Frame: A
+                    Workshop for Examining Conceptual Frameworks in RL</a>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-440</div>
+                </div>
+              </div>
+
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">5 PM - 6:30 PM
+                </h3>
+                <div class="grid grid-cols-2 items-center">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Reviewer's
+                    Recognition Event</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">
+                    📍 <a href="https://maps.app.goo.gl/pZqVRbAuGqNjGCox6" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener">University (faculty) Club</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Wednesday -->
+          <div id="day-wednesday" class="day-content hidden">
+            <div class="rounded-lg p-1 md:p-6">
+              <h2 class="text-base sm:text-2xl  font-roboto text-blue font-semibold text-center mb-2">📅 Wednesday, August
+                6</h2>
+              <div class="text-sm font-roboto  italics text-center mb-10">Coffee and drinks provided from 8:30 AM to 5 PM</div>
+
+              <!-- Opening Comments -->
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4  border-blue m-2">
+                <h3 class="text-base sm:text-xl  mb-3 text-rldarkblue-900 text-center mx-auto font-medium">8:45 AM - 9 AM</h3>
+                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Opening Comments
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS
+                    1-440)</div>
+                </div>
+              </div>
+
+              <!-- Keynote: Leslie Kaelbling -->
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4  border-blue m-2">
+                <h3 class="text-base sm:text-xl  mb-3 text-rldarkblue-900 text-center mx-auto font-medium">9 AM - 10 AM</h3>
+                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">
+                    <div class="font-semibold">Keynote: Leslie Kaelbling</div>
+                    <div class="text-sm text-gray-600 mt-1">RL: Rational Learning</div>
+                    <button onclick="toggleAbstract('leslie-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                      Show abstract
+                    </button>
+                    <div id="leslie-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left">
+                      The classical approach to AI designed systems that were rational at run-time: they had explicit representations of beliefs, goals, and plans and ran inference algorithms, online, to select actions. The rational approach was criticized (by the behaviorists) and modified (by the probabilists) but persisted in some form. More recently, relatively unstructured data-driven end-to-end approaches have demonstrated great success in a wide variety of domains, and began to seem like a plausible route to general-purpose intelligent robots. However, most recently, we have begun to see the limits of pure behavior learning and many practitioners are re-integrating forms of search and explicit reasoning into their approaches. I will revisit the rational-agent approach to the design of intelligent robots, from the perspectives of engineering effort, computational efficiency, cognitive modeling and understandability. I will present some current research focused on understanding the roles of learning in runtime-rational agents with the ultimate aim of constructing general-purpose human-level intelligent robots.
+                    </div>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS
+                    1-440)</div>
+                </div>
+              </div>
+
+              <!-- Four Parallel Tracks - Session 1 -->
+              <div id="wed-session-1" class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">10:20 AM - 11:15 AM</h3>
+                <h3 class="text-sm mb-3 text-rldarkblue-900 text-center mx-auto">Four Parallel Tracks (Click on a track to see the
+                  list of talks)</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-1', 'wed-session-1')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 1: RL algorithms
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-430</div>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-2', 'wed-session-1')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 2: RLHF, Imitation Learning
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-440</div>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-3', 'wed-session-1')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 3: Hierarchical RL, Planning
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-140</div>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-4', 'wed-session-1')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 4: Evaluation, Benchmarks
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-160</div>
+                  </div>
+                </div>
+
+                <!-- Track Content Areas -->
+                <div id="wed-track-1" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-1', 'wed-session-1')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 1: RL algorithms</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1">
+                    <li>Burning RED: Unlocking Subtask-Driven Reinforcement Learning and Risk-Awareness in
+                      Average-Reward Markov Decision Processes <span class="font-bold text-blue">[Poster #1]</span></li>
+                    <li>RL\(^3\): Boosting Meta Reinforcement Learning via RL inside RL\(^2\) <span class="font-bold text-blue">[Poster #2]</span></li>
+                    <li>Fast Adaptation with Behavioral Foundation Models <span class="font-bold text-blue">[Poster #3]</span></li>
+                    <li>Understanding Learned Representations and Action Collapse in Visual Reinforcement Learning <span class="font-bold text-blue">[Poster #4]</span></li>
+                    <li>Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions <span class="font-bold text-blue">[Poster #5]</span></li>
+                    <li>ProtoCRL: Prototype-based Network for Continual Reinforcement Learning <span class="font-bold text-blue">[Poster #6]</span></li>
+                  </ol>
+                </div>
+
+                <div id="wed-track-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-2', 'wed-session-1')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 2: RL from human feedback, Imitation Learning</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1">
+                    <li>Online Intrinsic Rewards for Decision Making Agents from Large Language Model Feedback <span class="font-bold text-blue">[Poster #13]</span></li>
+                    <li>Nonparametric Policy Improvement in Continuous Action Spaces via Expert Demonstrations <span class="font-bold text-blue">[Poster #14]</span></li>
+                    <li>DisDP: Robust Imitation Learning via Disentangled Diffusion Policies <span class="font-bold text-blue">[Poster #15]</span></li>
+                    <li>Mitigating Goal Misgeneralization via Minimax Regret <span class="font-bold text-blue">[Poster #16]</span></li>
+                    <li>Modelling human exploration with light-weight meta reinforcement learning algorithms <span class="font-bold text-blue">[Poster #17]</span></li>
+                    <li>Towards Improving Reward Design in RL: A Reward Alignment Metric for RL Practitioners <span class="font-bold text-blue">[Poster #18]</span></li>
+                  </ol>
+                </div>
+
+                <div id="wed-track-3" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-3', 'wed-session-1')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 3: Hierarchical RL, Planning algorithms</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1">
+                    <li>AVID: Adapting Video Diffusion Models to World Models <span class="font-bold text-blue">[Poster #25]</span></li>
+                    <li>The Confusing Instance Principle for Online Linear Quadratic Control <span class="font-bold text-blue">[Poster #26]</span></li>
+                    <li>Long-Horizon Planning with Predictable Skills <span class="font-bold text-blue">[Poster #27]</span></li>
+                    <li>Optimal discounting for offline input-driven MDP <span class="font-bold text-blue">[Poster #28]</span></li>
+                    <li>A Timer-Enforced Hybrid Supervisor for Robust, Chatter-Free Policy Switching <span class="font-bold text-blue">[Poster #29]</span></li>
+                    <li>Focused Skill Discovery: Learning to Control Specific State Variables while Minimizing Side
+                      Effects <span class="font-bold text-blue">[Poster #30]</span></li>
+                  </ol>
+                </div>
+
+                <div id="wed-track-4" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-4', 'wed-session-1')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 4: Evaluation, Benchmarks</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1">
+                    <li>Which Experiences Are Influential for RL Agents? Efficiently Estimating The Influence of
+                      Experiences <span class="font-bold text-blue">[Poster #37]</span></li>
+                    <li>Offline vs. Online Learning in Model-based RL: Lessons for Data Collection Strategies <span class="font-bold text-blue">[Poster #38]</span></li>
+                    <li>Multi-Task Reinforcement Learning Enables Parameter Scaling <span class="font-bold text-blue">[Poster #39]</span></li>
+                    <li>Benchmarking Massively Parallelized Multi-Task Reinforcement Learning for Robotics Tasks <span class="font-bold text-blue">[Poster #40]</span></li>
+                    <li>PufferLib 2.0: Reinforcement Learning at 1M steps/s <span class="font-bold text-blue">[Poster #41]</span></li>
+                    <li>Uncovering RL Integration in SSL Loss: Objective-Specific Implications for Data-Efficient RL
+                    <span class="font-bold text-blue">[Poster #42]</span></li>
+                  </ol>
+                </div>
+              </div>
+
+              <!-- Break -->
+              <!-- <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-l-4 border-blue m-2"> -->
+              <h3 class="text-base sm:text-xl  mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
+              <!-- </div> -->
+
+
+              <!-- Four Parallel Tracks - Session 2 -->
+              <div id="wed-session-2" class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">11:45 AM - 12:30 PM</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-1-2', 'wed-session-2')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 1: RL algorithms
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-430</div>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-2-2', 'wed-session-2')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 2: RLHF, Imitation Learning
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-440</div>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-3-2', 'wed-session-2')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 3: Hierarchical RL, Planning
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-140</div>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectTrack('wed-track-4-2', 'wed-session-2')"
+                      class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                      Track 4: Evaluation, Benchmarks
+                    </button>
+                    <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-160</div>
+                  </div>
+                </div>
+
+                <!-- Track Content Areas -->
+                <div id="wed-track-1-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-1-2', 'wed-session-2')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 1: RL algorithms (continued)</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                    <li>Offline Reinforcement Learning with Domain-Unlabeled Data <span class="font-bold text-blue">[Poster #7]</span></li>
+                    <li>SPEQ: Offline Stabilization Phases for Efficient Q-Learning in High Update-To-Data Ratio
+                      Reinforcement Learning <span class="font-bold text-blue">[Poster #8]</span></li>
+                    <li>Offline Reinforcement Learning with Wasserstein Regularization via Optimal Transport Maps <span class="font-bold text-blue">[Poster #9]</span></li>
+                    <li>Zero-Shot Reinforcement Learning Under Partial Observability <span class="font-bold text-blue">[Poster #10]</span></li>
+                    <li>Adaptive Submodular Policy Optimization <span class="font-bold text-blue">[Poster #11]</span></li>
+                  </ol>
+                </div>
+
+                <div id="wed-track-2-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-2-2', 'wed-session-2')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 2: RL from human feedback, Imitation Learning (continued)</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                    <li>PAC Apprenticeship Learning with Bayesian Active Inverse Reinforcement Learning <span class="font-bold text-blue">[Poster #19]</span></li>
+                    <li>Offline Action-Free Learning of Ex-BMDPs by Comparing Diverse Datasets <span class="font-bold text-blue">[Poster #20]</span></li>
+                    <li>One Goal, Many Challenges: Robust Preference Optimization Amid Content-Aware and Multi-Source
+                      Noise <span class="font-bold text-blue">[Poster #21]</span></li>
+                    <li>Goals vs. Rewards: A Comparative Study of Objective Specification Mechanisms <span class="font-bold text-blue">[Poster #22]</span></li>
+                  </ol>
+                </div>
+
+                <div id="wed-track-3-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-3-2', 'wed-session-2')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 3: Hierarchical RL, Planning algorithms (continued)</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                    <li>Representation Learning and Skill Discovery with Empowerment <span class="font-bold text-blue">[Poster #31]</span></li>
+                    <li>Compositional Instruction Following with Language Models and Reinforcement Learning <span class="font-bold text-blue">[Poster #32]</span></li>
+                    <li>Composition and Zero-Shot Transfer with Lattice Structures in Reinforcement Learning <span class="font-bold text-blue">[Poster #33]</span></li>
+                    <li>Double Horizon Model-Based Policy Optimization <span class="font-bold text-blue">[Poster #34]</span></li>
+                  </ol>
+                </div>
+
+                <div id="wed-track-4-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                  <button onclick="closeTrack('wed-track-4-2', 'wed-session-2')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="font-semibold text-sm mb-2 pr-8">Track 4: Evaluation, Benchmarks (continued)</h4>
+                  <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                    <li>Benchmarking Partial Observability in Reinforcement Learning with a Suite of Memory-Improvable
+                      Domains <span class="font-bold text-blue">[Poster #43]</span></li>
+                    <li>How Should We Meta-Learn Reinforcement Learning Algorithms? <span class="font-bold text-blue">[Poster #44]</span></li>
+                    <li>AdaStop: adaptive statistical testing for sound comparisons of Deep RL agents <span class="font-bold text-blue">[Poster #45]</span></li>
+                    <li>MixUCB: Enhancing Safe Exploration in Contextual Bandits with Human Oversight <span class="font-bold text-blue">[Poster #46]</span></li>
+                  </ol>
+                </div>
+              </div>
+
+                          <!-- Lunch -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl  mb-3 text-rldarkblue-900 text-center mx-auto font-medium">12:30 PM - 2 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">Lunch</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS hallway across from CCIS 1-440 on the ground level</div>
+              </div>
+            </div>
+
+              <!-- Keynote: Dale Schuurmans -->
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">2 PM - 3 PM</h3>
+                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">
+                    <div class="font-semibold">Keynote: Dale Schuurmans</div>
+                    <div class="text-sm text-gray-600 mt-1">Large Language Models and Computation</div>
+                    <button onclick="toggleAbstract('dale-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                      Show abstract
+                    </button>
+                    <div id="dale-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left">
+                      The ability of large generative models to respond naturally to text, image and audio inputs has created significant excitement. Particularly interesting is the ability of these models to generate outputs that resemble coherent reasoning and computational sequences. I will discuss the inherent computational capability of large language models and show that autoregressive decoding supports universal computation, even without pre-training. The co-existence of informal and formal computational systems in the same model does not change what is computable, but does provide new means for eliciting desired behaviour. I will then discuss how post-training, in an attempt to make a model more directable, faces severe computational limits on what can be achieved, but that accounting for these limits can improve outcomes.
+                    </div>
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
+                  </div>
+                </div>
+              </div>
+
+              <!-- Poster Session -->
+              <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">3 PM - 5:45 PM</h3>
+                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">Poster Session
+                  </div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS Hallways</div>
+                </div>
+              </div>
+
+              <!-- Banquet -->
+              <div id="banquet-section" class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">6 PM</h3>
+                <div class="text-center mb-4">
+                  <div class="text-gray-600 font-bold">(Not on campus)</div>
+                </div>
+                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base  text-left md:text-right">Banquet</div>
+                  <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 Edmonton Convention Centre (Hall D) <a href="https://www.edmontonconventioncentre.com/" target="_blank" class="underline text-blue hover:text-rldarkblue-500">Google Maps</a>
+                  </div>
+                </div>
+                <div class="text-center mb-4">
+                  <span class="text-sm text-gray-600">Click on a section for more details</span>
+                </div>
+                <div class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-3 mb-4">
+                  <div class="text-center">
+                    <button onclick="selectBanquetSection('banquet-details', 'banquet-section')"
+                      class="w-full banquet-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-rldarkblue-300 transition-colors">
+                      Event Details
+                    </button>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectBanquetSection('banquet-transit', 'banquet-section')"
+                      class="w-full banquet-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-rldarkblue-300 transition-colors">
+                      Public Transit Directions
+                    </button>
+                  </div>
+                  <div class="text-center">
+                    <button onclick="selectBanquetSection('banquet-walking', 'banquet-section')"
+                      class="w-full banquet-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-rldarkblue-300 transition-colors">
+                      Walking Directions
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Banquet Content Areas -->
+                <div id="banquet-details" class="banquet-content hidden mt-4 bg-white p-4 rounded relative">
+                  <button onclick="closeBanquetSection('banquet-details', 'banquet-section')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="text-center text-base font-semibold mb-3 pr-8">Event Details</h4>
+                  <div class="space-y-3">
+                    <p>
+                      The RLC banquet dinner will be held on Wednesday August 6th (6pm) at Edmonton Convention Centre in Hall D (<a href="https://www.edmontonconventioncentre.com/" target="_blank" class="underline text-blue hover:text-rldarkblue-500">https://www.edmontonconventioncentre.com/</a>). Doors open at 6pm, with the buffet dinner served at 6:45 pm. Fun entertainment is planned with Improv by RapidFire Theatre and a Puzzle Hunt by Michael Bowling and Michael Littman.
+                    </p>
+                    <p><span class="font-semibold">Dress code:</span> Your normal conference attire. Or whatever you feel most comfortable in for a buffet meal and evening of light entertainment and good conversation.</p>
+                    <p><span class="font-semibold">Address and getting there:</span> 9797 Jasper Ave, Edmonton, AB T5J 1N9</p>
+                    <p>
+                      <span class="font-semibold">Detailed instructions:</span>
+                      <a href="https://www.edmontonconventioncentre.com/our-location/getting-here/" target="_blank"
+                        class="underline text-blue hover:text-rldarkblue-500">https://www.edmontonconventioncentre.com/our-location/getting-here/</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div id="banquet-transit" class="banquet-content hidden mt-4 bg-white p-4 rounded relative">
+                  <button onclick="closeBanquetSection('banquet-transit', 'banquet-section')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="text-center text-base font-semibold mb-3 pr-8">Public Transit Directions</h4>
+                  <div class="space-y-3">
+                    <h5 class="font-semibold">Directions by train from campus:</h5>
+                    <p>To get there from University station, take a north-bound train from University station to Central station. From there, head up to street level from the platform, and it is a ~5 minute walk east along Jasper Ave. Maps below.</p>
+                    <div class="flex flex-col gap-3 items-center mt-3">
+                      <img src="data/map_banq_2.png" alt="Map: Central Station to Convention Centre (zoomed in)"
+                        class="rounded shadow max-w-full w-full max-w-sm md:max-w-1/2">
+                      <img src="data/map_banq_1.png" alt="Map: Central Station to Convention Centre (zoomed out)"
+                        class="rounded shadow max-w-full w-full max-w-sm md:max-w-1/2">
+                    </div>
+                  </div>
+                </div>
+
+                <div id="banquet-walking" class="banquet-content hidden mt-4 bg-white p-4 rounded relative">
+                  <button onclick="closeBanquetSection('banquet-walking', 'banquet-section')"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                    ×
+                  </button>
+                  <h4 class="text-center text-base font-semibold mb-3 pr-8">Walking Directions</h4>
+                  <div class="space-y-3">
+                    <h5 class="font-semibold">Directions by walking from campus:</h5>
+                    <p>Walk east from the conference venue to 109st, and then walk north on 109st across the river via the High Level Bridge along the pedestrian/bike trail until reaching Jasper Avenue (or detour through the legislature grounds). Head east to the banquet address along Jasper Avenue. Takes around 1h.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+
+
+        <!-- Thursday -->
+        <div id="day-thursday" class="day-content hidden">
+          <div class="rounded-lg p-1 md:p-6">
+            <h2 class="text-base sm:text-2xl  font-roboto text-blue font-semibold text-center mb-2">📅 Thursday, August 7
+            </h2>
+            <div class="text-sm font-roboto  italics text-center mb-10">Coffee and drinks provided from 8:30 AM to 5 PM</div>
+
+            <!-- Keynote: Joelle Pineau -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">9 AM - 10 AM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Joelle Pineau</div>
+                  <div class="text-sm text-gray-600 mt-1">Beyond Bellman's Legacy: Rethinking What We Value</div>
+                  <button onclick="toggleAbstract('joelle-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="joelle-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left">
+                    Reinforcement learning has long relied on a precise, recursive notion of value rooted in Bellman's formulation—but as RL systems increasingly interact with humans and shape society, this definition proves both powerful and limited. This talk explores the evolution of value in RL, and the personal, philosophical, cultural, and institutional dimensions of what we choose to optimize. We'll ask not just how to compute value, but whose values we encode—and how RL might reflect and enrich, rather than constrain, the futures we care about.
+                  </div>
+                </div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
+                </div>
+              </div>
+            </div>
+            <!-- Four Parallel Tracks - Session 1 -->
+            <div id="thu-session-1" class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">10:20 AM - 11:15 AM</h3>
+              <h3 class="text-sm mb-3 text-rldarkblue-900 text-center mx-auto">Four Parallel Tracks (Click on a track to see the
+                list of talks)</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-1', 'thu-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 1: Deep RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-430</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-2', 'thu-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 2: Social aspects, Neuroscience
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-440</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-3', 'thu-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 3: Exploration
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-140</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-4', 'thu-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 4: Theoretical RL, Bandits
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-160</div>
+                </div>
+              </div>
+
+              <!-- Track Content Areas -->
+              <div id="thu-track-1" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-1', 'thu-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 1: Deep RL</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>Understanding the Effectiveness of Learning Behavioral Metrics in Deep Reinforcement Learning <span class="font-bold text-blue">[Poster #1]</span></li>
+                  <li>Impoola: The Power of Average Pooling for Image-based Deep Reinforcement Learning <span class="font-bold text-blue">[Poster #2]</span></li>
+                  <li>Eau De \(Q\)-Network: Adaptive Distillation of Neural Networks in Deep Reinforcement Learning <span class="font-bold text-blue">[Poster #3]</span></li>
+                  <li>Disentangling Recognition and Decision Regrets in Image-Based Reinforcement Learning <span class="font-bold text-blue">[Poster #4]</span></li>
+                  <li>Make the Pertinent Salient: Task-Relevant Reconstruction for Visual Control with Distractions <span class="font-bold text-blue">[Poster #5]</span></li>
+                  <li>Pretraining Decision Transformers with Reward Prediction for In-Context Multi-task Structured
+                    Bandit
+                    Learning <span class="font-bold text-blue">[Poster #6]</span></li>
+                </ol>
+              </div>
+
+              <div id="thu-track-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-2', 'thu-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 2: Social and economic aspects, Neuroscience and
+                  cognitive
+                  science</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>Pareto Optimal Learning from Preferences with Hidden Context <span class="font-bold text-blue">[Poster #13]</span></li>
+                  <li>When and Why Hyperbolic Discounting Matters for Reinforcement Learning Interventions <span class="font-bold text-blue">[Poster #14]</span></li>
+                  <li>Reinforcement Learning from Human Feedback with High-Confidence Safety Guarantees <span class="font-bold text-blue">[Poster #15]</span></li>
+                  <li>Towards Large Language Models that Benefit for All: Benchmarking Group Fairness in Reward Models
+                  <span class="font-bold text-blue">[Poster #16]</span></li>
+                  <li>Reinforcement Learning for Human-AI Collaboration via Probabilistic Intent Inference <span class="font-bold text-blue">[Poster #17]</span></li>
+                  <li>High-Confidence Policy Improvement from Human Feedback cognitive science <span class="font-bold text-blue">[Poster #18]</span></li>
+                </ol>
+              </div>
+
+              <div id="thu-track-3" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-3', 'thu-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 3: Exploration</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>Uncertainty Prioritized Experience Replay <span class="font-bold text-blue">[Poster #25]</span></li>
+                  <li>Pure Exploration for Constrained Best Mixed Arm Identification with a Fixed Budget <span class="font-bold text-blue">[Poster #26]</span></li>
+                  <li>Quantitative Resilience Modeling for Autonomous Cyber Defense <span class="font-bold text-blue">[Poster #27]</span></li>
+                  <li>Learning to Explore in Diverse Reward Settings via Temporal-Difference-Error Maximization <span class="font-bold text-blue">[Poster #28]</span></li>
+                  <li>Syllabus: Portable Curricula for Reinforcement Learning Agents <span class="font-bold text-blue">[Poster #29]</span></li>
+                  <li>Exploration-Free Reinforcement Learning with Linear Function Approximation <span class="font-bold text-blue">[Poster #30]</span></li>
+                </ol>
+              </div>
+
+              <div id="thu-track-4" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-4', 'thu-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 4: Theoretical RL, Bandit algorithms</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>A Finite-Time Analysis of Distributed Q-Learning <span class="font-bold text-blue">[Poster #37]</span></li>
+                  <li>Finite-Time Analysis of Minimax Q-Learning <span class="font-bold text-blue">[Poster #38]</span></li>
+                  <li>Improved Regret Bound for Safe Reinforcement Learning via Tighter Cost Pessimism and Reward
+                    Optimism
+                  <span class="font-bold text-blue">[Poster #39]</span></li>
+                  <li>Non-Stationary Latent Auto-Regressive Bandits <span class="font-bold text-blue">[Poster #40]</span></li>
+                  <li>A Finite-Sample Analysis of an Actor-Critic Algorithm for Mean-Variance Optimization in a
+                    Discounted
+                    MDP <span class="font-bold text-blue">[Poster #41]</span></li>
+                  <li>Leveraging priors on distribution functions for multi-arm bandits <span class="font-bold text-blue">[Poster #42]</span></li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Break -->
+            <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
+            <!-- Four Parallel Tracks - Session 2 -->
+            <div id="thu-session-2" class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">11:45 AM - 12:30 PM</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-1-2', 'thu-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 1: Deep RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-430</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-2-2', 'thu-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 2: Social aspects, Neuroscience
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-440</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-3-2', 'thu-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 3: Exploration
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-140</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('thu-track-4-2', 'thu-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 4: Theoretical RL, Bandits
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-160</div>
+                </div>
+              </div>
+
+              <!-- Track Content Areas -->
+              <div id="thu-track-1-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-1-2', 'thu-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 1: Deep RL (continued)</h4>
+                <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                  <li>Sampling from Energy-based Policies using Diffusion <span class="font-bold text-blue">[Poster #7]</span></li>
+                  <li>Optimistic critics can empower small actors <span class="font-bold text-blue">[Poster #8]</span></li>
+                  <li>Scalable Real-Time Recurrent Learning Using Columnar-Constructive Networks <span class="font-bold text-blue">[Poster #9]</span></li>
+                  <li>AGaLiTe: Approximate Gated Linear Transformers for Online Reinforcement Learning <span class="font-bold text-blue">[Poster #10]</span></li>
+                  <li>Deep Reinforcement Learning with Gradient Eligibility Traces <span class="font-bold text-blue">[Poster #11]</span></li>
+                </ol>
+              </div>
+
+              <div id="thu-track-2-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-2-2', 'thu-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 2: Social and economic aspects, Neuroscience and (continued)</h4>
+                 
+                <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                  <li>Building Sequential Resource Allocation Mechanisms without Payments <span class="font-bold text-blue">[Poster #19]</span></li>
+                  <li>From Explainability to Interpretability: Interpretable Reinforcement Learning Via Model
+                    Explanations
+                  <span class="font-bold text-blue">[Poster #20]</span></li>
+                  <li>Learning Fair Pareto-Optimal Policies in Multi-Objective Reinforcement Learning <span class="font-bold text-blue">[Poster #21]</span></li>
+                  <li>AI in a vat: Fundamental limits of efficient world modelling for safe agent sandboxing <span class="font-bold text-blue">[Poster #22]</span></li>
+                </ol>
+              </div>
+
+              <div id="thu-track-3-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-3-2', 'thu-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 3: Exploration (continued)</h4>
+                <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                  <li>Value Bonuses using Ensemble Errors for Exploration in Reinforcement Learning <span class="font-bold text-blue">[Poster #31]</span></li>
+                  <li>Intrinsically Motivated Discovery of Temporally Abstract Graph-based Models of the World <span class="font-bold text-blue">[Poster #32]</span></li>
+                  <li>An Optimisation Framework for Unsupervised Environment Design <span class="font-bold text-blue">[Poster #33]</span></li>
+                  <li>Epistemically-guided forward-backward exploration <span class="font-bold text-blue">[Poster #34]</span></li>
+                  <li>RLeXplore: Accelerating Research in Intrinsically-Motivated Reinforcement Learning <span class="font-bold text-blue">[Poster #35]</span></li>
+                </ol>
+              </div>
+
+              <div id="thu-track-4-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('thu-track-4-2', 'thu-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 4: Theoretical RL, Bandit algorithms (continued)</h4>
+                <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                  <li>Multi-task Representation Learning for Fixed Budget Pure-Exploration in Linear and Bilinear
+                    Bandits
+                  <span class="font-bold text-blue">[Poster #43]</span></li>
+                  <li>On Slowly-varying Non-stationary Bandits <span class="font-bold text-blue">[Poster #44]</span></li>
+                  <li>Empirical Bound Information-Directed Sampling <span class="font-bold text-blue">[Poster #45]</span></li>
+                  <li>Thompson Sampling for Constrained Bandits <span class="font-bold text-blue">[Poster #46]</span></li>
+                  <li>Achieving Limited Adaptivity for Multinomial Logistic Bandits <span class="font-bold text-blue">[Poster #47]</span></li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Sponsor Talk -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">12:45 PM - 1:45 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Sponsor Talk by Amii
+                </div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-140</div>
+              </div>
+            </div>
+
+            <!-- Lunch -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">12:30 PM - 2 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Lunch</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS hallway across from CCIS 1-440 on the ground level</div>
+              </div>
+            </div>
+
+            <!-- Keynote: Michael Littman -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">2 PM - 3 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Michael Littman</div>
+                  <div class="text-sm text-gray-600 mt-1">Efficient RL/AI via Interaction and Teaching: The Importance of Theory</div>
+                  <button onclick="toggleAbstract('michael-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="michael-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left">
+                    Splashy RL/AI headlines sometimes obscure a deep truth---we can't really tell if these systems reliably do what we train them to do. In this talk, I assert that theory, that is, mathematical analysis, is a critical conceptual and even practical tool for helping build systems we can trust. I will survey some illustrative results on two mechanisms that are underused in modern systems but I believe are absolutely essential to the future of the field: interaction and teaching. After sketching some "existence" proofs that show how these techniques can make otherwise intractable problems tractable, I will make a plea for more focused efforts to move the idea of scalable systems with guarantees into the RL/AI mainstream.
+                  </div>
+                </div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
+                </div>
+              </div>
+            </div>
+
+            <!-- Poster Session -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">3 PM - 6 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Poster Session</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS Hallways</div>
+              </div>
+            </div>
+
+      
+          </div>
+        </div>
+
+        <!-- Friday -->
+        <div id="day-friday" class="day-content hidden">
+          <div class="rounded-lg p-1 md:p-6">
+            <h2 class="text-base sm:text-2xl  font-roboto text-blue font-semibold text-center mb-2">📅 Friday, August 8
+            </h2>
+            <div class="text-sm font-roboto  italics text-center mb-10">Coffee and drinks provided from 8:30 AM to 5 PM</div>
+
+            <!-- Light Breakfast -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">8 AM - 9 AM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Light breakfast</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS hallway across from CCIS 1-440 on the ground level</div>
+              </div>
+            </div>
+
+            <!-- Keynote: Peter Dayan -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">9 AM - 10 AM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Peter Dayan</div>
+                  <div class="text-sm text-gray-600 mt-1">The Marriage of Natural and Engineered Reinforcement Learning</div>
+                  <button onclick="toggleAbstract('peter-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="peter-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left">
+                    Natural and engineered reinforcement learning (RL) have been on- and off-again bedfellows for more than 70 years. There are many themes that are actually central to both, but they are often couched and characterized in different terms. This is true of debates in behavioural psychology between camps associated with Thorndike and Tolman which pre-figured what we would now understand in terms of model-free and model-based RL, or of temporal difference prediction errors that we can find partly reflected in the activity of particular classes of neurons in the brain. I will offer some snapshots from this long marriage, and speculate about the grandchildren.
+                  </div>
+                </div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
+                </div>
+              </div>
+            </div>
+            <!-- Four Parallel Tracks - Session 1 -->
+            <div id="fri-session-1" class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">10:20 AM - 11:15 AM</h3>
+              <h3 class="text-sm mb-3 text-rldarkblue-900 text-center mx-auto">Four Parallel Tracks (Click on a track to see the
+                list of talks)</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-1', 'fri-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 1: RL algorithms, Deep RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-430</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-2', 'fri-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 2: Applied RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-440</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-3', 'fri-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 3: Multi-agent RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-140</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-4', 'fri-session-1')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 4: Foundations
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-160</div>
+                </div>
+              </div>
+
+              <!-- Track Content Areas -->
+              <div id="fri-track-1" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-1', 'fri-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 1: RL algorithms, Deep RL</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>Bayesian Meta-Reinforcement Learning with Laplace Variational Recurrent Networks <span class="font-bold text-blue">[Poster #1]</span></li>
+                  <li>Cascade - A sequential ensemble method for continuous control tasks <span class="font-bold text-blue">[Poster #2]</span></li>
+                  <li>HANQ: Hypergradients, Asymmetry, and Normalization for Fast and Stable Deep \(Q\)-Learning <span class="font-bold text-blue">[Poster #3]</span></li>
+                  <li>Rectifying Regression in Reinforcement Learning <span class="font-bold text-blue">[Poster #4]</span></li>
+                  <li>Efficient Morphology-Aware Policy Transfer to New Embodiments <span class="font-bold text-blue">[Poster #5]</span></li>
+                  <li>Finer Behavioral Foundation Models via Auto-Regressive Features and Advantage Weighting <span class="font-bold text-blue">[Poster #6]</span></li>
+                </ol>
+              </div>
+
+              <div id="fri-track-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-2', 'fri-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 2: Applied RL</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>Action Mapping for Reinforcement Learning in Continuous Environments with Constraints <span class="font-bold text-blue">[Poster #13]</span></li>
+                  <li>Chargax: A JAX Accelerated EV Charging Simulator <span class="font-bold text-blue">[Poster #14]</span></li>
+                  <li>WOFOSTGym: A Crop Simulator for Learning Annual and Perennial Crop Management Strategies <span class="font-bold text-blue">[Poster #15]</span></li>
+                  <li>Drive Fast, Learn Faster: On-Board RL for High Performance Autonomous Racing <span class="font-bold text-blue">[Poster #16]</span></li>
+                  <li>Multi-Agent Reinforcement Learning for Inverse Design in Photonic Integrated Circuits <span class="font-bold text-blue">[Poster #17]</span></li>
+                  <li>Gaussian Process Q-Learning for Finite-Horizon Markov Decision Process <span class="font-bold text-blue">[Poster #18]</span></li>
+                </ol>
+              </div>
+
+              <div id="fri-track-3" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-3', 'fri-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 3: Multi-agent RL</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>Reinforcement Learning for Finite Space Mean-Field Type Game <span class="font-bold text-blue">[Poster #25]</span></li>
+                  <li>Collaboration Promotes Group Resilience in Multi-Agent RL <span class="font-bold text-blue">[Poster #26]</span></li>
+                  <li>Foundation Model Self-Play: Open-Ended Strategy Innovation via Foundation Models <span class="font-bold text-blue">[Poster #27]</span></li>
+                  <li>Hierarchical Multi-agent Reinforcement Learning for Cyber Network Defense <span class="font-bold text-blue">[Poster #28]</span></li>
+                  <li>Efficient Information Sharing for Training Decentralized Multi-Agent World Models <span class="font-bold text-blue">[Poster #29]</span></li>
+                  <li>Adaptive Reward Sharing to Enhance Learning in the Context of Multiagent Teams <span class="font-bold text-blue">[Poster #30]</span></li>
+                </ol>
+              </div>
+
+              <div id="fri-track-4" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-4', 'fri-session-1')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 4: Foundations</h4>
+                <ol class="list-decimal list-inside text-base space-y-1">
+                  <li>Effect of a slowdown correlated to the current state of the environment on an asynchronous
+                    learning
+                    architecture <span class="font-bold text-blue">[Poster #37]</span></li>
+                  <li>Average-Reward Soft Actor-Critic <span class="font-bold text-blue">[Poster #38]</span></li>
+                  <li>Your Learned Constraint is Secretly a Backward Reachable Tube <span class="font-bold text-blue">[Poster #39]</span></li>
+                  <li>Recursive Reward Aggregation <span class="font-bold text-blue">[Poster #40]</span></li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Break -->
+            <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
+            <!-- Four Parallel Tracks - Session 2 -->
+            <div id="fri-session-2" class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">11:45 AM - 12:30 PM</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-1-2', 'fri-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 1: RL algorithms, Deep RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-430</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-2-2', 'fri-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 2: Applied RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-440</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-3-2', 'fri-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 3: Multi-agent RL
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-140</div>
+                </div>
+                <div class="text-center">
+                  <button onclick="selectTrack('fri-track-4-2', 'fri-session-2')"
+                    class="w-full track-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base hover:bg-rldarkblue-300 transition-colors">
+                    Track 4: Foundations
+                  </button>
+                  <div class="text-base mt-1 text-gray-600 italic sm:mb-0 mb-4">📍 CCIS 1-160</div>
+                </div>
+              </div>
+
+              <!-- Track Content Areas -->
+              <div id="fri-track-1-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-1-2', 'fri-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 1: RL algorithms, Deep RL (continued)</h4>
+                <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                  <li>Concept-Based Off-Policy Evaluation <span class="font-bold text-blue">[Poster #7]</span></li>
+                  <li>Multiple-Frequencies Population-Based Training <span class="font-bold text-blue">[Poster #8]</span></li>
+                  <li>AVG-DICE: Stationary Distribution Correction by Regression <span class="font-bold text-blue">[Poster #9]</span></li>
+                  <li>Iterated Q-Network: Beyond One-Step Bellman Updates in Deep Reinforcement Learning <span class="font-bold text-blue">[Poster #10]</span></li>
+                </ol>
+              </div>
+
+              <div id="fri-track-2-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-2-2', 'fri-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 2: Applied RL (continued)</h4>
+                <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                  <li>Hybrid Classical/RL Local Planner for Ground Robot Navigation <span class="font-bold text-blue">[Poster #19]</span></li>
+                  <li>V-Max: Making RL Practical for Autonomous Driving <span class="font-bold text-blue">[Poster #20]</span></li>
+                  <li>Shaping Laser Pulses with Reinforcement Learning <span class="font-bold text-blue">[Poster #21]</span></li>
+                  <li>Learning Sub-Second Routing Optimization in Computer Networks requires Packet-Level Dynamics <span class="font-bold text-blue">[Poster #22]</span></li>
+                </ol>
+              </div>
+
+              <div id="fri-track-3-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-3-2', 'fri-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 3: Multi-agent RL (continued)</h4>
+                <ol class="list-decimal list-inside text-base space-y-1" start="7">
+                  <li>Seldonian Reinforcement Learning for Ad Hoc Teamwork <span class="font-bold text-blue">[Poster #31]</span></li>
+                  <li>Joint-Local Grounded Action Transformation for Sim-to-Real Transfer in Multi-Agent Traffic Control
+                  <span class="font-bold text-blue">[Poster #32]</span></li>
+                  <li>TransAM: Transformer-Based Agent Modeling for Multi-Agent Systems via Local Trajectory Encoding
+                  <span class="font-bold text-blue">[Poster #33]</span></li>
+                  <li>PEnGUiN: Partially Equivariant Graph NeUral Networks for Sample Efficient MARL <span class="font-bold text-blue">[Poster #34]</span></li>
+                  <li>Human-Level Competitive Pokémon via Scalable Offline Reinforcement Learning with Transformers <span class="font-bold text-blue">[Poster #35]</span></li>
+                </ol>
+              </div>
+
+              <div id="fri-track-4-2" class="track-content hidden mt-4 bg-white p-3 rounded relative">
+                <button onclick="closeTrack('fri-track-4-2', 'fri-session-2')"
+                  class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none p-1">
+                  ×
+                </button>
+                <h4 class="font-semibold text-sm mb-2 pr-8">Track 4: Foundations (continued)</h4>
+                <ol class="list-decimal list-inside text-base space-y-1" start="5">
+                  <li>Investigating the Utility of Mirror Descent in Off-policy Actor-Critic <span class="font-bold text-blue">[Poster #41]</span></li>
+                  <li>Rethinking the Foundations for Continual Reinforcement Learning <span class="font-bold text-blue">[Poster #42]</span></li>
+                  <li>An Analysis of Action-Value Temporal-Difference Methods That Learn State Values <span class="font-bold text-blue">[Poster #43]</span></li>
+                  <li>Reinforcement Learning with Adaptive Temporal Discounting <span class="font-bold text-blue">[Poster #44]</span></li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Lunch -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">12:30 PM - 2 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Lunch</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS hallway across from CCIS 1-440 on the ground level</div>
+              </div>
+            </div>
+
+            <!-- Keynote: Richard S. Sutton -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">2:00 PM - 3:00 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">
+                  <div class="font-semibold">Keynote: Richard S. Sutton</div>
+                  <div class="text-sm text-gray-600 mt-1">The Oak Architecture: A Vision of SuperIntelligence from Experience</div>
+                  <button onclick="toggleAbstract('rich-abstract')" class="mt-2 text-blue hover:text-rldarkblue-500 text-sm underline">
+                    Show abstract
+                  </button>
+                  <div id="rich-abstract" class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left">
+                    As AI has become a huge industry, to a large extent it has lost its way. What is needed to get us back on track to true intelligence? We need agents that learn continually. We need world models and planning. We need knowledge that is high-level and learnable. We need to meta-learn how to generalize. The Oak architecture is one answer to all these needs. In overall outline it is a model-based RL architecture with three special features: 1) all of its components learn continually, 2) each learned weight has a dedicated step-size parameter that is meta-learned using online cross-validation, and 3) abstractions in state and time are continually created in a five-step progression: Feature Construction, posing a SubTask based on the feature, learning an Option to solve the subtask, learning a Model of the option, and Planning using the option's model (the FC-STOMP progression). The Oak architecture is rather meaty; in this talk we give an outline and point to the many works, prior and co-temporaneous, that are contributing to its overall vision of how superintelligence can arise from an agent's experience.
+                  </div>
+                </div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430 (Overflow: CCIS 1-440)
+                </div>
+              </div>
+            </div>
+
+            <!-- Poster Session -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">3 PM - 6 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Poster Session</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS Hallways</div>
+              </div>
+            </div>
+
+          
+          </div>
+        </div>
+
+        <!-- Saturday -->
+        <div id="day-saturday" class="day-content hidden">
+          <div class="rounded-lg p-1 md:p-6">
+            <h2 class="text-base sm:text-2xl  font-roboto text-blue font-semibold text-center mb-10">📅 Saturday, August 9
+            </h2>
+
+            <!-- Breakfast & Meet-ups -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">9 AM - 10 AM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Breakfast & Meet-ups
+                </div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS hallway across from CCIS 1-440 on the ground level</div>
+              </div>
+            </div>
+
+            <!-- Town Hall -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">10 AM - 11 AM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Town Hall</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS 1-430</div>
+              </div>
+            </div>
+
+            <!-- Socials, Meet-ups, Excursions -->
+            <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+              <h3 class="text-base sm:text-xl mb-3 text-rldarkblue-900 text-center mx-auto font-medium">11 AM - 1 PM</h3>
+              <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base text-left md:text-right">Socials, Meet-ups,
+                  Excursions</div>
+                <div class="md:p-2 md:m-2 p-1 m-1 text-base sm:text-base italic">📍 CCIS hallway across from CCIS 1-440 on the ground level</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Socials -->
+        <div id="day-socials" class="day-content hidden">
+          <div class="rounded-lg p-1 md:p-6">
+            <h2 class="text-base sm:text-2xl  font-roboto text-blue font-semibold text-center mb-10">Social Events</h2>
+
+            <!-- Centered Container -->
+            <div class="flex justify-center">
+              <div class="w-full max-w-2xl">
+                <!-- Social Event Card -->
+                <div class="bg-rldarkblue-50/50 rounded-lg p-4 md:p-6 mb-4 border-blue">
+                  <div class="mb-3">
+                    <h3 class="text-lg sm:text-xl font-bold text-rldarkblue-900">RLBReW After Dark</h3>
+                  </div>
+
+                  <div class="mb-4">
+                    <p class="text-base sm:text-sm text-gray-700 leading-relaxed">
+                      Come join us to discuss wacky RL ideas over food and drinks (sadly not sponsored), find
+                      collaborators and friends!
+                    </p>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                    <div>
+                      <h4 class="font-semibold text-rldarkblue-900 mb-2">📅 When</h4>
+                      <p class=" text-gray-600">7pm, 5th August</p>
+                    </div>
+                    <div>
+                      <h4 class=" font-semibold text-rldarkblue-900 mb-2">📍 Location</h4>
+                      <p class=" text-gray-600">
+                        <a href="https://maps.app.goo.gl/gizsMAE6WiKfwaTF6" target="_blank" rel="noopener noreferrer"
+                          class="text-blue hover:text-rldarkblue-500 underline">
+                          MKT Fresh Food | Beer Market
+                        </a>
+                      </p>
+                    </div>
+                    <div>
+                      <h4 class=" text-rldarkblue-900 mb-2">👥 Organizers</h4>
+                      <div class=" text-gray-600 space-y-1">
+                        <div>Pranaya Jajoo, Harshit Sikchi,
+                          Siddhant Agarwal, Caleb Chuck,
+                          Amy Zhang, and Scott Niekum
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Placeholder for more events -->
+
+
+                </div>
+                <div class="text-center text-base sm:text-sm text-gray-500 italic mt-8">
+                  If you are interested in organizing a social event, then please email <a
+                    href="mailto:emma.jordan@pitt.edu"
+                    class="text-blue hover:text-rldarkblue-500">emma.jordan@pitt.edu</a>.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 items-center">
+        <div id="footerText" class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-base sm:text-base">
+        </div>
+        <div class="p-2 m-1 w-full">
+          <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
+            <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
+          </div>
+        </div>
+      </div>
+
+
+      <script>
+        function showDayInternal(dayId) {
+          // Hide all day contents
+          const dayContents = document.querySelectorAll('.day-content');
+          dayContents.forEach(content => {
+            content.classList.add('hidden');
+          });
+
+          // Reset all buttons to inactive state
+          const buttons = document.querySelectorAll('.day-btn');
+          buttons.forEach(btn => {
+            btn.classList.remove('bg-blue', 'text-white');
+            btn.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+          });
+
+          // Show selected day
+          const selectedDay = document.getElementById('day-' + dayId);
+          if (selectedDay) {
+            selectedDay.classList.remove('hidden');
+          }
+
+          // Set selected button to active state
+          const selectedButton = document.getElementById('btn-' + dayId);
+          if (selectedButton) {
+            selectedButton.classList.remove('bg-rldarkblue-200', 'text-rldarkblue-900');
+            selectedButton.classList.add('bg-blue', 'text-white');
+          }
+        }
+
+        function showDay(dayId) {
+          showDayInternal(dayId);
+          // Update URL hash
+          updateUrlHash(dayId);
+        }
+
+        function selectTrack(trackId, sessionId) {
+          // Hide all track contents for this session
+          const sessionTracks = document.querySelectorAll(`#${sessionId} .track-content`);
+          sessionTracks.forEach(content => {
+            content.classList.add('hidden');
+          });
+
+          // Reset all track buttons in this session to inactive state
+          const sessionButtons = document.querySelectorAll(`#${sessionId} .track-btn`);
+          sessionButtons.forEach(btn => {
+            btn.classList.remove('bg-blue', 'text-white');
+            btn.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+          });
+
+          // Show selected track
+          const selectedTrack = document.getElementById(trackId);
+          if (selectedTrack) {
+            selectedTrack.classList.remove('hidden');
+          }
+
+          // Set selected button to active state
+          const selectedButton = document.querySelector(`button[onclick="selectTrack('${trackId}', '${sessionId}')"]`);
+          if (selectedButton) {
+            selectedButton.classList.remove('bg-rldarkblue-200', 'text-rldarkblue-900');
+            selectedButton.classList.add('bg-blue', 'text-white');
+          }
+        }
+
+        function closeTrack(trackId, sessionId) {
+          // Hide the track content
+          const trackContent = document.getElementById(trackId);
+          if (trackContent) {
+            trackContent.classList.add('hidden');
+          }
+
+          // Reset the corresponding track button to inactive state
+          const trackButton = document.querySelector(`button[onclick="selectTrack('${trackId}', '${sessionId}')"]`);
+          if (trackButton) {
+            trackButton.classList.remove('bg-blue', 'text-white');
+            trackButton.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+          }
+        }
+
+        function selectBanquetSection(sectionId, containerId) {
+          // Hide all banquet content sections
+          const banquetSections = document.querySelectorAll(`#${containerId} .banquet-content`);
+          banquetSections.forEach(content => {
+            content.classList.add('hidden');
+          });
+
+          // Reset all banquet buttons to inactive state
+          const banquetButtons = document.querySelectorAll(`#${containerId} .banquet-btn`);
+          banquetButtons.forEach(btn => {
+            btn.classList.remove('bg-blue', 'text-white');
+            btn.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+          });
+
+          // Show selected section
+          const selectedSection = document.getElementById(sectionId);
+          if (selectedSection) {
+            selectedSection.classList.remove('hidden');
+          }
+
+          // Set selected button to active state
+          const selectedButton = document.querySelector(`button[onclick="selectBanquetSection('${sectionId}', '${containerId}')"]`);
+          if (selectedButton) {
+            selectedButton.classList.remove('bg-rldarkblue-200', 'text-rldarkblue-900');
+            selectedButton.classList.add('bg-blue', 'text-white');
+          }
+        }
+
+        function closeBanquetSection(sectionId, containerId) {
+          // Hide the banquet section content
+          const sectionContent = document.getElementById(sectionId);
+          if (sectionContent) {
+            sectionContent.classList.add('hidden');
+          }
+
+          // Reset the corresponding banquet button to inactive state
+          const sectionButton = document.querySelector(`button[onclick="selectBanquetSection('${sectionId}', '${containerId}')"]`);
+          if (sectionButton) {
+            sectionButton.classList.remove('bg-blue', 'text-white');
+            sectionButton.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+          }
+        }
+
+        function toggleAbstract(abstractId) {
+          const abstract = document.getElementById(abstractId);
+          const button = document.querySelector(`button[onclick="toggleAbstract('${abstractId}')"]`);
+          
+          if (abstract && button) {
+            if (abstract.classList.contains('hidden')) {
+              // Show abstract
+              abstract.classList.remove('hidden');
+              button.textContent = 'Hide abstract';
+            } else {
+              // Hide abstract
+              abstract.classList.add('hidden');
+              button.textContent = 'Show abstract';
+            }
+          }
+        }
+
+
+        // Initialize with Monday shown or hash from URL
+        document.addEventListener('DOMContentLoaded', function () {
+          // Check if there's a hash in the URL
+          const hash = window.location.hash.substring(1); // Remove the # symbol
+          const validDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'socials'];
+
+          if (hash && validDays.includes(hash)) {
+            showDayInternal(hash);
+            updateUrlHash(hash); // Set the hash without causing a loop
+          } else {
+            showDayInternal('monday');
+            updateUrlHash('monday');
+          }
+        });
+
+        // Update URL hash when day changes (optional - for better UX)
+        function updateUrlHash(dayId) {
+          window.history.replaceState(null, null, '#' + dayId);
+        }
+
+        // Listen for hash changes (browser back/forward or manual hash changes)
+        window.addEventListener('hashchange', function () {
+          const hash = window.location.hash.substring(1);
+          const validDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'socials'];
+
+          if (hash && validDays.includes(hash)) {
+            showDayInternal(hash);
+          }
+        });
+      </script>
+
+      <!-- Load menu functionality -->
+
+</body>
+<script src="menu.js"></script>
+
+</html>

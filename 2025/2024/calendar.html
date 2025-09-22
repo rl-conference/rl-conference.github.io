@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- External Javascript libs_ext  -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+            integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+            integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+            integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+
+
+    <!-- Library libs_ext -->
+    <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+
+
+    <!--    Internal Libs -->
+    <script src="static/js/data/api.js"></script>
+
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+    <!-- External Fonts (no google for china) -->
+    <link href="static/css/Lato.css" rel="stylesheet"/>
+    <link href="static/css/Exo.css" rel="stylesheet"/>
+    <link href="static/css/Cuprum.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="static/css/main.css"/>
+    <!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
+    <link rel="stylesheet" href="static/css/fa_solid.css"/>
+    <link rel="stylesheet" href="static/css/lazy_load.css"/>
+    <link rel="stylesheet" href="static/css/typeahead.css"/>
+
+    <title>RLC 2024: Schedule</title>
+
+
+    <style>
+        .schedule {
+            display: grid;
+            grid-gap: 1em;
+            grid-auto-flow: column;
+            grid-template-rows:
+            [days] auto [time-0800] 0.5fr [time-0815] 0.5fr [time-0830] 0.5fr [time-0845] 0.5fr [time-0900] 0.5fr [time-0915] 0.5fr [time-0930] 0.5fr [time-0945] 0.5fr [time-1000] 0.5fr [time-1015] 0.5fr [time-1030] 0.5fr [time-1045] 0.5fr [time-1100] 0.5fr [time-1115] 0.5fr [time-1130] 0.5fr [time-1145] 0.5fr [time-1200] 0.5fr [time-1215] 0.5fr [time-1230] 0.5fr [time-1245] 0.5fr [time-1300] 0.5fr [time-1315] 0.5fr [time-1330] 0.5fr [time-1345] 0.5fr [time-1400] 0.5fr [time-1415] 0.5fr [time-1430] 0.5fr [time-1445] 0.5fr [time-1500] 0.5fr [time-1515] 0.5fr [time-1530] 0.5fr [time-1545] 0.5fr [time-1600] 0.5fr [time-1615] 0.5fr [time-1630] 0.5fr [time-1645] 0.5fr [time-1700] 0.5fr [time-1715] 0.5fr [time-1730] 0.5fr [time-1745] 0.5fr [time-1800] 0.5fr [time-1815] 0.5fr [time-1830] 0.5fr [time-1845] 0.5fr [time-1900] 0.5fr [time-1915] 0.5fr [time-1930] 0.5fr [time-1945] 0.5fr [time-2000] 0.5fr [time-2015] 0.5fr [time-2030] 0.5fr [time-2045] 0.5fr [time-2100] 0.5fr;
+            grid-template-columns:
+            [day-1-start] 0.5fr [day-1-end day-2-start] 0.5fr [day-2-end day-3-start] 0.5fr [day-3-end day-4-start] 0.5fr [day-4-end];
+        }
+
+        @media screen and (min-width: 700px) {
+            .schedule {
+                display: grid;
+                grid-gap: 1em;
+                grid-auto-flow: column;
+                grid-template-rows:
+                [days] auto [time-0800] 0.5fr [time-0815] 0.5fr [time-0830] 0.5fr [time-0845] 0.5fr [time-0900] 0.5fr [time-0915] 0.5fr [time-0930] 0.5fr [time-0945] 0.5fr [time-1000] 0.5fr [time-1015] 0.5fr [time-1030] 0.5fr [time-1045] 0.5fr [time-1100] 0.5fr [time-1115] 0.5fr [time-1130] 0.5fr [time-1145] 0.5fr [time-1200] 0.5fr [time-1215] 0.5fr [time-1230] 0.5fr [time-1245] 0.5fr [time-1300] 0.5fr [time-1315] 0.5fr [time-1330] 0.5fr [time-1345] 0.5fr [time-1400] 0.5fr [time-1415] 0.5fr [time-1430] 0.5fr [time-1445] 0.5fr [time-1500] 0.5fr [time-1515] 0.5fr [time-1530] 0.5fr [time-1545] 0.5fr [time-1600] 0.5fr [time-1615] 0.5fr [time-1630] 0.5fr [time-1645] 0.5fr [time-1700] 0.5fr [time-1715] 0.5fr [time-1730] 0.5fr [time-1745] 0.5fr [time-1800] 0.5fr [time-1815] 0.5fr [time-1830] 0.5fr [time-1845] 0.5fr [time-1900] 0.5fr [time-1915] 0.5fr [time-1930] 0.5fr [time-1945] 0.5fr [time-2000] 0.5fr [time-2015] 0.5fr [time-2030] 0.5fr [time-2045] 0.5fr [time-2100] 0.5fr;
+                grid-template-columns:
+                [times] 4em [day-1-start] 0.5fr [day-1-end day-2-start] 0.5fr [day-2-end day-3-start] 0.5fr [day-3-end day-4-start] 0.5fr [day-4-end];
+            }
+
+        }
+
+        .time-slot {
+            display: none;
+        }
+
+        @media screen and (min-width: 700px) {
+            .time-slot {
+                display: block;
+                grid-column: times;
+            }
+        }
+
+        /* .day-slot {
+            display: none;
+        } */
+
+        .session-day {
+            font-size: 0.8rem;
+        }
+
+        /* @supports(display:grid) {
+            @media screen and (min-width:700px) { */
+        .day-slot {
+            display: flex;
+            justify-content: center;
+            font-size: 1rem !important;
+            padding: 10px 5px;
+            position: sticky;
+            top: 6.4rem;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, .9);
+        }
+
+        /* }
+        } */
+
+        /* Small-screen & fallback styles */
+        .session {
+            margin-bottom: 1em;
+        }
+
+        @supports (display:grid) {
+            @media screen and (min-width: 700px) {
+                .session {
+                    margin: 0;
+                }
+            }
+        }
+
+        .session {
+            padding: .5em;
+            border-radius: 2px;
+            font-size: 14px;
+        }
+
+        .session-title,
+        .session-time,
+        .session-day,
+        .session-presenter {
+            display: block;
+        }
+
+        .session-title,
+        .time-slot {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .session-title a {
+            color: #fff;
+            text-decoration-style: dotted;
+
+            &:hover {
+                font-style: italic;
+            }
+
+            &:focus {
+                outline: 2px dotted rgba(255, 255, 255, .8);
+            }
+        }
+
+        .day-slot,
+        .time-slot {
+            font-weight: bold;
+            font-size: .75em;
+        }
+
+        .day-1 {
+            background-color: #1259B2;
+            color: #fff;
+        }
+
+        .day-2 {
+            background-color: #687f00;
+            color: #fff;
+        }
+
+        .day-3 {
+            background-color: #544D69;
+            color: #fff;
+        }
+
+        .day-4 {
+            background-color: #c35500;
+            color: #fff;
+        }
+
+        .day-all {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ccc;
+            color: #000;
+            box-shadow: none;
+        }
+
+        .text {
+            max-width: 750px;
+            font-size: 18px;
+            margin: 0 auto 50px;
+        }
+
+        .meta {
+            color: #555;
+            font-style: italic;
+        }
+
+        .meta a {
+            color: #555;
+        }
+
+        hr {
+            margin: 40px 0;
+        }
+    </style>
+
+
+    <meta property="og:title" content="Reinforcement Learning Conference 2024"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="static/images/logo_with_title.png"/>
+    <meta property="og:url" content="https://rl-conference.cc"/>
+
+    <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+
+</head>
+
+<body>
+
+<!-- Move this into CSS!!! Why does this not load unless it's here! -->
+<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        color: rgb(239, 27, 27);
+        padding-top: 8px;
+        padding-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .dropbtn {
+        background-color: #d51313;
+        /* Changed from #4CAF50 to gray */
+        color: rgb(206, 19, 19);
+        /* padding-top: 10px; */
+        /* padding-bottom: 10px; */
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        top: 100%;
+        right: 0;
+        border-radius: 5px;
+        white-space: nowrap;
+        width: max-content;
+    }
+
+    @media (min-width: 992px) {
+        .navbar-collapse .dropdown-content {
+            left: 0;
+        }
+    }
+
+
+    .dropdown-content a {
+        /* color: black; */
+        color: rgba(0, 0, 0, .65);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        border-radius: inherit;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown > span {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+        color: rgba(15, 15, 15, 0.5);
+        /* Apply the RGBA background color */
+    }
+</style>
+
+<!-- NAV -->
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
+    <div class="container">
+        <a class="navbar-brand" href="/2024/index.html">
+            <img class="logo" src="static/images/rlc-logo.svg" height="auto"
+                 width="150px"/>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/2024/index.html">Home</a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <!-- TODO: Do not do this -->
+                    <span>Program</span>
+                    <div class="dropdown-content">
+                        <a href="/2024/calendar.html?tz=US/Eastern">Schedule</a>
+                        <a href="/2024/accepted_workshops.html">Workshops</a>
+                        <a href="https://rlj.cs.umass.edu/2024/2024issue.html">Accepted Papers</a>
+                        <a href="/2024/accepted_journal_papers.html">Journal Track Papers (previously published)</a>
+                        <a href="/2024/papers.html">Paper Schedule</a>
+                        <a href="/2024/panels.html">Panels</a>
+
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <!-- TODO: Do not do this like this -->
+                    <span>Submissions</span>
+                    <div class="dropdown-content">
+                        <a href="/2024/call_for_papers.html">Call for Papers</a>
+                        <a href="/2024/call_for_workshops.html">Call for Workshops</a>
+                        <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScuLxUE3mwr48n2Xdiasp3FTkpiY9foZrQ9LvofeBEgnWFlpQ/viewform">Journal
+                            Paper Presentations</a>
+                        <a href="/2024/review_process.html">Review Process</a>
+                        <a
+                                href="https://docs.google.com/document/d/1IzXv7LmlmDVNZeEElMfOG3IJVIhoZYSZWA25ZSteg18/edit?usp=sharing">Reviewer
+                            Guidelines</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="https://umass.irisregistration.com/Form/RLC">Register</a>
+                </li>
+
+
+                <li class="dropdown">
+                    <!-- TODO: Do not do this -->
+                    <span>Attend</span>
+                    <div class="dropdown-content">
+                        <a href="/2024/travel_info.html">Travel Information</a>
+                        <a href="/2024/hotels.html">Hotels</a>
+                        <a href="/2024/code_of_conduct.html">Code of Conduct</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/2024/organizers.html">Organizers</a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/2024/help.html">FAQ</a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/2024/blogs.html">Blogs</a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/2024/sponsorship.html">Sponsors</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="https://www.youtube.com/playlist?list=PLEA9Mnr-L18lI_I-EkyAc1-gXgBj52oV5">Recordings</a>
+                </li>
+
+                <li class="dropdown">
+                    <span>Year</span>
+                    <div class="dropdown-content">
+                        <a href="/2024/index.html">2024</a>
+                        <a href="/index.html">2025</a>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</nav>
+
+<!-- User Overrides -->
+
+
+<div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+
+    </div>
+    <!-- Content -->
+    <div class="content">
+
+
+        <div class="content" style="padding: 2rem 0;">
+
+            <h2 id="schedule-heading">Conference Schedule</h2>
+            <div class="schedule" aria-labelledby="schedule-heading">
+
+                <span class="day-slot" aria-hidden="true"
+                      style="grid-column: day-1; grid-row: days;">Friday, August 9th</span>
+                <span class="day-slot" aria-hidden="true" style="grid-column: day-2; grid-row: days;">Saturday, August
+            10th</span>
+                <span class="day-slot" aria-hidden="true" style="grid-column: day-3; grid-row: days;">Sunday, August 11th</span>
+                <span class="day-slot" aria-hidden="true" style="grid-column: day-4; grid-row: days;">Monday, August 12th</span>
+
+                <h2 class="time-slot" style="grid-row: time-0800;">8:00am</h2>
+                <h2 class="time-slot" style="grid-row: time-0900;">9:00am</h2>
+                <h2 class="time-slot" style="grid-row: time-1000;">10:00am</h2>
+                <h2 class="time-slot" style="grid-row: time-1100;">11:00am</h2>
+                <h2 class="time-slot" style="grid-row: time-1200;">12:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-1300;">1:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-1400;">2:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-1500;">3:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-1600;">4:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-1700;">5:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-1800;">6:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-1900;">7:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-2000;">8:00pm</h2>
+                <h2 class="time-slot" style="grid-row: time-2100;">9:00pm</h2>
+
+
+                <div class="session session-2 day-1"
+                     style="grid-column: day-1; grid-row: time-0830 / time-0900;">
+                    <h3 class="session-title">Breakfast (provided)</h3>
+                    <span class="session-time">8:30 AM - 9:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-1 day-1"
+                     style="grid-column: day-1; grid-row: time-0900 / time-1900;">
+                    <h3 class="session-title">Workshops</h3>
+                    <span class="session-time">9:00 AM - 7:00 PM</span>
+
+
+                    <hr style="margin: 10px 0;"/>
+                    <div>
+
+                        <span class="session-day"
+                              style="padding: 0.2rem 0;">InterPol: Room 162 (posters in Room 165)</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">RLBrew: Amherst Room (posters in the Marriott Center)</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Finding the Frame: Room 168 (posters in room 163)</span>
+
+                        <span class="session-day"
+                              style="padding: 0.2rem 0;">ICBINB: Room 803 (posters in room 905)</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">RLSW: Hadley Room (posters in the Marriott Center)</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Foundation Models: Room 804 (posters in 805)</span>
+
+                        <span class="session-day"
+                              style="padding: 0.2rem 0;">Deployable RL: Room 904 (posters in 903)</span>
+
+                        <span class="session-day"
+                              style="padding: 0.2rem 0;">CoCoMARL: Room 174 (posters in room 163)</span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="session session-10 day-2"
+                     style="grid-column: day-2; grid-row: time-0800 / time-0830;">
+                    <h3 class="session-title">Breakfast (provided)</h3>
+                    <span class="session-time">8:00 AM - 8:30 AM</span>
+
+                </div>
+
+
+                <div class="session session-4 day-2"
+                     style="grid-column: day-2; grid-row: time-0830 / time-0900;">
+                    <h3 class="session-title">Opening Remarks</h3>
+                    <span class="session-time">8:30 AM - 9:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-6 day-2"
+                     style="grid-column: day-2; grid-row: time-0900 / time-1000;">
+                    <h3 class="session-title">Keynote 1 - Doina Precup</h3>
+                    <span class="session-time">9:00 AM - 10:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-8 day-2"
+                     style="grid-column: day-2; grid-row: time-1015 / time-1215;">
+                    <h3 class="session-title">Oral Session 1</h3>
+                    <span class="session-time">10:15 AM - 12:15 PM</span>
+
+
+                    <hr style="margin: 10px 0;"/>
+                    <div>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Evaluation: Room 168</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Theoretical RL, Bandit algorithms: Room 165/169</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Multi-agent RL, Planning algorithms: Room 174/176</span>
+
+                        <span class="session-day"
+                              style="padding: 0.2rem 0;">Deep reinforcement learning: Room 163</span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="session session-9 day-2"
+                     style="grid-column: day-2; grid-row: time-1215 / time-1330;">
+                    <h3 class="session-title">Lunch (provided)</h3>
+                    <span class="session-time">12:15 PM - 1:30 PM</span>
+
+                </div>
+
+
+                <div class="session session-5 day-2"
+                     style="grid-column: day-2; grid-row: time-1330 / time-1430;">
+                    <h3 class="session-title">Panel 1 - High-impact Applications of RL</h3>
+                    <span class="session-time">1:30 PM - 2:30 PM</span>
+
+                </div>
+
+
+                <div class="session session-7 day-2"
+                     style="grid-column: day-2; grid-row: time-1430 / time-1530;">
+                    <h3 class="session-title">Keynote 2 - Sergey Levine</h3>
+                    <span class="session-time">2:30 PM - 3:30 PM</span>
+
+                </div>
+
+
+                <div class="session session-1 day-2"
+                     style="grid-column: day-2; grid-row: time-1600 / time-1700;">
+                    <h3 class="session-title">Keynote 3 - Andy Barto</h3>
+                    <span class="session-time">4:00 PM - 5:00 PM</span>
+
+                </div>
+
+
+                <div class="session session-3 day-2"
+                     style="grid-column: day-2; grid-row: time-1700 / time-1900;">
+                    <h3 class="session-title">Poster Session</h3>
+                    <span class="session-time">5:00 PM - 7:00 PM</span>
+
+                </div>
+
+
+                <div class="session session-2 day-2"
+                     style="grid-column: day-2; grid-row: time-1900 / time-2100;">
+                    <h3 class="session-title">Reception &amp; Best Paper Awards</h3>
+                    <span class="session-time">7:00 PM - 9:00 PM</span>
+
+                </div>
+
+
+                <div class="session session-3 day-3"
+                     style="grid-column: day-3; grid-row: time-0830 / time-0900;">
+                    <h3 class="session-title">Breakfast (provided)</h3>
+                    <span class="session-time">8:30 AM - 9:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-9 day-3"
+                     style="grid-column: day-3; grid-row: time-0900 / time-1000;">
+                    <h3 class="session-title">Keynote 4 - David Silver</h3>
+                    <span class="session-time">9:00 AM - 10:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-8 day-3"
+                     style="grid-column: day-3; grid-row: time-1015 / time-1215;">
+                    <h3 class="session-title">Oral Session 2</h3>
+                    <span class="session-time">10:15 AM - 12:15 PM</span>
+
+
+                    <hr style="margin: 10px 0;"/>
+                    <div>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">RL algorithms: Room 163</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Foundations: Room 165/169</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Applied reinforcement learning: Room 174/176</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">RL from human feedback, Imitation Learning: Room 168</span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="session session-6 day-3"
+                     style="grid-column: day-3; grid-row: time-1215 / time-1330;">
+                    <h3 class="session-title">Lunch (provided)</h3>
+                    <span class="session-time">12:15 PM - 1:30 PM</span>
+
+                </div>
+
+
+                <div class="session session-7 day-3"
+                     style="grid-column: day-3; grid-row: time-1330 / time-1430;">
+                    <h3 class="session-title">Keynote 5 - Finale Doshi-Velez</h3>
+                    <span class="session-time">1:30 PM - 2:30 PM</span>
+
+                </div>
+
+
+                <div class="session session-2 day-3"
+                     style="grid-column: day-3; grid-row: time-1430 / time-1530;">
+                    <h3 class="session-title">Keynote 6 - Emma Brunskill</h3>
+                    <span class="session-time">2:30 PM - 3:30 PM</span>
+
+                </div>
+
+
+                <div class="session session-5 day-3"
+                     style="grid-column: day-3; grid-row: time-1600 / time-1700;">
+                    <h3 class="session-title">Keynote 7 - Peter Stone</h3>
+                    <span class="session-time">4:00 PM - 5:00 PM</span>
+
+                </div>
+
+
+                <div class="session session-1 day-3"
+                     style="grid-column: day-3; grid-row: time-1700 / time-1900;">
+                    <h3 class="session-title">Poster Session</h3>
+                    <span class="session-time">5:00 PM - 7:00 PM</span>
+
+                </div>
+
+
+                <div class="session session-4 day-3"
+                     style="grid-column: day-3; grid-row: time-1900 / time-2100;">
+                    <h3 class="session-title">Industry-Academia mixer</h3>
+                    <span class="session-time">7:00 PM - 9:00 PM</span>
+
+                </div>
+
+
+                <div class="session session-4 day-4"
+                     style="grid-column: day-4; grid-row: time-0830 / time-0900;">
+                    <h3 class="session-title">Breakfast (provided)</h3>
+                    <span class="session-time">8:30 AM - 9:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-2 day-4"
+                     style="grid-column: day-4; grid-row: time-0900 / time-1000;">
+                    <h3 class="session-title">Town Hall</h3>
+                    <span class="session-time">9:00 AM - 10:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-3 day-4"
+                     style="grid-column: day-4; grid-row: time-1000 / time-1100;">
+                    <h3 class="session-title">Panel 2 - The Limits of Reward Functions</h3>
+                    <span class="session-time">10:00 AM - 11:00 AM</span>
+
+                </div>
+
+
+                <div class="session session-1 day-4"
+                     style="grid-column: day-4; grid-row: time-1130 / time-1230;">
+                    <h3 class="session-title">Oral Session 3</h3>
+                    <span class="session-time">11:30 AM - 12:30 PM</span>
+
+
+                    <hr style="margin: 10px 0;"/>
+                    <div>
+
+                        <span class="session-day"
+                              style="padding: 0.2rem 0;">Social and economic aspects: Room 168</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Theoretical RL: Room 165/169</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Hierarchical RL, Planning algorithms: Room 174/176</span>
+
+                        <span class="session-day" style="padding: 0.2rem 0;">Exploration: Room 163</span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="session session-5 day-4"
+                     style="grid-column: day-4; grid-row: time-1230 / time-1430;">
+                    <h3 class="session-title">Poster Session</h3>
+                    <span class="session-time">12:30 PM - 2:30 PM</span>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "UA-");
+</script>
+
+<!-- Footer -->
+<footer class="footer bg-light p-4">
+    <div class="container">
+        <p class="float-right"><a href="#">Back to Top</a></p>
+        <p class="text-center">© 2024 Reinforcement Learning Conference Organization Committee</p>
+    </div>
+</footer>
+
+<!-- Code for hash tags -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (window.location.hash !== "") {
+            $(`a[href="${window.location.hash}"]`).tab("show");
+        }
+
+        $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+            const hash = $(e.target).attr("href");
+            if (hash.substr(0, 1) === "#") {
+                const position = $(window).scrollTop();
+                window.location.replace(`#${hash.substr(1)}`);
+                $(window).scrollTop(position);
+            }
+        });
+    });
+</script>
+<!--    <script src="static/js/modules/lazyLoad.js"></script>-->
+
+</body>
+
+</html>

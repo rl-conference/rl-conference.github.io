@@ -1,0 +1,435 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- External Javascript libs_ext  -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+    integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+    integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+    integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+
+
+  <!-- Library libs_ext -->
+  <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+
+
+  <!--    Internal Libs -->
+  <script src="static/js/data/api.js"></script>
+
+  
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+  <!-- External Fonts (no google for china) -->
+  <link href="static/css/Lato.css" rel="stylesheet" />
+  <link href="static/css/Exo.css" rel="stylesheet" />
+  <link href="static/css/Cuprum.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/main.css" />
+  <!--    <link rel="stylesheet" href="static/css/fa_regular.css"/>-->
+  <link rel="stylesheet" href="static/css/fa_solid.css" />
+  <link rel="stylesheet" href="static/css/lazy_load.css" />
+  <link rel="stylesheet" href="static/css/typeahead.css" />
+
+  <title>RLC 2024</title>
+  
+
+  <meta property="og:title" content="Reinforcement Learning Conference 2024" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="static/images/logo_with_title.png" />
+  <meta property="og:url" content="https://rl-conference.cc" />
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+</head>
+
+<body>
+
+  <!-- Move this into CSS!!! Why does this not load unless it's here! -->
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      color: rgb(239, 27, 27);
+      padding-top: 8px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .dropbtn {
+      background-color: #d51313;
+      /* Changed from #4CAF50 to gray */
+      color: rgb(206, 19, 19);
+      /* padding-top: 10px; */
+      /* padding-bottom: 10px; */
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-collapse .dropdown-content {
+        left: 0;
+      }
+    }
+
+
+    .dropdown-content a {
+      /* color: black; */
+      color: rgba(0, 0, 0, .65);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      border-radius: inherit;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown>span {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .navbar-nav li.dropdown {
+      color: rgba(15, 15, 15, 0.5);
+      /* Apply the RGBA background color */
+    }
+  </style>
+
+  <!-- NAV -->
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
+    <div class="container">
+      <a class="navbar-brand" href="/2024/index.html">
+        <img class="logo" src="static/images/rlc-logo.svg" height="auto"
+             width="150px" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/index.html">Home</a>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Program</span>
+            <div class="dropdown-content">
+              <a href="/2024/calendar.html?tz=US/Eastern">Schedule</a>
+              <a href="/2024/accepted_workshops.html">Workshops</a>
+              <a href="https://rlj.cs.umass.edu/2024/2024issue.html">Accepted Papers</a>
+              <a href="/2024/accepted_journal_papers.html">Journal Track Papers (previously published)</a>
+              <a href="/2024/papers.html">Paper Schedule</a>
+              <a href="/2024/panels.html">Panels</a>
+
+            </div>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <!-- TODO: Do not do this like this -->
+            <span>Submissions</span>
+            <div class="dropdown-content">
+              <a href="/2024/call_for_papers.html">Call for Papers</a>
+              <a href="/2024/call_for_workshops.html">Call for Workshops</a>
+              <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScuLxUE3mwr48n2Xdiasp3FTkpiY9foZrQ9LvofeBEgnWFlpQ/viewform">Journal
+                Paper Presentations</a>
+              <a href="/2024/review_process.html">Review Process</a>
+              <a
+                      href="https://docs.google.com/document/d/1IzXv7LmlmDVNZeEElMfOG3IJVIhoZYSZWA25ZSteg18/edit?usp=sharing">Reviewer
+                Guidelines</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="https://umass.irisregistration.com/Form/RLC">Register</a>
+          </li>
+
+
+
+          <li class="dropdown">
+            <!-- TODO: Do not do this -->
+            <span>Attend</span>
+            <div class="dropdown-content">
+              <a href="/2024/travel_info.html">Travel Information</a>
+              <a href="/2024/hotels.html">Hotels</a>
+              <a href="/2024/code_of_conduct.html">Code of Conduct</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/organizers.html">Organizers</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/help.html">FAQ</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/blogs.html">Blogs</a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/2024/sponsorship.html">Sponsors</a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/playlist?list=PLEA9Mnr-L18lI_I-EkyAc1-gXgBj52oV5">Recordings</a>
+          </li>
+
+          <li class="dropdown">
+            <span>Year</span>
+            <div class="dropdown-content">
+              <a href="/2024/index.html">2024</a>
+              <a href="/index.html">2025</a>
+            </div>
+          </li>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+  
+  <!-- User Overrides -->
+  
+<style>
+  .back {
+    background: url("static/images/old_chapel_small.jpg") no-repeat center;
+    background-size: cover;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+  }
+  .dropshadow {
+  text-shadow: 2px 2px 4px #000000; /* Horizontal offset, vertical offset, blur radius, and color */
+}
+</style>
+
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+      <h2 class="dropshadow">
+        REINFORCEMENT <br> LEARNING <br> CONFERENCE
+      </h2>
+      <h2 class="p-5 dropshadow">
+        August 9-12, 2024<br>
+        Amherst, MA
+      </h2>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+       
+    </div>
+    <!-- Content -->
+    <div class="content">
+      
+
+<style>
+  .date-summary-row {
+    display: flex;
+  }
+  .date-summary-cell {
+    flex: 1; /* Each cell will take up equal space */
+    text-align: left; /* Align the text to the left */
+    padding: 8px; /* Add some padding for spacing, adjust as needed */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  .firstback {
+  background-color: #D3D3D3; /* This sets the background color to light gray */
+  border-radius: 15px;
+  overflow: hidden;
+}
+</style>
+
+
+<h2>RLC 2024 Call For Papers</h2>
+<p>The first Reinforcement Learning Conference (RLC) will be held in Amherst, Massachusetts from August 9–12, 2024. RLC is an annual international conference focusing on reinforcement learning. RLC provides an archival venue where reinforcement learning researchers can interact and share their research in a more focused setting than typical large machine learning venues. The RLC peer review process prioritizes rigorous methodology over perceived importance, aiming to foster scholarly discussions on both well-established and emerging topics in RL.</p>
+<p>We invite submissions presenting new and original research on topics including, but not limited to:</p>
+<ul>
+<li>RL algorithms (e.g., new algorithms for existing settings and new settings)</li>
+<li>Hierarchical RL (e.g., skill discovery, hierarchical representations and abstractions)</li>
+<li>Exploration (e.g., intrinsic motivation, curiosity-driven learning, exploration-exploitation tradeoff)</li>
+<li>Theoretical RL (e.g., complexity results, convergence analysis)</li>
+<li>Social and economic aspects  (e.g., safety, fairness, interpretability, privacy, trustworthiness, human-AI interaction, philosophy)</li>
+<li>Bandit algorithms (e.g., theoretical contributions, practical algorithms)</li>
+<li>Planning algorithms (e.g., decision-making under uncertainty, model-based approaches) </li>
+<li>Foundations (e.g., showing relationships between methods, unifying theory, clarifying misconceptions in the literature)</li>
+<li>Evaluation (e.g., methodology, meta studies, replicability, and validity)</li>
+<li>Applied reinforcement learning (e.g., medical, operations, traffic)</li>
+<li>Deep reinforcement learning (e.g., analysis on the interplay between RL and deep learning models)</li>
+<li>Multi-agent RL (e.g., cooperative, competitive, self-play, etc)</li>
+<li>Multidisciplinary work (RL research that relates to other fields)</li>
+<li>RL Systems (e.g., distributed training, multi-GPU training)</li>
+<li>RL from human feedback (e.g. reward learning from human data, human-in-the-loop learning, etc.)</li>
+<li>Imitation Learning (e.g., learning from demonstrations, apprenticeship learning, inverse RL, etc.)</li>
+</ul>
+<p>We also welcome interdisciplinary research that does not fit neatly into existing categories, but which falls under the broad scope of reinforcement learning research.</p>
+<p><strong>Dates and Deadlines:</strong>
+Submission is now open at <a href="https://openreview.net/group?id=rl-conference.cc/RLC/2024">OpenReview</a>.</p>
+<ul>
+<li><strong>Feb 1:</strong> Submission site is opened</li>
+<li><strong>Mar 1:</strong> Abstract submission deadline</li>
+<li><strong>Mar 8:</strong> Submission deadline (anywhere on earth)</li>
+<li><strong>Mar 9 - Mar 15:</strong> Paper bidding</li>
+<li><strong>Mar 17:</strong> Finalize paper assignment</li>
+<li><strong>Mar 31:</strong> Reviews due (2 weeks to review)</li>
+<li><strong>Apr 1 - Apr 14 (2 weeks):</strong> [Review adjustment phase] SAC asks SRs or TRs to adjust their review if needed, SR/SAC read technical reviews and label as accept or reject, SAC assigns emergency reviewers as needed</li>
+<li><strong>Apr 15 - Apr 26:</strong> Reviewer discussion phase (authors may be contacted with questions)</li>
+<li><strong>Apr 30:</strong> Meta-reviews from SACs due</li>
+<li><strong>May 15:</strong> Decision notification</li>
+<li><strong>Aug 9-12:</strong> Conference</li>
+</ul>
+<p><strong>Formatting Instructions:</strong> All submissions should be in PDF format. All of the content prior to (but not including) the references are referred to as the “main text.” There is a recommended page limit of 8 pages and a strict page limit of 12 pages for the main text; authors should use their best judgment to edit the paper to make sure the content needed to understand the main parts of the method are included in the main text. Main texts of length beyond 8 pages are reserved for papers that cannot fully communicate their core scientific contributions within 8 pages (e.g., for clear and thorough proofs or plots related to additional experimentation). Reviewers may penalize papers for unnecessary main text length above 8 pages, so authors are advised to minimize length while maintaining scientific rigor. Authors should look at papers in NeurIPS, ICML, and ICLR for expectations on writing quality and organization.  <strong>You must use the provided style file</strong> (<a href="https://www.overleaf.com/read/xcnztsmtbnxy#62703f">overleaf link</a> or <a href="static/rlc_2024_submission_template.zip">
+  <img src="static/rlc_2024_submission_template.zip" alt="zip file link" style="vertical-align: top;">
+</a>) and follow the instructions therein. Any submissions that violate the style guidelines may be rejected without further review.</p>
+<p>You are welcome to include supplementary materials alongside your paper submission. These can include code, extra figures, and videos. It is crucial, however, that the main text stands on its own as a complete document. Please note that reviewers are not obligated to examine the supplementary materials or any text beyond the main text. Therefore, any results critical to your paper should be fully detailed within the main text itself.</p>
+<p><strong>Note:</strong> The main text ends when the references begin. Appendices before the references are viewed as part of the main text and are subject to the 8-12 page limit, are peer reviewed, and can contain content central to the claims of the paper. Appendices that appear after the references are not part of the main text, have no page limits, are not necessarily reviewed, and should not contain any claims or material central to the paper. In general, we recommend including all text within one .pdf file. That is, additional supporting text should appear after the references rather than in a separate .pdf file within the supplementary materials.</p>
+<p><strong>Review Criteria:</strong> All submissions will be evaluated by at least two reviewers, supervised by an area chair. The reviewers will evaluate the paper based on:</p>
+<ul>
+<li><strong>Technical correctness.</strong> RLC will hold papers to a high bar for technical correctness. Submissions will be evaluated based on their suitability for publication.</li>
+<li><strong>Novelty.</strong> Submissions should represent original work, offering new contributions to the field of RL. Papers must not be a mere rephrasing or duplication of the authors' previous research, nor should they simply recapitulate existing knowledge without providing new insights.</li>
+<li><strong>Clarity of contributions.</strong> Submissions should clearly delineate their contributions to the field, with a precise articulation of its novel aspects. The merit of a paper is not based on the scale of advancement it provides; instead, the emphasis is on the clear and precise enumeration of the new developments it introduces.</li>
+<li><strong>Support for claimed contributions.</strong> Submissions should provide solid empirical and/or theoretical backing for its stated contributions and claims.</li>
+<li><strong>Clarity of presentation.</strong> Submissions should be well-crafted and coherently organized, demonstrating a polished and professional standard of academic writing. Confusing text, undefined mathematical symbols, and imprecise claims are valid reasons for rejection.</li>
+<li><strong>Topic.</strong> Submissions should be RL research in the machine learning discipline.</li>
+</ul>
+<p><strong>Review Process:</strong> We use OpenReview for the review process. However, reviews will not be made public, and rejected or withdrawn papers will not be made public. </p>
+<p><strong>Attendance:</strong> One author of each paper must attend the conference and present accepted papers as either a poster or talk (papers will be selected for talks as part of the review process).</p>
+<p><strong>Use of Large Language Models (LLMs):</strong> The use of LLMs and other writing tools is allowed in the preparation of submissions. However, 1) all listed authors should correspond to humans, and 2) the authors are responsible for ensuring that the content of the paper is correct and original. The authors are responsible for ensuring that plagiarized text does not occur even if the LLM is the source of the text.</p>
+<p><strong>Double-blind reviewing:</strong> The review process for RLC will be double blind. As such, authors are responsible for ensuring that their submissions do not contain any identifying information. This applies to any materials linked from the submission, such as code. Papers violating this double-blind policy may be rejected without further review.</p>
+<p><strong>Dual submissions:</strong> Authors should not submit papers that are substantially similar to versions that have been published, accepted for publication, or submitted in parallel to other conferences or journals. Any such submissions may be rejected or retracted after publication. Authors may submit substantially similar versions to workshops and may publish substantially similar versions on arXiv.</p>
+<p><strong>Author responses:</strong> After initial reviews have been provided, authors will have a chance to respond to questions raised by the reviewers. These responses should clarify points that the authors believe the reviewers have misunderstood.</p>
+<p><strong>Publication of accepted submissions:</strong> The proceedings of RLC will be published, with an ISSN corresponding to a journal (details forthcoming). All authors of accepted papers will be required to submit a copyright form prior to publication.</p>
+<p><strong>Contemporaneous Work:</strong> While authors are encouraged to reference and discuss related work that they are aware of, there is no expectation that authors reference or discuss any work published within three months of the paper submission deadline.</p>
+
+
+    </div>
+  </div>
+  
+  
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "UA-");
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer bg-light p-4">
+    <div class="container">
+      <p class="float-right"><a href="#">Back to Top</a></p>
+      <p class="text-center">© 2024 Reinforcement Learning Conference Organization Committee</p>
+    </div>
+  </footer>
+
+  <!-- Code for hash tags -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (window.location.hash !== "") {
+        $(`a[href="${window.location.hash}"]`).tab("show");
+      }
+
+      $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+        const hash = $(e.target).attr("href");
+        if (hash.substr(0, 1) === "#") {
+          const position = $(window).scrollTop();
+          window.location.replace(`#${hash.substr(1)}`);
+          $(window).scrollTop(position);
+        }
+      });
+    });
+  </script>
+  <!--    <script src="static/js/modules/lazyLoad.js"></script>-->
+  
+</body>
+
+</html>

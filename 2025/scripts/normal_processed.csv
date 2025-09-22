@@ -1,0 +1,395 @@
+FirstName,LastName,Affiliation
+Fabian,Damken,University of Twente
+Shuchao,Bi,OpenAI
+Paul,Friedrich,University of Zurich
+Levi,Lelis,University of Alberta
+Mike,Johanson,-
+Shasta,Johnsen-Sollos,University of Alberta
+Amirhossein,Rajabpour,University of Alberta
+Hamid,Reza Dehbashi Ghorbanali,University of Alberta
+Ahmed,Hendawy,"LiteRL - IAS, TU Darmstadt"
+Borja,G. Leon,Iconic
+Avani,Tiwari,University of Alberta
+Stuart,Johnson,Turing
+Vincent,Mai,Hydro-Québec Research Center
+Usman,Anwar,University of Cambridge
+Dwane,van der Sluis,ReasonedAI
+Sara,Karimi,KTH - Royal Institute of Technology
+Reza,Abdollahzadeh,University of Alberta
+Thomas,Frost,University College London
+Alireza,Kazemipour,University of Alberta
+Ritam,Majumdar,Imperial College London
+Parnian,Behdin,University of Alberta
+Tommaso,Marzi,"Università della Svizzera italiana, IDSIA"
+Mahshid,Rahmani Hanzaki,University of Alberta
+Kenzo,Clauw,University of Hertfordshire
+Natasha,Jaques,"University of Washington, Google DeepMind"
+Vedant,Vyas,University of Alberta
+Scott,Niekum,UMass Amherst
+Jun,Jin,University of Alberta
+Ese,Ben,The Alan Turing Institute
+Matthias,Horgen,University of Alberta
+Zaheen,Ahmad,University of Alberta
+Johan,Källström,SAAB
+Tony,Sun,University of Alberta
+Pulkit,Agrawal,MIT
+Han,Joon Byun,Seoul National University
+Justin,Stevens,Washington University in St. Louis
+Paul,Masset,McGill University
+Pieter,Simoens,Ghent University - imec
+Masood,S. Mortazavi,Futurewei
+Taco,Cohen,Meta / FAIR
+Przemek,Sekula,"University of Maryland, College Park"
+Adam,Parker,Toyota Motors North America
+Finbarr,Timbers,Allen Institute for Artificial Intelligence
+Kai,Biegun,University College London
+Xinze,Xiong,University of Alberta
+Armin,Ashrafi,University of Alberta
+Joseph,Jacks,OSS Capital
+Anffany,Chen,University of Alberta
+Thomas,Ferguson,University of Alberta
+Zachary,Hervieux- Moore,Amazon
+Giorgi,Nasrashvili,A* technologies - https://astartech.ai/
+Jiacheng,Shen,New York University
+Jake,Grigsby,UT Austin
+Pankhuri,Vanjani,"Intuitive Robots Lab (Karlsruhe Institute of Technology, Germany)"
+Sorina,Lupu,Openmind Research Institute / NASA Jet Propulsion Laboratory
+Ethan,Rathbun,Northeastern University
+ZIYAN,LUO,"Mila, McGill University"
+Yuting,Tang,The University of Tokyo/RIKEN AIP
+Soichiro,Nishimori,UTokyou
+TEJARAM,SANGADI,Indian Institute of Technology Madras
+Evangelos,Chatzaroulas,University of Surrey
+Aaron,Dharna,University of British Columbia
+Jonathan,Colaco Carr,McGill University and Mila
+Stefan,Uhlich,Sony Europe Ltd
+Yannik,Mahlau,Leibniz Universität Hannover
+Joery,A. de Vries,Delft University of Technology
+Maximilian,Bloor,Imperial College London
+Kai,Shao,New York University Abu Dhabi
+Jonathon,Liu,Oxford University AI society
+Priyesh,Vijayan,MILA & McGill University
+David,Gillman,New College of Florida
+Justin,Turnau,Arizona State University
+Kyle,Tilbury,University of Waterloo
+William (Will), Solow,Oregon State University
+Narim,Jeong,KAIST
+Han-Dong,Lim,KAIST
+Shihan,Wang,Utrecht University
+Raphael,Trumpp,Technical University of Munich
+Rafael,Irgolič,paracosmic
+Matthieu,Bonavent,Naval Group
+Abdallah,Idriss,Université de Lorraine - Naval Group
+Dr. Jonathan,Champagne,Naval Group
+Takuya,Hiraoka,NEC / AIST
+Mirco,Theile,Technical University of Munich (TUM)
+Yivan,Zhang,The University of Tokyo
+Tao,Li,New York University
+Matt,Taylor,U Alberta
+Serena,Booth,Brown University
+Aditya,Soni,University of Alberta
+Randy,Lefebvre,Université Laval
+Robin,Schmöcker,Leibniz University Hannover
+David,Radke,Chicago Blackhawks
+Yingyue,Cao,University of Alberta
+Dustin,Morrill,Sony AI
+Aashka,Desai,University of Alberta
+Jaden,Travnik,Sony AI
+Kevin,Waugh,Sony AI
+Yunshu,Du,Sony AI
+Aly,Lidayan,UC Berkeley
+Alberto,Castellini,Verona University
+Núria,Armengol,ETH Zurich
+Kihyun,Yu,KAIST
+Nico,Gürtler,University of Tübingen
+James,MacGlashan,Sony AI
+Edoardo,Zorzi,University of Verona
+Ji,Shi,University of Tübingen
+Jiaqi,Chen,ETH Zurich
+Rama,,New York University
+Juan,S. Rojas,University of Toronto
+Koen,Ponse,Leiden University (RLG)
+Shang,Wang,University of Alberta
+Levi,Rybalov,Apiary
+Miguel,Vasco,KTH Royal Institute of Technology
+Zoran,Tiganj,Indiana University
+Ian,Moore,Harvard University
+Ryo,Koblitz,Nokia Bell Labs
+Felix,Kleuker,Leiden University
+Johannes,Guenther,Sony AI
+Yumi,Omori,New York University
+Tommy,Barnes,Independent Researcher
+Nathan,Monette,University of Oxford
+Luiz,Chaimowicz,FUNDAÇÃO DE DESENVOLVIMENTO DA PESQUISA – FUNDEP - DCC-UFMG
+Sumit,Vashishtha,Inria - Univerisité de Lille
+Luca,Civitavecchia,Politecnico di Milano
+Peter,Chin,Dartmouth College
+Haseeb,Shah,University of Alberta
+Atefeh,Mohajeri,Bell Labs
+Pranaya,Jajoo,University of Alberta
+Andrzej,Białecki,Warsaw University of Technology
+Sarah,Keren,Technion - Israel Institute of Technology
+Jernej,Hribar,Jozef Stefan Institute
+Kushagra,Chandak,University of Alberta
+Seth,Akins,University of Alberta
+Oliver,Diamond,University of Alberta
+Alireza,Masoumian,University of Alberta
+Siddhartha,Chitrakar,University of Alberta
+Alex,Liu,University of Alberta
+Dikshant,,University of Alberta
+Mikel,Malagón,University of the Basque Country UPV/EHU
+Shriram,Raghu,"BLINC Lab, University of Alberta"
+Martha,Steenstrup,none
+Minh,Pham,University of Alberta
+Jinyan,Su,Cornell University
+Matthew,Vandergrift,University of Alberta
+Jacky,Liang,Google DeepMind
+Piotr,Suder,Amazon
+Xi,Chen,The Ohio State University
+Ryan,Sullivan,University of Maryland
+Anton,Phipps,NAIT
+Farzane,Aminmansour,University of Alberta
+Abhinav,Bhatia,University of Massachusetts Amherst
+Xujie,Si,"University of Toronto, Vector & Mila"
+Victor,Kostyuk,Braze
+Mohamad,Qadri,Carnegie Mellon University
+Carlo,Romeo,University of Florence
+Jianhong,,University of Bristol/INFORMED-AI Hub
+Laura,Petrich,University of Alberta
+Harm,van Seijen,Sony AI
+Quinn,,"BLINC Lab, U of A"
+Thiago,Casa Nova,OfferFit
+Mahdi,Imani,Northeastern University
+Marc,Rigter,Microsoft Research
+Vineet,Jain,"McGill, Mila"
+Koorosh,Moslemi,University of Toronto
+Ömer,Veysel Çağatan,Koç University
+Fatemeh,Ghoreishi,Northeastern University
+Waël,Doulazmi,"Mines Paris - PSL, Valeo"
+Amir,Soufi,University of Victoria
+Valentin,Charraut,Valeo
+Abhranil,Chandra,University of Waterloo
+Aidan,Bush,University of Alberta
+Patrick,Spieler,NASA Jet Propulsion Laboratory
+Subhojeet,Pramanik,University of Alberta
+Waris,RADJI,Inria
+Hongyi,Zhou,Karlsruhe Institute of Technology
+Jorge,Mendez- Mendez,Stony Brook University
+Sarah,Amini,University of Alberta
+Lu,Li,"Mila, Université de Montréal"
+Sarath,Sreedharan,Colorado State University
+Josh,Zitovsky,Amazon
+Joseph,Lawson,Amazon
+Seyed,Alireza Azimi,University of Alberta
+Homayoun,Honari,Mila - University of Victoria
+Bruno,Brandão,Federal University of Goiás
+Kefan,Song,University of Virginia
+Chambon,Aurélien,Pullup Entertainment
+Jun,Luo,Huawei Canada
+Sukruta,Prakash Midigeshi,Microsoft Research
+Yann,Berthelot,Inria Scool - Saint-Gobain Research
+Andreas,Boltres,Karlsruhe Institute of Technology; SAP SE
+Brad,Knox,UT Austin
+Philip,S. Thomas,University of Massachusetts
+Abdul,Wahab,University of Alberta
+Haruto,Tanaka,University of Alberta
+Alec,Koppel,JPMorganChase
+Vlad,Tkachuk,University of Alberta
+Alex,Trudeau,RL Core
+Revan,MacQueen,RL Core
+Aleksandra (Ola), Pasieka,Imperial College London
+Eura,Shin,Harvard University
+Andrew,Gritsevskiy,RunRL
+Derik,Kauffman,RunRL
+Joshua,McClellan,JHU APL & UMD
+Manuel,Baltieri,Araya Inc.
+Jonathan,Shock,University of Cape Town
+Zihan,Ye,Technical University of Darmstadt
+Vedant,Khandelwal,"Artificial Intelligence Institute, University of South Carolina"
+Marlos,C. Machado,University of Alberta
+Kevin,Li,Amazon
+Martha,White,University of Alberta
+Glen,Berseth,Organizer
+Mahmut,Tatlici,University of Alberta
+Mohammad,Sami Nur Islam,McGill University
+Joseph,Modayil,Openmind Research Institute
+Michael,Przystupa,University of Alberta
+Audrey,Durand,Université Laval & Mila
+Michela,Proietti,Sapienza University of Rome
+Nathan,Sturtevant,University of Alberta
+Liang,Peng,Futurewei
+Yu,Wang,University of Alberta
+Shuwei,Wang,University of Alberta
+Emma,,Dartmouth
+Yihao,Sun,Mila - Quebec Artificial Intelligence Institute
+Rupam,Mahmood,University of Alberta
+Masoud,Jafaripour,University of Alberta
+Johan,Obando-Ceron,Mila/Université de Montréal.
+Larry,Preuett,University of Washington Tacoma
+Paavo,Parmas,The University of Tokyo
+Francesco,Capuano,École Normale Supérieure Paris-Saclay
+Dale,Schuurmans,University of Alberta / Google DeepMind
+Yongcan,Cao,University of Texas at San Antonio
+Andy,Patterson,RL Core
+Kaixin,Wang,Microsoft Research
+Brian,Axelrod,Waymo Research
+Avi,Gala,University of Southern California
+Luana,Martins,Advanced Knowledge Center for Immersive Technology (AKCIT) - Brazil
+Jing,Dong,"The Chinese University of Hong Kong, Shenzhen / RL Core"
+Chaitanya,Kharyal,University of Alberta
+Zichen (Vincent), Zhang,University of Alberta
+Christopher,Solinas,University of Alberta
+Doina,Precup,McGill University / Mila / Google DeepMind
+Jordan,Coblin,University of Alberta
+Nicolas,Ong,University of Alberta
+Joshua,Holla,Google
+Dengwang,Tang,"eBay, Inc."
+Truong-Giang,Pham,University of Alberta
+Mahvash,Siavashpour,University of Alberta & Amii
+Andrew,Levy,Brown University
+Cathy,Wu,MIT
+Henry,Diehl,DiehlPerry
+Michael,Perry,DiehlPerry
+Andrea,Brown,RLC Staff
+Chris,Brown,RLC Staff
+Diego,Calanzone,Mila / Université de Montréal
+Maximilian,Schier,Leibniz University Hannover
+Tristan,Slominski,Thousand Brains Project
+Simon,Hsiang,UNC Charlotte
+Katie,Ross,Nova-Tech Engineering
+Corey,Polo,Student - University of Alberta
+Jeff,Barney,Remcom
+Bryan,de Oliveira,Advanced Knowledge Center for Immersive Technologies (AKCIT) - Brazil
+Sam,Scholnick- Hughes,University Of Alberta
+Elaheh,Toulabinejad,University of Alberta
+Karen,L. Figueroa Chilito,"University of Nevada, Las Vegas"
+Annette,Lau,University of Alberta
+Adrien,Goldszal,Mila - Quebec AI Institute
+Enrique,Mallada,Johns Hopkins University
+J. Fernando,Hernandez- Garcia,University of Alberta
+Deepak,Mamillapalli,University of Alberta
+Adam,S R Parker,University of Alberta
+Huizhen (Janey), Yu,Unoiversity of Albert
+Riley,Dawson,University of Alberta
+Seif,Eldin Metwally,University of Alberta
+Zheqing,Zhu,Pokee AI Inc
+Yi,Wan,Pokee AI Inc
+Agustin,Castellano,Johns Hopkins University
+Mahdi,Maghouli,University of Alberta
+Blanca,Miller,University of Alberta
+Patrick,M. Pilarski,University of Alberta / Amii
+Cam,Linke,Amii
+Seth,Graham,Johns Hopkins Applied Physics Laboratory
+Thanh,Nguyen,University of Alberta
+Julien,Armand,Université Laval
+David,Nagy,University of Tubingen
+Mridul,Mahajan,Boston University
+Anna,Trella,Harvard University
+Joelle,Pineau,McGill University / MILA
+Aaron,Courville,"University of Montreal, Mila, IVADO"
+Hampus,Åström,"Lund University, Lund, Sweden"
+Haoyu,Du,University of Alberta
+Andrew,Freeman,University of Alberta
+Peter,Dayan,MPI for Biological Cybernetics
+Dougy,Lee,Self
+Uros,Salobir,"ELES, d.o.o."
+Hanqi,Zhou,University of Tübingen/IMPRS-IS
+Javier,Sales-Ortiz,RL Core
+Paan,Kugathasan,MDA Space
+Luckeciano,Melo,AKCIT / University of Oxford
+Val,Kobilaski,MDA Space
+Panayiotis,Panayiotou (Pani),University of Bath
+Quinn,Lee,University of Alberta
+Tian,Tian,University of Alberta
+Patrick,Bruce,Amazon
+Matthew,,Emory University
+Vanya,Cohen,UT Austin
+Loren,James Anderson,Huntington Ingalls Industries
+Kevin,,Brown University
+Robin,Ranjit Chauhan,AgFunder (VC) ; TalkRL Podcast
+Turan,Orujlu,University of Tübingen
+Roberta,Raileanu,Google DeepMind
+Alexander,D. Goldie,Oxford University
+Ruoqi,Zhang,Uppsala University
+Zoey,Hearn,Audible | Amazon
+Rashmeet,Kaur Nayyar,Arizona State University
+Zifan,Xu,University of Texas at Austin
+Ashan,Walpita,*
+William,Ahlberg,KTH Royal Institute of Technology
+Radovan,Haluska,Charles University
+Matej,Kripner,Charles University
+Matej,Straka,Charles University
+Tomas,Cizek,Charles University
+Florence,Cloutier,Mila - University of Montreal
+Jeongran,Lee,Nokia Bell Labs
+Maxime,Heuillet,"Université Laval, Mila"
+Patrick,MacAlpine,Sony AI
+Ondrej,Bajgar,University of Oxford
+Alessandro,Amato,University of West Florida
+Shray,Bansal,Georgia Institute of Technology
+Linzi,Xing,Huawei Canada
+Daniel,Lawson,"Université de Montréal, Mila"
+Alona,Fyshe,University of Alberta
+Dane,Malenfant,Mila / McGill University
+Viraj,Joshi,UT Austin
+Elias,Malomgré,IDLab - imec - UGent
+Leslie,Kaelbling,MIT
+Martin,Riedmiller,Google DeepMind
+Jesse,Thibodeau,R2
+Alessandro,Sestini,Electronic Arts - SEED
+Davis,Juell,University of Lethbridge
+Anthony,KOBANDA,Inria Scool & Ubisoft
+Mark,Ho,NYU
+Adm,White,"University of Alberta, Alberta Machine Intelligence Institute (Amii)"
+Geonwoo,,Gwangju Institute of Science and Technology
+Scott,Sanner,University of Toronto
+Botao,Ye,ShanghaiTech University
+Yannick,Molinghen,Université Libre de Bruxelles
+Maxime,Robeyns,University of Bristol
+Toshinori,Kitamura,The University of Tokyo
+Nathan,Wispinski,Keeling Labs
+John,Zhou,UCLA
+Jing,Li,Icahn School of Medicine at Mount Sinai
+Ryan,Bahlous-Boldi,UMass Amherst
+Will,Dabney,Google DeepMind
+Joseph,Suarez,PufferAI
+Harun,Gopal,Johns Hopkins Applied Physics Lab
+Cornelius,Braun,TU Berlin
+Bruce,Matichuk,University of Alberta
+Padideh,Nouri,"McGill University, Mila"
+Uljad,Berdica,University of Oxford
+Edoardo,Ghignone,PBL - ETH Zurich
+Julien,Guité-Vinet,Université du Québec à Montréal
+Mani,Hamidi,University of Tübingen
+Franco,,McGill University
+Giorgia,Ramponi,University of Zurich
+Patrick,Benjamin,University of Oxford
+Hsiao-Ru,Pan,Max Planck Institute for Intelligent Systems
+ALAIN,ANDRES,FUNDACION TECNALIA
+Faisal,Mohamed,Mila-Québec AI Institute/Université de Montréal
+Elie,KADOCHE,TotalEnergies
+Caroline,Wang,UT Austin | Google DeepMind
+Murilo,Luz,Universidade Federal de Goiás
+Mariana,Ramada,Universidade Federal de Goiás
+Spencer,Cheng,PufferAI
+Michael,James,Utilidata
+Martin,,Balko
+Michael,Littman,Brown University
+Joshua,Yao-Yu Lin,Prescient Design/Genentech
+Quentin,Clark,University of Toronto
+Benjamin,Van Roy,Stanford University
+Qiaomin,Xie,University of Wisconsin-Madison
+Miles,,"Department of Mathematical and Statistical Sciences, University of Alberta"
+Bernardo,Avila Pires,Google DeepMind
+Shuhui,Zhu,University of Waterloo & Vector Institute
+Nanda,Sreenivas,University of Waterloo
+Deepak,Gopinath,Toyota Research Institute
+Elia,Piccoli,University of Pisa
+Luke,Kerker,University of the Witwatersrand
+Nancirose,Piazza,University of New Haven
+Sherif,Gad,Microsoft
+Shao-Hua,Sun,National Taiwan University
+Michael,,Google DeepMind
+Amirhossein,Afsharrad,Stanford University
+Sohrab,Andaz,Amazon
+Maximilian,Schelle,Cybergrid
