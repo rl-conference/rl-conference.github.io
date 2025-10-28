@@ -61,6 +61,7 @@ class MenuItemWithSubmenu {
 
 
 listOfMenuItems = [
+    new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html")]),
     new MenuItemWithSubmenu("Previous Years", [new MenuItem("2025", "/2025/index.html"), new MenuItem("2024", "/2024/index.html")]),
 ]
 
@@ -83,27 +84,21 @@ class Organizer {
     }
 }
 
-listOfOrganizers = [new Organizer("Adam White", "General Chair", "data/organizers/aw.webp"),
-new Organizer("Phil Thomas", "Program Chair", "data/organizers/pt.jpg"),
-new Organizer("Marlos C Machado", "Program Chair", "data/organizers/mcm.webp"),
-new Organizer("Cathy Wu", "Program Chair", "data/organizers/cw.jpg"),
-new Organizer("Andrew Patterson", "Program Chair", "data/organizers/ap.jpg"),
-new Organizer("Brad Knox", "Keynote and Scheduling Chair", "data/organizers/bk.png"),
-new Organizer("Tom Schaul", "Keynote and Scheduling Chair", "data/organizers/ts.jpg"),
-new Organizer("Emma Jordan", "Keynote and Scheduling Chair", "data/organizers/ej.webp"),
-new Organizer("Roberta Raileanu", "Awards Chair", "data/organizers/rr.jpg"),
-new Organizer("Ida Momennejad", "Awards Chair", "data/organizers/im.jpg"),
-new Organizer("Martha White", "Local Chair", "data/organizers/mw.webp"),
-new Organizer("Mike Bowling", "Local Chair", "data/organizers/mb.jpg"),
-new Organizer("Patrick Pilarski", "Local and Volunteers Chair", "data/organizers/pp.jpg"),
-new Organizer("Alex Lewandowski", "Local and Volunteers Chair", "data/organizers/al.jpg"),
-new Organizer("Glen Berseth", "Sponsorship Chair", "data/organizers/gb.webp"),
-new Organizer("Audrey Durand", "Sponsorship Chair", "data/organizers/ad.jpg"),
-new Organizer("Josiah Hanna", "Workshop Chair", "data/organizers/jh.jpeg"),
-new Organizer("Claire Vernade", "Workshop Chair", "data/organizers/cv.jpg"),
-new Organizer("Eugene Vinitsky", "Communication Chair", "data/organizers/ev.jpg"),
-new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
-new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png")
+listOfOrganizers = [new Organizer("Glenn Berseth", "General Chair", "data/organizers/gb.webp"),
+    new Organizer("Audrey Durand", "Local Chair", "data/organizers/ad.jpg"),
+    new Organizer("Amy Zhang", "Program Chair", "data/organizers/az.webp"),
+    new Organizer("Eugene Vinitsky", "Program Chair", "data/organizers/ev.jpg"),
+    new Organizer("Pierre-Luc Bacon", "Program Chair", "data/organizers/pb.webp"),
+    new Organizer("Amir-massoud Farahmand", "Program Chair", "data/organizers/af.jpg"),
+    new Organizer("Josiah Hanna", "Program Chair", "data/organizers/jh.webp"),
+    new Organizer("Tom Schaul", "Program Chair", "data/organizers/ts.jpg"),
+    new Organizer("Taylor Killian", "Workshop Chair", "data/organizers/tk.jpg"),
+    new Organizer("Claire Vernade", "Workshop Chair", "data/organizers/cv.jpeg"),
+    new Organizer("Raksha Kumaraswamy", "Workshop Chair", "data/organizers/rk.png"),
+    new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
+    new Organizer("Aadirupa Saha", "Communication Chair", "data/organizers/as.webp"),
+    new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png"),
+    new Organizer("Brad Knox", "Scheduling Chair", "data/organizers/bk.png")
 ]
 
 class Workshop {
