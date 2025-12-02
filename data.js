@@ -9,6 +9,15 @@ class AdvisoryCommittee {
     }
 }
 
+/// Board Members ///
+class BoardMember {
+    constructor(name, affiliation, image) {
+        this.name = name;
+        this.affiliation = affiliation;
+        this.image = image;
+    }
+}
+
 /// Advisory committee ///
 class KeynoteSpeaker {
     constructor(name, affiliation, image) {
@@ -33,12 +42,13 @@ new AdvisoryCommittee("Marc Deisenroth", "University College London", "data/advi
 new AdvisoryCommittee("Andrew Barto", "University of Massachusetts Amherst", "data/advisoryCom/ab.jpg"),
 new AdvisoryCommittee("Benjamin Van Roy", "Stanford University / DeepMind", "data/advisoryCom/bvr.jpg")]
 
-listOfKeynoteSpeakers = [new KeynoteSpeaker("Leslie Kaelbling", "Massachusetts Institute of Technology", "data/keynoteSpeakers/lk.jpg"),
-new KeynoteSpeaker("Peter Dayan", "Max Planck Institute for Biological Cybernetics", "data/keynoteSpeakers/pd.webp"),
-new KeynoteSpeaker("Richard S. Sutton", "University of Alberta / Keen Technologies / Amii", "data/keynoteSpeakers/rs.webp"),
-new KeynoteSpeaker("Dale Schuurmans", "University of Alberta / Google DeepMind / Amii", "data/keynoteSpeakers/ds.webp"),
-new KeynoteSpeaker("Joelle Pineau", "McGill University / Meta / Mila", "data/keynoteSpeakers/jp.webp"),
-new KeynoteSpeaker("Michael Littman", "Brown University", "data/keynoteSpeakers/ml.webp")]
+listOfBoardMembers = [new BoardMember("Philip Thomas", "University of Massachusetts Amherst", "data/board/pt.jpg"),
+new BoardMember("Glen Berseth", "University of Montreal", "data/board/gb.webp"),
+new BoardMember("Eugene Vinitsky", "New York University", "data/board/ev.jpg"),
+new BoardMember("Scott Niekum", "University of Massachusetts Amherst", "data/board/sn.jpg"),
+new BoardMember("Amy Zhang", "The University of Texas at Austin", "data/board/az.webp"),
+new BoardMember("Martha White", "University of Alberta", "data/board/mw.webp"),
+new BoardMember("Adam White", "University of Alberta", "data/board/aw.webp")]
 
 
 ///// Menu Items /////
@@ -61,7 +71,7 @@ class MenuItemWithSubmenu {
 
 
 listOfMenuItems = [
-    new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html")]),
+    new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html"), new MenuItem("Board Members", "boardmembers.html")]),
     new MenuItemWithSubmenu("Previous Years", [new MenuItem("2025", "/2025/index.html"), new MenuItem("2024", "/2024/index.html")]),
 ]
 
