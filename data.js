@@ -43,7 +43,7 @@ new AdvisoryCommittee("Andrew Barto", "University of Massachusetts Amherst", "da
 new AdvisoryCommittee("Benjamin Van Roy", "Stanford University / DeepMind", "data/advisoryCom/bvr.jpg")]
 
 listOfBoardMembers = [new BoardMember("Philip Thomas", "University of Massachusetts Amherst", "data/board/pt.jpg"),
-new BoardMember("Glen Berseth", "University of Montreal", "data/board/gb.webp"),
+new BoardMember("Glen Berseth", "Université de Montréal", "data/board/gb.webp"),
 new BoardMember("Eugene Vinitsky", "New York University", "data/board/ev.jpg"),
 new BoardMember("Scott Niekum", "University of Massachusetts Amherst", "data/board/sn.jpg"),
 new BoardMember("Amy Zhang", "The University of Texas at Austin", "data/board/az.webp"),
