@@ -108,8 +108,8 @@ listOfOrganizers = [new Organizer("Glenn Berseth", "General Chair", "data/organi
     new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
     new Organizer("Aadirupa Saha", "Communication Chair", "data/organizers/as.webp"),
     new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png"),
-    new Organizer("Brad Knox", "Scheduling Chair", "data/organizers/bk.png"),
-    new Organizer("Claas Voelcker", "", "data/organizers/cv.jpg")
+    new Organizer("Claas Voelcker", "Inclusion Chair", "data/organizers/cv.jpg"),
+    new Organizer("Brad Knox", "Scheduling Chair", "data/organizers/bk.png")
 ]
 
 class Workshop {
