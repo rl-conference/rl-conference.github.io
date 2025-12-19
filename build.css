@@ -665,6 +665,10 @@ video {
   margin-bottom: 2rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -718,6 +722,14 @@ video {
   height: 2.5rem;
 }
 
+.h-dvh {
+  height: 100dvh;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -740,6 +752,14 @@ video {
 
 .max-w-60 {
   max-width: 15rem;
+}
+
+.list-decimal {
+  list-style-type: decimal;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .grid-cols-1 {
@@ -774,12 +794,20 @@ video {
   gap: 1rem;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
 .text-pretty {
   text-wrap: pretty;
 }
 
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 
 .border-0 {
@@ -811,6 +839,10 @@ video {
 
 .bg-rlgrey\/70 {
   background-color: rgb(255 255 255 / 0.7);
+}
+
+.bg-rlgrey\/80 {
+  background-color: rgb(255 255 255 / 0.8);
 }
 
 .object-cover {
@@ -851,6 +883,10 @@ video {
   padding-bottom: 0px;
 }
 
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
 .pt-1 {
   padding-top: 0.25rem;
 }
@@ -865,6 +901,10 @@ video {
 
 .text-right {
   text-align: right;
+}
+
+.font-bai {
+  font-family: Bai Jamjuree, sans-serif;
 }
 
 .font-roboto {
@@ -929,6 +969,11 @@ video {
 
 .hover\:cursor-pointer:hover {
   cursor: pointer;
+}
+
+.hover\:text-rldarkblue-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(75 174 229 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-rldarkblue-500:hover {
@@ -1010,8 +1055,20 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:block {
+    display: block;
+  }
+
   .xl\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .xl\:grid-cols-6 {
