@@ -96,7 +96,7 @@ class Organizer {
     }
 }
 
-listOfOrganizers = [new Organizer("Glenn Berseth", "General Chair", "data/organizers/gb.webp"),
+listOfOrganizers = [new Organizer("Glen Berseth", "General Chair", "data/organizers/gb.webp"),
     new Organizer("Audrey Durand", "Local Chair", "data/organizers/ad.jpg"),
     new Organizer("Amy Zhang", "Program Chair", "data/organizers/az.webp"),
     new Organizer("Eugene Vinitsky", "Program Chair", "data/organizers/ev.jpg"),
