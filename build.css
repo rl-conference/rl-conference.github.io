@@ -810,12 +810,6 @@ video {
   gap: 1rem;
 }
 
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-
 .overflow-scroll {
   overflow: scroll;
 }
@@ -853,10 +847,6 @@ video {
 
 .bg-rlgrey\/100 {
   background-color: rgb(255 255 255 / 1);
-}
-
-.bg-rlgrey\/30 {
-  background-color: rgb(255 255 255 / 0.3);
 }
 
 .bg-rlgrey\/50 {
@@ -907,10 +897,6 @@ video {
 
 .pb-0 {
   padding-bottom: 0px;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
 }
 
 .pl-6 {
