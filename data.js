@@ -109,6 +109,7 @@ listOfOrganizers = [new Organizer("Glen Berseth", "General Chair", "data/organiz
     new Organizer("Raksha Kumaraswamy", "Workshop Chair", "data/organizers/rk.png"),
     new Organizer("Khurram Javed", "Communication Chair", "data/organizers/kj.png"),
     new Organizer("Aadirupa Saha", "Communication Chair", "data/organizers/as.webp"),
+    new Organizer("David Abel", "Keynote Chair", "data/organizers/da.webp"),
     new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png"),
     new Organizer("Claas Voelcker", "Inclusion Chair", "data/organizers/cv.jpg"),
     new Organizer("Brad Knox", "Scheduling Chair", "data/organizers/bk.png")
