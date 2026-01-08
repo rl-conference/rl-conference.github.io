@@ -717,6 +717,10 @@ video {
   display: grid;
 }
 
+.contents {
+  display: contents;
+}
+
 .hidden {
   display: none;
 }
@@ -736,10 +740,6 @@ video {
 
 .h-dvh {
   height: 100dvh;
-}
-
-.h-full {
-  height: 100%;
 }
 
 .h-screen {
@@ -810,20 +810,12 @@ video {
   gap: 1rem;
 }
 
-.overflow-scroll {
-  overflow: scroll;
-}
-
 .text-pretty {
   text-wrap: pretty;
 }
 
 .rounded-md {
   border-radius: 0.375rem;
-}
-
-.rounded-sm {
-  border-radius: 0.125rem;
 }
 
 .border-0 {
@@ -1079,20 +1071,8 @@ video {
 }
 
 @media (min-width: 1280px) {
-  .xl\:col-span-3 {
-    grid-column: span 3 / span 3;
-  }
-
-  .xl\:block {
-    display: block;
-  }
-
   .xl\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .xl\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .xl\:grid-cols-6 {
