@@ -957,6 +957,10 @@ video {
   line-height: 1rem;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .text-blue {
   --tw-text-opacity: 1;
   color: rgb(27 58 158 / var(--tw-text-opacity, 1));
@@ -965,6 +969,10 @@ video {
 .text-rldarkblue-900 {
   --tw-text-opacity: 1;
   color: rgb(21 65 97 / var(--tw-text-opacity, 1));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .shadow-md {
