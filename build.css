@@ -1064,10 +1064,6 @@ video {
   .lg\:gap-10 {
     gap: 2.5rem;
   }
-
-  .lg\:gap-5 {
-    gap: 1.25rem;
-  }
 }
 
 @media (min-width: 1280px) {
