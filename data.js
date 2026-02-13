@@ -72,7 +72,7 @@ class MenuItemWithSubmenu {
 
 listOfMenuItems = [
     new MenuItemWithSubmenu("Submit", [
-        new MenuItem("Call&nbsp;for&nbsp;Papers", "callforpapers.html"), new MenuItem("Call&nbsp;for&nbsp;Workshops", "call_for_workshop.html"), new MenuItem("Submission&nbsp;Instructions", "submissionInstructions.html")]),
+        new MenuItem("Call&nbsp;for&nbsp;Papers", "callforpapers.html"), new MenuItem("Call&nbsp;for&nbsp;Workshops", "call_for_workshops.html"), new MenuItem("Submission&nbsp;Instructions", "submissionInstructions.html")]),
     new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html"), new MenuItem("Board&nbsp;Members", "boardmembers.html")]),
     new MenuItemWithSubmenu("Previous Years", [new MenuItem("2025", "/2025/index.html"), new MenuItem("2024", "/2024/index.html")]),
 ]
