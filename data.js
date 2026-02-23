@@ -98,6 +98,7 @@ class Organizer {
 
 listOfOrganizers = [new Organizer("Glen Berseth", "General Chair", "data/organizers/gb.webp"),
     new Organizer("Audrey Durand", "Local Chair", "data/organizers/ad.jpg"),
+    new Organizer("Caro Strickland", "Local Chair", "data/organizers/cs.jpeg"),
     new Organizer("Amy Zhang", "Program Chair", "data/organizers/az.webp"),
     new Organizer("Eugene Vinitsky", "Program Chair", "data/organizers/ev.jpg"),
     new Organizer("Pierre-Luc Bacon", "Program Chair", "data/organizers/pb.webp"),
