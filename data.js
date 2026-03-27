@@ -20,10 +20,11 @@ class BoardMember {
 
 /// Advisory committee ///
 class KeynoteSpeaker {
-    constructor(name, affiliation, image) {
+    constructor(name, affiliation, image, url) {
         this.name = name;
         this.affiliation = affiliation;
         this.image = image;
+        this.url = url || "";
     }
 }
 
@@ -114,6 +115,15 @@ listOfOrganizers = [new Organizer("Glen Berseth", "General Chair", "data/organiz
     new Organizer("Pablo Samuel Castro", "Inclusion Chair", "data/organizers/psc.png"),
     new Organizer("Claas Voelcker", "Inclusion Chair", "data/organizers/cv.jpg"),
     new Organizer("Brad Knox", "Scheduling Chair", "data/organizers/bk.png")
+]
+
+
+listOfKeynoteSpeakers = [
+    new KeynoteSpeaker("Sheila McIlraith", "University of Toronto / Vector Institute", "data/keynoteSpeakers/sm.jpg", "https://www.cs.toronto.edu/~sheila/"),
+    new KeynoteSpeaker("Marc Bellemare", "Reliant AI / McGill University / Mila", "data/keynoteSpeakers/mb.jpg", "http://www.marcgbellemare.info/"),
+    new KeynoteSpeaker("Rika Antonova", "University of Cambridge", "data/keynoteSpeakers/ra.png", "https://camral.github.io/"),
+    new KeynoteSpeaker("Balaraman Ravindran", "IIT Madras", "data/keynoteSpeakers/br.jpeg", "https://wsai.iitm.ac.in/~ravi/"),
+    new KeynoteSpeaker("Danijar Hafner", "Google DeepMind", "data/keynoteSpeakers/dh.jpg", "https://danijar.com/")
 ]
 
 class Workshop {
