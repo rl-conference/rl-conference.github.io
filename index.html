@@ -150,7 +150,7 @@
                 </div>
                 <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">Keynote Speakers</h1>
                 <div id="keynoteSpeakers"
-                    class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 w-full m-1 p-1">
+                    class="flex flex-wrap justify-start sm:justify-center gap-4 sm:gap-6 w-full m-1 p-1">
 
                 </div>
 
@@ -181,7 +181,7 @@
             ? "<a href='" + keynoteSpeaker.url + "' target='_blank' rel='noopener' class='text-blue hover:text-rldarkblue-500'>" + keynoteSpeaker.name + "</a>"
             : keynoteSpeaker.name;
         let keynoteSpeakerDiv = document.createElement("div");
-        keynoteSpeakerDiv.className = "min-w-0 overflow-hidden rounded-md bg-white/80 border border-rlgrey/40 transition-shadow";
+        keynoteSpeakerDiv.className = "min-w-0 grow-0 shrink basis-[calc((100%-1rem)/2)] max-w-[calc((100%-1rem)/2)] sm:basis-[calc((100%-3rem)/3)] sm:max-w-[calc((100%-3rem)/3)] lg:basis-[calc((100%-6rem)/5)] lg:max-w-[calc((100%-6rem)/5)] overflow-hidden rounded-md bg-white/80 border border-rlgrey/40 transition-shadow";
         keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full aspect-square' src='" + keynoteSpeaker.image + "'><div class='p-2 m-1 text-center font-rubik text-base text-blue'>" + nameHtml + "</div><div class='p-1 m-1 text-center font-roboto text-base text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
         document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
     }
