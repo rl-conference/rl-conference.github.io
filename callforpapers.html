@@ -12,10 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
         rel="stylesheet">
     <link href="build.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
@@ -39,11 +37,11 @@
 <!--</style>-->
 
 
-<body>
+<body class="font-roboto text-rldarkblue-950 bg-white antialiased">
 
 
     <div class="container  mx-auto ">
-        <div class="flex flex-col h-dvh justify-between">
+        <div class="flex flex-col min-h-screen justify-between">
             <div>
                 <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
                     <div class="p-2 w-full rounded-md">
@@ -68,7 +66,7 @@
                                     d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                             </svg>
                             <div id="collapsedMenuItems"
-                                class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/80 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-0 border-rldarkblue-900">
+                                class="absolute top-10 z-10 hidden w-40 shadow-md bg-white/95 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1">
 
                             </div>
                         </div>
@@ -821,12 +819,12 @@
             <div>
                 <p class="c1"><span class="c0"></span></p>
             </div>
-            <div class="grid grid-cols-2 items-center ">
+            <div class="grid grid-cols-4 items-center">
                 <div id="footerText"
-                    class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-bai text-xs sm:text-base">
+                    class="p-2 m-2 w-full col-span-3 rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
                 </div>
-                <div class="p-2 m-1 w-full">
-                    <div class="flex flex-row-reverse p-2 ml-auto max-w-60 ">
+                <div class="p-2 m-1 w-full col-span-1">
+                    <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
                         <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
                     </div>
                 </div>
@@ -840,18 +838,15 @@
 <script src="menu.js"></script>
 <script>
     // apply m-2 p-2 to all <p> tags
-    $("p").addClass("m-2 p-1 font-bai text-pretty");
+    $("p").addClass("m-2 p-1 font-roboto text-pretty");
 
-    $("ol").addClass("m-2 p-1 pl-6 font-bai list-decimal text-pretty");
-    $("ul").addClass("m-2 p-1 pl-6 font-bai list-disc text-pretty");
-    $("li").addClass("ml-2 p-1 pl-6 font-bai text-pretty");
-    $("h1").addClass("m-2 p-1 font-rubik text-2xl text-blue text-pretty text-center");
+    $("ol").addClass("m-2 p-1 pl-6 font-roboto list-decimal text-pretty");
+    $("ul").addClass("m-2 p-1 pl-6 font-roboto list-disc text-pretty");
+    $("li").addClass("ml-2 p-1 pl-6 font-roboto text-pretty");
+    $("h1").addClass("m-2 p-1 font-rubik text-3xl text-blue text-pretty text-center");
     $("h2").addClass("m-2 p-1 font-rubik text-2xl  text-pretty");
     $("a").addClass("text-blue hover:text-rldarkblue-400 text-pretty");
 
 </script>
-<div
-    class="flex hidden p-3 m-3 w-60  flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer">
-</div>
 
 </html>

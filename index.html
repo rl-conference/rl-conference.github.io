@@ -19,10 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
         rel="stylesheet">
     <link href="build.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
@@ -32,12 +30,6 @@
     <meta name="apple-mobile-web-app-title" content="RLC" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta id="seodescription" name="description" content="">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
 </head>
 
 <!--<div id="backgroundImage" class="fixed -z-20 h-screen w-full">-->
@@ -51,7 +43,7 @@
 <!--    }-->
 <!--</style>-->
 
-<body>
+<body class="font-roboto text-rldarkblue-950 bg-white antialiased">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ8BP2WZ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -83,7 +75,7 @@
                                     d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                             </svg>
                             <div id="collapsedMenuItems"
-                                class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
+                                class="absolute top-10 z-10 hidden w-40 shadow-md bg-white/95 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1">
 
                             </div>
                         </div>
@@ -92,7 +84,7 @@
           
 
 
-                <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
+                <div class="relative bg-white/80 backdrop-blur-md m-1 rounded-md border border-rldarkblue-200">
                     <div class=" ">
                         <img alt="RLC logo"
                             class="rounded-md w-full object-cover object-top aspect-[5/3] md:aspect-[10/3] lg:aspect-[11/3]"
@@ -107,7 +99,7 @@
                 </div>
                 <div class="grid lg:grid-cols-12 grid-cols-1 m-1 p-1">
                     <div class="m-2 p-2 rounded-md col-span-12 lg:col-span-8 ">
-                        <h1 class="text-2xl text-blue text-center font-rubik p-2 m-2">About RLC</h1>
+                        <h1 class="text-3xl text-blue text-center font-rubik p-2 m-2">About RLC</h1>
                         <p class="text-base font-roboto text-left text-pretty m-2 p-2  ">
                             RLC provides a venue where reinforcement learning researchers can interact and share their
                             research in a more focused setting than typical large machine learning venues.
@@ -123,7 +115,7 @@
                       
                     </div>
                      <div class="col-span-12 lg:col-span-4 mx-auto w-full">
-                        <h1 class="text-2xl text-blue text-center font-rubik p-2 m-2 mb-4">Key Dates</h1>
+                        <h1 class="text-3xl text-blue text-center font-rubik p-2 m-2 mb-4">Key Dates</h1>
                         <div class="font-roboto  m-2 p-2">
                             <div class="grid grid-cols-2 gap-4 p-1 m-1">
                                 <p class="text-base text-right ">Submission Opens</p>
@@ -148,7 +140,7 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="text-2xl  text-blue text-center font-rubik p-2 m-2 mt-20">Keynote Speakers</h1>
+                <h1 class="text-3xl text-blue text-center font-rubik p-2 m-2 mt-20">Keynote Speakers</h1>
                 <div id="keynoteSpeakers"
                     class="flex flex-wrap justify-start sm:justify-center gap-4 sm:gap-6 w-full m-1 p-1">
 
@@ -181,14 +173,10 @@
             ? "<a href='" + keynoteSpeaker.url + "' target='_blank' rel='noopener' class='text-blue hover:text-rldarkblue-500'>" + keynoteSpeaker.name + "</a>"
             : keynoteSpeaker.name;
         let keynoteSpeakerDiv = document.createElement("div");
-        keynoteSpeakerDiv.className = "min-w-0 grow-0 shrink basis-[calc((100%-1rem)/2)] max-w-[calc((100%-1rem)/2)] sm:basis-[calc((100%-3rem)/3)] sm:max-w-[calc((100%-3rem)/3)] lg:basis-[calc((100%-6rem)/5)] lg:max-w-[calc((100%-6rem)/5)] overflow-hidden rounded-md bg-white/80 border border-rlgrey/40 transition-shadow";
+        keynoteSpeakerDiv.className = "min-w-0 grow-0 shrink basis-[calc((100%-1rem)/2)] max-w-[calc((100%-1rem)/2)] sm:basis-[calc((100%-3rem)/3)] sm:max-w-[calc((100%-3rem)/3)] lg:basis-[calc((100%-6rem)/5)] lg:max-w-[calc((100%-6rem)/5)] overflow-hidden rounded-md bg-white/90";
         keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full aspect-square' src='" + keynoteSpeaker.image + "'><div class='p-2 m-1 text-center font-rubik text-base text-blue'>" + nameHtml + "</div><div class='p-1 m-1 text-center font-roboto text-base text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
         document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
     }
 </script>
-
-<div
-    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer hover:text-rldarkblue-600 bg-midblue">
-</div>
 
 </html>

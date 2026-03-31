@@ -11,10 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
     <link href="build.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -23,11 +22,6 @@
     <meta name="apple-mobile-web-app-title" content="RLC"/>
     <link rel="manifest" href="/site.webmanifest"/>
     <meta id="seodescription" name="description" content="">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet">
 </head>
 
 <!--<div id="backgroundImage" class="fixed -z-20 h-screen w-full">-->
@@ -40,7 +34,7 @@
 <!--        background-position: center;-->
 <!--    }-->
 <!--</style>-->
-<body>
+<body class="font-roboto text-rldarkblue-950 bg-white antialiased">
 
 
 <div class="container  mx-auto ">
@@ -69,7 +63,7 @@
                                   d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>
                         </svg>
                         <div id="collapsedMenuItems"
-                             class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
+                             class="absolute top-10 z-10 hidden w-40 shadow-md bg-white/95 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1">
 
                         </div>
                     </div>
@@ -78,19 +72,19 @@
     
 
             <h1 id="heading1"
-                class="text-4xl  text-blue text-center font-rubik p-2 m-2 mt-20 ">Advisory Committee</h1>
+                class="text-3xl text-blue text-center font-rubik p-2 m-2 mt-20">Advisory Committee</h1>
             <div id="advisoryCom"
                  class=" grid m-2 p-2  grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-4 lg:gap-10">
             </div>
         </div>
 
 
-        <div class="grid grid-cols-2 items-center  ">
+        <div class="grid grid-cols-4 items-center">
             <div id="footerText"
-                 class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+                 class="p-2 m-2 w-full col-span-3 rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
             </div>
-            <div class="p-2 m-1 w-full">
-                <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+            <div class="p-2 m-1 w-full col-span-1">
+                <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
                     <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg"/></div>
                 </div>
             </div>
@@ -106,7 +100,7 @@
     // add advisory committee members
     for (var i = 0; i < listOfAdvisoryCommittee.length; i++) {
         var div = document.createElement('div');
-        div.className = "bg-rlgrey/70   rounded-md   ";
+        div.className = "bg-white/90 rounded-md";
         var img = document.createElement('img');
         img.src = listOfAdvisoryCommittee[i].image;
         img.className = "rounded-md object-cover w-full";
@@ -122,9 +116,6 @@
         document.getElementById('advisoryCom').appendChild(div);
     }
 
-   
-
 </script>
-<div class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"></div>
 </html>
 

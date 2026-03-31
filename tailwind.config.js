@@ -1,8 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["index.html", "guidelines.html", "organizers.html", "reviewProcess.html", "callforpapers.html", "recordings.html", "submissionInstructions.html",
-        "contact.html", "advisors.html", "reviewers.html", "sponsors.html", "reviewinstructions.html", "participate.html", "register.html", "hotels.html",
-        "hotelmap.html", "registration_confirmation.html", "code_of_conduct.html", "explore_edmonton.html", "accepted_workshops.html", "schedule.html", "local_info.html", "google_calendar.html", "instructions_to_get_to_the_banquet.html", "explore_edmonton.html", "RLC2025Awards.html", "keynotes.html", "boardmembers.html" , "call_for_workshops.html"],
+    content: [
+        "index.html",
+        "callforpapers.html",
+        "call_for_workshops.html",
+        "submissionInstructions.html",
+        "organizers.html",
+        "advisors.html",
+        "boardmembers.html",
+        "menu.js",
+    ],
     theme: {
         colors: {
             'rlyellow': {
@@ -49,7 +56,6 @@ module.exports = {
             'midblue': "#256ed4",
             'white': '#FFFFFF',
             'black': '#000000',
-            'backgroundcolor': "#F0EFEB"
         },
         extend: {
             aspectRatio: {
@@ -57,12 +63,10 @@ module.exports = {
             },
         },
         fontFamily: {
-            'bai': ['Bai Jamjuree', 'sans-serif'], 'rubik': ['Rubik', 'sans-serif'], 'roboto': ['Roboto', 'sans-serif']
+            'rubik': ['Rubik', 'sans-serif'],
+            'roboto': ['Roboto', 'sans-serif'],
         },
-        safelist: ["backdrop-blur-sm", "font-rubik", "text-xl", "ml-4", "mr-4", "text-rldarkblue-900", "hover:text-rldarkblue-500", "hover:cursor-pointer", "flex", "flex-row-reverse", "right-20", "bg-white", "m-6", "p-6", "bg-rllightblue-50", "font-bold"
-
-        ]
+        safelist: [],
     },
     plugins: [],
 }
-
