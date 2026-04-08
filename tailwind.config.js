@@ -8,6 +8,7 @@ module.exports = {
         "organizers.html",
         "advisors.html",
         "boardmembers.html",
+        "accepted_workshops.html",
         "menu.js",
     ],
     theme: {
