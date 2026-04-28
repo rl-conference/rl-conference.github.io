@@ -9,6 +9,7 @@ module.exports = {
         "advisors.html",
         "boardmembers.html",
         "accepted_workshops.html",
+        "register.html",
         "menu.js",
     ],
     theme: {
