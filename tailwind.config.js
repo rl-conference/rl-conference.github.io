@@ -12,6 +12,7 @@ module.exports = {
         "register.html",
         "registration_confirmation.html",
         "menu.js",
+        "backend/templates/**/*.html",
     ],
     theme: {
         colors: {
