@@ -10,6 +10,7 @@ module.exports = {
         "boardmembers.html",
         "accepted_workshops.html",
         "register.html",
+        "accommodation.html",
         "registration_confirmation.html",
         "menu.js",
         "backend/templates/**/*.html",
