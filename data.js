@@ -110,6 +110,7 @@ listOfOrganizers = [new Organizer("Glen Berseth", "General Chair", "data/organiz
     new Organizer("Martha White", "Reviewer Chair", "data/organizers/mw.webp"),
     new Organizer("Adam White", "Reviewer Chair", "data/organizers/aw.webp"),
     new Organizer("Andrew Patterson", "Reviewer Chair", "data/organizers/ap.jpg"),
+    new Organizer("Samuel Neumann", "Reviewer Chair", "data/organizers/sn.jpg"),
     new Organizer("Taylor Killian", "Workshop Chair", "data/organizers/tk.jpg"),
     new Organizer("Claire Vernade", "Workshop Chair", "data/organizers/cv.jpeg"),
     new Organizer("Raksha Kumaraswamy", "Workshop Chair", "data/organizers/rk.png"),
