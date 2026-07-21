@@ -97,10 +97,6 @@
                         class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
                     Tue Aug 18
                 </button>
-                <button onclick="showDay('wednesday')" id="btn-wednesday"
-                        class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
-                    Wed Aug 19
-                </button>
             </div>
 
             <!-- SCHEDULE CONTENT -->
@@ -387,42 +383,6 @@
                     </div>
                 </div>
 
-                <!-- Wednesday -->
-                <div id="day-wednesday" class="day-content hidden">
-                    <div class="rounded-lg p-1 md:p-6">
-                        <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Wednesday, August 19</h2>
-                        <div class="text-sm font-roboto italic text-center mb-10">Details and timing to be announced</div>
-
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Town hall</div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Social events</div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Organized meet-ups around topics</div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Organized excursions / tours</div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
@@ -473,7 +433,7 @@
         window.history.replaceState(null, null, '#' + dayId);
     }
 
-    const validDays = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday'];
+    const validDays = ['saturday', 'sunday', 'monday', 'tuesday'];
 
     document.addEventListener('DOMContentLoaded', function () {
         const hash = window.location.hash.substring(1);
