@@ -1,0 +1,499 @@
+<!doctype html>
+<script src="jquery.js"></script>
+<script src="data.js"></script>
+
+<!-- Changes below this can cause problems -->
+
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title id="mainPageTitleforSEO">Schedule | RLC 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link href="build.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <meta name="apple-mobile-web-app-title" content="RLC"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <meta id="seodescription" name="description" content="Overall program schedule for RLC 2026 in Montréal.">
+    <style>
+        @media (min-width: 768px) {
+            .day-content .grid {
+                grid-template-columns: minmax(0, 2fr) minmax(10rem, 1fr);
+                max-width: 48rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .day-content .grid > :first-child {
+                text-align: right;
+            }
+
+            .day-content .grid > :last-child {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-roboto text-rldarkblue-950 bg-white antialiased">
+
+<div class="container mx-auto">
+    <div class="flex flex-col min-h-screen justify-between">
+        <div>
+            <div class="m-2 grid grid-cols-3 items-center rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                <div class="p-2 w-full rounded-md">
+                    <div class="hidden lg:block max-w-60">
+                        <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg"/></a>
+                    </div>
+                    <div class="block pt-1 lg:hidden max-w-60">
+                        <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg"/></a>
+                    </div>
+                </div>
+                <div></div>
+                <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md"></div>
+                <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md">
+                    <div class="relative flex flex-row-reverse">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                             onclick="showMenu()">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>
+                        </svg>
+                        <div id="collapsedMenuItems"
+                             class="absolute top-10 z-10 hidden w-40 shadow-md bg-white/95 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-3xl text-blue text-center font-rubik p-2 m-2 mt-20 mb-6">RLC 2026 Schedule</h1>
+            <p class="text-center text-rldarkblue-900 text-sm sm:text-base mb-6 px-4">
+                Université de Montréal · 3200 Jean-Brillant
+            </p>
+
+            <!-- DAY NAVIGATION BUTTONS -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 p-4">
+                <button onclick="showDay('saturday')" id="btn-saturday"
+                        class="day-btn bg-blue text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-500 transition-colors">
+                    Sat Aug 15 (Workshops)
+                </button>
+                <button onclick="showDay('sunday')" id="btn-sunday"
+                        class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+                    Sun Aug 16
+                </button>
+                <button onclick="showDay('monday')" id="btn-monday"
+                        class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+                    Mon Aug 17
+                </button>
+                <button onclick="showDay('tuesday')" id="btn-tuesday"
+                        class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+                    Tue Aug 18
+                </button>
+                <button onclick="showDay('wednesday')" id="btn-wednesday"
+                        class="day-btn bg-rldarkblue-200 text-rldarkblue-900 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-rldarkblue-300 transition-colors">
+                    Wed Aug 19
+                </button>
+            </div>
+
+            <!-- SCHEDULE CONTENT -->
+            <div class="p-1 sm:p-2 text-sm sm:text-base max-w-5xl mx-auto">
+
+                <!-- Saturday: Workshops -->
+                <div id="day-saturday" class="day-content">
+                    <div class="rounded-lg p-1 md:p-6">
+                        <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Saturday, August 15 (Workshops)</h2>
+                        <div class="text-sm font-roboto italic text-center mb-10">Claire McNicoll building · Lunch provided</div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM – 5 PM</h3>
+                            <div class="text-center mb-4 font-medium">Workshops</div>
+                            <div class="space-y-3">
+                                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                    <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                        <a href="https://sites.google.com/view/continual-learning" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">Continual Reinforcement Learning Workshop</a>
+                                    </div>
+                                    <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4205</div>
+                                </div>
+                                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                    <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                        <a href="https://worldmodels-rlc.github.io/" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">Model-Based Reinforcement Learning in the Era of Generative World Models</a>
+                                    </div>
+                                    <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4215</div>
+                                </div>
+                                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                    <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                        <a href="https://sites.google.com/view/rlvg-2026/home" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">Reinforcement Learning and Video Games</a>
+                                    </div>
+                                    <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4225</div>
+                                </div>
+                                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                    <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                        <a href="https://rlinbigworlds.ca/" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">Reinforcement Learning in Big Worlds</a>
+                                    </div>
+                                    <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4315</div>
+                                </div>
+                                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                    <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                        <a href="https://rlbrew-workshop.github.io/" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">Workshop on Reinforcement Learning Beyond Rewards: Towards Scalable General-Purpose Agents</a>
+                                    </div>
+                                    <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4325</div>
+                                </div>
+                                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                    <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                        <a href="https://sites.google.com/view/findingtheframe/home" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">Finding the Frame: A Workshop for Examining Conceptual Frameworks in RL</a>
+                                    </div>
+                                    <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4335</div>
+                                </div>
+                                <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                    <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                        <a href="https://sites.google.com/view/automatedrl/home" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">Automated RL</a>
+                                    </div>
+                                    <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4345</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">12 PM – 1 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Lunch</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-2294_532</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">5 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Light reception</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 On campus</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday -->
+                <div id="day-sunday" class="day-content hidden">
+                    <div class="rounded-lg p-1 md:p-6">
+                        <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Sunday, August 16</h2>
+                        <div class="text-sm font-roboto italic text-center mb-10">Continental breakfast · Coffee and snacks provided continuously · Lunch provided</div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">8:45 AM – 9 AM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Opening comments</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 532B</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM – 10 AM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Keynote: Marc Bellemare</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 532B</div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">10:30 AM – 12:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                    <div class="font-semibold">Oral session</div>
+                                    <div class="text-sm text-gray-600 mt-1">RLJ and journal track + others</div>
+                                    <div class="text-sm text-gray-600 mt-2">4 parallel tracks: B-2305, B-0325, B-2325, B-0305</div>
+                                </div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">12:00 PM – 1:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Lunch</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-2294_532</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">1:00 PM – 2:30 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                    <div class="font-semibold">Poster session</div>
+                                    <div class="text-sm text-gray-600 mt-1">RLJ and journal track + others</div>
+                                </div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Poster area</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">4:00 PM – 6:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Cirque du Soleil</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">6:00 PM+</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Reception</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monday -->
+                <div id="day-monday" class="day-content hidden">
+                    <div class="rounded-lg p-1 md:p-6">
+                        <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Monday, August 17</h2>
+                        <div class="text-sm font-roboto italic text-center mb-10">Continental breakfast · Coffee and snacks provided continuously · Lunch provided</div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM – 10 AM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Keynote: Sheila McIlraith</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 532B</div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">20 min break</h3>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">10:20 AM – 11:10 AM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                    <div class="font-semibold">Oral sessions</div>
+                                    <div class="text-sm text-gray-600 mt-2">4 parallel tracks: B-2305, B-0325, B-2325, B-0305</div>
+                                </div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">11:40 AM – 12:30 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                    <div class="font-semibold">Oral sessions</div>
+                                    <div class="text-sm text-gray-600 mt-2">4 parallel tracks: B-2305, B-0325, B-2325, B-0305</div>
+                                </div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">12:30 PM – 2:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Lunch</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-2294_532</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">2:00 PM – 3:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Keynote: Danijar Hafner</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 532B</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">3:00 PM – 6:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Poster session</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Poster area</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuesday -->
+                <div id="day-tuesday" class="day-content hidden">
+                    <div class="rounded-lg p-1 md:p-6">
+                        <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Tuesday, August 18</h2>
+                        <div class="text-sm font-roboto italic text-center mb-10">Continental breakfast · Coffee and snacks provided continuously · Lunch provided</div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM – 10 AM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Keynote: Rika Antonova</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-0245 and B-2245</div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">20 min break</h3>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">10:20 AM – 11:10 AM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                    <div class="font-semibold">Oral sessions</div>
+                                    <div class="text-sm text-gray-600 mt-2">4 parallel tracks: B-2305, B-0325, B-2325, B-0305</div>
+                                </div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">11:40 AM – 12:30 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                    <div class="font-semibold">Oral sessions</div>
+                                    <div class="text-sm text-gray-600 mt-2">4 parallel tracks: B-2305, B-0325, B-2325, B-0305</div>
+                                </div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">12:30 PM – 2:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">
+                                    <div class="font-semibold">Lunch</div>
+                                    <div class="text-sm text-gray-600 mt-1">Town hall during lunch</div>
+                                </div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Lunch: B-2294_532<br>Town hall: B-0245 and B-2245</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">2:00 PM – 3:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Keynote: Balaraman Ravindran</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-0245 and B-2245</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">3:00 PM – 6:00 PM</h3>
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Poster session</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Poster area</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wednesday -->
+                <div id="day-wednesday" class="day-content hidden">
+                    <div class="rounded-lg p-1 md:p-6">
+                        <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Wednesday, August 19</h2>
+                        <div class="text-sm font-roboto italic text-center mb-10">Details and timing to be announced</div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Town hall</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Social events</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Organized meet-ups around topics</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left font-semibold">Organized excursions / tours</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 TBD</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-4 items-center">
+            <div id="footerText"
+                 class="p-2 m-2 w-full col-span-3 rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+            </div>
+            <div class="p-2 m-1 w-full col-span-1">
+                <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
+                    <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showDayInternal(dayId) {
+        const dayContents = document.querySelectorAll('.day-content');
+        dayContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+
+        const buttons = document.querySelectorAll('.day-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-blue', 'text-white');
+            btn.classList.add('bg-rldarkblue-200', 'text-rldarkblue-900');
+        });
+
+        const selectedDay = document.getElementById('day-' + dayId);
+        if (selectedDay) {
+            selectedDay.classList.remove('hidden');
+        }
+
+        const selectedButton = document.getElementById('btn-' + dayId);
+        if (selectedButton) {
+            selectedButton.classList.remove('bg-rldarkblue-200', 'text-rldarkblue-900');
+            selectedButton.classList.add('bg-blue', 'text-white');
+        }
+    }
+
+    function showDay(dayId) {
+        showDayInternal(dayId);
+        updateUrlHash(dayId);
+    }
+
+    function updateUrlHash(dayId) {
+        window.history.replaceState(null, null, '#' + dayId);
+    }
+
+    const validDays = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday'];
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const hash = window.location.hash.substring(1);
+        if (hash && validDays.includes(hash)) {
+            showDayInternal(hash);
+            updateUrlHash(hash);
+        } else {
+            showDayInternal('saturday');
+            updateUrlHash('saturday');
+        }
+    });
+
+    window.addEventListener('hashchange', function () {
+        const hash = window.location.hash.substring(1);
+        if (hash && validDays.includes(hash)) {
+            showDayInternal(hash);
+        }
+    });
+</script>
+
+</body>
+<script src="menu.js"></script>
+</html>

@@ -60,18 +60,9 @@
                 </div>
             </div>
 
-            <div class="w-full max-w-2xl mx-auto m-2 p-2 mb-8">
+            <div class="w-full max-w-4xl mx-auto m-2 p-2 mb-8">
                 <h1 class="text-3xl text-blue text-center font-rubik p-2 m-2 mt-20 mb-10">Accepted Workshops</h1>
-               
-                <ol class="list-decimal pl-6 m-2 p-2 font-roboto text-base md:text-xl text-rldarkblue-950 text-pretty text-left">
-                    <li class="ml-2 p-1"><a href="https://sites.google.com/view/continual-learning" class="text-rldarkblue-900 underline hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">The Continual RL Workshop</a></li>
-                    <li class="ml-2 p-1"><a href="https://worldmodels-rlc.github.io/" class="text-rldarkblue-900 underline hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">Model-based RL in the Era of Generative World Models</a></li>
-                    <li class="ml-2 p-1"><a href="https://sites.google.com/view/rlvg-2026/home" class="text-rldarkblue-900 underline hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">RL and Video Games Workshop</a></li>
-                    <li class="ml-2 p-1"><a href="https://rlinbigworlds.ca/" class="text-rldarkblue-900 underline hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">RL in Big Worlds</a></li>
-                    <li class="ml-2 p-1"><a href="https://rlbrew-workshop.github.io/" class="text-rldarkblue-900 underline hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">Workshop on RL Beyond Rewards: Towards Scalable General-Purpose Agents</a></li>
-                    <li class="ml-2 p-1"><a href="https://sites.google.com/view/findingtheframe/home" class="text-rldarkblue-900 underline hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">Finding the Frame</a></li>
-                    <li class="ml-2 p-1"><a href="https://sites.google.com/view/automatedrl/home" class="text-rldarkblue-900 underline hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">Workshop on Automated RL</a></li>
-                </ol>
+                <div id="acceptedWorkshops" class="grid grid-cols-1 gap-6"></div>
             </div>
 
         </div>
@@ -93,4 +84,84 @@
 </body>
 <!--Javascript code for generating the HTML-->
 <script src="menu.js"></script>
+<script>
+
+list_of_accepted_workshops = [
+    new Workshop(
+        "Continual Reinforcement Learning Workshop",
+        "https://sites.google.com/view/continual-learning",
+        "Reinforcement learning (RL) is traditionally studied under the assumption of stationarity. Yet, real-world systems operate in open-ended, evolving environments. This motivates continual reinforcement learning (CRL), where agents must learn, adapt, and retain knowledge under persistent non-stationarity. The full-day CRL workshop aims to fuse a maximally comprehensive, boundary-spanning spectrum of perspectives across CRL and adjacent domains, crystallize foundational formulations, push principled approaches forward, and interrogate emerging applications.",
+        "continualrl@gmail.com",
+        ""
+    ),
+    new Workshop(
+        "Model-Based Reinforcement Learning in the Era of Generative World Models",
+        "https://worldmodels-rlc.github.io/",
+        "Model-based reinforcement learning (MBRL) offers a principled framework for data-efficient policy learning and planning. However, the practical success of MBRL has been historically bottlenecked by the difficulty of learning scalable, accurate dynamics models. Traditional models struggle with high-dimensional, noisy state spaces and suffer from compounding transition errors, leading to poor policy optimization. This workshop focuses on the next frontier of MBRL: learning robust policies from highly capable, large-scale learned simulators. By utilizing recent advances in generative world models—large-scale neural models trained to synthesize plausible future observations by learning a distribution over environment transitions from high-dimensional sensory inputs—as a mechanism for high-fidelity experience generation, we can unlock new paradigms for robust dynamics modeling, zero-shot planning, and offline policy optimization within MBRL. Finally, we explore complex, noisy domains like embodied AI as practical testbeds for these algorithmic advancements. The workshop will gather experts to discuss how to solve compounding errors in transition dynamics, leverage synthetic experience for RL pre-training, and reliably extract robust policies from learned models.",
+        "worldmodelworkshop@gmail.com",
+        ""
+    ),
+    new Workshop(
+        "Reinforcement Learning and Video Games",
+        "https://sites.google.com/view/rlvg-2026/home",
+        "Video games and reinforcement learning (RL) have a rich and intertwined history. Video games have driven major advances in RL through challenging environments such as Atari, Dota 2, StarCraft, and Minecraft. In turn, RL has fueled innovation in game development, including adaptive non-player characters (NPCs), automated quality assurance (QA), and procedural content generation. Despite these advances, RL remains sparsely adopted in modern video game development, in part due to its reliance on massive computational resources, labor-intensive domain expertise, and hand-crafted reward functions that do not easily generalize to new tasks or genres. At the same time, the research community still lacks clear answers to fundamental challenges around sample efficiency, objective alignment, and practical deployment at scale. The second edition of the RLVG workshop looks to the future, and seeks to close this gap by investigating how video games can function as verifiable domain benchmarks for RL research, and how emerging RL methods can be translated into usable tools for contemporary video game production. By bringing together researchers who use video games as platforms for RL and practitioners who integrate RL into game development, this workshop seeks to surface fundamental limitations in current approaches, and outline future directions through benchmarks and methodologies that address both theoretical foundations and practical deployment challenges.",
+        "rlvg.workshop@gmail.com",
+        ""
+    ),
+    new Workshop(
+        "Reinforcement Learning in Big Worlds",
+        "https://rlinbigworlds.ca/",
+        "A popular view in the AI community is that a sufficiently large neural network, once trained on enough data, would be able to do everything we want our AI systems to do. This idea makes sense if the world we live in has a finite number of things that are useful to learn. It does not make sense if the world is filled with infinitely many things that could be learned, and achieving different goals requires learning different things. The view that the world is big and filled with infinitely many subtle things that could be learned for achieving goals is the big world hypothesis (Javed & Sutton, 2024). Making autonomous agents that can achieve goals in big worlds poses unique challenges. An agent that interfaces with a big world inevitably encounters unforeseeable situations. Handling these situations necessitates the ability to continually adapt. Continual adaptation, in turn, requires learning algorithms that can run on resources available to the agent throughout its lifetime as opposed to only available during a special training period. Most of the prior works in deep reinforcement learning have not explicitly developed algorithms that allow agents to achieve goals in big worlds. In prior empirical works, a normal practice is to evaluate large overparameterized agents, such as agents with millions of parameters that run on modern GPUs, on relatively simple environments, such as Atari games that can run on small embedded devices. In prior theoretical works, it is common to assume that the state space is finite and enumerable, that the state is observable, and that the optimal policy can be represented by the agent's parameterization. There are some exceptions to this. A handful of works have developed algorithms, benchmarks, or theoretical frameworks that are compatible with learning in big worlds. The purpose of this workshop is to bring together people who are already working on the problem of learning in big worlds and people who are interested in joining this endeavor. A significant portion of the earlier work on learning in big worlds has appeared at prior iterations of The Reinforcement Learning Conference, which makes the next Reinforcement Learning Conference a natural venue for this workshop.",
+        "organizers@rlinbigworlds.ca",
+        ""
+    ),
+    new Workshop(
+        "Workshop on Reinforcement Learning Beyond Rewards: Towards Scalable General-Purpose Agents",
+        "https://rlbrew-workshop.github.io/",
+        "Reinforcement Learning (RL) has traditionally focused on maximizing rewards. However, intelligent agents often rely on reward-free interactions and diverse environmental signals to form abstractions that facilitate rapid adaptation. Recent RL research has begun leveraging reward-free transitions—available through exploratory interactions or expert datasets—to increase decision-making efficiency and task specification. However, unlike in vision or language modeling, RL still lacks scalable methods for learning generalizable representations from unlabeled data. Additionally, difficulties in specifying reward functions have led researchers toward alternative signals, such as human demonstrations, preferences, and implicit feedback. This workshop seeks to advance beyond traditional reward-centric RL by exploring methods like intrinsic motivation, skill discovery, predictive and contrastive representation learning, and leveraging human-centric signals. Building upon recent progress, including foundational models employing scalable alternative signals, the workshop aims to bridge theoretical insights and practical applications, fostering collaborations toward creating more versatile, adaptive decision-making agents.",
+        "rlbrew.workshop@gmail.com",
+        ""
+    ),
+    new Workshop(
+        "Finding the Frame: A Workshop for Examining Conceptual Frameworks in RL",
+        "https://sites.google.com/view/findingtheframe/home",
+        "Scientific research is often framed within paradigms of concepts, definitions, axioms, and assumptions — RL is no exception. While such details usually go unchallenged in the pursuit of specific objectives, this workshop brings them into sharp focus. In this workshop, we examine the conceptual foundations of RL and their impact on framing problems. We are excited for this workshop, because we believe it has the potential to open up new territory, test our historical beliefs, and ultimately guide our future research endeavors in productive directions. Overall, we hope to generate enthusiasm and build a community dedicated to examining the conceptual foundations of RL.",
+        "findingtheframeworkshop@gmail.com",
+        ""
+    ),
+    new Workshop(
+        "Automated RL",
+        "https://sites.google.com/view/automatedrl/home",
+        "In the past few years, we have seen a surge of interest in reinforcement learning, with breakthrough successes of applying RL in games, robotics, chemistry, logistics, nuclear fusion and more. These headlines, however, blur the picture of what remains a brittle technology, with successes relying on heavily engineered solutions! In this workshop, we want to bring together different communities working on solving these problems. A variety of distinct sub-communities spanning RL, Meta-Learning and AutoML have been working on making RL work out-of-the-box in arbitrary settings - this is the AutoRL setting. Recently, LLMs and their in-context learning abilities, have significantly impacted all these communities. There are LLM agents tackling traditional RL tasks as well as few-shot RL agents increasing efficiency and generalization that are also trying to automate RL. LLMs have also been influencing AutoML directly with papers such as OptFormer. However, there is currently little crossover between these communities. As such, we create a space to connect them and shape the future of AutoRL.",
+        "autorlworkshop@gmail.com",
+        ""
+    )
+];
+
+for (let i = 0; i < list_of_accepted_workshops.length; i++) {
+    const workshop = list_of_accepted_workshops[i];
+    const workshopElement = document.createElement("div");
+    workshopElement.classList.add("bg-rllightblue-50", "border-rldarkblue-900", "rounded-lg");
+    workshopElement.innerHTML = `
+        <div class="p-4 bg-rllightblue-50 rounded-md">
+            <h2 class="text-2xl font-rubik text-rldarkblue-900">${workshop.name}</h2>
+            ${workshop.link === '#' ?
+                `<p class="text-gray-600">Coming soon</p>` :
+                `<a href="${workshop.link}" class="text-blue hover:text-rldarkblue-500" target="_blank" rel="noopener noreferrer">Website</a>`
+            }
+            <p class="mb-2"><span class="font-bold">Abstract:</span> ${workshop.description}</p>
+            ${workshop.room ?
+                `<p class="mb-2"><span class="font-bold">Location:</span> 📍 ${workshop.room}</p>` :
+                ''
+            }
+            ${workshop.contacts ?
+                `<p class="mb-2"><span class="font-bold">Contact information:</span> ${workshop.contacts}</p>` :
+                ''
+            }
+        </div>
+    `;
+    document.getElementById("acceptedWorkshops").appendChild(workshopElement);
+}
+
+</script>
 </html>

@@ -9,6 +9,7 @@ module.exports = {
         "advisors.html",
         "boardmembers.html",
         "accepted_workshops.html",
+        "schedule.html",
         "register.html",
         "accommodation.html",
         "registration_confirmation.html",
