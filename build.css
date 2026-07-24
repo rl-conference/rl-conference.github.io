@@ -600,12 +600,20 @@ video {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .left-0 {
   left: 0px;
 }
 
 .right-0 {
   right: 0px;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .top-10 {
@@ -671,6 +679,10 @@ video {
 
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
 }
 
 .mb-2 {
@@ -830,6 +842,10 @@ video {
   max-width: calc((100% - 1rem) / 2);
 }
 
+.max-w-lg {
+  max-width: 32rem;
+}
+
 .max-w-xl {
   max-width: 36rem;
 }
@@ -852,6 +868,10 @@ video {
 
 .list-disc {
   list-style-type: disc;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .grid-cols-1 {
@@ -908,6 +928,15 @@ video {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-x-6 {
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+
+.gap-y-2 {
+  row-gap: 0.5rem;
 }
 
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1079,8 +1108,17 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
+}
+
+.pl-0 {
+  padding-left: 0px;
 }
 
 .pl-6 {
@@ -1263,11 +1301,6 @@ video {
   background-color: rgb(138 202 239 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-rldarkblue-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(36 148 211 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:bg-rldarkblue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(19 93 145 / var(--tw-bg-opacity, 1));
@@ -1293,10 +1326,6 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:m-2 {
-    margin: 0.5rem;
-  }
-
   .sm\:mb-8 {
     margin-bottom: 2rem;
   }
@@ -1327,6 +1356,14 @@ video {
 
   .sm\:p-2 {
     padding: 0.5rem;
+  }
+
+  .sm\:p-4 {
+    padding: 1rem;
+  }
+
+  .sm\:p-6 {
+    padding: 1.5rem;
   }
 
   .sm\:p-8 {
@@ -1412,10 +1449,6 @@ video {
     grid-column: span 8 / span 8;
   }
 
-  .lg\:m-10 {
-    margin: 2.5rem;
-  }
-
   .lg\:block {
     display: block;
   }
@@ -1440,6 +1473,10 @@ video {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1450,10 +1487,6 @@ video {
 
   .lg\:gap-10 {
     gap: 2.5rem;
-  }
-
-  .lg\:p-10 {
-    padding: 2.5rem;
   }
 }
 
