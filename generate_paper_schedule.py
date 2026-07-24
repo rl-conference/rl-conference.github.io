@@ -175,9 +175,68 @@ def load_sessions(path: Path) -> list[TalkSession]:
     return sessions
 
 
-def render_paper_card(session: TalkSession, title: str, slot: int) -> str:
+def assign_poster_numbers(day_sessions: list[TalkSession]) -> dict[tuple[str, str, int], int]:
+    """Assign poster numbers 1..N per day, ordered by track then presentation slot."""
+    poster_numbers: dict[tuple[str, str, int], int] = {}
+    poster_no = 1
+
+    tracks = sorted(
+        {session.track for session in day_sessions},
+        key=lambda track: int(track) if track.isdigit() else track,
+    )
+    for track in tracks:
+        track_sessions = sorted(
+            (session for session in day_sessions if session.track == track),
+            key=lambda session: parse_time_sort_key(session.time),
+        )
+        for session in track_sessions:
+            for slot in range(1, len(session.talks) + 1):
+                poster_numbers[(session.track, session.time, slot)] = poster_no
+                poster_no += 1
+
+    return poster_numbers
+
+
+def _icon(path_d: str) -> str:
+    return (
+        '<svg class="paper-icon" xmlns="http://www.w3.org/2000/svg" fill="none" '
+        'viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">'
+        f'<path stroke-linecap="round" stroke-linejoin="round" d="{path_d}"/>'
+        "</svg>"
+    )
+
+
+ICON_CALENDAR = _icon(
+    "M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 "
+    "21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 "
+    "2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
+)
+ICON_MAP_PIN = _icon(
+    "M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 "
+    "17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+)
+ICON_CLOCK = _icon(
+    "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+)
+ICON_POSTER = _icon(
+    "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 "
+    "7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-"
+    ".621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-"
+    ".504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+)
+ICON_TAG = _icon(
+    "M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c."
+    "699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-"
+    "2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z M6 6h.008v.008H6V6Z"
+)
+
+
+def render_paper_card(
+    session: TalkSession, title: str, slot: int, poster_no: int
+) -> str:
     search_text = html.escape(title.lower())
     title_html = html.escape(title)
+    date_html = html.escape(format_day_title(session.date, session.day_of_week))
     room_html = html.escape(session.room)
     track_html = html.escape(session.track)
     theme_html = html.escape(session.theme)
@@ -187,26 +246,33 @@ def render_paper_card(session: TalkSession, title: str, slot: int) -> str:
     return (
         f'                            <div class="paper-item bg-rldarkblue-50/50 rounded-lg p-4 sm:p-6 m-2" '
         f'data-search-text="{search_text}">\n'
-        f'                                <h4 class="text-base sm:text-lg font-semibold text-blue mb-3">{title_html}</h4>\n'
-        f'                                <p class="text-sm sm:text-base text-rldarkblue-900 mb-1">'
-        f'<span class="font-medium">Track:</span> {track_html} · {theme_html}</p>\n'
-        f'                                <p class="text-sm sm:text-base text-rldarkblue-900 mb-1">'
-        f'<span class="font-medium">Room:</span> {room_html}</p>\n'
-        f'                                <p class="text-sm sm:text-base text-rldarkblue-900 mb-1">'
-        f'<span class="font-medium">Presentation slot:</span> Talk {slot}</p>\n'
-        f'                                <p class="text-sm sm:text-base text-rldarkblue-900 mb-1">'
-        f'<span class="font-medium">Presentation session time:</span> {presentation_html}</p>\n'
-        f'                                <p class="text-sm sm:text-base text-rldarkblue-900 mb-1">'
-        f'<span class="font-medium">Poster:</span> {poster_html}</p>\n'
-        f'                                <p class="text-sm sm:text-base text-rldarkblue-900">'
-        f'<span class="font-medium">Poster no:</span> TBD</p>\n'
+        f'                                <div class="paper-date">{ICON_CALENDAR}'
+        f'<span>{date_html}</span></div>\n'
+        f'                                <h4 class="text-base sm:text-lg font-semibold text-blue mb-3">'
+        f"{title_html}</h4>\n"
+        f'                                <ul class="paper-meta">\n'
+        f'                                    <li>{ICON_TAG}<span>'
+        f'<span class="font-medium">Track {track_html}</span> · {theme_html}</span></li>\n'
+        f'                                    <li>{ICON_MAP_PIN}<span>'
+        f'<span class="font-medium">Room</span> {room_html}</span></li>\n'
+        f'                                    <li>{ICON_CLOCK}<span>'
+        f'<span class="font-medium">Presentation</span> Talk {slot} · {presentation_html}</span></li>\n'
+        f'                                    <li>{ICON_POSTER}<span>'
+        f'<span class="font-medium">Poster</span> #{poster_no} · {poster_html}</span></li>\n'
+        f"                                </ul>\n"
         f"                            </div>\n"
     )
 
 
-def render_day_section(day_title: str, sessions: list[TalkSession]) -> str:
+def render_day_section(sessions: list[TalkSession]) -> str:
+    poster_numbers = assign_poster_numbers(sessions)
     cards_html = "".join(
-        render_paper_card(session, title, slot)
+        render_paper_card(
+            session,
+            title,
+            slot,
+            poster_numbers[(session.track, session.time, slot)],
+        )
         for session in sessions
         for slot, title in enumerate(session.talks, start=1)
     )
@@ -215,8 +281,6 @@ def render_day_section(day_title: str, sessions: list[TalkSession]) -> str:
 
     return (
         f'                <section class="day-section mb-10">\n'
-        f'                    <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-6">'
-        f"{html.escape(day_title)}</h2>\n"
         f'                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">\n'
         f"{cards_html}"
         f"                    </div>\n"
@@ -230,13 +294,12 @@ def render_schedule_sections(sessions: list[TalkSession]) -> str:
 
     sections: list[str] = []
     current_day_id: str | None = None
-    current_day_title: str | None = None
     day_sessions: list[TalkSession] = []
 
     def flush_day() -> None:
-        if current_day_title is None:
+        if not day_sessions:
             return
-        section = render_day_section(current_day_title, day_sessions)
+        section = render_day_section(day_sessions)
         if section:
             sections.append(section)
 
@@ -247,7 +310,6 @@ def render_schedule_sections(sessions: list[TalkSession]) -> str:
                 flush_day()
                 day_sessions = []
             current_day_id = did
-            current_day_title = format_day_title(session.date, session.day_of_week)
         day_sessions.append(session)
 
     flush_day()
@@ -291,6 +353,52 @@ def render_html(sessions: list[TalkSession]) -> str:
         #paperSearch:focus {{
             outline: 2px solid rgb(27 58 158);
             outline-offset: 2px;
+        }}
+        .paper-date {{
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            background: rgba(27, 58, 158, 0.1);
+            color: rgb(27 58 158);
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1.25;
+        }}
+        .paper-date .paper-icon {{
+            width: 0.95rem;
+            height: 0.95rem;
+        }}
+        .paper-meta {{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }}
+        .paper-meta li {{
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: rgb(30 41 82);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }}
+        .paper-meta .paper-icon {{
+            width: 1.05rem;
+            height: 1.05rem;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+            color: rgb(27 58 158);
+            opacity: 0.8;
+        }}
+        @media (min-width: 640px) {{
+            .paper-meta li {{
+                font-size: 1rem;
+            }}
         }}
     </style>
 </head>
