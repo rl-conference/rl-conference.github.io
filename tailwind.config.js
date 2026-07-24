@@ -10,7 +10,7 @@ module.exports = {
         "boardmembers.html",
         "accepted_workshops.html",
         "schedule.html",
-        "talk_schedule.html",
+        "paper_schedule.html",
         "register.html",
         "accommodation.html",
         "registration_confirmation.html",
