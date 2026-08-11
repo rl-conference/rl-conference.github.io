@@ -120,6 +120,14 @@ def format_day_title(date_str: str, day_of_week: str) -> str:
     return f"{day_of_week}, {date_str}"
 
 
+def session_key(session: TalkSession) -> str:
+    return f"{session.date}|{session.track}|{session.time}"
+
+
+def session_filter_label(session: TalkSession) -> str:
+    return f"{format_day_title(session.date, session.day_of_week)} {session.theme}"
+
+
 def day_id(date_str: str, day_of_week: str) -> str:
     parts = normalize_whitespace(date_str).split()
     if len(parts) == 2:
@@ -235,6 +243,7 @@ def render_paper_card(
     session: TalkSession, title: str, slot: int, poster_no: int
 ) -> str:
     search_text = html.escape(title.lower())
+    session_key_html = html.escape(session_key(session))
     title_html = html.escape(title)
     date_html = html.escape(format_day_title(session.date, session.day_of_week))
     room_html = html.escape(session.room)
@@ -245,7 +254,7 @@ def render_paper_card(
 
     return (
         f'                            <div class="paper-item bg-rldarkblue-50/50 rounded-lg p-4 sm:p-6 m-2" '
-        f'data-search-text="{search_text}">\n'
+        f'data-search-text="{search_text}" data-session-key="{session_key_html}">\n'
         f'                                <div class="paper-date">{ICON_CALENDAR}'
         f'<span>{date_html}</span></div>\n'
         f'                                <h4 class="text-base sm:text-lg font-semibold text-blue mb-3">'
@@ -262,6 +271,23 @@ def render_paper_card(
         f"                                </ul>\n"
         f"                            </div>\n"
     )
+
+
+def render_session_filter_options(sessions: list[TalkSession]) -> str:
+    options = [
+        '                    <option value="">All sessions</option>\n'
+    ]
+    seen: set[str] = set()
+    for session in sessions:
+        key = session_key(session)
+        if key in seen:
+            continue
+        seen.add(key)
+        options.append(
+            f'                    <option value="{html.escape(key)}">'
+            f"{html.escape(session_filter_label(session))}</option>\n"
+        )
+    return "".join(options)
 
 
 def render_day_section(sessions: list[TalkSession]) -> str:
@@ -318,6 +344,7 @@ def render_schedule_sections(sessions: list[TalkSession]) -> str:
 
 def render_html(sessions: list[TalkSession]) -> str:
     schedule_sections = render_schedule_sections(sessions)
+    session_filter_options = render_session_filter_options(sessions)
 
     return f"""<!doctype html>
 <script src="jquery.js"></script>
@@ -350,7 +377,8 @@ def render_html(sessions: list[TalkSession]) -> str:
         .day-section.hidden-by-search {{
             display: none;
         }}
-        #paperSearch:focus {{
+        #paperSearch:focus,
+        #paperSessionFilter:focus {{
             outline: 2px solid rgb(27 58 158);
             outline-offset: 2px;
         }}
@@ -437,8 +465,14 @@ def render_html(sessions: list[TalkSession]) -> str:
 
             <h1 class="text-3xl text-blue text-center font-rubik p-2 m-2 mt-20 mb-3">RLC 2026 Paper Schedule</h1>
 
-            <!-- SEARCH -->
+            <!-- SEARCH + SESSION FILTER -->
             <div class="max-w-4xl mx-auto px-4 mb-8">
+                <label for="paperSessionFilter" class="block text-center text-sm text-rldarkblue-600 mb-2">
+                    Filter by session
+                </label>
+                <select id="paperSessionFilter"
+                        class="w-full rounded-lg px-6 py-4 text-lg text-rldarkblue-900 bg-rldarkblue-50/50 mb-4">
+{session_filter_options}                </select>
                 <label for="paperSearch" class="block text-center text-sm text-rldarkblue-600 mb-2">
                     Search by paper title
                 </label>
@@ -449,7 +483,7 @@ def render_html(sessions: list[TalkSession]) -> str:
             </div>
 
             <div id="noResults" class="hidden text-center text-rldarkblue-900 text-base mb-8 px-4">
-                No papers match your search.
+                No papers match your filters.
             </div>
 
             <!-- PAPER SCHEDULE CONTENT -->
@@ -473,16 +507,21 @@ def render_html(sessions: list[TalkSession]) -> str:
 </div>
 
 <script>
-    function applySearchFilter() {{
+    function applyFilters() {{
         var query = document.getElementById('paperSearch').value.trim().toLowerCase();
+        var sessionKey = document.getElementById('paperSessionFilter').value;
         var paperItems = document.querySelectorAll('.paper-item');
         var visibleCount = 0;
+        var filtersActive = Boolean(query || sessionKey);
 
         paperItems.forEach(function (item) {{
             var text = item.getAttribute('data-search-text') || '';
-            var matches = !query || text.indexOf(query) !== -1;
+            var itemSession = item.getAttribute('data-session-key') || '';
+            var matchesQuery = !query || text.indexOf(query) !== -1;
+            var matchesSession = !sessionKey || itemSession === sessionKey;
+            var matches = matchesQuery && matchesSession;
             item.classList.toggle('hidden-by-search', !matches);
-            if (matches && text) {{
+            if (matches) {{
                 visibleCount += 1;
             }}
         }});
@@ -494,7 +533,7 @@ def render_html(sessions: list[TalkSession]) -> str:
 
         var status = document.getElementById('searchStatus');
         var noResults = document.getElementById('noResults');
-        if (query) {{
+        if (filtersActive) {{
             status.textContent = visibleCount + ' paper' + (visibleCount === 1 ? '' : 's') + ' found';
             noResults.classList.toggle('hidden', visibleCount > 0);
         }} else {{
@@ -503,8 +542,36 @@ def render_html(sessions: list[TalkSession]) -> str:
         }}
     }}
 
+    function syncSessionToUrl(sessionKey) {{
+        var url = new URL(window.location.href);
+        if (sessionKey) {{
+            url.searchParams.set('session', sessionKey);
+        }} else {{
+            url.searchParams.delete('session');
+        }}
+        window.history.replaceState(null, '', url);
+    }}
+
     document.addEventListener('DOMContentLoaded', function () {{
-        document.getElementById('paperSearch').addEventListener('input', applySearchFilter);
+        var searchInput = document.getElementById('paperSearch');
+        var sessionFilter = document.getElementById('paperSessionFilter');
+        var params = new URLSearchParams(window.location.search);
+        var sessionFromUrl = params.get('session');
+        if (sessionFromUrl) {{
+            var hasOption = Array.prototype.some.call(sessionFilter.options, function (option) {{
+                return option.value === sessionFromUrl;
+            }});
+            if (hasOption) {{
+                sessionFilter.value = sessionFromUrl;
+            }}
+        }}
+
+        searchInput.addEventListener('input', applyFilters);
+        sessionFilter.addEventListener('change', function () {{
+            syncSessionToUrl(sessionFilter.value);
+            applyFilters();
+        }});
+        applyFilters();
     }});
 </script>
 

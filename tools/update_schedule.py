@@ -10,10 +10,22 @@ import re
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CSV = ROOT / "RLCSchedyle.csv"
+DEFAULT_TALK_CSV = ROOT / "TalkSchedule.csv"
 DEFAULT_HTML = ROOT / "schedule.html"
+
+DAY_ABBREV_TO_ID = {
+    "Fri": "friday",
+    "Sat": "saturday",
+    "Sun": "sunday",
+    "Mon": "monday",
+    "Tue": "tuesday",
+    "Wed": "wednesday",
+    "Thu": "thursday",
+}
 
 DAYS = [
     {"id": "friday", "col": 1, "label": "Fri Aug 14", "title": "Friday, August 14"},
@@ -75,7 +87,12 @@ WORKSHOPS = [
     ),
 ]
 
-PARALLEL_TRACKS_DETAIL = "4 parallel tracks: B-2305, B-0325, B-2325, B-0305"
+PARALLEL_TRACKS_FALLBACK = [
+    "Track 1: B-2305",
+    "Track 2: B-0325",
+    "Track 3: B-2325",
+    "Track 4: B-0305",
+]
 
 EVENT_LOCATIONS: dict[tuple[str, str], str] = {
     ("saturday", "Lunch"): "B-2294_532",
@@ -124,6 +141,7 @@ class ScheduleEvent:
     title: str
     time_display: str = ""
     details: list[str] = field(default_factory=list)
+    detail_links: list[str | None] = field(default_factory=list)
     bold: bool = False
     location: str = ""
 
@@ -453,16 +471,111 @@ def normalize_detail(detail: str) -> str:
     return re.sub(r"\s*\(including journal-to-conference track\)", "", detail, flags=re.I).strip()
 
 
-def apply_locations(day_id: str, items: list[ScheduleEvent]) -> None:
+def time_to_minutes(raw: str) -> int | None:
+    parsed = parse_time_token(raw)
+    if not parsed:
+        return None
+    hour, minute = parsed
+    return hour * 60 + minute
+
+
+def start_minutes_from_display(time_display: str) -> int | None:
+    if not time_display:
+        return None
+    start_raw = re.split(r"[–-]", time_display, maxsplit=1)[0].strip()
+    return time_to_minutes(start_raw)
+
+
+def paper_schedule_session_url(date: str, track: int, time: str) -> str:
+    session_key = f"{date}|{track}|{time}"
+    return f"paper_schedule.html?session={quote(session_key)}"
+
+
+def load_parallel_track_details(
+    path: Path = DEFAULT_TALK_CSV,
+) -> dict[tuple[str, int], list[tuple[str, str]]]:
+    """Map (day_id, session start minutes) -> (theme: room, paper schedule url)."""
+    if not path.exists():
+        return {}
+
+    grouped: dict[tuple[str, int], list[tuple[int, str, str, str, str]]] = {}
+    with path.open(newline="", encoding="utf-8-sig") as handle:
+        for row in csv.DictReader(handle):
+            track_raw = (row.get("Track") or "").strip()
+            theme = normalize_whitespace(row.get("Session Themes") or "")
+            room = normalize_whitespace(row.get("Room") or "")
+            date = normalize_whitespace(row.get("Date") or "")
+            time_raw = normalize_whitespace(row.get("Time") or "")
+            day_abbrev = (row.get("Day of week") or "").strip()
+            day_id = DAY_ABBREV_TO_ID.get(day_abbrev)
+            start = time_to_minutes(time_raw)
+            if not (
+                track_raw
+                and theme
+                and room
+                and date
+                and time_raw
+                and day_id is not None
+                and start is not None
+            ):
+                continue
+            try:
+                track_num = int(track_raw)
+            except ValueError:
+                continue
+            grouped.setdefault((day_id, start), []).append(
+                (track_num, theme, room, date, time_raw)
+            )
+
+    details: dict[tuple[str, int], list[tuple[str, str]]] = {}
+    for key, tracks in grouped.items():
+        tracks.sort(key=lambda item: item[0])
+        details[key] = [
+            (
+                f"{theme}: {room}",
+                paper_schedule_session_url(date, track_num, time_raw),
+            )
+            for track_num, theme, room, date, time_raw in tracks
+        ]
+    return details
+
+
+def parallel_track_details_for(
+    day_id: str,
+    time_display: str,
+    track_details: dict[tuple[str, int], list[tuple[str, str]]],
+) -> list[tuple[str, str | None]]:
+    start = start_minutes_from_display(time_display)
+    if start is None:
+        return [(label, None) for label in PARALLEL_TRACKS_FALLBACK]
+    matched = track_details.get((day_id, start))
+    if not matched:
+        return [(label, None) for label in PARALLEL_TRACKS_FALLBACK]
+    return [(label, href) for label, href in matched]
+
+
+def apply_locations(
+    day_id: str,
+    items: list[ScheduleEvent],
+    track_details: dict[tuple[str, int], list[tuple[str, str]]] | None = None,
+) -> None:
+    if track_details is None:
+        track_details = load_parallel_track_details()
     for item in items:
         if item.kind != "event":
             continue
         item.location = EVENT_LOCATIONS.get((day_id, item.title), "")
         item.details = [normalize_detail(detail) for detail in item.details]
+        item.detail_links = [None] * len(item.details)
         if item.title == "Presentation schedule":
-            item.details = [PARALLEL_TRACKS_DETAIL]
+            linked = parallel_track_details_for(
+                day_id, item.time_display, track_details
+            )
+            item.details = [label for label, _ in linked]
+            item.detail_links = [href for _, href in linked]
         if item.title == "Townhall":
             item.details = [detail for detail in item.details if detail != "Salle Claude-Champagne"]
+            item.detail_links = [None] * len(item.details)
 
 
 def parse_time_only_block(lines: list[str]) -> str | None:
@@ -476,7 +589,11 @@ def parse_time_only_block(lines: list[str]) -> str | None:
     return None
 
 
-def parse_day_column(day_id: str, column_values: list[str | None]) -> DaySchedule:
+def parse_day_column(
+    day_id: str,
+    column_values: list[str | None],
+    track_details: dict[tuple[str, int], list[tuple[str, str]]] | None = None,
+) -> DaySchedule:
     schedule = DaySchedule()
     blocks: list[list[str]] = []
     current_block: list[str] = []
@@ -526,15 +643,19 @@ def parse_day_column(day_id: str, column_values: list[str | None]) -> DaySchedul
         if day_id == day and "Lunch provided" not in schedule.subtitle_parts:
             schedule.subtitle_parts.append("Lunch provided")
 
-    apply_locations(day_id, schedule.items)
+    apply_locations(day_id, schedule.items, track_details)
 
     return schedule
 
 
-def load_csv(path: Path) -> dict[str, DaySchedule]:
+def load_csv(
+    path: Path,
+    talk_csv: Path = DEFAULT_TALK_CSV,
+) -> dict[str, DaySchedule]:
     with path.open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.reader(handle))
 
+    track_details = load_parallel_track_details(talk_csv)
     schedules: dict[str, DaySchedule] = {}
     for day in DAYS:
         col = day["col"]
@@ -542,7 +663,9 @@ def load_csv(path: Path) -> dict[str, DaySchedule]:
             row[col].strip() if col < len(row) and row[col].strip() else None
             for row in rows[3:]
         ]
-        schedules[day["id"]] = parse_day_column(day["id"], column_values)
+        schedules[day["id"]] = parse_day_column(
+            day["id"], column_values, track_details
+        )
     return schedules
 
 
@@ -576,10 +699,19 @@ def render_event_card(event: ScheduleEvent) -> str:
         title_html = f'<div class="{title_class}">{title_html}</div>'
 
     details_html = ""
-    for detail in event.details:
+    for idx, detail in enumerate(event.details):
+        href = event.detail_links[idx] if idx < len(event.detail_links) else None
+        if href:
+            detail_content = (
+                f'<a href="{html.escape(href)}" '
+                'class="text-blue hover:text-rldarkblue-500 underline">'
+                f"{html.escape(detail)}</a>"
+            )
+        else:
+            detail_content = html.escape(detail)
         details_html += (
             f'\n                                    <div class="text-sm text-gray-600 mt-1">'
-            f"{html.escape(detail)}</div>"
+            f"{detail_content}</div>"
         )
 
     workshops_html = ""
