@@ -14,6 +14,7 @@ module.exports = {
         "paper_schedule.html",
         "register.html",
         "accommodation.html",
+        "faq.html",
         "registration_confirmation.html",
         "menu.js",
         "backend/templates/**/*.html",

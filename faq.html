@@ -1,0 +1,140 @@
+<!doctype html>
+<script src="jquery.js"></script>
+<script src="data.js"></script>
+
+<!-- Changes below this can cause problems -->
+
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="mainPageTitleforSEO">FAQ | RLC 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link href="build.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RLC" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta id="seodescription" name="description" content="Frequently asked questions for RLC 2026.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="container  mx-auto ">
+        <div class="flex flex-col min-h-screen justify-between">
+            <div>
+                <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                    <div class="p-2 w-full rounded-md">
+                        <div class="hidden lg:block max-w-60">
+                            <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+                        </div>
+                        <div class="block pt-1 lg:hidden max-w-60">
+                            <a href="index.html"><img alt="Company logo"  src="data/logos/rlc-logo.svg" /></a>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+
+                    </div>
+                    <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
+                        <div class="relative flex flex-row-reverse">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                                onclick="showMenu()">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                            </svg>
+                            <div id="collapsedMenuItems"
+                                class="absolute top-10 z-10  hidden w-40 shadow-md bg-rlgrey/100 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1 border-1 border-black">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative bg-rlgrey/50 backdrop-blur-md m-1  rounded-md  shadow-md ">
+                </div>
+
+                <h1 class="text-4xl text-blue text-center font-rubik p-2 m-2 mb-10">FAQ</h1>
+
+                <div class="m-2 p-2 max-w-3xl mx-auto">
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">How do I connect to Wi‑Fi on campus?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">RLC ’26 is hosted on the Université de Montréal (UdeM) campus. You can use either of these networks:</p>
+                        <p class="mb-4"><strong>eduroam</strong> — Available to most students and academic affiliates through their home institution.</p>
+                        <p class="mb-4"><strong>UdeM-Visiteurs</strong> — For guests without eduroam access: select <strong>UdeM-Visiteurs</strong> in your Wi‑Fi settings, choose <strong>Or register for guest access</strong> at the bottom, and complete the short registration form.</p>
+                    </div>
+
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">Can I attend virtually?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">No.</p>
+                    </div>
+
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">Can I present remotely if I cannot travel?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">There are no plans for remote attendance infrastructure or livestreaming of sessions. If you cannot travel, you may be able to present by recording a talk video and sending it to your session chair to play during the session. For posters, the best option is to arrange for a co-author or colleague to present on your behalf.</p>
+                    </div>
+
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">Will talks be recorded?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">Keynotes will be recorded and shared after the conference. Paper presentations will not be recorded.</p>
+                    </div>
+
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">What is the format for paper presentations?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">Every accepted paper is given a five-minute talk followed by one minute for questions. In addition, all papers have a slot in a poster session.</p>
+                        <p class="mb-4">Presentation slots are available on the <a href="paper_schedule.html" class="text-rldarkblue-900 underline hover:text-rldarkblue-500">paper schedule</a>. Please check it for your assigned talk time, room, and poster session.</p>
+                    </div>
+
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">What are the poster dimensions?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">Posters can be up to 48&quot; wide by 36&quot; tall (about 122&nbsp;cm by 91&nbsp;cm).</p>
+                    </div>
+
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">Does workshop-only registration include the banquet or Cirque du Soleil?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">No, it does not.</p>
+                    </div>
+
+                    <h2 class="text-2xl text-blue font-rubik m-2 p-2">Is child care available?</h2>
+                    <div class="text-base font-roboto m-2 p-2">
+                        <p class="mb-4">Yes. You can request child care through <a href="https://form.jotform.com/KiddieCorp/rljkids" target="_blank" rel="noopener noreferrer" class="text-rldarkblue-900 underline hover:text-rldarkblue-500">this form</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 items-center  ">
+                <div id="footerText"
+                    class="p-2 m-1 w-full rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+                </div>
+                <div class="p-2 m-1 w-full">
+                    <div class="flex flex-row-reverse  p-2 ml-auto max-w-60 ">
+                        <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="menu.js"></script>
+<div
+    class="flex z-10 z-20 z-30 z-40 left-0 right-0  p-6 m-6 p-3 m-3 w-60 hidden group-hover:block hover:cursor-pointer group   flex-row-reverse p-1 font-rubik  m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer w-full text-sm sm:text-base font-rubik text-xl ml-4 mr-4 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer">
+</div>
+
+</html>
