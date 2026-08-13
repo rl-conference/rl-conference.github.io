@@ -474,7 +474,10 @@ def render_paper_card(
     poster_no: int,
     proceedings_links: ProceedingsLinks | None = None,
 ) -> str:
-    search_text = html.escape(title.lower())
+    search_parts = [title]
+    if proceedings_links:
+        search_parts.append(proceedings_links.authors)
+    search_text = html.escape(" ".join(search_parts).lower(), quote=True)
     session_key_html = html.escape(session_key(session))
     title_html = html.escape(title)
     date_html = html.escape(format_day_title(session.date, session.day_of_week))
@@ -741,9 +744,9 @@ def render_html(
                         class="w-full rounded-lg px-6 py-4 text-lg text-rldarkblue-900 bg-rldarkblue-50/50 mb-4">
 {session_filter_options}                </select>
                 <label for="paperSearch" class="block text-center text-sm text-rldarkblue-600 mb-2">
-                    Search by paper title
+                    Search by paper title or author
                 </label>
-                <input id="paperSearch" type="search" placeholder="Search by paper title..."
+                <input id="paperSearch" type="search" placeholder="Search by paper title or author..."
                        class="w-full rounded-lg px-6 py-4 text-lg text-rldarkblue-900 bg-rldarkblue-50/50"
                        autocomplete="off">
                 <p id="searchStatus" class="text-center text-sm text-rldarkblue-600 mt-2" aria-live="polite"></p>
