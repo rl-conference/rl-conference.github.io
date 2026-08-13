@@ -7,13 +7,36 @@ import argparse
 import csv
 import html
 import re
+import ssl
 import sys
+import unicodedata
 from dataclasses import dataclass, field
+from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urljoin, urlparse
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_CSV = ROOT / "TalkSchedule.csv"
 DEFAULT_HTML = ROOT / "paper_schedule.html"
+DEFAULT_PROCEEDINGS_URL = "https://rlj.cs.umass.edu/2026/2026issue.html"
+
+# The schedule contains earlier versions of these titles. Each alias was reviewed
+# against the corresponding RLJ entry; fuzzy matches are never accepted.
+PROCEEDINGS_TITLE_ALIASES = {
+    "Intrinsic Closed-Loop Practical Asymptotic Stability in Standard Reinforcement Learning":
+        "Intrinsic Closed-Loop Practical Asymptotic Stability in Discrete-Time Reinforcement Learning",
+    "Reinforcement Learning for Stochastic Shortest Paths with Dead-Ends":
+        "Goal-Oriented Reinforcement Learning for Stochastic Shortest Paths with Dead-Ends",
+    "Architecture over Algorithms: Network Modernization Improves Multi-Objective Reinforcement Learning":
+        "Momba: Network Modernization Improves Multi-Objective Reinforcement Learning",
+    "Biased Dreams: Limitations to Epistemic Uncertainty Quantification in Latent Space Models":
+        "Biased Dreams: Limitations to Epistemic Uncertainty Quantification in Latent Dynamics Models",
+    "Boltzmann Rationality: An Axiomatic Characterization of Entropy-Regularized Policies":
+        "Rationalizing Boltzmann Rationality: An Axiomatic Characterization of Entropy-Regularized Policies",
+    "An Unreasonably Simple Approach to Safe Reinforcement Learning":
+        "An Unreasonably Simple Approach to Safe RL",
+}
 
 REQUIRED_COLUMNS = [
     "Date",
@@ -78,6 +101,145 @@ class TalkSession:
 
 def normalize_whitespace(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip())
+
+
+def normalize_title(text: str) -> str:
+    """Normalize a title for strict matching without changing its words."""
+    text = html.unescape(unicodedata.normalize("NFKD", text)).casefold()
+    text = "".join(character for character in text if not unicodedata.combining(character))
+    return normalize_whitespace(re.sub(r"[\W_]+", " ", text))
+
+
+class LinkParser(HTMLParser):
+    """Collect anchor text and hrefs from a small HTML document."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.links: list[tuple[str, str]] = []
+        self._href: str | None = None
+        self._text: list[str] = []
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        if tag.casefold() == "a":
+            self._href = dict(attrs).get("href")
+            self._text = []
+
+    def handle_data(self, data: str) -> None:
+        if self._href is not None:
+            self._text.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.casefold() == "a" and self._href is not None:
+            self.links.append(
+                (normalize_whitespace("".join(self._text)), self._href)
+            )
+            self._href = None
+            self._text = []
+
+
+def fetch_html(url: str) -> str:
+    default_paths = ssl.get_default_verify_paths()
+    system_ca_file = Path("/etc/ssl/cert.pem")
+    ssl_context = None
+    if default_paths.cafile is None and system_ca_file.is_file():
+        # Python.org macOS builds do not always use the system CA bundle.
+        ssl_context = ssl.create_default_context(cafile=str(system_ca_file))
+    request = Request(url, headers={"User-Agent": "RLC paper schedule generator"})
+    with urlopen(request, timeout=30, context=ssl_context) as response:
+        return response.read().decode("utf-8")
+
+
+def parse_links(document: str) -> list[tuple[str, str]]:
+    parser = LinkParser()
+    parser.feed(document)
+    return parser.links
+
+
+def extract_proceedings_entries(
+    document: str, proceedings_url: str
+) -> list[tuple[str, str]]:
+    entries: list[tuple[str, str]] = []
+    seen_titles: set[str] = set()
+
+    for title, href in parse_links(document):
+        page_url = urljoin(proceedings_url, href)
+        if not re.fullmatch(r"/2026/papers/Paper\d+\.html", urlparse(page_url).path):
+            continue
+        normalized_title = normalize_title(title)
+        if not normalized_title:
+            raise ValueError(f"Proceedings entry has no title: {page_url}")
+        if normalized_title in seen_titles:
+            raise ValueError(f"Duplicate proceedings title: {title}")
+        seen_titles.add(normalized_title)
+        entries.append((title, page_url))
+
+    if not entries:
+        raise ValueError(f"No paper entries found at {proceedings_url}")
+    return entries
+
+
+def extract_pdf_url(document: str, paper_page_url: str) -> str:
+    candidates = [
+        urljoin(paper_page_url, href)
+        for text, href in parse_links(document)
+        if normalize_title(text) == "paper"
+        and urlparse(urljoin(paper_page_url, href)).path.casefold().endswith(".pdf")
+    ]
+    if len(candidates) != 1:
+        raise ValueError(
+            f"Expected one direct PDF link at {paper_page_url}, found {len(candidates)}"
+        )
+    pdf_url = candidates[0]
+    if urlparse(pdf_url).scheme != "https":
+        raise ValueError(f"Proceedings PDF is not HTTPS: {pdf_url}")
+    return pdf_url
+
+
+def load_proceedings_pdf_links(proceedings_url: str) -> dict[str, str]:
+    entries = extract_proceedings_entries(fetch_html(proceedings_url), proceedings_url)
+    return {
+        title: extract_pdf_url(fetch_html(page_url), page_url)
+        for title, page_url in entries
+    }
+
+
+def match_pdf_links(
+    schedule_titles: list[str], proceedings_links: dict[str, str]
+) -> tuple[dict[str, str], list[str], list[str]]:
+    proceedings_by_normalized: dict[str, tuple[str, str]] = {}
+    for title, pdf_url in proceedings_links.items():
+        normalized = normalize_title(title)
+        if normalized in proceedings_by_normalized:
+            raise ValueError(f"Duplicate normalized proceedings title: {title}")
+        proceedings_by_normalized[normalized] = (title, pdf_url)
+
+    aliases = {
+        normalize_title(schedule_title): normalize_title(proceedings_title)
+        for schedule_title, proceedings_title in PROCEEDINGS_TITLE_ALIASES.items()
+    }
+    matched: dict[str, str] = {}
+    used_proceedings_titles: set[str] = set()
+    unmatched: list[str] = []
+
+    for title in schedule_titles:
+        normalized = normalize_title(title)
+        target = normalized if normalized in proceedings_by_normalized else aliases.get(normalized)
+        entry = proceedings_by_normalized.get(target or "")
+        if entry is None:
+            unmatched.append(title)
+            continue
+        proceedings_title, pdf_url = entry
+        if proceedings_title in used_proceedings_titles:
+            raise ValueError(f"Proceedings paper matched more than once: {proceedings_title}")
+        used_proceedings_titles.add(proceedings_title)
+        matched[title] = pdf_url
+
+    unused = [
+        title for title in proceedings_links if title not in used_proceedings_titles
+    ]
+    return matched, unmatched, unused
 
 
 def parse_time_sort_key(time_str: str) -> tuple[int, int]:
@@ -237,10 +399,12 @@ ICON_TAG = _icon(
     "699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-"
     "2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z M6 6h.008v.008H6V6Z"
 )
-
-
 def render_paper_card(
-    session: TalkSession, title: str, slot: int, poster_no: int
+    session: TalkSession,
+    title: str,
+    slot: int,
+    poster_no: int,
+    pdf_url: str | None = None,
 ) -> str:
     search_text = html.escape(title.lower())
     session_key_html = html.escape(session_key(session))
@@ -251,10 +415,22 @@ def render_paper_card(
     theme_html = html.escape(session.theme)
     presentation_html = html.escape(session.presentation_session_time)
     poster_html = html.escape(session.poster_time) if session.poster_time else "TBD"
+    pdf_link_html = ""
+    if pdf_url:
+        escaped_pdf_url = html.escape(pdf_url, quote=True)
+        pdf_label = html.escape(f"View PDF: {title}", quote=True)
+        pdf_link_html = (
+            f'                                <a class="absolute top-4 right-4 sm:top-6 sm:right-6 '
+            f'font-medium text-blue underline hover:text-rldarkblue-500" '
+            f'href="{escaped_pdf_url}" target="_blank" rel="noopener noreferrer" '
+            f'aria-label="{pdf_label}">PDF</a>\n'
+        )
 
     return (
-        f'                            <div class="paper-item bg-rldarkblue-50/50 rounded-lg p-4 sm:p-6 m-2" '
+        f'                            <div class="paper-item relative bg-rldarkblue-50/50 rounded-lg '
+        f'p-4 pr-16 sm:p-6 sm:pr-20 m-2" '
         f'data-search-text="{search_text}" data-session-key="{session_key_html}">\n'
+        f"{pdf_link_html}"
         f'                                <div class="paper-date">{ICON_CALENDAR}'
         f'<span>{date_html}</span></div>\n'
         f'                                <h4 class="text-base sm:text-lg font-semibold text-blue mb-3">'
@@ -290,7 +466,9 @@ def render_session_filter_options(sessions: list[TalkSession]) -> str:
     return "".join(options)
 
 
-def render_day_section(sessions: list[TalkSession]) -> str:
+def render_day_section(
+    sessions: list[TalkSession], pdf_links: dict[str, str]
+) -> str:
     poster_numbers = assign_poster_numbers(sessions)
     cards_html = "".join(
         render_paper_card(
@@ -298,6 +476,7 @@ def render_day_section(sessions: list[TalkSession]) -> str:
             title,
             slot,
             poster_numbers[(session.track, session.time, slot)],
+            pdf_links.get(title),
         )
         for session in sessions
         for slot, title in enumerate(session.talks, start=1)
@@ -314,7 +493,9 @@ def render_day_section(sessions: list[TalkSession]) -> str:
     )
 
 
-def render_schedule_sections(sessions: list[TalkSession]) -> str:
+def render_schedule_sections(
+    sessions: list[TalkSession], pdf_links: dict[str, str]
+) -> str:
     if not sessions:
         return '                <p class="text-center text-rldarkblue-900">No papers found.</p>\n'
 
@@ -325,7 +506,7 @@ def render_schedule_sections(sessions: list[TalkSession]) -> str:
     def flush_day() -> None:
         if not day_sessions:
             return
-        section = render_day_section(day_sessions)
+        section = render_day_section(day_sessions, pdf_links)
         if section:
             sections.append(section)
 
@@ -342,8 +523,10 @@ def render_schedule_sections(sessions: list[TalkSession]) -> str:
     return "".join(sections)
 
 
-def render_html(sessions: list[TalkSession]) -> str:
-    schedule_sections = render_schedule_sections(sessions)
+def render_html(
+    sessions: list[TalkSession], pdf_links: dict[str, str] | None = None
+) -> str:
+    schedule_sections = render_schedule_sections(sessions, pdf_links or {})
     session_filter_options = render_session_filter_options(sessions)
 
     return f"""<!doctype html>
@@ -587,6 +770,11 @@ def main() -> int:
     parser.add_argument(
         "--html", type=Path, default=DEFAULT_HTML, help="Path to output paper_schedule.html"
     )
+    parser.add_argument(
+        "--proceedings-url",
+        default=DEFAULT_PROCEEDINGS_URL,
+        help="RLJ issue page used to resolve direct PDF links",
+    )
     args = parser.parse_args()
 
     if not args.csv.exists():
@@ -594,9 +782,32 @@ def main() -> int:
         return 1
 
     sessions = load_sessions(args.csv)
-    args.html.write_text(render_html(sessions), encoding="utf-8")
+    schedule_titles = [
+        title for session in sessions for title in session.talks
+    ]
+    try:
+        proceedings_links = load_proceedings_pdf_links(args.proceedings_url)
+        pdf_links, unmatched, unused = match_pdf_links(
+            schedule_titles, proceedings_links
+        )
+    except (OSError, UnicodeError, ValueError) as error:
+        print(f"Could not load proceedings links: {error}", file=sys.stderr)
+        return 1
+
+    args.html.write_text(render_html(sessions, pdf_links), encoding="utf-8")
     paper_count = sum(len(session.talks) for session in sessions)
-    print(f"Generated {args.html} from {args.csv} ({len(sessions)} sessions, {paper_count} papers)")
+    print(
+        f"Generated {args.html} from {args.csv} "
+        f"({len(sessions)} sessions, {paper_count} papers, {len(pdf_links)} PDF links)"
+    )
+    if unmatched:
+        print(f"Unmatched schedule papers ({len(unmatched)}):", file=sys.stderr)
+        for title in unmatched:
+            print(f"  - {title}", file=sys.stderr)
+    if unused:
+        print(f"Unused proceedings papers ({len(unused)}):", file=sys.stderr)
+        for title in unused:
+            print(f"  - {title}", file=sys.stderr)
     return 0
 
 

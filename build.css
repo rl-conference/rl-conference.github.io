@@ -612,12 +612,20 @@ video {
   right: 0px;
 }
 
+.right-4 {
+  right: 1rem;
+}
+
 .top-0 {
   top: 0px;
 }
 
 .top-10 {
   top: 2.5rem;
+}
+
+.top-4 {
+  top: 1rem;
 }
 
 .-z-20 {
@@ -1120,6 +1128,10 @@ video {
   padding-left: 1.5rem;
 }
 
+.pr-16 {
+  padding-right: 4rem;
+}
+
 .pt-1 {
   padding-top: 0.25rem;
 }
@@ -1326,6 +1338,14 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:right-6 {
+    right: 1.5rem;
+  }
+
+  .sm\:top-6 {
+    top: 1.5rem;
+  }
+
   .sm\:mb-8 {
     margin-bottom: 2rem;
   }
@@ -1378,6 +1398,10 @@ video {
   .sm\:py-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+  }
+
+  .sm\:pr-20 {
+    padding-right: 5rem;
   }
 
   .sm\:text-2xl {
