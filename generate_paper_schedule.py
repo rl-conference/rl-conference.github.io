@@ -103,6 +103,7 @@ class TalkSession:
 class ProceedingsLinks:
     page_url: str
     pdf_url: str
+    authors: str
 
 
 def normalize_whitespace(text: str) -> str:
@@ -145,6 +146,58 @@ class LinkParser(HTMLParser):
             self._text = []
 
 
+class ProceedingsEntryParser(HTMLParser):
+    """Collect linked paper titles and italicized authors from list items."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.entries: list[tuple[str, str, str]] = []
+        self._in_list_item = False
+        self._in_title = False
+        self._in_authors = False
+        self._href: str | None = None
+        self._title: list[str] = []
+        self._authors: list[str] = []
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        tag = tag.casefold()
+        if tag == "li":
+            self._in_list_item = True
+            self._href = None
+            self._title = []
+            self._authors = []
+        elif tag == "a" and self._in_list_item:
+            self._href = dict(attrs).get("href")
+            self._in_title = True
+        elif tag == "i" and self._in_list_item:
+            self._in_authors = True
+
+    def handle_data(self, data: str) -> None:
+        if self._in_title:
+            self._title.append(data)
+        if self._in_authors:
+            self._authors.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.casefold()
+        if tag == "a":
+            self._in_title = False
+        elif tag == "i":
+            self._in_authors = False
+        elif tag == "li" and self._in_list_item:
+            if self._href is not None:
+                self.entries.append(
+                    (
+                        normalize_whitespace("".join(self._title)),
+                        self._href,
+                        normalize_whitespace("".join(self._authors)),
+                    )
+                )
+            self._in_list_item = False
+
+
 def fetch_html(url: str) -> str:
     default_paths = ssl.get_default_verify_paths()
     system_ca_file = Path("/etc/ssl/cert.pem")
@@ -165,11 +218,13 @@ def parse_links(document: str) -> list[tuple[str, str]]:
 
 def extract_proceedings_entries(
     document: str, proceedings_url: str
-) -> list[tuple[str, str]]:
-    entries: list[tuple[str, str]] = []
+) -> list[tuple[str, str, str]]:
+    entries: list[tuple[str, str, str]] = []
     seen_titles: set[str] = set()
+    parser = ProceedingsEntryParser()
+    parser.feed(document)
 
-    for title, href in parse_links(document):
+    for title, href, authors in parser.entries:
         page_url = urljoin(proceedings_url, href)
         if not re.fullmatch(r"/2026/papers/Paper\d+\.html", urlparse(page_url).path):
             continue
@@ -178,8 +233,10 @@ def extract_proceedings_entries(
             raise ValueError(f"Proceedings entry has no title: {page_url}")
         if normalized_title in seen_titles:
             raise ValueError(f"Duplicate proceedings title: {title}")
+        if not authors:
+            raise ValueError(f"Proceedings entry has no authors: {title}")
         seen_titles.add(normalized_title)
-        entries.append((title, page_url))
+        entries.append((title, page_url, authors))
 
     if not entries:
         raise ValueError(f"No paper entries found at {proceedings_url}")
@@ -209,8 +266,9 @@ def load_proceedings_links(proceedings_url: str) -> dict[str, ProceedingsLinks]:
         title: ProceedingsLinks(
             page_url=page_url,
             pdf_url=extract_pdf_url(fetch_html(page_url), page_url),
+            authors=authors,
         )
-        for title, page_url in entries
+        for title, page_url, authors in entries
     }
 
 
@@ -426,12 +484,18 @@ def render_paper_card(
     presentation_html = html.escape(session.presentation_session_time)
     poster_html = html.escape(session.poster_time) if session.poster_time else "TBD"
     pdf_link_html = ""
+    authors_html = ""
     if proceedings_links:
         escaped_page_url = html.escape(proceedings_links.page_url, quote=True)
         escaped_pdf_url = html.escape(proceedings_links.pdf_url, quote=True)
+        authors_html = html.escape(proceedings_links.authors)
         title_html = (
             f'<a class="underline hover:text-rldarkblue-500" href="{escaped_page_url}" '
             f'target="_blank" rel="noopener noreferrer">{title_html}</a>'
+        )
+        authors_html = (
+            f'                                <p class="text-sm text-rldarkblue-700 mb-3">'
+            f"{authors_html}</p>\n"
         )
         pdf_label = html.escape(f"View PDF: {title}", quote=True)
         pdf_link_html = (
@@ -448,8 +512,10 @@ def render_paper_card(
         f"{pdf_link_html}"
         f'                                <div class="paper-date">{ICON_CALENDAR}'
         f'<span>{date_html}</span></div>\n'
-        f'                                <h4 class="text-base sm:text-lg font-semibold text-blue mb-3">'
+        f'                                <h4 class="text-base sm:text-lg font-semibold text-blue '
+        f'{"mb-1" if authors_html else "mb-3"}">'
         f"{title_html}</h4>\n"
+        f"{authors_html}"
         f'                                <ul class="paper-meta">\n'
         f'                                    <li>{ICON_TAG}<span>'
         f'<span class="font-medium">Track {track_html}</span> · {theme_html}</span></li>\n'
