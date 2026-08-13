@@ -99,6 +99,12 @@ class TalkSession:
         return PRESENTATION_SESSION_TIMES.get(self.time, self.time)
 
 
+@dataclass(frozen=True)
+class ProceedingsLinks:
+    page_url: str
+    pdf_url: str
+
+
 def normalize_whitespace(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip())
 
@@ -197,29 +203,33 @@ def extract_pdf_url(document: str, paper_page_url: str) -> str:
     return pdf_url
 
 
-def load_proceedings_pdf_links(proceedings_url: str) -> dict[str, str]:
+def load_proceedings_links(proceedings_url: str) -> dict[str, ProceedingsLinks]:
     entries = extract_proceedings_entries(fetch_html(proceedings_url), proceedings_url)
     return {
-        title: extract_pdf_url(fetch_html(page_url), page_url)
+        title: ProceedingsLinks(
+            page_url=page_url,
+            pdf_url=extract_pdf_url(fetch_html(page_url), page_url),
+        )
         for title, page_url in entries
     }
 
 
-def match_pdf_links(
-    schedule_titles: list[str], proceedings_links: dict[str, str]
-) -> tuple[dict[str, str], list[str], list[str]]:
-    proceedings_by_normalized: dict[str, tuple[str, str]] = {}
-    for title, pdf_url in proceedings_links.items():
+def match_proceedings_links(
+    schedule_titles: list[str],
+    proceedings_links: dict[str, ProceedingsLinks],
+) -> tuple[dict[str, ProceedingsLinks], list[str], list[str]]:
+    proceedings_by_normalized: dict[str, tuple[str, ProceedingsLinks]] = {}
+    for title, links in proceedings_links.items():
         normalized = normalize_title(title)
         if normalized in proceedings_by_normalized:
             raise ValueError(f"Duplicate normalized proceedings title: {title}")
-        proceedings_by_normalized[normalized] = (title, pdf_url)
+        proceedings_by_normalized[normalized] = (title, links)
 
     aliases = {
         normalize_title(schedule_title): normalize_title(proceedings_title)
         for schedule_title, proceedings_title in PROCEEDINGS_TITLE_ALIASES.items()
     }
-    matched: dict[str, str] = {}
+    matched: dict[str, ProceedingsLinks] = {}
     used_proceedings_titles: set[str] = set()
     unmatched: list[str] = []
 
@@ -230,11 +240,11 @@ def match_pdf_links(
         if entry is None:
             unmatched.append(title)
             continue
-        proceedings_title, pdf_url = entry
+        proceedings_title, links = entry
         if proceedings_title in used_proceedings_titles:
             raise ValueError(f"Proceedings paper matched more than once: {proceedings_title}")
         used_proceedings_titles.add(proceedings_title)
-        matched[title] = pdf_url
+        matched[title] = links
 
     unused = [
         title for title in proceedings_links if title not in used_proceedings_titles
@@ -404,7 +414,7 @@ def render_paper_card(
     title: str,
     slot: int,
     poster_no: int,
-    pdf_url: str | None = None,
+    proceedings_links: ProceedingsLinks | None = None,
 ) -> str:
     search_text = html.escape(title.lower())
     session_key_html = html.escape(session_key(session))
@@ -416,8 +426,13 @@ def render_paper_card(
     presentation_html = html.escape(session.presentation_session_time)
     poster_html = html.escape(session.poster_time) if session.poster_time else "TBD"
     pdf_link_html = ""
-    if pdf_url:
-        escaped_pdf_url = html.escape(pdf_url, quote=True)
+    if proceedings_links:
+        escaped_page_url = html.escape(proceedings_links.page_url, quote=True)
+        escaped_pdf_url = html.escape(proceedings_links.pdf_url, quote=True)
+        title_html = (
+            f'<a class="underline hover:text-rldarkblue-500" href="{escaped_page_url}" '
+            f'target="_blank" rel="noopener noreferrer">{title_html}</a>'
+        )
         pdf_label = html.escape(f"View PDF: {title}", quote=True)
         pdf_link_html = (
             f'                                <a class="absolute top-4 right-4 sm:top-6 sm:right-6 '
@@ -467,7 +482,8 @@ def render_session_filter_options(sessions: list[TalkSession]) -> str:
 
 
 def render_day_section(
-    sessions: list[TalkSession], pdf_links: dict[str, str]
+    sessions: list[TalkSession],
+    proceedings_links: dict[str, ProceedingsLinks],
 ) -> str:
     poster_numbers = assign_poster_numbers(sessions)
     cards_html = "".join(
@@ -476,7 +492,7 @@ def render_day_section(
             title,
             slot,
             poster_numbers[(session.track, session.time, slot)],
-            pdf_links.get(title),
+            proceedings_links.get(title),
         )
         for session in sessions
         for slot, title in enumerate(session.talks, start=1)
@@ -494,7 +510,8 @@ def render_day_section(
 
 
 def render_schedule_sections(
-    sessions: list[TalkSession], pdf_links: dict[str, str]
+    sessions: list[TalkSession],
+    proceedings_links: dict[str, ProceedingsLinks],
 ) -> str:
     if not sessions:
         return '                <p class="text-center text-rldarkblue-900">No papers found.</p>\n'
@@ -506,7 +523,7 @@ def render_schedule_sections(
     def flush_day() -> None:
         if not day_sessions:
             return
-        section = render_day_section(day_sessions, pdf_links)
+        section = render_day_section(day_sessions, proceedings_links)
         if section:
             sections.append(section)
 
@@ -524,9 +541,10 @@ def render_schedule_sections(
 
 
 def render_html(
-    sessions: list[TalkSession], pdf_links: dict[str, str] | None = None
+    sessions: list[TalkSession],
+    proceedings_links: dict[str, ProceedingsLinks] | None = None,
 ) -> str:
-    schedule_sections = render_schedule_sections(sessions, pdf_links or {})
+    schedule_sections = render_schedule_sections(sessions, proceedings_links or {})
     session_filter_options = render_session_filter_options(sessions)
 
     return f"""<!doctype html>
@@ -786,19 +804,20 @@ def main() -> int:
         title for session in sessions for title in session.talks
     ]
     try:
-        proceedings_links = load_proceedings_pdf_links(args.proceedings_url)
-        pdf_links, unmatched, unused = match_pdf_links(
-            schedule_titles, proceedings_links
+        available_proceedings_links = load_proceedings_links(args.proceedings_url)
+        proceedings_links, unmatched, unused = match_proceedings_links(
+            schedule_titles, available_proceedings_links
         )
     except (OSError, UnicodeError, ValueError) as error:
         print(f"Could not load proceedings links: {error}", file=sys.stderr)
         return 1
 
-    args.html.write_text(render_html(sessions, pdf_links), encoding="utf-8")
+    args.html.write_text(render_html(sessions, proceedings_links), encoding="utf-8")
     paper_count = sum(len(session.talks) for session in sessions)
     print(
         f"Generated {args.html} from {args.csv} "
-        f"({len(sessions)} sessions, {paper_count} papers, {len(pdf_links)} PDF links)"
+        f"({len(sessions)} sessions, {paper_count} papers, "
+        f"{len(proceedings_links)} proceedings links)"
     )
     if unmatched:
         print(f"Unmatched schedule papers ({len(unmatched)}):", file=sys.stderr)
