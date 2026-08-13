@@ -23,25 +23,229 @@
     <link rel="manifest" href="/site.webmanifest"/>
     <meta id="seodescription" name="description" content="Overall program schedule for RLC 2026 in Montréal.">
     <style>
-        @media (min-width: 768px) {
-            .day-content .grid {
-                grid-template-columns: minmax(0, 2fr) minmax(10rem, 1fr);
-                max-width: 48rem;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .day-content .grid > :first-child {
-                text-align: right;
-            }
-
-            .day-content .grid > :last-child {
-                text-align: left;
-            }
-        }
-
         .day-content {
             scroll-margin-top: 5rem;
+            margin-bottom: 2rem !important;
+        }
+
+        .schedule-day {
+            overflow: hidden;
+            padding: 0 !important;
+            border: 1px solid #e3f0fb;
+            background: rgba(241, 248, 254, 0.5);
+        }
+
+        .schedule-day > h2 {
+            margin: 0;
+            padding: 0.75rem 1rem;
+            background: #fff;
+            border-bottom: 1px solid #e3f0fb;
+        }
+
+        .schedule-day > .text-sm.font-roboto {
+            margin: 0;
+            padding: 0.5rem 1rem;
+            background: #fff;
+            border-bottom: 1px solid #e3f0fb;
+        }
+
+        .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) {
+            display: grid;
+            grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr) minmax(9rem, 14rem);
+            gap: 0.75rem;
+            align-items: start;
+            margin: 0 !important;
+            padding: 0.65rem 1rem !important;
+            border-bottom: 1px solid #e3f0fb;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) > h3 {
+            margin: 0;
+            font-size: inherit;
+            line-height: 1.35;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) > .grid {
+            display: contents;
+        }
+
+        .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) > .grid > * {
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: left;
+        }
+
+        .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) > .grid > :nth-child(2) {
+            font-size: 0.875rem;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks):last-child {
+            border-bottom: 0;
+        }
+
+        .schedule-tracks {
+            display: grid;
+            grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr) minmax(9rem, 14rem);
+            gap: 0.75rem;
+            align-items: start;
+            margin: 0 !important;
+            padding: 0.65rem 1rem !important;
+            border-bottom: 1px solid #e3f0fb;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        .schedule-tracks > h3 {
+            margin: 0;
+            font-size: inherit;
+            line-height: 1.35;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .schedule-tracks > .track-list {
+            grid-column: 2 / -1;
+        }
+
+        .track-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(9rem, 14rem);
+            gap: 0.75rem;
+            padding: 0.25rem 0;
+            border-bottom: 1px solid #e3f0fb;
+        }
+
+        .track-row:first-child {
+            padding-top: 0;
+        }
+
+        .track-row:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .track-location {
+            font-size: 0.875rem;
+            font-style: italic;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .schedule-workshops {
+            margin: 0 !important;
+            padding: 0 !important;
+            border-bottom: 1px solid #e3f0fb;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        .schedule-workshops > h3 {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .schedule-workshops > .text-center {
+            margin: 0;
+            padding: 0.5rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e3f0fb;
+        }
+
+        .schedule-workshops > .space-y-3 > .grid {
+            display: grid;
+            grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr) minmax(9rem, 14rem);
+            gap: 0.75rem;
+            align-items: start;
+            margin: 0 !important;
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid #e3f0fb;
+        }
+
+        .schedule-workshops > .space-y-3 > .grid:last-child {
+            border-bottom: 0;
+        }
+
+        .schedule-workshops > .space-y-3 > .grid::before {
+            content: "9 AM – 5 PM";
+            color: #154161;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .schedule-workshops > .space-y-3 > .grid > * {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .schedule-workshops > .space-y-3 > .grid > :last-child {
+            font-size: 0.875rem;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .schedule-day > h3 {
+            margin: 0 !important;
+            padding: 0.45rem 1rem !important;
+            border-bottom: 1px solid #e3f0fb;
+            background: #fff;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        @media (max-width: 767px) {
+            .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks),
+            .schedule-workshops > .space-y-3 > .grid {
+                display: block;
+                padding: 0.6rem 0.75rem !important;
+            }
+
+            .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) > h3,
+            .schedule-workshops > .space-y-3 > .grid::before {
+                display: block;
+                margin-bottom: 0.2rem;
+            }
+
+            .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) > .grid {
+                display: block;
+            }
+
+            .schedule-day > .bg-rldarkblue-50\/50:not(.schedule-workshops):not(.schedule-tracks) > .grid > :nth-child(2),
+            .schedule-workshops > .space-y-3 > .grid > :last-child {
+                margin-top: 0.15rem !important;
+                text-align: left;
+            }
+
+            .schedule-tracks {
+                display: block;
+                padding: 0.6rem 0.75rem !important;
+            }
+
+            .schedule-tracks > h3 {
+                margin-bottom: 0.3rem;
+            }
+
+            .track-row {
+                display: block;
+                padding: 0.35rem 0;
+            }
+
+            .track-location {
+                margin-top: 0.1rem;
+                text-align: left;
+            }
         }
     </style>
 </head>
@@ -115,7 +319,7 @@
 
                 <!-- Friday -->
                 <div id="day-friday" class="day-content mb-16">
-                    <div class="rounded-lg p-1 md:p-6">
+                    <div class="schedule-day rounded-lg p-1 md:p-6">
                         <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Friday, August 14</h2>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">2 PM – 7 PM</h3>
@@ -129,10 +333,10 @@
 
                 <!-- Saturday -->
                 <div id="day-saturday" class="day-content mb-16">
-                    <div class="rounded-lg p-1 md:p-6">
+                    <div class="schedule-day rounded-lg p-1 md:p-6">
                         <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Saturday, August 15 (Workshops)</h2>
                         <div class="text-sm font-roboto italic text-center mb-10">All-day coffee and tea (8am-4pm) · Light breakfast (8am-10am) · Lunch provided</div>
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                        <div class="schedule-workshops bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM – 5 PM</h3>
 
                             <div class="text-center mb-4 font-medium">Workshops</div>
@@ -195,7 +399,7 @@
 
                 <!-- Sunday -->
                 <div id="day-sunday" class="day-content mb-16">
-                    <div class="rounded-lg p-1 md:p-6">
+                    <div class="schedule-day rounded-lg p-1 md:p-6">
                         <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Sunday, August 16</h2>
                         <div class="text-sm font-roboto italic text-center mb-10">All-day coffee and tea (8am-2pm) · Light breakfast (8am-10am) · Lunch provided</div>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
@@ -215,16 +419,13 @@
                             </div>
                         </div>
                         <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                        <div class="schedule-tracks bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">11 AM – 11:50 AM</h3>
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Presentation schedule
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2016%7C1%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Theory of RL: B-2305</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2016%7C2%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Task specification and reward functions: B-0325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2016%7C3%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Core RL algorithms: B-2325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2016%7C4%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Evaluation, benchmarks, and envs: B-0305</a></div>
-                                </div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            <div class="track-list" aria-label="Presentation schedule">
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2016%7C1%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Theory of RL</a><div class="track-location">📍 B-2305</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2016%7C2%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Task specification and reward functions</a><div class="track-location">📍 B-0325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2016%7C3%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Core RL algorithms</a><div class="track-location">📍 B-2325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2016%7C4%7C11%3A00%20AM" class="text-blue hover:text-rldarkblue-500 underline">Evaluation, benchmarks, and envs</a><div class="track-location">📍 B-0305</div></div>
                             </div>
                         </div>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
@@ -274,7 +475,7 @@
 
                 <!-- Monday -->
                 <div id="day-monday" class="day-content mb-16">
-                    <div class="rounded-lg p-1 md:p-6">
+                    <div class="schedule-day rounded-lg p-1 md:p-6">
                         <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Monday, August 17</h2>
                         <div class="text-sm font-roboto italic text-center mb-10">All-day coffee and tea (8am-5pm) · Light breakfast (8am-10am) · Lunch provided</div>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
@@ -286,16 +487,13 @@
                             </div>
                         </div>
                         <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">20 min break</h3>
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                        <div class="schedule-tracks bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">10:20 AM – 11:10 AM</h3>
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Presentation schedule
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C1%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Bandits: B-2305</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C2%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Fairness, interpretability, and human-AI interaction + Hierarchical RL and skills: B-0325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C3%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Core RL algorithms: B-2325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C4%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Applied RL: B-0305</a></div>
-                                </div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            <div class="track-list" aria-label="Presentation schedule">
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C1%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Bandits</a><div class="track-location">📍 B-2305</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C2%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Fairness, interpretability, and human-AI interaction + Hierarchical RL and skills</a><div class="track-location">📍 B-0325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C3%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Core RL algorithms</a><div class="track-location">📍 B-2325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C4%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Applied RL</a><div class="track-location">📍 B-0305</div></div>
                             </div>
                         </div>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
@@ -306,16 +504,13 @@
                                 <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-4315</div>
                             </div>
                         </div>
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                        <div class="schedule-tracks bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">11:40 AM – 12:30 PM</h3>
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Presentation schedule
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C1%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Understanding deep RL: B-2305</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C2%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Task specification and reward functions: B-0325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C3%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Planning and model-based RL: B-2325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2017%7C4%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Multi-agent RL: B-0305</a></div>
-                                </div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            <div class="track-list" aria-label="Presentation schedule">
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C1%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Understanding deep RL</a><div class="track-location">📍 B-2305</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C2%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Task specification and reward functions</a><div class="track-location">📍 B-0325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C3%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Planning and model-based RL</a><div class="track-location">📍 B-2325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2017%7C4%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Multi-agent RL</a><div class="track-location">📍 B-0305</div></div>
                             </div>
                         </div>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
@@ -349,7 +544,7 @@
 
                 <!-- Tuesday -->
                 <div id="day-tuesday" class="day-content mb-16">
-                    <div class="rounded-lg p-1 md:p-6">
+                    <div class="schedule-day rounded-lg p-1 md:p-6">
                         <h2 class="text-base sm:text-2xl font-roboto text-blue font-semibold text-center mb-2">Tuesday, August 18</h2>
                         <div class="text-sm font-roboto italic text-center mb-10">All-day coffee and tea (8am-5pm) · Light breakfast (8am-10am) · Lunch provided</div>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
@@ -361,29 +556,23 @@
                             </div>
                         </div>
                         <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">20 min break</h3>
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                        <div class="schedule-tracks bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">10:20 AM – 11:10 AM</h3>
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Presentation schedule
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C1%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Theory of RL: B-2305</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C2%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Safe, robust, and risk-sensitive RL: B-0325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C3%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Offline RL: B-2325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C4%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Evaluation, benchmarks, and environments: B-0305</a></div>
-                                </div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            <div class="track-list" aria-label="Presentation schedule">
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C1%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Theory of RL</a><div class="track-location">📍 B-2305</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C2%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Safe, robust, and risk-sensitive RL</a><div class="track-location">📍 B-0325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C3%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Offline RL</a><div class="track-location">📍 B-2325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C4%7C10%3A20%20AM" class="text-blue hover:text-rldarkblue-500 underline">Evaluation, benchmarks, and environments</a><div class="track-location">📍 B-0305</div></div>
                             </div>
                         </div>
                         <h3 class="text-base sm:text-xl mb-3 text-blue text-center mx-auto m-4 p-4">30 min break</h3>
-                        <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
+                        <div class="schedule-tracks bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">11:40 AM – 12:30 PM</h3>
-                            <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left">Presentation schedule
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C1%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Understanding deep RL: B-2305</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C2%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">RL fine-tuning of LLMs/VLMs/VLAs + Imitation learning: B-0325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C3%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Continual RL + Streaming RL + Exploration: B-2325</a></div>
-                                    <div class="text-sm text-gray-600 mt-1"><a href="paper_schedule.html?session=Aug%2018%7C4%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Multi-agent RL: B-0305</a></div>
-                                </div>
-                                <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 Parallel track rooms</div>
+                            <div class="track-list" aria-label="Presentation schedule">
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C1%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Understanding deep RL</a><div class="track-location">📍 B-2305</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C2%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">RL fine-tuning of LLMs/VLMs/VLAs + Imitation learning</a><div class="track-location">📍 B-0325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C3%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Continual RL + Streaming RL + Exploration</a><div class="track-location">📍 B-2325</div></div>
+                                <div class="track-row"><a href="paper_schedule.html?session=Aug%2018%7C4%7C11%3A40%20AM" class="text-blue hover:text-rldarkblue-500 underline">Multi-agent RL</a><div class="track-location">📍 B-0305</div></div>
                             </div>
                         </div>
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
