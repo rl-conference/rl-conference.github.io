@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate paper_schedule.html from TalkSchedule.csv."""
+"""Generate paper_schedule.html from talk assignments and paper metadata."""
 
 from __future__ import annotations
 
@@ -17,26 +17,10 @@ from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent
-DEFAULT_CSV = ROOT / "TalkSchedule.csv"
+DEFAULT_CSV = ROOT / "talk_assignment.csv"
+DEFAULT_PAPERS_CSV = ROOT / "list_of_papers.csv"
 DEFAULT_HTML = ROOT / "paper_schedule.html"
 DEFAULT_PROCEEDINGS_URL = "https://rlj.cs.umass.edu/2026/2026issue.html"
-
-# The schedule contains earlier versions of these titles. Each alias was reviewed
-# against the corresponding RLJ entry; fuzzy matches are never accepted.
-PROCEEDINGS_TITLE_ALIASES = {
-    "Intrinsic Closed-Loop Practical Asymptotic Stability in Standard Reinforcement Learning":
-        "Intrinsic Closed-Loop Practical Asymptotic Stability in Discrete-Time Reinforcement Learning",
-    "Reinforcement Learning for Stochastic Shortest Paths with Dead-Ends":
-        "Goal-Oriented Reinforcement Learning for Stochastic Shortest Paths with Dead-Ends",
-    "Architecture over Algorithms: Network Modernization Improves Multi-Objective Reinforcement Learning":
-        "Momba: Network Modernization Improves Multi-Objective Reinforcement Learning",
-    "Biased Dreams: Limitations to Epistemic Uncertainty Quantification in Latent Space Models":
-        "Biased Dreams: Limitations to Epistemic Uncertainty Quantification in Latent Dynamics Models",
-    "Boltzmann Rationality: An Axiomatic Characterization of Entropy-Regularized Policies":
-        "Rationalizing Boltzmann Rationality: An Axiomatic Characterization of Entropy-Regularized Policies",
-    "An Unreasonably Simple Approach to Safe Reinforcement Learning":
-        "An Unreasonably Simple Approach to Safe RL",
-}
 
 REQUIRED_COLUMNS = [
     "Date",
@@ -283,18 +267,13 @@ def match_proceedings_links(
             raise ValueError(f"Duplicate normalized proceedings title: {title}")
         proceedings_by_normalized[normalized] = (title, links)
 
-    aliases = {
-        normalize_title(schedule_title): normalize_title(proceedings_title)
-        for schedule_title, proceedings_title in PROCEEDINGS_TITLE_ALIASES.items()
-    }
     matched: dict[str, ProceedingsLinks] = {}
     used_proceedings_titles: set[str] = set()
     unmatched: list[str] = []
 
     for title in schedule_titles:
         normalized = normalize_title(title)
-        target = normalized if normalized in proceedings_by_normalized else aliases.get(normalized)
-        entry = proceedings_by_normalized.get(target or "")
+        entry = proceedings_by_normalized.get(normalized)
         if entry is None:
             unmatched.append(title)
             continue
@@ -388,6 +367,15 @@ def load_sessions(path: Path) -> list[TalkSession]:
                 if title:
                     talks.append(title)
 
+            slot_count = normalize_whitespace(
+                row.get("Number of talk slots in session", "")
+            )
+            if not slot_count.isdigit() or int(slot_count) != len(talks):
+                raise ValueError(
+                    f"{path.name}: {date} track {row.get('Track', '')} declares "
+                    f"{slot_count or 'no'} talk slots but contains {len(talks)} talks"
+                )
+
             sessions.append(
                 TalkSession(
                     date=date,
@@ -395,9 +383,7 @@ def load_sessions(path: Path) -> list[TalkSession]:
                     time=normalize_whitespace(row.get("Time", "")),
                     track=normalize_whitespace(row.get("Track", "")),
                     room=normalize_whitespace(row.get("Room", "")),
-                    slot_count=normalize_whitespace(
-                        row.get("Number of talk slots in session", "")
-                    ),
+                    slot_count=slot_count,
                     theme=normalize_whitespace(row.get("Session Themes", "")),
                     talks=talks,
                 )
@@ -411,6 +397,40 @@ def load_sessions(path: Path) -> list[TalkSession]:
         )
     )
     return sessions
+
+
+def load_paper_ids(path: Path) -> dict[str, int]:
+    with path.open(newline="", encoding="utf-8-sig") as handle:
+        reader = csv.DictReader(handle)
+        if reader.fieldnames is None:
+            raise ValueError(f"{path.name}: CSV has no header row")
+
+        missing = [column for column in ("num", "title") if column not in reader.fieldnames]
+        if missing:
+            raise ValueError(
+                f"{path.name}: missing required columns: {', '.join(missing)}"
+            )
+
+        paper_ids: dict[str, int] = {}
+        seen_ids: set[int] = set()
+        for row_number, row in enumerate(reader, start=2):
+            title = normalize_whitespace(row.get("title", "") or "")
+            try:
+                paper_id = int(normalize_whitespace(row.get("num", "") or ""))
+            except ValueError as error:
+                raise ValueError(
+                    f"{path.name}: invalid paper ID on row {row_number}"
+                ) from error
+            if not title:
+                raise ValueError(f"{path.name}: missing title on row {row_number}")
+            if title in paper_ids:
+                raise ValueError(f"{path.name}: duplicate paper title: {title}")
+            if paper_id in seen_ids:
+                raise ValueError(f"{path.name}: duplicate paper ID: {paper_id}")
+            paper_ids[title] = paper_id
+            seen_ids.add(paper_id)
+
+    return paper_ids
 
 
 def assign_poster_numbers(day_sessions: list[TalkSession]) -> dict[tuple[str, str, int], int]:
@@ -473,6 +493,7 @@ def render_paper_card(
     slot: int,
     poster_no: int,
     proceedings_links: ProceedingsLinks | None = None,
+    is_journal_to_conference: bool = False,
 ) -> str:
     search_parts = [title]
     if proceedings_links:
@@ -486,6 +507,17 @@ def render_paper_card(
     theme_html = html.escape(session.theme)
     presentation_html = html.escape(session.presentation_session_time)
     poster_html = html.escape(session.poster_time) if session.poster_time else "TBD"
+    card_accent_classes = (
+        " border border-rlyellow-300" if is_journal_to_conference else ""
+    )
+    journal_badge_html = ""
+    if is_journal_to_conference:
+        journal_badge_html = (
+            '                                <div class="mb-3">'
+            '<span class="inline-flex rounded-full bg-rlyellow-100 px-2.5 py-1 '
+            'text-xs font-semibold text-rlyellow-900">Journal-to-Conference</span>'
+            "</div>\n"
+        )
     pdf_link_html = ""
     authors_html = ""
     if proceedings_links:
@@ -510,11 +542,12 @@ def render_paper_card(
 
     return (
         f'                            <div class="paper-item relative bg-rldarkblue-50/50 rounded-lg '
-        f'p-4 pr-16 sm:p-6 sm:pr-20 m-2" '
+        f'p-4 pr-16 sm:p-6 sm:pr-20 m-2{card_accent_classes}" '
         f'data-search-text="{search_text}" data-session-key="{session_key_html}">\n'
         f"{pdf_link_html}"
         f'                                <div class="paper-date">{ICON_CALENDAR}'
         f'<span>{date_html}</span></div>\n'
+        f"{journal_badge_html}"
         f'                                <h4 class="text-base sm:text-lg font-semibold text-blue '
         f'{"mb-1" if authors_html else "mb-3"}">'
         f"{title_html}</h4>\n"
@@ -553,6 +586,7 @@ def render_session_filter_options(sessions: list[TalkSession]) -> str:
 def render_day_section(
     sessions: list[TalkSession],
     proceedings_links: dict[str, ProceedingsLinks],
+    journal_to_conference_titles: set[str],
 ) -> str:
     poster_numbers = assign_poster_numbers(sessions)
     cards_html = "".join(
@@ -562,6 +596,7 @@ def render_day_section(
             slot,
             poster_numbers[(session.track, session.time, slot)],
             proceedings_links.get(title),
+            title in journal_to_conference_titles,
         )
         for session in sessions
         for slot, title in enumerate(session.talks, start=1)
@@ -581,6 +616,7 @@ def render_day_section(
 def render_schedule_sections(
     sessions: list[TalkSession],
     proceedings_links: dict[str, ProceedingsLinks],
+    journal_to_conference_titles: set[str],
 ) -> str:
     if not sessions:
         return '                <p class="text-center text-rldarkblue-900">No papers found.</p>\n'
@@ -592,7 +628,9 @@ def render_schedule_sections(
     def flush_day() -> None:
         if not day_sessions:
             return
-        section = render_day_section(day_sessions, proceedings_links)
+        section = render_day_section(
+            day_sessions, proceedings_links, journal_to_conference_titles
+        )
         if section:
             sections.append(section)
 
@@ -612,8 +650,13 @@ def render_schedule_sections(
 def render_html(
     sessions: list[TalkSession],
     proceedings_links: dict[str, ProceedingsLinks] | None = None,
+    journal_to_conference_titles: set[str] | None = None,
 ) -> str:
-    schedule_sections = render_schedule_sections(sessions, proceedings_links or {})
+    schedule_sections = render_schedule_sections(
+        sessions,
+        proceedings_links or {},
+        journal_to_conference_titles or set(),
+    )
     session_filter_options = render_session_filter_options(sessions)
 
     return f"""<!doctype html>
@@ -853,7 +896,15 @@ def render_html(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--csv", type=Path, default=DEFAULT_CSV, help="Path to TalkSchedule.csv")
+    parser.add_argument(
+        "--csv", type=Path, default=DEFAULT_CSV, help="Path to talk_assignment.csv"
+    )
+    parser.add_argument(
+        "--papers-csv",
+        type=Path,
+        default=DEFAULT_PAPERS_CSV,
+        help="Path to list_of_papers.csv",
+    )
     parser.add_argument(
         "--html", type=Path, default=DEFAULT_HTML, help="Path to output paper_schedule.html"
     )
@@ -864,14 +915,35 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if not args.csv.exists():
-        print(f"CSV not found: {args.csv}", file=sys.stderr)
+    for path in (args.csv, args.papers_csv):
+        if not path.exists():
+            print(f"CSV not found: {path}", file=sys.stderr)
+            return 1
+
+    try:
+        sessions = load_sessions(args.csv)
+        paper_ids = load_paper_ids(args.papers_csv)
+        schedule_titles = [
+            title for session in sessions for title in session.talks
+        ]
+        schedule_title_set = set(schedule_titles)
+        paper_title_set = set(paper_ids)
+        if schedule_title_set != paper_title_set:
+            only_in_schedule = sorted(schedule_title_set - paper_title_set)
+            only_in_paper_list = sorted(paper_title_set - schedule_title_set)
+            details = []
+            if only_in_schedule:
+                details.append(f"only in schedule: {', '.join(only_in_schedule)}")
+            if only_in_paper_list:
+                details.append(f"only in paper list: {', '.join(only_in_paper_list)}")
+            raise ValueError("paper CSVs do not match (" + "; ".join(details) + ")")
+    except ValueError as error:
+        print(f"Invalid paper data: {error}", file=sys.stderr)
         return 1
 
-    sessions = load_sessions(args.csv)
-    schedule_titles = [
-        title for session in sessions for title in session.talks
-    ]
+    journal_to_conference_titles = {
+        title for title, paper_id in paper_ids.items() if paper_id >= 500
+    }
     try:
         available_proceedings_links = load_proceedings_links(args.proceedings_url)
         proceedings_links, unmatched, unused = match_proceedings_links(
@@ -881,7 +953,14 @@ def main() -> int:
         print(f"Could not load proceedings links: {error}", file=sys.stderr)
         return 1
 
-    args.html.write_text(render_html(sessions, proceedings_links), encoding="utf-8")
+    args.html.write_text(
+        render_html(
+            sessions,
+            proceedings_links,
+            journal_to_conference_titles,
+        ),
+        encoding="utf-8",
+    )
     paper_count = sum(len(session.talks) for session in sessions)
     print(
         f"Generated {args.html} from {args.csv} "
