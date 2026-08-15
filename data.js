@@ -107,6 +107,8 @@ listOfOrganizers = [new Organizer("Glen Berseth", "General Chair", "data/organiz
     new Organizer("Amir-massoud Farahmand", "Program Chair", "data/organizers/af.jpg"),
     new Organizer("Josiah Hanna", "Program Chair", "data/organizers/jh.webp"),
     new Organizer("Tom Schaul", "Program Chair", "data/organizers/ts.jpg"),
+    new Organizer("Clare Lyle", "Awards Chair", "data/organizers/cl.jpg"),
+    new Organizer("Qiaomin Xie", "Awards Chair", "data/organizers/qx.png"),
     new Organizer("Martha White", "Reviewer Chair", "data/organizers/mw.webp"),
     new Organizer("Adam White", "Reviewer Chair", "data/organizers/aw.webp"),
     new Organizer("Andrew Patterson", "Reviewer Chair", "data/organizers/ap.jpg"),
