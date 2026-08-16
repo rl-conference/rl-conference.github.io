@@ -555,7 +555,6 @@ def render_paper_row(
     authors_full_html = ""
     title_html = title_text_html
     pdf_summary_html = ""
-    pdf_details_html = ""
     if proceedings_links:
         escaped_page_url = html.escape(proceedings_links.page_url, quote=True)
         escaped_pdf_url = html.escape(proceedings_links.pdf_url, quote=True)
@@ -574,11 +573,6 @@ def render_paper_row(
             f'text-blue underline hover:text-rldarkblue-500" href="{escaped_pdf_url}" '
             f'target="_blank" rel="noopener noreferrer" aria-label="{pdf_label}">PDF</a>\n'
         )
-        pdf_details_html = (
-            f'<a class="font-medium text-blue underline hover:text-rldarkblue-500" '
-            f'href="{escaped_pdf_url}" target="_blank" rel="noopener noreferrer">'
-            f"PDF</a>"
-        )
 
     details_bits = [bit for bit in (journal_badge_html, authors_full_html) if bit]
     details_bits.append(
@@ -590,8 +584,6 @@ def render_paper_row(
         f'<span class="font-medium">Poster</span> #{poster_no} · {poster_html}</span></li>'
         f"</ul>"
     )
-    if pdf_details_html:
-        details_bits.append(pdf_details_html)
     details_html = "\n                                    ".join(details_bits)
 
     return (
@@ -972,7 +964,7 @@ def render_html(
             overflow: hidden;
             color: rgb(27 58 158);
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 400;
             line-height: 1.35;
             white-space: normal;
         }}
