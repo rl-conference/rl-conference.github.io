@@ -1402,6 +1402,14 @@ video {
   color: rgb(21 65 97 / var(--tw-text-opacity, 1));
 }
 
+.group[open] .group-open\:block {
+  display: block;
+}
+
+.group[open] .group-open\:hidden {
+  display: none;
+}
+
 .group:hover .group-hover\:block {
   display: block;
 }
