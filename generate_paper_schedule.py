@@ -11,10 +11,13 @@ import ssl
 import sys
 import unicodedata
 from dataclasses import dataclass, field
+from datetime import datetime
 from html.parser import HTMLParser
+from itertools import groupby
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_CSV = ROOT / "talk_assignment.csv"
@@ -61,6 +64,9 @@ PRESENTATION_SESSION_TIMES = {
     "10:20 AM": "10:20 AM – 11:10 AM",
     "11:40 AM": "11:40 AM – 12:30 PM",
 }
+
+CONFERENCE_YEAR = 2026
+CONFERENCE_TZ = ZoneInfo("America/Toronto")
 
 
 @dataclass
@@ -320,6 +326,28 @@ def parse_date_sort_key(date_str: str) -> tuple[int, int]:
     return (month, day)
 
 
+def presentation_end_clock(session: TalkSession) -> str:
+    range_str = session.presentation_session_time
+    for separator in ("–", "—", "-"):
+        if separator in range_str:
+            return normalize_whitespace(range_str.rsplit(separator, 1)[-1])
+    return session.time
+
+
+def conference_datetime(date_str: str, time_str: str) -> datetime:
+    month, day = parse_date_sort_key(date_str)
+    hour, minute = parse_time_sort_key(time_str)
+    return datetime(CONFERENCE_YEAR, month, day, hour, minute, tzinfo=CONFERENCE_TZ)
+
+
+def session_start_iso(session: TalkSession) -> str:
+    return conference_datetime(session.date, session.time).isoformat()
+
+
+def session_end_iso(session: TalkSession) -> str:
+    return conference_datetime(session.date, presentation_end_clock(session)).isoformat()
+
+
 def format_day_title(date_str: str, day_of_week: str) -> str:
     parts = normalize_whitespace(date_str).split()
     if len(parts) == 2:
@@ -487,7 +515,15 @@ ICON_TAG = _icon(
     "699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-"
     "2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z M6 6h.008v.008H6V6Z"
 )
-def render_paper_card(
+ICON_CHEVRON = (
+    '<svg class="paper-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" '
+    'viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">'
+    '<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>'
+    "</svg>"
+)
+
+
+def render_paper_row(
     session: TalkSession,
     title: str,
     slot: int,
@@ -499,70 +535,121 @@ def render_paper_card(
     if proceedings_links:
         search_parts.append(proceedings_links.authors)
     search_text = html.escape(" ".join(search_parts).lower(), quote=True)
-    session_key_html = html.escape(session_key(session))
-    title_html = html.escape(title)
-    date_html = html.escape(format_day_title(session.date, session.day_of_week))
-    room_html = html.escape(session.room)
-    track_html = html.escape(session.track)
-    theme_html = html.escape(session.theme)
+    session_key_html = html.escape(session_key(session), quote=True)
+    title_text_html = html.escape(title)
     presentation_html = html.escape(session.presentation_session_time)
     poster_html = html.escape(session.poster_time) if session.poster_time else "TBD"
-    card_accent_classes = (
-        " border border-rlyellow-300" if is_journal_to_conference else ""
-    )
+    journal_class = " is-journal" if is_journal_to_conference else ""
+    journal_mark_html = ""
     journal_badge_html = ""
     if is_journal_to_conference:
+        journal_mark_html = (
+            '                                            <span class="journal-mark" '
+            'title="Journal-to-Conference">J</span>\n'
+        )
         journal_badge_html = (
-            '                                <div class="mb-3">'
             '<span class="inline-flex rounded-full bg-rlyellow-100 px-2.5 py-1 '
             'text-xs font-semibold text-rlyellow-900">Journal-to-Conference</span>'
-            "</div>\n"
         )
-    pdf_link_html = ""
-    authors_html = ""
+
+    authors_full_html = ""
+    title_html = title_text_html
+    pdf_summary_html = ""
+    pdf_details_html = ""
     if proceedings_links:
         escaped_page_url = html.escape(proceedings_links.page_url, quote=True)
         escaped_pdf_url = html.escape(proceedings_links.pdf_url, quote=True)
-        authors_html = html.escape(proceedings_links.authors)
+        authors_escaped = html.escape(proceedings_links.authors)
         title_html = (
-            f'<a class="underline hover:text-rldarkblue-500" href="{escaped_page_url}" '
-            f'target="_blank" rel="noopener noreferrer">{title_html}</a>'
+            f'<a class="paper-title-link underline hover:text-rldarkblue-500" '
+            f'href="{escaped_page_url}" target="_blank" rel="noopener noreferrer">'
+            f"{title_text_html}</a>"
         )
-        authors_html = (
-            f'                                <p class="text-sm text-rldarkblue-700 mb-3">'
-            f"{authors_html}</p>\n"
+        authors_full_html = (
+            f'<p class="text-sm text-rldarkblue-700">{authors_escaped}</p>'
         )
         pdf_label = html.escape(f"View PDF: {title}", quote=True)
-        pdf_link_html = (
-            f'                                <a class="absolute top-4 right-4 sm:top-6 sm:right-6 '
-            f'font-medium text-blue underline hover:text-rldarkblue-500" '
-            f'href="{escaped_pdf_url}" target="_blank" rel="noopener noreferrer" '
-            f'aria-label="{pdf_label}">PDF</a>\n'
+        pdf_summary_html = (
+            f'                                            <a class="paper-pdf-link font-medium '
+            f'text-blue underline hover:text-rldarkblue-500" href="{escaped_pdf_url}" '
+            f'target="_blank" rel="noopener noreferrer" aria-label="{pdf_label}">PDF</a>\n'
+        )
+        pdf_details_html = (
+            f'<a class="font-medium text-blue underline hover:text-rldarkblue-500" '
+            f'href="{escaped_pdf_url}" target="_blank" rel="noopener noreferrer">'
+            f"PDF</a>"
         )
 
+    details_bits = [bit for bit in (journal_badge_html, authors_full_html) if bit]
+    details_bits.append(
+        f'<ul class="paper-meta">'
+        f"<li>{ICON_CLOCK}<span>"
+        f'<span class="font-medium">Presentation</span> Talk {slot} · {presentation_html}'
+        f"</span></li>"
+        f"<li>{ICON_POSTER}<span>"
+        f'<span class="font-medium">Poster</span> #{poster_no} · {poster_html}</span></li>'
+        f"</ul>"
+    )
+    if pdf_details_html:
+        details_bits.append(pdf_details_html)
+    details_html = "\n                                    ".join(details_bits)
+
     return (
-        f'                            <div class="paper-item relative bg-rldarkblue-50/50 rounded-lg '
-        f'p-4 pr-16 sm:p-6 sm:pr-20 m-2{card_accent_classes}" '
+        f'                                    <details class="paper-item{journal_class}" '
         f'data-search-text="{search_text}" data-session-key="{session_key_html}">\n'
-        f"{pdf_link_html}"
-        f'                                <div class="paper-date">{ICON_CALENDAR}'
-        f'<span>{date_html}</span></div>\n'
-        f"{journal_badge_html}"
-        f'                                <h4 class="text-base sm:text-lg font-semibold text-blue '
-        f'{"mb-1" if authors_html else "mb-3"}">'
-        f"{title_html}</h4>\n"
-        f"{authors_html}"
-        f'                                <ul class="paper-meta">\n'
-        f'                                    <li>{ICON_TAG}<span>'
-        f'<span class="font-medium">Track {track_html}</span> · {theme_html}</span></li>\n'
-        f'                                    <li>{ICON_MAP_PIN}<span>'
-        f'<span class="font-medium">Room</span> {room_html}</span></li>\n'
-        f'                                    <li>{ICON_CLOCK}<span>'
-        f'<span class="font-medium">Presentation</span> Talk {slot} · {presentation_html}</span></li>\n'
-        f'                                    <li>{ICON_POSTER}<span>'
-        f'<span class="font-medium">Poster</span> #{poster_no} · {poster_html}</span></li>\n'
-        f"                                </ul>\n"
-        f"                            </div>\n"
+        f'                                        <summary class="paper-summary">\n'
+        f'                                            <span class="paper-talk-no">'
+        f"Talk {slot}</span>\n"
+        f"{journal_mark_html}"
+        f'                                            <span class="paper-summary-main">'
+        f'<span class="paper-title">{title_html}</span></span>\n'
+        f"{pdf_summary_html}"
+        f"                                            {ICON_CHEVRON}\n"
+        f"                                        </summary>\n"
+        f'                                        <div class="paper-expand">\n'
+        f"                                    {details_html}\n"
+        f"                                        </div>\n"
+        f"                                    </details>\n"
+    )
+
+
+def render_session_block(
+    session: TalkSession,
+    proceedings_links: dict[str, ProceedingsLinks],
+    journal_to_conference_titles: set[str],
+    poster_numbers: dict[tuple[str, str, int], int],
+) -> str:
+    papers_html = "".join(
+        render_paper_row(
+            session,
+            title,
+            slot,
+            poster_numbers[(session.track, session.time, slot)],
+            proceedings_links.get(title),
+            title in journal_to_conference_titles,
+        )
+        for slot, title in enumerate(session.talks, start=1)
+    )
+    if not papers_html:
+        return ""
+
+    key_html = html.escape(session_key(session), quote=True)
+    theme_html = html.escape(session.theme)
+    track_html = html.escape(session.track)
+    room_html = html.escape(session.room)
+    return (
+        f'                            <article class="session-block" '
+        f'data-session-key="{key_html}">\n'
+        f'                                <header class="session-header">\n'
+        f'                                    <h3 class="session-theme">{theme_html}</h3>\n'
+        f'                                    <p class="session-meta">'
+        f'<span class="session-meta-item">{ICON_TAG}<span>Track {track_html}</span></span>'
+        f'<span class="session-meta-item">{ICON_MAP_PIN}<span>Room {room_html}</span></span></p>\n'
+        f"                                </header>\n"
+        f'                                <div class="paper-list">\n'
+        f"{papers_html}"
+        f"                                </div>\n"
+        f"                            </article>\n"
     )
 
 
@@ -583,32 +670,69 @@ def render_session_filter_options(sessions: list[TalkSession]) -> str:
     return "".join(options)
 
 
+def render_time_slot(
+    slot_sessions: list[TalkSession],
+    proceedings_links: dict[str, ProceedingsLinks],
+    journal_to_conference_titles: set[str],
+    poster_numbers: dict[tuple[str, str, int], int],
+) -> str:
+    if not slot_sessions:
+        return ""
+    first = slot_sessions[0]
+    sessions_html = "".join(
+        render_session_block(
+            session,
+            proceedings_links,
+            journal_to_conference_titles,
+            poster_numbers,
+        )
+        for session in slot_sessions
+    )
+    if not sessions_html:
+        return ""
+    start_iso = html.escape(session_start_iso(first), quote=True)
+    end_iso = html.escape(session_end_iso(first), quote=True)
+    time_html = html.escape(first.presentation_session_time)
+    return (
+        f'                    <div class="time-slot" data-start="{start_iso}" '
+        f'data-end="{end_iso}">\n'
+        f'                        <div class="time-slot-heading">'
+        f"{ICON_CLOCK}<span>{time_html}</span>"
+        f'<span class="live-pill" hidden></span></div>\n'
+        f'                        <div class="session-stack">\n'
+        f"{sessions_html}"
+        f"                        </div>\n"
+        f"                    </div>\n"
+    )
+
+
 def render_day_section(
     sessions: list[TalkSession],
     proceedings_links: dict[str, ProceedingsLinks],
     journal_to_conference_titles: set[str],
 ) -> str:
-    poster_numbers = assign_poster_numbers(sessions)
-    cards_html = "".join(
-        render_paper_card(
-            session,
-            title,
-            slot,
-            poster_numbers[(session.track, session.time, slot)],
-            proceedings_links.get(title),
-            title in journal_to_conference_titles,
-        )
-        for session in sessions
-        for slot, title in enumerate(session.talks, start=1)
-    )
-    if not cards_html:
+    if not sessions:
         return ""
-
+    poster_numbers = assign_poster_numbers(sessions)
+    slots_html = "".join(
+        render_time_slot(
+            list(slot_sessions),
+            proceedings_links,
+            journal_to_conference_titles,
+            poster_numbers,
+        )
+        for _, slot_sessions in groupby(sessions, key=lambda session: session.time)
+    )
+    if not slots_html:
+        return ""
+    day_title = html.escape(
+        format_day_title(sessions[0].date, sessions[0].day_of_week)
+    )
     return (
-        f'                <section class="day-section mb-10">\n'
-        f'                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">\n'
-        f"{cards_html}"
-        f"                    </div>\n"
+        f'                <section class="day-section mb-12">\n'
+        f'                    <h2 class="day-heading">{ICON_CALENDAR}'
+        f"<span>{day_title}</span></h2>\n"
+        f"{slots_html}"
         f"                </section>\n"
     )
 
@@ -684,9 +808,9 @@ def render_html(
     <link rel="manifest" href="/site.webmanifest"/>
     <meta id="seodescription" name="description" content="Paper presentation and poster schedule for RLC 2026 in Montréal.">
     <style>
-        .paper-item.hidden-by-search {{
-            display: none;
-        }}
+        .paper-item.hidden-by-search,
+        .session-block.hidden-by-search,
+        .time-slot.hidden-by-search,
         .day-section.hidden-by-search {{
             display: none;
         }}
@@ -695,22 +819,189 @@ def render_html(
             outline: 2px solid rgb(27 58 158);
             outline-offset: 2px;
         }}
-        .paper-date {{
+        .day-heading {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 0 1.25rem;
+            color: rgb(27 58 158);
+            font-family: Rubik, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }}
+        .day-heading .paper-icon {{
+            width: 1.25rem;
+            height: 1.25rem;
+        }}
+        .time-slot {{
+            margin-bottom: 1.75rem;
+            scroll-margin-top: 1rem;
+        }}
+        .time-slot-heading {{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.75rem;
+            margin-bottom: 0.75rem;
+            padding: 0.35rem 0;
+            color: rgb(27 58 158);
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.3;
+            border-bottom: 2px solid rgba(27, 58, 158, 0.15);
+        }}
+        .time-slot-heading .paper-icon {{
+            width: 1.15rem;
+            height: 1.15rem;
+        }}
+        .live-pill {{
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            margin-bottom: 0.75rem;
-            padding: 0.25rem 0.65rem;
+            padding: 0.15rem 0.55rem;
             border-radius: 9999px;
-            background: rgba(27, 58, 158, 0.1);
-            color: rgb(27 58 158);
-            font-size: 0.8rem;
-            font-weight: 600;
-            line-height: 1.25;
+            background: rgb(27 58 158);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }}
-        .paper-date .paper-icon {{
+        .live-pill[hidden] {{
+            display: none;
+        }}
+        .time-slot.is-live {{
+            background: rgba(27, 58, 158, 0.04);
+            border-radius: 0.75rem;
+            padding: 0.75rem 0.75rem 0.25rem;
+            outline: 1px solid rgba(27, 58, 158, 0.18);
+        }}
+        .session-stack {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }}
+        .session-block {{
+            background: rgba(27, 58, 158, 0.05);
+            border-radius: 0.75rem;
+            padding: 0.85rem 1rem 0.5rem;
+        }}
+        .session-header {{
+            margin-bottom: 0.35rem;
+        }}
+        .session-theme {{
+            margin: 0 0 0.25rem;
+            color: rgb(27 58 158);
+            font-family: Rubik, sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }}
+        .session-meta {{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.35rem 1rem;
+            margin: 0 0 0.35rem;
+            color: rgb(30 41 82);
+            font-size: 0.85rem;
+        }}
+        .session-meta-item {{
+            display: inline-flex;
+            align-items: center;
+        }}
+        .session-meta .paper-icon {{
             width: 0.95rem;
             height: 0.95rem;
+            margin-right: 0.3rem;
+            color: rgb(27 58 158);
+            opacity: 0.8;
+        }}
+        .paper-list {{
+            display: flex;
+            flex-direction: column;
+        }}
+        .paper-item {{
+            border-top: 1px solid rgba(27, 58, 158, 0.1);
+        }}
+        .paper-item.is-journal {{
+            box-shadow: inset 3px 0 0 rgb(253 224 71);
+        }}
+        .paper-summary {{
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.45rem 0.15rem;
+            cursor: pointer;
+            list-style: none;
+        }}
+        .paper-summary::-webkit-details-marker {{
+            display: none;
+        }}
+        .paper-talk-no {{
+            flex-shrink: 0;
+            padding-top: 0.15rem;
+            color: rgb(27 58 158);
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }}
+        .journal-mark {{
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.1rem;
+            height: 1.1rem;
+            margin-top: 0.15rem;
+            border-radius: 9999px;
+            background: rgb(254 249 195);
+            color: rgb(113 63 18);
+            font-size: 0.65rem;
+            font-weight: 700;
+        }}
+        .paper-summary-main {{
+            flex: 1;
+            min-width: 0;
+        }}
+        .paper-title {{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            overflow: hidden;
+            color: rgb(27 58 158);
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.35;
+            white-space: normal;
+        }}
+        .paper-title-link {{
+            color: inherit;
+            white-space: normal;
+        }}
+        .paper-pdf-link {{
+            flex-shrink: 0;
+            padding-top: 0.15rem;
+            font-size: 0.8rem;
+        }}
+        .paper-chevron {{
+            flex-shrink: 0;
+            width: 1rem;
+            height: 1rem;
+            margin-top: 0.2rem;
+            color: rgb(27 58 158);
+            opacity: 0.7;
+            transition: transform 0.15s ease;
+        }}
+        .paper-item[open] .paper-chevron {{
+            transform: rotate(180deg);
+        }}
+        .paper-expand {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0 0.15rem 0.7rem 3.15rem;
         }}
         .paper-meta {{
             list-style: none;
@@ -736,9 +1027,9 @@ def render_html(
             color: rgb(27 58 158);
             opacity: 0.8;
         }}
-        @media (min-width: 640px) {{
-            .paper-meta li {{
-                font-size: 1rem;
+        @media (max-width: 639px) {{
+            .paper-expand {{
+                padding-left: 0.15rem;
             }}
         }}
     </style>
@@ -839,6 +1130,14 @@ def render_html(
             }}
         }});
 
+        document.querySelectorAll('.session-block').forEach(function (block) {{
+            var visiblePapers = block.querySelectorAll('.paper-item:not(.hidden-by-search)');
+            block.classList.toggle('hidden-by-search', visiblePapers.length === 0);
+        }});
+        document.querySelectorAll('.time-slot').forEach(function (slot) {{
+            var visibleSessions = slot.querySelectorAll('.session-block:not(.hidden-by-search)');
+            slot.classList.toggle('hidden-by-search', visibleSessions.length === 0);
+        }});
         document.querySelectorAll('.day-section').forEach(function (day) {{
             var visiblePapers = day.querySelectorAll('.paper-item:not(.hidden-by-search)');
             day.classList.toggle('hidden-by-search', visiblePapers.length === 0);
@@ -865,17 +1164,48 @@ def render_html(
         window.history.replaceState(null, '', url);
     }}
 
+    function markLiveSlot() {{
+        var slots = document.querySelectorAll('.time-slot[data-end]');
+        var now = Date.now();
+        var live = null;
+        slots.forEach(function (slot) {{
+            slot.classList.remove('is-live');
+            var pill = slot.querySelector('.live-pill');
+            if (pill) {{
+                pill.hidden = true;
+                pill.textContent = '';
+            }}
+            var end = Date.parse(slot.getAttribute('data-end'));
+            if (!live && !isNaN(end) && end > now) {{
+                live = slot;
+            }}
+        }});
+        if (!live) {{
+            return null;
+        }}
+        live.classList.add('is-live');
+        var livePill = live.querySelector('.live-pill');
+        if (livePill) {{
+            var start = Date.parse(live.getAttribute('data-start'));
+            livePill.textContent = (!isNaN(start) && now >= start) ? 'Now' : 'Up next';
+            livePill.hidden = false;
+        }}
+        return live;
+    }}
+
     document.addEventListener('DOMContentLoaded', function () {{
         var searchInput = document.getElementById('paperSearch');
         var sessionFilter = document.getElementById('paperSessionFilter');
         var params = new URLSearchParams(window.location.search);
         var sessionFromUrl = params.get('session');
+        var skipLiveScroll = false;
         if (sessionFromUrl) {{
             var hasOption = Array.prototype.some.call(sessionFilter.options, function (option) {{
                 return option.value === sessionFromUrl;
             }});
             if (hasOption) {{
                 sessionFilter.value = sessionFromUrl;
+                skipLiveScroll = true;
             }}
         }}
 
@@ -884,7 +1214,17 @@ def render_html(
             syncSessionToUrl(sessionFilter.value);
             applyFilters();
         }});
+        document.querySelectorAll('.paper-summary a').forEach(function (link) {{
+            link.addEventListener('click', function (event) {{
+                event.stopPropagation();
+            }});
+        }});
         applyFilters();
+        var live = markLiveSlot();
+        if (live && !skipLiveScroll) {{
+            live.scrollIntoView({{ block: 'start' }});
+        }}
+        setInterval(markLiveSlot, 60000);
     }});
 </script>
 
