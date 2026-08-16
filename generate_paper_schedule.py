@@ -34,7 +34,7 @@ REQUIRED_COLUMNS = [
     "Number of talk slots in session",
     "Session Themes",
 ]
-TALK_COLUMNS = [f"Talk {i}" for i in range(1, 9)]
+TALK_COLUMNS = [f"Talk {i}" for i in range(1, 10)]
 
 MONTH_NAMES = {
     "Jan": "January",
