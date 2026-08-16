@@ -20,11 +20,12 @@ class BoardMember {
 
 /// Advisory committee ///
 class KeynoteSpeaker {
-    constructor(name, affiliation, image, url) {
+    constructor(name, affiliation, image, url, cancelled) {
         this.name = name;
         this.affiliation = affiliation;
         this.image = image;
         this.url = url || "";
+        this.cancelled = !!cancelled;
     }
 }
 
@@ -130,7 +131,7 @@ listOfKeynoteSpeakers = [
     new KeynoteSpeaker("Marc Bellemare", "Cohere / McGill University / Mila", "data/keynoteSpeakers/mb.jpg", "http://www.marcgbellemare.info/"),
     new KeynoteSpeaker("Rika Antonova", "University of Cambridge", "data/keynoteSpeakers/ra.png", "https://camral.github.io/"),
     new KeynoteSpeaker("Balaraman Ravindran", "Indian Institute Of Technology Madras", "data/keynoteSpeakers/br.jpeg", "https://wsai.iitm.ac.in/~ravi/"),
-    new KeynoteSpeaker("Danijar Hafner", "Google DeepMind", "data/keynoteSpeakers/dh.jpg", "https://danijar.com/")
+    new KeynoteSpeaker("Danijar Hafner", "Google DeepMind", "data/keynoteSpeakers/dh.jpg", "https://danijar.com/", true)
 ]
 
 class Workshop {
