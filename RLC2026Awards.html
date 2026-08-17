@@ -1,0 +1,222 @@
+<!doctype html>
+<script src="jquery.js"></script>
+<script src="data.js"></script>
+
+<!-- Changes below this can cause problems -->
+
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title id="mainPageTitleforSEO">Outstanding Paper Awards | RLC 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link href="build.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <meta name="apple-mobile-web-app-title" content="RLC"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <meta id="seodescription" name="description" content="Outstanding Paper Awards at RLC 2026.">
+</head>
+
+<body class="font-roboto text-rldarkblue-950 bg-white antialiased">
+
+<div class="container mx-auto">
+    <div class="flex flex-col min-h-screen justify-between">
+        <div>
+            <div class="m-2 grid grid-cols-3 items-center rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                <div class="p-2 w-full rounded-md">
+                    <div class="hidden lg:block max-w-60">
+                        <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+                    </div>
+                    <div class="block pt-1 lg:hidden max-w-60">
+                        <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+                    </div>
+                </div>
+                <div></div>
+                <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+
+                </div>
+                <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md">
+                    <div class="relative flex flex-row-reverse">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                             onclick="showMenu()">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>
+                        </svg>
+                        <div id="collapsedMenuItems"
+                             class="absolute top-10 z-10 hidden w-40 shadow-md bg-white/95 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-3xl md:text-4xl text-blue text-center font-rubik p-2 m-2 mt-20 mb-6">Announcing the RLC 2026 Outstanding Paper Awards</h1>
+
+            <div class="max-w-4xl mx-auto p-6">
+                <div class="bg-white rounded-lg p-8 mb-8">
+                    <p class="text-lg text-rldarkblue-800 mb-6">
+                        We are honoured to announce the winners of the Outstanding Paper Awards at the Third Reinforcement Learning Conference. Papers are awarded based on specific aspects of their contribution.
+                    </p>
+                    <p class="text-lg text-rldarkblue-800">
+                        This year's awards consist of seven papers. The awarded papers are listed below in alphabetical order by award name. Congratulations to all the authors!
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-rldarkblue-50/50 rounded-lg p-6 border border-blue">
+                        <h3 class="text-xl font-semibold font-rubik text-rldarkblue-900 mb-4 text-center">Applications of Reinforcement Learning</h3>
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h4 class="font-semibold text-lg mb-2">
+                                <a href="https://openreview.net/forum?id=MiQ10BUfRX" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">
+                                    Discovering High Quality Chess Puzzles with Offline Reinforcement Learning
+                                </a>
+                            </h4>
+                            <p class="text-rldarkblue-700 mb-2">
+                                <strong>Authors:</strong> Allen Nie, Anirudhan Badrinath, Nicholas Tomlin, Timothy Dai, Carissa Yip, Rose E Wang, Emma Brunskill, and Christopher J Piech
+                            </p>
+                            <p>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper147.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <span class="text-rldarkblue-400 mx-1">·</span>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper147.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">
+                                <a href="https://openreview.net/forum?id=xLIDSGRJCA" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">
+                                    Dynamics Models for Offline Hyperparameter Selection in Real-World RL
+                                </a>
+                            </h4>
+                            <p class="text-rldarkblue-700 mb-2">
+                                <strong>Authors:</strong> Jordan Coblin, Han Wang, Martha White, and Adam White
+                            </p>
+                            <p>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper65.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <span class="text-rldarkblue-400 mx-1">·</span>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper65.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-rldarkblue-50/50 rounded-lg p-6 border border-blue">
+                        <h3 class="text-xl font-semibold font-rubik text-rldarkblue-900 mb-4 text-center">Emerging Topics in Reinforcement Learning</h3>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">
+                                <a href="https://openreview.net/forum?id=ca1RGnGSrj" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">
+                                    Yes, Q-learning Helps Offline In-Context RL
+                                </a>
+                            </h4>
+                            <p class="text-rldarkblue-700 mb-2">
+                                <strong>Authors:</strong> Denis Tarasov, Alexander Nikulin, Ilya Zisman, Albina Klepach, Andrei Polubarov, Lyubaykin Nikita, Alexander Derevyagin, Igor Kiselev, and Vladislav Kurenkov
+                            </p>
+                            <p>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper3.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <span class="text-rldarkblue-400 mx-1">·</span>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper3.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-rldarkblue-50/50 rounded-lg p-6 border border-blue">
+                        <h3 class="text-xl font-semibold font-rubik text-rldarkblue-900 mb-4 text-center">Empirical Reinforcement Learning Research</h3>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">
+                                <a href="https://openreview.net/forum?id=9aTDoQ3Qy1" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">
+                                    Gradient Iterated Temporal-Difference Learning
+                                </a>
+                            </h4>
+                            <p class="text-rldarkblue-700 mb-2">
+                                <strong>Authors:</strong> Théo Vincent, Kevin Gerhardt, Yogesh Tripathi, Habib Maraqten, Adam White, Martha White, Jan Peters, and Carlo D'Eramo
+                            </p>
+                            <p>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper27.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <span class="text-rldarkblue-400 mx-1">·</span>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper27.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-rldarkblue-50/50 rounded-lg p-6 border border-blue">
+                        <h3 class="text-xl font-semibold font-rubik text-rldarkblue-900 mb-4 text-center">Resourcefulness in Reinforcement Learning</h3>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">
+                                <a href="https://openreview.net/forum?id=okq9kUJslY" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">
+                                    Simple Recipe Works: Vision-Language-Action Models are Natural Continual Learners with Reinforcement Learning
+                                </a>
+                            </h4>
+                            <p class="text-rldarkblue-700 mb-2">
+                                <strong>Authors:</strong> Jiaheng Hu, Jay Shim, Chen Tang, Yoonchang Sung, Bo Liu, Peter Stone, and Roberto Martín-Martín
+                            </p>
+                            <p>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper84.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <span class="text-rldarkblue-400 mx-1">·</span>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper84.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-rldarkblue-50/50 rounded-lg p-6 border border-blue">
+                        <h3 class="text-xl font-semibold font-rubik text-rldarkblue-900 mb-4 text-center">Scientific Understanding in Reinforcement Learning</h3>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">
+                                <a href="https://openreview.net/forum?id=pdbsun6gys" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">
+                                    Minimal Ingredients for Reward Assignment from Expert Demonstrations
+                                </a>
+                            </h4>
+                            <p class="text-rldarkblue-700 mb-2">
+                                <strong>Authors:</strong> Zixuan Dong, Yumi Omori, and Keith W. Ross
+                            </p>
+                            <p>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper86.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <span class="text-rldarkblue-400 mx-1">·</span>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper86.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-rldarkblue-50/50 rounded-lg p-6 border border-blue">
+                        <h3 class="text-xl font-semibold font-rubik text-rldarkblue-900 mb-4 text-center">Tooling, Environments, and Evaluation for Reinforcement Learning</h3>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">
+                                <a href="https://openreview.net/forum?id=25eBRbYoLP" class="text-blue hover:text-rldarkblue-500 underline" target="_blank" rel="noopener noreferrer">
+                                    Assistax: A Multi-Agent Hardware-Accelerated Reinforcement Learning Benchmark for Assistive Robotics
+                                </a>
+                            </h4>
+                            <p class="text-rldarkblue-700 mb-2">
+                                <strong>Authors:</strong> Leonard Hinckeldey, Elliot Fosong, Rimvydas Rubavicius, Elle Miller, Trevor McInroe, Fan Zhang, Patricia Wollstadt, Stefano V. Albrecht, and Subramanian Ramamoorthy
+                            </p>
+                            <p>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper110.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <span class="text-rldarkblue-400 mx-1">·</span>
+                                <a class="font-medium text-blue underline hover:text-rldarkblue-500" href="https://rlj.cs.umass.edu/2026/papers/Paper110.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-4 items-center">
+            <div id="footerText"
+                 class="p-2 m-2 w-full col-span-3 rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+            </div>
+            <div class="p-2 m-1 w-full col-span-1">
+                <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
+                    <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="menu.js"></script>
+</html>

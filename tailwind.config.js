@@ -12,6 +12,7 @@ module.exports = {
         "accepted_workshops.html",
         "schedule.html",
         "paper_schedule.html",
+        "RLC2026Awards.html",
         "register.html",
         "accommodation.html",
         "faq.html",

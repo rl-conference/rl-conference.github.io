@@ -672,6 +672,11 @@ video {
   margin: 1.5rem;
 }
 
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -981,6 +986,12 @@ video {
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1135,6 +1146,10 @@ video {
   padding: 1.5rem;
 }
 
+.p-8 {
+  padding: 2rem;
+}
+
 .px-2\.5 {
   padding-left: 0.625rem;
   padding-right: 0.625rem;
@@ -1271,6 +1286,11 @@ video {
   color: rgb(27 58 158 / var(--tw-text-opacity, 1));
 }
 
+.text-rldarkblue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(75 174 229 / var(--tw-text-opacity, 1));
+}
+
 .text-rldarkblue-600 {
   --tw-text-opacity: 1;
   color: rgb(22 118 179 / var(--tw-text-opacity, 1));
@@ -1279,6 +1299,11 @@ video {
 .text-rldarkblue-700 {
   --tw-text-opacity: 1;
   color: rgb(19 93 145 / var(--tw-text-opacity, 1));
+}
+
+.text-rldarkblue-800 {
+  --tw-text-opacity: 1;
+  color: rgb(19 80 121 / var(--tw-text-opacity, 1));
 }
 
 .text-rldarkblue-900 {
@@ -1523,6 +1548,11 @@ video {
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .md\:text-xl {
