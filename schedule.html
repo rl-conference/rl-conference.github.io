@@ -424,6 +424,21 @@
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9:30 AM – 10:30 AM</h3>
                             <div class="grid md:grid-cols-2 grid-cols-1 items-center">
                                 <div class="md:p-2 md:m-2 p-1 m-1 text-left"><div class="font-semibold">Keynote: Marc Bellemare</div>
+                                    <div class="text-sm text-gray-600 mt-1">Stability and scale in experimental reinforcement learning</div>
+                                    <button id="marc-abstract-toggle"
+                                            type="button"
+                                            aria-expanded="false"
+                                            aria-controls="marc-abstract"
+                                            onclick="toggleScheduleDetails(this, 'marc-abstract', 'Expand for abstract', 'Hide abstract')"
+                                            class="mt-2 inline-flex items-center bg-rldarkblue-200 text-rldarkblue-900 px-3 py-1 rounded-md text-sm font-medium hover:bg-rldarkblue-300 transition-colors">
+                                        Expand for abstract
+                                    </button>
+                                    <div id="marc-abstract"
+                                         class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left"
+                                         role="region"
+                                         aria-labelledby="marc-abstract-toggle">
+                                        <p>Sutton’s “The Bitter Lesson” concludes that scaling data and compute is a potent solution to many problems in RL. Achieving scale, however, requires large investments – financial and otherwise. In practical settings, one must therefore ask: “Will scaling up actually bring performance improvements?” This talk argues that solving for experimental stability (being robust to initial conditions, environment design, and so on) is an effective way to prepare for scale. I will deep dive into a few of the many facets of stability in RL, from pretraining stable representations to better experimental reproducibility. I will give examples of how our experimental protocols can sometimes mask underlying instabilities, suggesting the need for continued research in how we conduct RL experiments. I hope to convince the audience that by creating experimental stability through the right methodology, scaling up RL becomes almost easy and not at all bitter.</p>
+                                    </div>
                                 </div>
                                 <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-2285</div>
                             </div>
@@ -492,6 +507,21 @@
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM – 10 AM</h3>
                             <div class="grid md:grid-cols-2 grid-cols-1 items-center">
                                 <div class="md:p-2 md:m-2 p-1 m-1 text-left"><div class="font-semibold">Keynote: Sheila McIlraith</div>
+                                    <div class="text-sm text-gray-600 mt-1">Formal Language as a Signal-Symbol Nexus for Agents that Learn, Plan, and Remember</div>
+                                    <button id="sheila-abstract-toggle"
+                                            type="button"
+                                            aria-expanded="false"
+                                            aria-controls="sheila-abstract"
+                                            onclick="toggleScheduleDetails(this, 'sheila-abstract', 'Expand for abstract', 'Hide abstract')"
+                                            class="mt-2 inline-flex items-center bg-rldarkblue-200 text-rldarkblue-900 px-3 py-1 rounded-md text-sm font-medium hover:bg-rldarkblue-300 transition-colors">
+                                        Expand for abstract
+                                    </button>
+                                    <div id="sheila-abstract"
+                                         class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left"
+                                         role="region"
+                                         aria-labelledby="sheila-abstract-toggle">
+                                        <p>Humans have evolved languages over tens of thousands of years to provide useful abstractions for understanding and interacting with each other and with the physical world. Language comes in many forms. In Computer Science and in the study of AI, we have historically used knowledge representation languages and programming languages to capture our understanding of the world and to communicate unambiguously with computers. In this talk, I’ll discuss how language—both formal and natural language—provides a signal-symbol nexus for building agents that learn, plan, and remember in the context of reinforcement learning. I’ll show how we can exploit the compositional syntax and semantics of formal language and automata to aid in the specification of complex reward-worthy behaviour, to improve the sample efficiency of learning, and to help agents learn what is necessary to remember. In doing so, I argue that (formal) language can help us address some of the challenges to reinforcement learning in the real world.</p>
+                                    </div>
                                 </div>
                                 <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-2285</div>
                             </div>
@@ -601,6 +631,26 @@
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">9 AM – 10 AM</h3>
                             <div class="grid md:grid-cols-2 grid-cols-1 items-center">
                                 <div class="md:p-2 md:m-2 p-1 m-1 text-left"><div class="font-semibold">Keynote: Rika Antonova</div>
+                                    <div class="text-sm text-gray-600 mt-1">Beyond Entropy: Reshaping Exploration through Co-Evolution</div>
+                                    <button id="rika-abstract-toggle"
+                                            type="button"
+                                            aria-expanded="false"
+                                            aria-controls="rika-abstract"
+                                            onclick="toggleScheduleDetails(this, 'rika-abstract', 'Expand for abstract', 'Hide abstract')"
+                                            class="mt-2 inline-flex items-center bg-rldarkblue-200 text-rldarkblue-900 px-3 py-1 rounded-md text-sm font-medium hover:bg-rldarkblue-300 transition-colors">
+                                        Expand for abstract
+                                    </button>
+                                    <div id="rika-abstract"
+                                         class="hidden mt-3 p-3 bg-white rounded text-sm text-gray-700 text-left"
+                                         role="region"
+                                         aria-labelledby="rika-abstract-toggle">
+                                        <div class="space-y-3">
+                                            <p>Conventional RL assumes a fixed agent design, constraining exploration and causing entropy-based methods to struggle in advanced domains. This talk introduces a direction for more effective exploration: expanding search by allowing automatic variation in agent design. In this richer space, paths to successful behavior may become simpler and easier to discover. The intuition resembles kernel methods: a problem requiring a complex solution in its original representation may admit a simple solution in an expanded space.</p>
+                                            <p>We illustrate this idea with physical agents that can modify their embodiment while retaining the original setting as the target. We investigate whether embodiment variation can accelerate the discovery of effective behaviors and support their transfer to the original constrained setting. If performance transfers only partially to the original setting, the result is still useful for identifying essential design changes. This positions co-design as a general exploration tool.</p>
+                                            <p>This research program extends beyond physical embodiment. We are beginning to apply the same perspective to RL algorithms, treating possible learning procedures as a search space. This is a harder problem: algorithmic choices are open-ended and compositional, and each candidate must be assessed through its learning dynamics. Addressing it requires new frontier tools for systematic, cumulative search.</p>
+                                            <p>Together, these directions present co-evolution and co-design as broader lenses on exploration. The goal is to open a discussion of how co-evolution can complement entropy-based exploration, how reshaping the space of possible agents can reveal otherwise hidden paths, and how these principles can extend to automating algorithm design.</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-2285</div>
                             </div>
@@ -645,7 +695,8 @@
                         <div class="bg-rldarkblue-50/50 rounded-lg p-4 border-blue m-2">
                             <h3 class="text-base sm:text-xl font-medium mb-3 text-rldarkblue-900 text-center mx-auto">2 PM – 3 PM</h3>
                             <div class="grid md:grid-cols-2 grid-cols-1 items-center">
-                                <div class="md:p-2 md:m-2 p-1 m-1 text-left"><div class="font-semibold">Keynote: Balaraman Ravindran</div>
+                                <div class="md:p-2 md:m-2 p-1 m-1 text-left"><div class="font-semibold">Keynote: Kevin Murphy</div>
+                                    <div class="text-sm text-gray-600 mt-1">From RL to Automated Scientific Discovery</div>
                                 </div>
                                 <div class="md:p-2 md:m-2 p-1 m-1 italic md:text-right">📍 B-2285</div>
                             </div>
@@ -680,16 +731,18 @@
 </div>
 
 <script>
-    function toggleScheduleDetails(button, detailsId) {
+    function toggleScheduleDetails(button, detailsId, expandLabel, hideLabel) {
         const details = document.getElementById(detailsId);
         if (!details) {
             return;
         }
 
+        const showText = expandLabel || 'Expand for details';
+        const hideText = hideLabel || 'Hide details';
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
         details.classList.toggle('hidden', isExpanded);
         button.setAttribute('aria-expanded', String(!isExpanded));
-        button.textContent = isExpanded ? 'Expand for details' : 'Hide details';
+        button.textContent = isExpanded ? showText : hideText;
     }
 
     function highlightDayButton(dayId) {

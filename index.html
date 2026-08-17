@@ -176,7 +176,7 @@
                 </div>
                 <h1 class="text-3xl text-blue text-center font-rubik p-2 m-2 mt-12">Keynote Speakers</h1>
                 <div id="keynoteSpeakers"
-                    class="flex flex-wrap justify-start sm:justify-center gap-4 sm:gap-6 w-full m-1 p-1">
+                    class="flex flex-wrap md:flex-nowrap justify-center gap-2 sm:gap-3 w-full m-1 p-1">
 
                 </div>
 
@@ -207,9 +207,9 @@
             ? "<a href='" + keynoteSpeaker.url + "' target='_blank' rel='noopener' class='text-blue hover:text-rldarkblue-500'>" + keynoteSpeaker.name + "</a>"
             : keynoteSpeaker.name;
         let keynoteSpeakerDiv = document.createElement("div");
-        keynoteSpeakerDiv.className = "min-w-0 grow-0 shrink basis-[calc((100%-1rem)/2)] max-w-[calc((100%-1rem)/2)] sm:basis-[calc((100%-3rem)/3)] sm:max-w-[calc((100%-3rem)/3)] lg:basis-[calc((100%-6rem)/5)] lg:max-w-[calc((100%-6rem)/5)] overflow-hidden rounded-md bg-white/90";
-        let cancelledHtml = keynoteSpeaker.cancelled ? "<div class='p-1 m-1 text-center font-roboto text-base'>(cancelled)</div>" : "";
-        keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full aspect-square' src='" + keynoteSpeaker.image + "'><div class='p-2 m-1 text-center font-rubik text-base text-blue'>" + nameHtml + "</div>" + cancelledHtml + "<div class='p-1 m-1 text-center font-roboto text-base text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
+        keynoteSpeakerDiv.className = "min-w-0 grow-0 shrink basis-[calc((100%-0.5rem)/2)] max-w-[calc((100%-0.5rem)/2)] md:basis-[calc((100%-3.75rem)/6)] md:max-w-[calc((100%-3.75rem)/6)] overflow-hidden rounded-md bg-white/90";
+        let cancelledHtml = keynoteSpeaker.cancelled ? "<div class='p-1 m-1 text-center font-roboto text-xs sm:text-sm'>(cancelled)</div>" : "";
+        keynoteSpeakerDiv.innerHTML = "<img alt='" + keynoteSpeaker.name + "' class='rounded-t-md object-cover w-full aspect-square' src='" + keynoteSpeaker.image + "'><div class='p-1 m-1 text-center font-rubik text-xs sm:text-sm text-blue'>" + nameHtml + "</div>" + cancelledHtml + "<div class='p-1 m-1 text-center font-roboto text-xs sm:text-sm text-pretty'>" + keynoteSpeaker.affiliation + "</div>";
         document.getElementById("keynoteSpeakers").appendChild(keynoteSpeakerDiv);
     }
 </script>
