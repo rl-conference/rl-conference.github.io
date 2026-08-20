@@ -8,6 +8,7 @@ module.exports = {
         "organizers.html",
         "advisors.html",
         "reviewers.html",
+        "volunteers.html",
         "boardmembers.html",
         "accepted_workshops.html",
         "schedule.html",
