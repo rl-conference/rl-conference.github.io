@@ -86,7 +86,7 @@ listOfMenuItems = [
 
     new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html"), new MenuItem("Reviewers", "reviewers.html")]),
 
-    new MenuItemWithSubmenu("Year", [new MenuItem("2024", "/2024/index.html"), new MenuItem("2025", "index.html")]),
+    new MenuItemWithSubmenu("Year", [new MenuItem("2024", "/2024/index.html"), new MenuItem("2025", "/2025/index.html"), new MenuItem("2026", "/2026/index.html")]),
     new MenuItemWithSubmenu("Other", [new MenuItem("Contact&nbspUs", "contact.html"), new MenuItem("RLC&nbsp27:&nbspLocal&nbspChair&nbspApplication", "https://docs.google.com/forms/d/e/1FAIpQLScOb3V6oRA36JBxNpcEuq-k_rxe1jM7fbsVZt1VX4kx7GRCcQ/viewform"), new MenuItem("Review&nbsp(Self&nbspNomination)", "participate.html")]),
 ]
 

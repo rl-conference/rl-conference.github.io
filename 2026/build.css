@@ -876,12 +876,20 @@ video {
   max-width: 36rem;
 }
 
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .flex-shrink {
   flex-shrink: 1;
 }
 
 .shrink {
   flex-shrink: 1;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
 }
 
 .grow-0 {
@@ -1029,6 +1037,14 @@ video {
   border-width: 0px;
 }
 
+.border-l-4 {
+  border-left-width: 4px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
@@ -1047,6 +1063,11 @@ video {
 .border-rldarkblue-900 {
   --tw-border-opacity: 1;
   border-color: rgb(21 65 97 / var(--tw-border-opacity, 1));
+}
+
+.border-l-blue {
+  --tw-border-opacity: 1;
+  border-left-color: rgb(27 58 158 / var(--tw-border-opacity, 1));
 }
 
 .bg-blue {
@@ -1180,9 +1201,19 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pb-0 {
@@ -1279,6 +1310,10 @@ video {
 
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
 }
 
 .text-blue {
@@ -1380,6 +1415,12 @@ video {
   transition-duration: 150ms;
 }
 
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -1423,12 +1464,13 @@ video {
   color: rgb(21 65 97 / var(--tw-text-opacity, 1));
 }
 
-.group[open] .group-open\:block {
-  display: block;
-}
-
 .group[open] .group-open\:hidden {
   display: none;
+}
+
+.group[open] .group-open\:rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .group:hover .group-hover\:block {
@@ -1438,6 +1480,10 @@ video {
 @media (min-width: 640px) {
   .sm\:mb-8 {
     margin-bottom: 2rem;
+  }
+
+  .sm\:inline {
+    display: inline;
   }
 
   .sm\:grid-cols-3 {
@@ -1474,6 +1520,11 @@ video {
     padding-bottom: 0.75rem;
   }
 
+  .sm\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .sm\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1497,6 +1548,10 @@ video {
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .group[open] .group-open\:sm\:inline {
+    display: inline;
   }
 }
 
@@ -1543,11 +1598,6 @@ video {
 
   .md\:text-right {
     text-align: right;
-  }
-
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .md\:text-4xl {
