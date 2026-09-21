@@ -2,10 +2,9 @@
 
 ## Local preview
 
-Requires Python 3. Install dependencies and start the preview:
+Requires Python 3; there are no third-party dependencies to install.
 
 ```sh
-python3 -m pip install -r requirements.txt
 python3 preview.py
 ```
 
