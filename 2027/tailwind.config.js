@@ -4,12 +4,10 @@ module.exports = {
     // RLC2027Awards.html and registration_confirmation.html back when they are created.
     content: [
         "index.html",
-        "callforpapers.html",
+        "presenting.html",
         "call_for_workshops.html",
-        "submissionInstructions.html",
         "organizers.html",
         "advisors.html",
-        "reviewers.html",
         "volunteers.html",
         "boardmembers.html",
         "register.html",

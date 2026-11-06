@@ -29,11 +29,28 @@ class KeynoteSpeaker {
     }
 }
 
-// RLC 2027: advisory committee not yet announced (2026 list: see /2026/data.js)
-listOfAdvisoryCommittee = []
+// RLC 2027 advisory committee: same as 2026. Photos copied from /2026/data/advisoryCom/ as firstname-lastname.ext
+listOfAdvisoryCommittee = [new AdvisoryCommittee("Peter Stone", "The University of Texas at Austin / SonyAI", "data/advisoryCom/peter-stone.jpg"),
+new AdvisoryCommittee("Satinder Singh", "University of Michigan / DeepMind", "data/advisoryCom/satinder-singh.jpg"),
+new AdvisoryCommittee("Emma Brunskill", "Stanford University", "data/advisoryCom/emma-brunskill.jpg"),
+new AdvisoryCommittee("Michael Littman", "Brown University", "data/advisoryCom/michael-littman.jpg"),
+new AdvisoryCommittee("Shie Mannor", "Technion / NVIDIA", "data/advisoryCom/shie-mannor.jpg"),
+new AdvisoryCommittee("Michael Bowling", "University of Alberta", "data/advisoryCom/michael-bowling.jpg"),
+new AdvisoryCommittee("Sergey Levine", "University of California, Berkeley", "data/advisoryCom/sergey-levine.jpg"),
+new AdvisoryCommittee("Balaraman Ravindran", "IIT Madras", "data/advisoryCom/balaraman-ravindran.jpg"),
+new AdvisoryCommittee("Sham Kakade", "Harvard University", "data/advisoryCom/sham-kakade.jpg"),
+new AdvisoryCommittee("Benjamin Rosman", "University of Witwatersrand", "data/advisoryCom/benjamin-rosman.jpg"),
+new AdvisoryCommittee("Marc Deisenroth", "University College London", "data/advisoryCom/marc-deisenroth.jpg"),
+new AdvisoryCommittee("Andrew Barto", "University of Massachusetts Amherst", "data/advisoryCom/andrew-barto.jpg"),
+new AdvisoryCommittee("Benjamin Van Roy", "Stanford University / DeepMind", "data/advisoryCom/benjamin-van-roy.jpg")]
 
-// RLC 2027: board members not yet announced (2026 list: see /2026/data.js)
-listOfBoardMembers = []
+// RLC 2027 board. Photos copied from /2026/data/board/ as firstname-lastname.ext
+listOfBoardMembers = [new BoardMember("Eugene Vinitsky", "New York University", "data/board/eugene-vinitsky.jpg"),
+new BoardMember("Glen Berseth", "Université de Montréal", "data/board/glen-berseth.webp"),
+new BoardMember("Amy Zhang", "The University of Texas at Austin", "data/board/amy-zhang.webp"),
+new BoardMember("Martha White", "University of Alberta", "data/board/martha-white.webp"),
+new BoardMember("Adam White", "University of Alberta", "data/board/adam-white.webp"),
+new BoardMember("Scott Niekum", "University of Massachusetts Amherst", "data/board/scott-niekum.jpg")]
 
 
 ///// Menu Items /////
@@ -56,16 +73,16 @@ class MenuItemWithSubmenu {
 
 
 listOfMenuItems = [
+    // Submission/review instructions now live on rlj.org (linked from "Presenting at RLC").
     new MenuItemWithSubmenu("Submit", [
-        new MenuItem("Call&nbsp;for&nbsp;Papers", "callforpapers.html"), new MenuItem("Call&nbsp;for&nbsp;Workshops", "call_for_workshops.html"), new MenuItem("Submission&nbsp;Instructions", "submissionInstructions.html"),
-        new MenuItem("Review&nbsp;Instructions", "https://rlj.org/reviewers-guide"),
+        new MenuItem("Presenting&nbsp;at&nbsp;RLC", "presenting.html"), new MenuItem("Call&nbsp;for&nbsp;Workshops", "call_for_workshops.html"),
     ]),
     // Program tab hidden until the 2027 program exists. Re-enable (and per-location pages) when ready:
     // new MenuItemWithSubmenu("Program", [new MenuItem("Schedule", "schedule.html"), new MenuItem("Paper&nbsp;Schedule", "paper_schedule.html"), new MenuItem("Outstanding&nbspPapers", "RLC2027Awards.html"), new MenuItem("Accepted&nbsp;Workshops", "accepted_workshops.html")]),
     new MenuItemWithSubmenu("Attend", [new MenuItem("Registration", "register.html"), new MenuItem("Accommodation", "accommodation.html"), new MenuItem("FAQ", "faq.html"),
         // new MenuItem("Child&nbsp;care", "TODO: 2027 child care link"),
     ]),
-    new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html"), new MenuItem("Reviewers", "reviewers.html"), new MenuItem("Volunteers", "volunteers.html"), new MenuItem("Board&nbsp;Members", "boardmembers.html")]),
+    new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html"), new MenuItem("Volunteers", "volunteers.html"), new MenuItem("Board&nbsp;Members", "boardmembers.html")]),
     new MenuItemWithSubmenu("Year", [new MenuItem("2026", "/2026/index.html"), new MenuItem("2025", "/2025/index.html"), new MenuItem("2024", "/2024/index.html")]),
 ]
 
