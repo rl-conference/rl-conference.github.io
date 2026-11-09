@@ -1,0 +1,140 @@
+<!doctype html>
+<script src="jquery.js"></script>
+<script src="data.js"></script>
+
+<!-- Changes below this can cause problems -->
+
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title id="mainPageTitleforSEO">Presenting at RLC 2027</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link href="build.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/2027/favicon-48x48.png" sizes="48x48"/>
+    <link rel="icon" type="image/svg+xml" href="/2027/favicon.svg"/>
+    <link rel="shortcut icon" href="/2027/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/2027/apple-touch-icon.png"/>
+    <meta name="apple-mobile-web-app-title" content="RLC"/>
+    <link rel="manifest" href="/2027/site.webmanifest"/>
+    <meta id="seodescription" name="description" content="">
+</head>
+
+<!--<div id="backgroundImage" class="fixed -z-20 h-screen w-full">-->
+<!--</div>-->
+<!--<style>-->
+<!--    #backgroundImage {-->
+<!--        background-image: url('data/backgroundGradients/RLC.svg');-->
+<!--        background-repeat: no-repeat;-->
+<!--        background-size: cover;-->
+<!--        background-position: center;-->
+<!--    }-->
+<!--</style>-->
+<body class="font-roboto text-rldarkblue-950 bg-white antialiased">
+
+
+<div class="container  mx-auto ">
+    <div class="flex flex-col min-h-screen justify-between">
+        <div>
+            <div class="m-2 grid grid-cols-3  items-center  rounded-md mt-4 p-2 border-0 border-rldarkblue-900">
+                <div class="p-2 w-full rounded-md">
+                    <div class="hidden lg:block max-w-60">
+                        <a href="index.html"><img alt="Company logo" src="data/logos/rlc-logo.svg" /></a>
+                    </div>
+                    <div class="block pt-1 lg:hidden max-w-60">
+                        <a href="index.html"><img alt="Company logo"  src="data/logos/rlc-logo.svg" /></a>
+                    </div>
+                </div>
+                <div></div>
+                <div id="largeMenu" class="p-2 m-1 w-full hidden lg:block rounded-md">
+
+                </div>
+                <div id="collapsedMenu" class="p-2 m-1 w-full block lg:hidden rounded-md ">
+                    <div class="relative flex flex-row-reverse">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-10 p-1 font-rubik text-xl m-1 text-rldarkblue-900 hover:text-rldarkblue-500 hover:cursor-pointer"
+                             onclick="showMenu()">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>
+                        </svg>
+                        <div id="collapsedMenuItems"
+                             class="absolute top-10 z-10 hidden w-40 shadow-md bg-white/95 backdrop-blur-md rounded-md p-4 m-4 grid grid-cols-1">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+
+            <!-- "Presenting at RLC" page (replaces the 2027 Call for Papers page, callforpapers.html). -->
+            <h1 class="text-4xl text-blue text-center font-rubik p-2 m-2 mt-20 mb-10">Presenting at RLC 2027</h1>
+            <div class="m-2 p-2 max-w-3xl mx-auto font-roboto text-base">
+                <p class="mb-4">
+                New this year, authors with papers accepted to the <a class="text-blue hover:text-rldarkblue-500" href="https://rlj.org/">Reinforcement Learning Journal (RLJ)</a>
+                will be able to present their papers at one of the two locations for RLC 2027. 
+                There is no longer a separate paper submission and review process for RLC.
+                </p>
+            
+
+                <p class="mb-4">
+                Here's how the new process will work. 
+                Authors submit papers to RLJ which accepts papers on a rolling basis. 
+                Instructions for submission to RLJ can be found on the <a class="text-blue hover:text-rldarkblue-500" href="https://rlj.org/submit">RLJ submission page</a>.
+                Papers that are <b>accepted</b> to RLJ by May 1 will be eligible for presentation at RLC 2027. 
+                </p>
+
+                <p class="mb-4">
+                We want to emphasize that papers must be accepted by RLJ---not just submitted---by a certain date. 
+                The RLJ editors are aspiring to return decisions on papers within 8 weeks of submission but cannot guarantee this timeline, particularly if many authors submit around the same time. 
+                Furthermore, the initial RLJ decision may be to revise the submitted article, which could further delay an acceptance decision. 
+                We strongly encourage authors to submit well in advance to maximize the chance that they receive a decision in time to present.
+                </p>
+
+                <p class="mb-4">
+                Authors of accepted papers will be able to choose which location(s) they present at.
+                The exact type of presentations will be set by the program chairs and announced after the acceptance cut-off date. 
+                We anticipate all accepted papers having at least a poster presentation.
+                </p>
+                <div class="text-center mt-6">
+                    <a href="https://rlj.org/submit"
+                        class="inline-block bg-rldarkblue-900 text-white font-rubik px-6 py-2 rounded-md hover:bg-rldarkblue-700 transition duration-300">Submit
+                        to RLJ</a>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 max-w-4xl mx-auto">
+                <div class="rounded-lg bg-rldarkblue-50/50 p-6">
+                    <h2 class="text-2xl font-rubik text-rldarkblue-900 mb-4 text-center">Providence</h2>
+                    <p class="font-roboto text-base text-center">Brown University, USA &middot; August 2 - 6</p>
+                </div>
+                <div class="rounded-lg bg-rldarkblue-50/50 p-6">
+                    <h2 class="text-2xl font-rubik text-rldarkblue-900 mb-4 text-center">Nyborg</h2>
+                    <p class="font-roboto text-base text-center">Denmark &middot; August 22 - 25 &middot; Joint event with EWRL</p>
+                </div>
+            </div>
+            <p class="font-roboto text-base text-center m-2 p-2">Questions about presenting at RLC? Contact
+                <a class="text-blue hover:text-rldarkblue-500" href="mailto:program-chairs@rl-conference.cc">program-chairs@rl-conference.cc</a>.</p>
+        </div>
+
+
+        <div class="grid grid-cols-4 items-center">
+            <div id="footerText"
+                 class="p-2 m-2 w-full col-span-3 rounded-md text-rldarkblue-900 font-roboto text-xs sm:text-base">
+            </div>
+            <div class="p-2 m-1 w-full col-span-1">
+                <div class="flex flex-row-reverse p-2 ml-auto max-w-60">
+                    <div><img alt="Company logo" class="p-1 m-1 w-60" src="data/logos/rlc-logo.svg"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<!--Javascript code for generating the HTML-->
+<script src="menu.js"></script>
+</html>
