@@ -77,7 +77,7 @@ listOfMenuItems = [
     new MenuItemWithSubmenu("Program", [new MenuItem("Schedule", "schedule.html"), new MenuItem("Paper&nbsp;Schedule", "paper_schedule.html"), new MenuItem("Outstanding&nbspPapers", "RLC2026Awards.html"), new MenuItem("Accepted&nbsp;Workshops", "accepted_workshops.html")]),
     new MenuItemWithSubmenu("Attend", [new MenuItem("Registration", "register.html"), new MenuItem("Accommodation", "accommodation.html"), new MenuItem("FAQ", "faq.html"), new MenuItem("Child&nbsp;care", "https://form.jotform.com/KiddieCorp/rljkids")]),
     new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html"), new MenuItem("Reviewers", "reviewers.html"), new MenuItem("Volunteers", "volunteers.html"), new MenuItem("Board&nbsp;Members", "boardmembers.html")]),
-    new MenuItemWithSubmenu("Year", [new MenuItem("2025", "/2025/index.html"), new MenuItem("2024", "/2024/index.html")]),
+    new MenuItemWithSubmenu("Year", [new MenuItem("2027", "/2027/index.html"), new MenuItem("2025", "/2025/index.html"), new MenuItem("2024", "/2024/index.html")]),
 ]
 
 
