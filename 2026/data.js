@@ -82,7 +82,7 @@ listOfMenuItems = [
 
 
 ///// Footer /////
-let footerText = `© 2026 Reinforcement Learning Conference Organization Committee`
+let footerText = `© 2026 Reinforcement Learning Conference Inc., a nonprofit organization`
 
 //// SEO ////
 let mainPageTitleforSEO = 'Reinforcement Learning Conference'
