@@ -132,7 +132,6 @@ listOfKeynoteSpeakers = [
     new KeynoteSpeaker("Rika Antonova", "University of Cambridge", "data/keynoteSpeakers/ra.png", "https://camral.github.io/"),
     new KeynoteSpeaker("Balaraman Ravindran", "Indian Institute Of Technology Madras", "data/keynoteSpeakers/br.jpeg", "https://wsai.iitm.ac.in/~ravi/"),
     new KeynoteSpeaker("Kevin Murphy", "Google DeepMind", "data/keynoteSpeakers/km.jpg", "https://www.cs.ubc.ca/~murphyk/"),
-    new KeynoteSpeaker("Danijar Hafner", "Google DeepMind", "data/keynoteSpeakers/dh.jpg", "https://danijar.com/", true)
 ]
 
 class Workshop {
