@@ -75,7 +75,7 @@ class MenuItemWithSubmenu {
 listOfMenuItems = [
     // Submission/review instructions now live on rlj.org (linked from "Presenting at RLC").
     new MenuItemWithSubmenu("Submit", [
-        new MenuItem("Presenting&nbsp;at&nbsp;RLC", "presenting.html"), new MenuItem("Call&nbsp;for&nbsp;Workshops", "call_for_workshops.html"),
+        new MenuItem("Submit&nbsp;a&nbsp;Paper", "presenting.html"), new MenuItem("Call&nbsp;for&nbsp;Workshops", "call_for_workshops.html"),
     ]),
     // Program tab hidden until the 2027 program exists. Re-enable (and per-location pages) when ready:
     // new MenuItemWithSubmenu("Program", [new MenuItem("Schedule", "schedule.html"), new MenuItem("Paper&nbsp;Schedule", "paper_schedule.html"), new MenuItem("Outstanding&nbspPapers", "RLC2027Awards.html"), new MenuItem("Accepted&nbsp;Workshops", "accepted_workshops.html")]),
