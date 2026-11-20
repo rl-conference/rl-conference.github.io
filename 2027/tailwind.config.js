@@ -13,6 +13,8 @@ module.exports = {
         "register.html",
         "accommodation.html",
         "faq.html",
+        // TEMPORARY: remove with rlc-info.html after Google verification.
+        "rlc-info.html",
         "menu.js",
         "backend/templates/**/*.html",
     ],

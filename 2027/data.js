@@ -84,6 +84,8 @@ listOfMenuItems = [
     ]),
     new MenuItemWithSubmenu("Organizers", [new MenuItem("Organizers", "organizers.html"), new MenuItem("Advisors", "advisors.html"), new MenuItem("Volunteers", "volunteers.html"), new MenuItem("Board&nbsp;Members", "boardmembers.html")]),
     new MenuItemWithSubmenu("Year", [new MenuItem("2026", "/2026/index.html"), new MenuItem("2025", "/2025/index.html"), new MenuItem("2024", "/2024/index.html")]),
+    // TEMPORARY: "RLC Info" tab for Google verification. Remove this line (and delete rlc-info.html) afterwards.
+    new MenuItem("RLC&nbsp;Info", "rlc-info.html"),
 ]
 
 
